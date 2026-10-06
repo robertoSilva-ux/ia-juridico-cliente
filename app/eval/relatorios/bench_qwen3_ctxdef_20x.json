@@ -1,0 +1,181 @@
+{
+ "model": "qwen3:4b",
+ "num_ctx": "default",
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T16:10:12.259548",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 122.8,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** para dependentes (filhos não emancipados). \n\n**Base legal:**  \nConforme o **Art. 16 da Lei 8.213/1991** (revisado pela Lei 9.032/1995 e Lei 12.470/2011), os filhos são considerados dependentes do segurado **\"menores de 21 anos ou inválidos\"**. O limite de idade de 21 anos é o máximo para que o salário família seja pago, exceto para casos de incapacidade (deficiência intelectual ou mental, declarada judicialmente).\n\n**Resposta:**  \nO salário família é pago até a **idade de 21 anos** para dependentes (filhos não emancipados). Após esse período, o benefício não é mais aplicado, a menos que o dependente seja considerado inválido ou tenha outra condição específica prevista na legislação.",
+   "answer_chars": 743,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2367
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 104.33,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** do dependente (filho não emancipado). \n\n**Base legal:**  \nNo art. 16 da Lei 8.213/1991 (DOC 12), estabelece que os beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado, incluem:  \n> *\"o filho não emancipado, de qualquer condição, **menor de 21 (vinte e um) anos** ou inválido\"*.  \n\nPortanto, o salário família é pago **até a idade de 21 anos** para filhos não emancipados. Casos de invalidez ou outros critérios especiais (como deficiência intelectual ou mental) podem extender a condição de dependente, mas a idade máxima para a qual o salário família é pago, sem exceção, é **21 anos**. \n\n**Resposta:** Até **21 anos**.",
+   "answer_chars": 712,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2333
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 113.54,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** do dependente (filho não emancipado). \n\n**Base legal:**  \nArt. 16 da Lei 8.213/1991 (revisado pela Lei 12.470/2011):  \n*\"São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado: [...] I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, **menor de 21 (vinte e um) anos** ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\"*\n\n**Explicação:**  \n- O benefício **salário família** é pago aos filhos menores de 21 anos ou inválidos (conforme definido no art. 16 da Lei 8.213).  \n- Embora o Decreto 3.048/99 (art. 84) estabeleça condições específicas para vacinação e frequência escolar (até 6 anos e a partir de 7 anos), **a idade máxima para o benefício ser pago é de 21 anos**, conforme a legislação geral do Regime Geral de Previdência Social.  \n\n**Resposta direta:**  \n**Até 21 anos** do dependente.",
+   "answer_chars": 1015,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2338
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 106.06,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** para dependentes (cônjuge, companheiro ou filhos não emancipados). \n\n**Base legal:**  \nNo **Art. 16 da Lei nº 8.213/1991** (revisado pela Lei nº 9.032/1995 e Lei nº 12.470/2011), os dependentes do segurado incluem:  \n- **Filhos não emancipados**, de qualquer condição, **menores de 21 anos** ou inválidos.  \n\nIsso significa que o salário família é pago enquanto o dependente estiver **menor de 21 anos**. Após essa idade, o benefício não é mais concedido, a menos que o dependente tenha deficiência que o torne incapaz (como estipulado no Art. 16 da Lei nº 8.213/1991).  \n\n**Resposta:**  \n**Até 21 anos**.",
+   "answer_chars": 657,
+   "grounded": true,
+   "supported": 7,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2396
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 95.21,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** do dependente. \n\n**Base legal:**  \nNo **Decreto 3.048/99 (Art. 16)**, estabelece-se que os dependentes do segurado incluem:  \n- **Filhos não emancipados**, **menor de vinte e um anos** ou inválidos.  \n\nEssa definição indica que o salário família é concedido a filhos menores de 21 anos (ou inválidos), conforme previsto no regime geral de previdência social. Não há menção a outra idade específica para esse benefício, já que o limite de 21 anos é o padrão para dependentes em benefícios de previdência social no Brasil.\n\n**Resposta:** Até **21 anos**.",
+   "answer_chars": 604,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.231
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 89.12,
+   "error": null,
+   "answer": "O salário família é pago até **14 anos de idade** do dependente ou, caso o dependente seja inválido (invalidez). \n\n**Base legal:**  \nNo **Decreto 3.048/99 (Art. 83)**, estabelece-se que:  \n> *\"O valor da cota do salário-família por filho ou equiparado de qualquer condição, **até quatorze anos de idade ou inválido**...\"*  \n\nIsso significa que o benefício é válido para dependentes com idade **até 14 anos** ou que estejam com **invalidez** (não se aplicando para dependentes maiores de 14 anos, exceto em casos específicos de invalidez). \n\n**Observação:**  \nO texto do Decreto 3.048/99 (Art. 85) também menciona que, para dependentes com idade superior a 14 anos, é necessário verificar a invalidez em exame médico-pericial, reforçando que a idade limite para o benefício é **14 anos**. \n\n**Resposta final:** Até **14 anos de idade** do dependente.",
+   "answer_chars": 849,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.233
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 87.89,
+   "error": null,
+   "answer": "O salário família é pago até que o dependente complete **14 anos de idade**, conforme estabelecido no **Art. 88** do texto fornecido:  \n> *\"O direito ao salário-família cessa automaticamente:  \n> II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\"*  \n\n**Resposta:**  \nO salário família é pago **até a idade de 14 anos** do dependente, **exceto se o dependente for inválido**, em que o direito permanece válido.  \n\n**Justificativa:**  \nO artigo 88 define claramente que o direito ao salário família termina automaticamente quando o filho ou equiparado atinge 14 anos de idade (salvo se inválido). Nenhum outro documento fornecido altera ou complementa essa regra.",
+   "answer_chars": 750,
+   "grounded": false,
+   "supported": 3,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2332
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 106.97,
+   "error": null,
+   "answer": "O salário família é pago até a **idade de 21 anos** para dependentes que se enquadram como filhos não emancipados. \n\n**Base legal:**  \nDe acordo com o **Art. 16 da Lei 8.213/1991** (revisado pelo Decreto 3.048/1999, conforme documentos [DOC 7] e [DOC 11]), os beneficiários do Regime Geral de Previdência Social na condição de dependentes incluem:  \n- **Filhos não emancipados, de qualquer condição, menores de 21 anos ou inválidos**.  \n\nPortanto, o salário família é pago até a **idade de 21 anos** para filhos que não estejam emancipados. Casos especiais (como invalidez) podem extender o prazo, mas a idade máxima padrão é **21 anos**. \n\n**Resposta:** Até **21 anos**.",
+   "answer_chars": 671,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2338
+  }
+ ]
+}

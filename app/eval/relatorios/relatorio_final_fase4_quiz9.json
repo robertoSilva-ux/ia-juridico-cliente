@@ -1,0 +1,601 @@
+{
+  "generated_at": "2026-09-14T02:18:09.030640",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Para determinar os requisitos para a aposentadoria por invalidez com base no contexto fornecido, precisamos identificar o regime jurídico aplicável e extrair as disposições relevantes. O termo \"segurado\" sugere que estamos lidando com o Regime Geral de Previdência Social (RGPS), conforme definido em [DOC 6] — Decreto 3048.\n\nCom base nos documentos recuperados:\n\n1. A invalidez deve ser permanente, como indicado no [DOC 7] — EC nº 103/2019.\n2. O segurado deve estar incapaz para o trabalho e insuscetível de reabilitação (Decreto 3048, art. 43).\n3. A invalidez não pode ter sido causada pela doença ou lesão que já era presente no momento da adesão ao RGPS, exceto se a incapacidade sobrevier por progressão ou agravamento dessa condição (Decreto 3048, art. 43, § 2º).\n4. Deve haver uma verificação médica inicial de incapacidade total e definitiva para o trabalho (Decreto 3048, art. 44, § 1º).\n5. O segurado aposentado por invalidez pode precisar se submeter a exames médicos periódicos para verificar a continuidade das condições que encearam a concessão da aposentadoria (EC nº 103/2019).\n\nO regime jurídico específico do servidor público não foi solicitado e, portanto, não será aplicado nesta resposta. Os requisitos mencionados acima são baseados no Decreto de Infração ao Artigo 42 da Lei Complementar n.º 7 de 1993 (Lei nº 8.213/91), conhecido como Decreto de Infração ao Artigo 42 ou DI n° 3048, e na EC nº 103/2019.",
+      "num_sources": 15,
+      "avg_distance": 0.2092,
+      "min_distance": 0.1533,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 14,
+        "supported": 12,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Com base nos documentos recuperados:\n\n1.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 14,
+            "text": "Os requisitos mencionados acima são baseados no Decreto de Infração ao Artigo 42 da Lei Complementar n.º 7 de 1993 (Lei nº 8.213/91), conhecido como Decreto de Infração ao Artigo 42 ou DI n° 3048, e na EC nº 103/2019.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, é necessário identificar o regime jurídico específico que rege os benefícios da previdência social em questão. No contexto fornecido, há menção ao \"Regime Geral de Previdência Social\" (RGPS) e também se refere a um \"Regime Facultativo Complementar de Previdência Social\". A carência mínima para aposentadoria no RGPS é regida pela Lei nº 8.212/1991.\n\nNo entanto, o trecho específico que contém a informação sobre a carência mínima para aposentadoria por tempo de contribuição na Lei nº 8.212/1991 não foi fornecido em sua íntegra. Portanto, com base nas informações disponíveis no contexto, é impossível fornecer a carência mínima exata conforme exigido pela pergunta.\n\nA resposta faltante: A carência mínima para aposentadoria por tempo de contribuição conforme o RGPS não pode ser determinada da informação fornecida na base jurídica recuperada. (Necessitar o artigo completo ou decretações específicas relacionadas ao regime).",
+      "num_sources": 15,
+      "avg_distance": 0.0,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 7,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Para determinar se um evento é considerado um \"acidente de trabalho\", referimos-se ao Decreto nº 3.048, de 1999, em seu artigo 65.\n\n**Resposta:** Um \"acidente de trabalho\" ocorre quando há ocorrência de uma lesão corporal ou morte decorrente do exercício das funções de emprego, seja por acidente, infecção ou doença ocupacional. As obrigações do empregador incluem fornecer ao empregado equipamentos de proteção individual apropriados e adequados aos riscos, conforme estabelecido no artigo 166 do Vade-Mecum da Previdência Social (VPM) federal.\n\n---\n\n**ARB TRÁGICO:** Regime Jurídico\n\n**REGIME APLICABLE:** O contexto se refere ao regime jurídico próprio dos servidores.",
+      "num_sources": 15,
+      "avg_distance": 0.2196,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 2,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para determinar se um evento é considerado um \"acidente de trabalho\", referimos-se ao Decreto nº 3.048, de 1999, em seu artigo 65.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "As obrigações do empregador incluem fornecer ao empregado equipamentos de proteção individual apropriados e adequados aos riscos, conforme estabelecido no artigo 166 do Vade-Mecum da Previdência Social (VPM) federal.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta do advogado, primeiro identificarei o regime jurídico aplicável. O termo \"segurado\" é usado no contexto de Previdência Geral (RGPS), e a consulta refere-se ao cálculo das aposentadorias dentro desse regime.\n\nCom base nos documentos fornecidos:\n\n1. A Lei Complementar nº 142/2013 (LC 142) modifica os benefícios da previdência social.\n2. O Artigo 8 do LC 142 estabelece percentuais para o cálculo dos rendimentos de aposentadoria devido à deficiência, que são 100% sobre o salário de benefício ou 70% mais um percentual adicional até 30%.\n3. O Artigo 10 do LC 142 especifica que a redução do tempo de contribuição não pode ser acumulada com outras reduções.\n4. O Decreto Complementar nº 3048 (DC 3048), que complementa o LC 142, detalha os beneficiários e as regras específicas para aposentadoria por tempo de contribuição.\n\nCom base na legislação mencionada:\n\nPara se aposentar sob as regras da LC 142, um segurado com deficiência precisa cumprir os seguintes requisitos:\n- Cumprimento do mínimo de contribuições estabelecido pela Previdência Geral (RGPS).\n- Aposentadoria deve ser devido à deficiência.\n- O cálculo dos rendimentos de aposentadoria será baseado nos percentuais especificados no Artigo 8 da LC 142, que podem variar entre 100% e 130% sobre o salário de benefício.\n\nA resposta é baseada na LC 142 e DC 3048. Não há necessidade de consultar outros dispositivos jurídicos conforme a pergunta do advogado.",
+      "num_sources": 15,
+      "avg_distance": 0.1171,
+      "min_distance": 0.0,
+      "source_files": [
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "Constituição.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "deficiência",
+          "aposentadoria"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [
+          "Lcp 142.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 15,
+        "supported": 11,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 6,
+            "text": "O Artigo 8 do LC 142 estabelece percentuais para o cálculo dos rendimentos de aposentadoria devido à deficiência, que são 100% sobre o salário de benefício ou 70% mais um percentual adicional até 30%.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "O Artigo 10 do LC 142 especifica que a redução do tempo de contribuição não pode ser acumulada com outras reduções.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 13,
+            "text": "- O cálculo dos rendimentos de aposentadoria será baseado nos percentuais especificados no Artigo 8 da LC 142, que podem variar entre 100% e 130% sobre o salário de benefício.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 15,
+            "text": "Não há necessidade de consultar outros dispositivos jurídicos conforme a pergunta do advogado.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Para determinar o prazo de prescrição da ação de usucapião extraordinário, é necessário identificar qual regime jurídico se aplica à questão. O termo \"segurado\" no contexto sugere que pode estar relacionado ao Regime Geral do Previdenciamento Social (RGPS), mas sem mais detalhes específicos ou referências diretas a uma lei específica sobre o prazo para ações de usucapião extraordinárias dentro desse regime, não é possível fornecer um dispositivo legal preciso.\n\nNo entanto, com base nas informações fornecidas na base jurídica recuperada e no fato de que o RGPS tem seu próprio regime jurídico (regime jurídico próprio dos servidores), seria necessário consultar a legislação específica do RGPS para determinar o prazo de prescrição da ação de usucapião extraordinário. Como não foi encontrado tal dispositivo específico dentro das fontes fornecidas, é preciso afirmar que a base não contém os detalhes necessários para responder à pergunta com precisão.\n\n**Resposta:**\n\nA base recuperada não fornece o dispositivo legal específico necessário para determinar o prazo de prescrição da ação de usucapião extraordinária no RGPS. É necessário consultar as normas específicas do regime jurídico próprio dos servidores (RGPS) para obter essa informação.",
+      "num_sources": 15,
+      "avg_distance": 0.2481,
+      "min_distance": 0.2317,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 5,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Como não foi encontrado tal dispositivo específico dentro das fontes fornecidas, é preciso afirmar que a base não contém os detalhes necessários para responder à pergunta com precisão.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta do advogado, identificamos a norma relevante no contexto fornecido.\n\nA informação necessária está na Subseção VII \"Do Salário-maternidade\" do Decreto 3048, art. 88, que especifica as condições sob as quais o direito ao salário familiar cessa.\n\nCom base nas disposições da Subseção VII de artigo 88 do Decreto 3048:\n\n1. O direito ao salário familiar cessa por morte do filho ou equiparado, a contar do mês seguinte ao óbito.\n2. Ele também termina quando o filho ou equiparado completar quatorze anos de idade, salvo se for inválido; neste caso, ele é contado do mês seguinte à data do aniversário.\n3. O direito também acaba pela recuperação da capacidade do filho ou equiparado inválido, contando do mês seguinte ao término da incapacidade.\n4. Finalmente, o direito termina pelo desemprego do segurado.\n\nPortanto, com base nas disposições do Decreto 3048, art. 88, o salário familiar não é pago além de quatorze anos de idade do dependente. Se o adolescente for inválido, a cessação ocorre após completar quatorze anos; caso contrário, ela acontece no aniversário seguinte ao quadragésimo quarto ano.\n\nA resposta final à pergunta do advogado é: O direito ao salário familiar termina quando o dependente tem quatorze (14) anos de idade.",
+      "num_sources": 15,
+      "avg_distance": 0.1717,
+      "min_distance": 0.1216,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "quatorze",
+          "14",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 11,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para responder à pergunta do advogado, identificamos a norma relevante no contexto fornecido.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Com base nas disposições da Subseção VII de artigo 88 do Decreto 3048:\n\n1.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, identificaremos o regime jurídico relevante e as normas aplicáveis.\n\nO contexto fornecido se refere ao Regime Geral de Previdência Social (RGPS), que é parte da previdência geral. O termo \"filho não emancipado\" está relacionado a um dependente do segurado no RGPS para fins de pensão por morte.\n\nRegime jurídico aplicado: Regime Geral de Previdência Social (RGPS)\n\nNorma relevante: Lei nº 8.213/91, art. 10\n\nDe acordo com o artigo 10 da Lei nº 8.213/1991, os dependentes do segurado para fins de pensão por morte incluem:\n\nI - Filhos;\nII - Netos.\n\nPortanto, no RGPS, um filho não emancipado é considerado dependente até a chegada dos netos (filho ou filha).\n\nAssim, o filho não emancipado é considerado dependente do segurado para fins de pensão por morte até que seus filhos tenham chegado à idade da emancipação. No Brasil, os netos são considerados independentes aos 21 anos.\n\nResposta: O filho não emancipado é considerado dependente do segurado para fins de pensão por morte até que seus filhos (netos) tenham atingido a idade da emancipação, que é aos 21 anos.",
+      "num_sources": 15,
+      "avg_distance": 0.0,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "21"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 5,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Regime jurídico aplicado: Regime Geral de Previdência Social (RGPS)\n\nNorma relevante: Lei nº 8.213/91, art. 10\n\nDe acordo com o artigo 10 da Lei nº 8.213/1991, os dependentes do segurado para fins de pensão por morte incluem:\n\nI - Filhos;\nII - Netos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 7,
+            "text": "No Brasil, os netos são considerados independentes aos 21 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "Resposta: O filho não emancipado é considerado dependente do segurado para fins de pensão por morte até que seus filhos (netos) tenham atingido a idade da emancipação, que é aos 21 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta do advogado, identificaremos o regime jurídico aplicável. O contexto refere-se ao \"serviço público federal\", que se alinha com o Regime Próprio de Previdência Social (RPPS) dos servidores da União.\n\nO documento relevante é a Emenda Constitucional nº 103/2019, conforme apresentado nos documentos [DOC 1], [DOC 2] e [DOC 12].\n\nCom base na Emenda Constitucional nº 103/2019:\n\n- Os servidores públicos federais são aposentados voluntariamente observando os seguintes requisitos:\n    - Idade mínima de 65 (sessenta e cinco) anos, se homem.\n    - Contribuição cumulativa de pelo menos 35 (trinta e cinco) anos.\n\nAssim, a idade mínima para aposentadoria voluntária no serviço público federal é de 65 anos.",
+      "num_sources": 15,
+      "avg_distance": 0.206,
+      "min_distance": 0.178,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "65",
+          "homem"
+        ],
+        "hit_count": 2,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 4,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para responder à pergunta do advogado, identificaremos o regime jurídico aplicável.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Assim, a idade mínima para aposentadoria voluntária no serviço público federal é de 65 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, precisamos identificar a norma jurídica relevante que estabelece o prazo de decadência para revisão do acto de concessão de benefícios previdenciários. No contexto fornecido, não encontramos diretamente uma resposta ao pedido específico do advogado.\n\nA Lei nº 8.213/91, conhecida como \"Lei do Previdenciário Social\", é mencionada no contexto, mas as informações específicas sobre o prazo de decadência para revisão dos atos de concessão de benefícios previdenciários não são incluídas nas seções recuperadas da base jurídica fornecida.\n\nCom base na informação disponível, não posso fornecer a resposta. Seria necessário consultar a própria Lei nº 8.213/91 ou outras fontes legais relevantes que detalhem o prazo de decadência para revisão dos atos de concessão de benefícios previdenciários no sistema de Previdência Social brasileiro.",
+      "num_sources": 15,
+      "avg_distance": 0.0,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "decadência"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 4,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "No contexto fornecido, não encontramos diretamente uma resposta ao pedido específico do advogado.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    }
+  ]
+}

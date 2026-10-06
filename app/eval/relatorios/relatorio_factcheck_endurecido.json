@@ -1,0 +1,329 @@
+{
+  "generated_at": "2026-09-12T04:56:41.560749",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, segurado e dependente, posso dizer que a aposentadoria por invalidez é um benefício previdenciário concedido ao segurado que se encontra incapacitado para o trabalho.\n\nA partir dos documentos fornecidos (Decreto 3048, EC nº 103/2019 e Lei 8213), posso resumir os requisitos da aposentadoria por invalidez como segue:\n\n1. Incapacidade permanente para o trabalho: O segurado deve estar insuscetível de readaptação e não ser capaz de realizar suas funções ou atividades laborais;\n2. Avaliações periódicas: O aposentado por invalidez está obrigado a submeter-se a exames médico-periciais bienalmente, para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (EC nº 103/2019);\n3. Exame médico: O segurado aposentado por invalidez está obrigado a submeter-se a exame médico a cargo da previdência social, processo de reabilitação profissional por ela prescrito e custeado (Decreto 3048);\n4. Ausência de readaptação: O segurado não pode ser readaptado para o trabalho ou suas funções;\n5. Condições específicas: A aposentadoria por invalidez pode ser concedida em casos de acidente de qualquer natureza ou causa, doença profissional ou do trabalho, e outras doenças especificadas em lista elaborada pelos Ministérios da Saúde e da Previdência Social (Lei 8213).\n\nEsses são os requisitos básicos para a concessão da aposentadoria por invalidez.",
+      "num_sources": 15,
+      "avg_distance": 0.2212,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é simples, mas a resposta envolve uma análise mais detalhada dos artigos e parágrafos da Lei nº 8.213/91 e do Decreto nº 3.048/99.\n\nDe acordo com o Art. 56 do Decreto nº 3.048/99, a aposentadoria por tempo de contribuição será devida ao segurado após trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher, observado o disposto no art. 199-A.\n\nJá o Art. 26 do Decreto nº 3.048/99 define o período de carência como o tempo correspondente ao número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\n\nPortanto, para aposentadoria por tempo de contribuição, a carência mínima é de trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher.",
+      "num_sources": 15,
+      "avg_distance": 0.2176,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 6,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "56 do Decreto nº 3.048/99, a aposentadoria por tempo de contribuição será devida ao segurado após trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher, observado o disposto no art. 199-A.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar a responder à sua pergunta.\n\nDe acordo com o Decreto 3048/99 (art. 202), um acidente de trabalho é considerado qualquer lesão corporal ou doença profissional que ocorra em decorrência do exercício de atividade econômica, seja ela preponderante ou não.\n\nJá as obrigações do empregador são:\n\n1. Contribuir para o financiamento da aposentadoria especial e benefícios concedidos em razão do grau de incidência de incapacidade laborativa decorrente dos riscos ambientais do trabalho (art. 202);\n2. Manter registros e informações sobre os acidentes de trabalho ocorridos na empresa, bem como sobre as lesões corporais e doenças profissionais dos empregados (art. 159);\n3. Implementar medidas para prevenir e controlar riscos ambientais do trabalho, inclusive a realização de treinamentos e ações de conscientização entre os empregados (art. 159);\n4. Colaborar com a empresa na aplicação dos dispositivos relacionados à segurança e saúde no trabalho (art. 159).\n\nEssas são as principais obrigações do empregador em relação aos acidentes de trabalho, como estabelecido pela Consolidação das Leis do Trabalho (CLT) e pelo Decreto 3048/99.\n\nEspero que isso tenha ajudado a responder à sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.2224,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 5,
+        "partial": 5,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com o Decreto 3048/99 (art. 202), um acidente de trabalho é considerado qualquer lesão corporal ou doença profissional que ocorra em decorrência do exercício de atividade econômica, seja ela preponderante ou não.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "Contribuir para o financiamento da aposentadoria especial e benefícios concedidos em razão do grau de incidência de incapacidade laborativa decorrente dos riscos ambientais do trabalho (art. 202);\n2.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Manter registros e informações sobre os acidentes de trabalho ocorridos na empresa, bem como sobre as lesões corporais e doenças profissionais dos empregados (art. 159);\n3.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 7,
+            "text": "Implementar medidas para prevenir e controlar riscos ambientais do trabalho, inclusive a realização de treinamentos e ações de conscientização entre os empregados (art. 159);\n4.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "Colaborar com a empresa na aplicação dos dispositivos relacionados à segurança e saúde no trabalho (art. 159).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a esclarecer essa dúvida.\n\nPara se aposentar com as regras da Lei Complementar nº 142/2019 (LC 142), é necessário atender aos seguintes requisitos:\n\n1. Ter pelo menos 35 anos de idade e 30 anos de contribuição para o Regime Geral de Previdência Social (RGPS);\n2. Ser servidor público federal, estadual ou municipal;\n3. Ter exercido cargo público por tempo igual ou superior a 20 anos;\n4. Não ter sido punido com pena disciplinar mais grave que a suspensão do exercício do cargo.\n\nAlém disso, é importante lembrar que a LC 142 estabelece regras específicas para aposentadoria especial de servidores públicos, e que os entes subnacionais (Estados, Distrito Federal e Municípios) devem observar as normas constitucionais e infraconstitucionais aplicáveis à matéria.\n\nEspero que essa resposta tenha ajudado a esclarecer sua dúvida. Se tiver mais alguma pergunta ou precisar de mais informações, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2385,
+      "min_distance": 0.2311,
+      "source_files": [
+        "Constituição.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 7,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Ter pelo menos 35 anos de idade e 30 anos de contribuição para o Regime Geral de Previdência Social (RGPS);\n2.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Ter exercido cargo público por tempo igual ou superior a 20 anos;\n4.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 10,
+            "text": "Se tiver mais alguma pergunta ou precisar de mais informações, sinta-se à vontade para perguntar!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta do advogado é sobre o prazo de prescrição para a ação de usucapião extraordinária.\n\nInfelizmente, não há um artigo específico que estabeleça o prazo de prescrição para a ação de usucapião extraordinária. No entanto, podemos analisar alguns artigos que podem nos ajudar a encontrar uma resposta aproximada.\n\nO Art. 1.032 do Código Civil Brasileiro (CC) define a usucapião como o direito de adquirir a propriedade de um imóvel mediante a posse pacífica e contínua durante o prazo estabelecido em lei. No entanto, não especifica o prazo de prescrição para a ação de usucapião extraordinária.\n\nO Art. 1.033 do CC estabelece que a usucapião ordinária ocorre após 15 anos de posse pacífica e contínua. No entanto, novamente não especifica o prazo de prescrição para a ação de usucapião extraordinária.\n\nO Art. 1.034 do CC estabelece que a usucapião extraordinária ocorre após 5 anos de posse pacífica e contínua. No entanto, novamente não especifica o prazo de prescrição para a ação de usucapião extraordinária.\n\nEm resumo, não há um artigo específico que estabeleça o prazo de prescrição para a ação de usucapião extraordinária. No entanto, podemos considerar que o prazo de 5 anos estabelecido no Art. 1.034 do CC pode ser utilizado como uma referência aproximada.\n\nLembre-se de que essa é apenas uma interpretação e não há um artigo específico que estabeleça o prazo de prescrição para a ação de usucapião extraordinária.",
+      "num_sources": 15,
+      "avg_distance": 0.2554,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 17,
+        "supported": 13,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 9,
+            "text": "1.033 do CC estabelece que a usucapião ordinária ocorre após 15 anos de posse pacífica e contínua.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 12,
+            "text": "1.034 do CC estabelece que a usucapião extraordinária ocorre após 5 anos de posse pacífica e contínua.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 15,
+            "text": "No entanto, podemos considerar que o prazo de 5 anos estabelecido no Art.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 16,
+            "text": "1.034 do CC pode ser utilizado como uma referência aproximada.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [
+          "não há"
+        ],
+        "numeric_claims": [
+          "15 anos",
+          "5 anos",
+          "5 anos"
+        ],
+        "dispositivo_claims": [
+          "Art. 1",
+          "Art. 1",
+          "Art. 1",
+          "Art. 1"
+        ]
+      }
+    }
+  ]
+}

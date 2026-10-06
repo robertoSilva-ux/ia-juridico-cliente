@@ -1,0 +1,138 @@
+{
+ "model": "gemma3:4b-it-qat",
+ "num_ctx": "default",
+ "iters": 1,
+ "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+ "started_at": "2026-09-12T07:37:03.547177",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q1",
+   "time_s": 25.47,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, podemos extrair os seguintes requisitos para a concessão de aposentadoria por invalidez:\n\n1.  **Invalidez Permanente:** A aposentadoria por invalidez é concedida quando o indivíduo se torna incapaz permanentemente para o trabalho no cargo em que estava investido (DOC 7).\n2.  **Avaliações Periódicas (em casos específicos):** Para incapacidades permanentes, há a obrigatoriedade de avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (DOC 7).\n3.  **Requisitos para o Retorno ao Trabalho:** A aposentadoria por invalidez não prejudica o recebimento do benefício se o aposentado retornar à atividade, exceto nos casos de aposentadoria por invalidez ou especial (DOC 8).\n4.  **Dependência Menor de Idade:** Para a pensão por morte aos dependentes menores de idade, é necessário que a invalidez tenha ocorrido antes da emancipação ou dos 21 anos, e deve ser comprovada pela perícia médica do INSS (DOC 13).\n5. **Exames Médicos Periódicos:** Aposentados por invalidez estão obrigados a se submeterem a exames médicos bianualmente, a critério do INSS, sob pena de suspensão do benefício (DOC 12).\n6.  **Requisitos para o Beneficiário da Lei nº 8.213/91:** Existe uma regra específica para beneficiários da Lei nº 8.213/91, que não está detalhada nos documentos fornecidos, mas é mencionada no DOC 11.\n\n**Observações Importantes:**\n\n*   **Aposentadoria por Invalidez vs. Aposentadoria por Incapacidade Permanente:**  O documento (DOC 10) especifica que a aposentadoria por incapacidade permanente para o trabalho, com eficácia plena e aplicabilidade imediata, é regulada pelo art. 10, § 1º, II, e de cálculo dos proventos conforme o § 4º desse mesmo artigo c/c o art. 26, § 2º, II, e § 3º, II, todos da EC nº 103, de 2019.\n*   **Exceção para Doenças Graves:** A exceção mencionada no DOC 10 (100% da média) não se aplica mais às hipóteses de doença grave, contagiosa ou incurável.\n\n**Observação Final:** É importante ressaltar que a legislação previdenciária é complexa e pode haver outras regras e requisitos específicos dependendo do caso individual.  Recomenda-se consultar um advogado especializado em direito previdenciário para obter orientação jurídica precisa.",
+   "answer_chars": 2254,
+   "grounded": false,
+   "supported": 16,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "invalidez"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2228
+  },
+  {
+   "iter": 1,
+   "qid": "q2",
+   "time_s": 14.32,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, a carência mínima para aposentadoria por tempo de contribuição é:\n\n*   **Para homens:** 30 anos.\n*   **Para mulheres:** 25 anos.\n\nNo entanto, essa carência deve ser cumprida *após* a filiação ao Regime Geral de Previdência Social (RGPS), e o cálculo da carência é feito considerando um mínimo de 1/3 do número total de contribuições necessárias para atingir a carência completa.  A Lei 8213, em seu artigo 25, detalha os períodos de carência exigidos para a concessão das prestações pecuniárias do RGPS.\n\n**Observação Importante:** Os documentos indicam que algumas disposições foram alteradas por decretos posteriores (Decreto nº 4.729, de 2003 e Decreto nº 5.545, de 2005).  Portanto, é fundamental consultar a legislação mais recente para obter informações precisas sobre os requisitos de carência atuais.",
+   "answer_chars": 848,
+   "grounded": false,
+   "supported": 5,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "carência",
+     "tempo de contribuição"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2224
+  },
+  {
+   "iter": 1,
+   "qid": "q3",
+   "time_s": 31.97,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos e no conhecimento geral da legislação trabalhista brasileira, podemos responder à sua pergunta sobre o que configura acidente de trabalho e as obrigações do empregador.\n\n**O que configura Acidente de Trabalho?**\n\nA definição precisa de \"acidente de trabalho\" é complexa e está regulamentada principalmente pela Consolidação das Leis do Trabalho (CLT) e por normas específicas da Previdência Social. No entanto, podemos extrair os seguintes elementos dos documentos:\n\n*   **Art. 146 da CLT:** Este artigo estabelece que, na cessação do contrato de trabalho, a remuneração devida pelo período de férias cujo direito tenha adquirido (e, em alguns casos, o abono previdenciário) será paga com correção monetária e juros.  Isso implica que o acidente de trabalho é um evento que impacta diretamente os direitos trabalhistas, especialmente no cálculo das indenizações.\n*   **Art. 41 da CLT:** Este artigo exige o registro dos trabalhadores em todos os tipos de atividades, incluindo aqueles que sofrem acidentes de trabalho. Isso demonstra a importância do registro para a proteção do empregado e para fins de investigação.\n*   **Documentos (DOCs):** Embora não contenham definições explícitas sobre acidente de trabalho, os documentos mencionam a possibilidade de cálculo de indenização por acidente do trabalho ou moléstia profissional (DOC 3) e a necessidade de registro dos trabalhadores (DOC 4).\n\n**Em termos gerais, um acidente de trabalho é considerado aquele que ocorre durante o exercício da atividade laboral, seja ela:**\n\n*   **No ambiente de trabalho:**  Inclui lesões físicas ou psicológicas sofridas pelo empregado em razão de suas funções.\n*   **Durante o trajeto entre a residência e o local de trabalho (e vice-versa):** Se o empregador fornecer transporte ou se o trajeto for parte integrante do trabalho.\n*   **Em razão do trabalho:**  Mesmo que ocorra fora do ambiente de trabalho, desde que seja causado por fatores relacionados ao emprego.\n\n**Obrigações do Empregador em Relação a Acidentes de Trabalho:**\n\nCom base nos documentos e na legislação, as principais obrigações do empregador são:\n\n1.  **Registro:** Manter registros detalhados de todos os acidentes de trabalho ocorridos (DOC 4).\n2.  **Notificação:** Comunicar imediatamente ao órgão competente (Previdência Social) qualquer acidente de trabalho que resulte em lesão ou incapacidade do empregado (DOC 3).\n3.  **Investigação:** Realizar uma investigação completa para determinar as causas do acidente e implementar medidas preventivas para evitar que ocorram novamente.\n4.  **Pagamento de indenizações:** Pagar a indenização correspondente ao período de afastamento pelo infortúnio (DOC 146) e, em caso de incapacidade permanente, a indenização por invalidez (se aplicável).\n5.  **Prestação de assistência médica:** Oferecer assistência médica adequada ao empregado ferido ou doente decorrente do trabalho.\n6.  **Cumprimento das normas de segurança e saúde no trabalho:** Garantir que o ambiente de trabalho seja seguro e saudável, implementando medidas de prevenção de acidentes e doenças ocupacionais.\n7. **Auxílio Compensatório:** Em caso de suspensão contratual para participação em curso ou programa de qualificação profissional, o empregador deverá conceder ajuda compensatória mensal (DOC 11).\n\n**Observações Importantes:**\n\n*   A legislação sobre acidente de trabalho é complexa e pode variar dependendo da natureza do trabalho, das condições de segurança e saúde no ambiente de trabalho e da existência de acordos ou convenções coletivas.\n*   É fundamental consultar um advogado especializado em direito do trabalho para obter orientação específica sobre o caso concreto.\n\n**Disclaimer:** *Esta resposta se baseia nas informações fornecidas nos documentos e no conhecimento geral da legislação trabalhista brasileira. Não substitui a consulta a um profissional jurídico qualificado.*",
+   "answer_chars": 3904,
+   "grounded": true,
+   "supported": 30,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "acidente de trabalho",
+     "empregador"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2221
+  },
+  {
+   "iter": 1,
+   "qid": "q4",
+   "time_s": 29.74,
+   "error": null,
+   "answer": "A Lei Complementar nº 142/2013 (LC 142), conhecida como \"Reforma da Previdência\", estabeleceu novas regras para a aposentadoria, especialmente para os trabalhadores que ingressaram no mercado de trabalho após o dia 13 de março de 1996.  A questão é um pouco complexa e envolve diferentes cenários.\n\n**Para se aposentar com as regras da LC 142, o segurado precisa atender aos seguintes requisitos:**\n\n1.  **Idade Mínima:**\n    *   **Homens:** 65 anos de idade.\n    *   **Mulheres:** 62 anos de idade.\n\n2.  **Tempo de Contribuição:**\n    *   **Homens:** 15 anos de contribuição.\n    *   **Mulheres:** 15 anos de contribuição.\n\n3.  **Carência:**\n    *   **Homens:** 30 anos de contribuição.\n    *   **Mulheres:** 30 anos de contribuição.\n\n4. **Regime de Tributação:**\n    *   **Regra Geral (Regime Simples):** A aposentadoria é calculada com base na média de todos os salários de contribuição desde o início da vida laboral, aplicando-se um fator previdenciário.\n    *   **Regime Cumulativo:** Para quem teve apenas um emprego durante toda a carreira, a aposentadoria é calculada com base no salário de benefício (salário correspondente à média dos últimos salários de contribuição).\n\n5. **Aposentadoria por Ancidade:**\n    *   É a forma mais comum de se aposentar sob as regras da LC 142.  O cálculo do valor da aposentadoria é feito com base na média de todos os salários de contribuição, aplicando-se o fator previdenciário (que varia conforme a idade e tempo de contribuição).\n\n**Observações Importantes:**\n\n*   **A Emenda Constitucional nº 103/2019:** A EC 103 alterou algumas regras da LC 142, principalmente em relação à apuração da renda para fins de cálculo da aposentadoria.\n*   **Regras de Transição:**  A LC 142 estabeleceu diversas regras de transição para quem já estava previdenciado antes da reforma. Essas regras podem alterar significativamente o valor da aposentadoria. É fundamental analisar qual regra de transição se aplica ao seu caso específico.\n*   **Servidores Públicos:** As regras de aposentadoria para servidores públicos são diferentes das regras gerais da LC 142.  É preciso verificar as normas específicas do regime previdenciário do servidor (regime próprio ou regime de sobreavaliação).\n\n**Recomendação:**\n\nDevido à complexidade das regras, é fundamental consultar um advogado especializado em direito previdenciário para analisar seu caso específico e determinar a melhor estratégia para se aposentar.  Ele poderá avaliar as regras de transição aplicáveis, calcular o valor da sua futura aposentadoria e orientá-lo sobre os documentos necessários.\n\n**Recursos Úteis:**\n\n*   **Site do INSS:** [https://www.gov.br/inss/pt-br](https://www.gov.br/inss/pt-br)\n*   **Portal da Previdência Social:** [https://portal.previdencia.gov.br/](https://portal.previdencia.gov.br/)\n\nEspero que esta informação seja útil!",
+   "answer_chars": 2836,
+   "grounded": false,
+   "supported": 19,
+   "partial": 7,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "aposentadoria",
+     "carência"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 1,
+   "qid": "q5",
+   "time_s": 15.21,
+   "error": null,
+   "answer": "O texto fornecido não apresenta diretamente o prazo de prescrição para a ação de usucapião extraordinária. Ele aborda temas relacionados à prescrição em geral, como:\n\n*   **Art. 196:** Prescrição que continua a correr contra o sucessor.\n*   **Art. 855-E:** Suspensão do prazo por acordo judicial.\n*   **Art. 922:** Suspensão da execução de sentença como fator para prescrição.\n*   **Art. 40:** Suspensão da execução enquanto não for localizado o devedor ou bens penhoráveis.\n\nPara determinar o prazo específico de prescrição para a ação de usucapião extraordinária, é necessário consultar o Código Civil Brasileiro (artigos 1.768 e seguintes) ou a legislação específica do seu estado, pois os prazos podem variar.\n\n**Em resumo:** O texto oferece informações contextuais sobre a prescrição, mas não especifica o prazo para a ação de usucapião extraordinária.",
+   "answer_chars": 857,
+   "grounded": true,
+   "supported": 11,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 0
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2568
+  },
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 10.97,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago para:\n\n*   Filhos menores de 21 anos ou inválidos.\n*   Filhos não emancipados, menores de 21 anos ou inválidos que tenham deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\n\nPortanto, o salário-família é pago até a idade de **21 anos** ou até a incapacidade (deficiência intelectual/mental).",
+   "answer_chars": 417,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2393
+  }
+ ],
+ "wall_time_s": 127.7,
+ "finished_at": "2026-09-12T07:39:11.225016"
+}

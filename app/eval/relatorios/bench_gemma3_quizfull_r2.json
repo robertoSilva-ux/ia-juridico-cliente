@@ -1,0 +1,137 @@
+{
+ "model": "gemma3:4b-it-qat",
+ "num_ctx": "default",
+ "iters": 1,
+ "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+ "started_at": "2026-09-12T07:34:53.787167",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q1",
+   "time_s": 28.3,
+   "error": null,
+   "answer": "Analisando os documentos fornecidos, podemos extrair os seguintes requisitos para a concessão de aposentadoria por invalidez:\n\n1.  **Incapacidade Permanente para o Trabalho:** A aposentadoria por invalidez é concedida quando o segurado possui incapacidade permanente para o trabalho, no cargo em que estava investido, e essa incapacidade é insuscetível de readaptação.\n2.  **Avaliações Periódicas (em alguns casos):** Em situações específicas, como a de um indivíduo com aposentadoria por invalidez, pode ser obrigatória a realização de avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão do benefício.\n3.  **Retorno à Atividade não Prejudica (com exceção da Invalidez por Especial ou Permanente):** A legislação permite que o aposentado retorne ao trabalho, exceto nos casos de aposentadoria por invalidez especial ou permanente. Nesses casos, o retorno à atividade não prejudica o recebimento da aposentadoria, que será mantida integralmente.\n4.  **Requisitos para Dependentes (Pensão por Morte):** Para a concessão de pensão por morte aos dependentes, é necessário que a invalidez do segurado tenha ocorrido antes da emancipação ou completar 21 anos, e que essa invalidez seja reconhecida ou comprovada pela perícia médica do INSS.\n5.  **Exames Médicos Periódicos (para Pensionistas):** O pensionista inválido está obrigado a submeter-se a exames médico-periciais, a critério do Instituto Nacional do Seguro Social, independentemente de sua idade.\n6. **Aposentadoria por Invalidez e Acidentes:** Em casos de aposentadoria por invalidez decorrente de acidente do trabalho, doença profissional ou doença do trabalho, o percentual da média para cálculo dos proventos é de 100%.\n\n**Observações Importantes:**\n\n*   Os documentos indicam que a Medida Provisória nº 905/2019 e a Medida Provisória nº 955/2020 revogaram alguns dispositivos relacionados ao auxílio-reclusão e ao auxílio-doença.\n*   A EC nº 103/2019 estabeleceu regras transitórias para o cálculo dos benefícios de aposentadoria por invalidez, com um aumento de 60% na média e acréscimo de 2% por ano de contribuição que exceder 20 anos. No entanto, essa exceção não se aplica a doenças graves, contagiosas ou incuráveis.\n\n**Recomendação:** Para uma análise completa e precisa dos requisitos para a concessão de aposentadoria por invalidez, é fundamental consultar a legislação vigente do INSS e buscar orientação jurídica especializada.",
+   "answer_chars": 2437,
+   "grounded": true,
+   "supported": 17,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "invalidez"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2229
+  },
+  {
+   "iter": 1,
+   "qid": "q2",
+   "time_s": 15.61,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, a carência mínima para aposentadoria por tempo de contribuição é:\n\n*   **Para segurados empregados, trabalhadores avulso e contribuinte individual (cooperado filiado a cooperativa):** 35 anos de contribuição.\n*   **Para professores:** Tempo de efetivo exercício em função de magistério na educação infantil, no ensino fundamental ou no ensino médio.\n\nÉ importante notar que os documentos indicam que a carência é cumprida *antes* da concessão da aposentadoria. Além disso, o Decreto 3048-99 foi revogado pelo Decreto nº 5.545, de 2005 e posteriormente por outros decretos, portanto, as regras podem ter mudado desde então. Para informações atualizadas sobre a carência exigida, é fundamental consultar a legislação vigente do INSS ou um profissional especializado em direito previdenciário.",
+   "answer_chars": 830,
+   "grounded": false,
+   "supported": 4,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "carência",
+     "tempo de contribuição"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2172
+  },
+  {
+   "iter": 1,
+   "qid": "q3",
+   "time_s": 32.56,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, podemos inferir e responder à pergunta sobre o que configura acidente de trabalho e as obrigações do empregador. A resposta é construída a partir da análise dos artigos 166, 167, 159, 160 e 1º, além das definições gerais presentes nos documentos.\n\n**O Que Configura Acidente de Trabalho?**\n\nOs documentos não fornecem uma definição explícita do que constitui acidente de trabalho. No entanto, podemos inferir os seguintes elementos:\n\n*   **Risco à Saúde ou Integridade Física:** A legislação (especialmente o Decreto 3048) enfatiza a ocorrência de atividades que \"ensejam a concessão de aposentadoria especial após quinze, vinte ou vinte e cinco anos de contribuição\" como um caso grave que pode ser considerado acidente de trabalho. Isso sugere que qualquer atividade que possa levar a problemas de saúde ou lesões físicas é relevante.\n*   **Medidas de Ordem Geral Insuficientes:** O artigo 166 estabelece que o equipamento de proteção individual (EPI) deve ser fornecido quando as medidas de ordem geral não oferecem \"completa proteção\". Isso implica que um acidente só será considerado como tal se a medida preventiva padrão for insuficiente.\n*   **Recusa Injustificada ao Uso de EPI:** O artigo 159, parágrafo único, lista a recusa injustificada ao uso de EPI como ato faltoso do empregado, indicando que o empregador tem o direito de exigir o uso de equipamentos de proteção.\n\n**Obrigações do Empregador (Baseadas nos Documentos):**\n\n1.  **Fornecimento de EPI:** O artigo 166 obriga o empregador a fornecer gratuitamente EPIs adequados ao risco, em perfeito estado e com indicação de certificação (artigo 167).\n2.  **Prevenção de Riscos Graves:** A legislação (Decreto 3048) estabelece critérios para classificar atividades como \"graves\", o que implica a necessidade de medidas preventivas mais rigorosas, incluindo o fornecimento de EPIs e outras proteções.\n3.  **Fiscalização e Orientação:** O artigo 159 permite que órgãos federais, estaduais ou municipais deleguem funções de fiscalização e orientação às empresas quanto ao cumprimento das normas de segurança do trabalho.\n4.  **Registro de Gorjetas:** O artigo 8º exige o registro na Carteira de Trabalho e Previdência Social (CTPS) do salário fixo e da média das gorjetas dos últimos doze meses, demonstrando a necessidade de controle e transparência nas remunerações.\n5.  **Comissão de Empregados:** Para empresas com mais de 60 empregados, o artigo 9º exige a constituição de uma comissão para acompanhar e fiscalizar a cobrança e distribuição da gorjeta.\n6. **Atenção ao Tempo de Serviço:** O Artigo 160 estabelece que períodos de afastamento por motivos militares ou acidentes do trabalho são considerados tempo à disposição do empregado, impactando na indenização e estabilidade.\n\n**Observações Importantes:**\n\n*   **Legislação Complementar:** A legislação sobre acidente de trabalho é extensa e complexa. Os documentos fornecidos representam apenas uma parte da regulamentação (principalmente a Consolidação das Leis do Trabalho - CLT).\n*   **Interpretação Judicial:** A interpretação dos conceitos de \"acidente de trabalho\" e as obrigações do empregador podem variar dependendo do caso concreto e da jurisprudência.\n\nPara uma análise completa e precisa, é fundamental consultar a legislação trabalhista em sua totalidade (CLT, Normas Regulamentadoras - NRs) e buscar orientação jurídica especializada.",
+   "answer_chars": 3405,
+   "grounded": false,
+   "supported": 16,
+   "partial": 8,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "acidente de trabalho",
+     "empregador"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2206
+  },
+  {
+   "iter": 1,
+   "qid": "q4",
+   "time_s": 24.58,
+   "error": null,
+   "answer": "A Lei Complementar nº 142/2013 (LC 142), conhecida como \"Reforma da Previdência\", estabeleceu novas regras para a aposentadoria, mas **não se aplica aos servidores públicos federais** que foram abrangidos pela Emenda Constitucional nº 103/2019 (EC 103). A EC 103, por sua vez, introduziu uma disciplina jurídica de transição para os servidores públicos federais, com regras específicas para o cálculo dos proventos e a concessão de aposentadorias.\n\n**Para se aposentar com as regras da LC 142, o servidor público federal precisaria estar vinculado ao Regime Próprio de Previdência (RPPS) de um Estado, Distrito Federal ou Município.**  Nesses casos, as regras da LC 142 seriam aplicáveis.\n\n**No entanto, para os servidores públicos federais abrangidos pela EC 103, a situação é diferente:**\n\n*   **Regras de Transição:** A EC 103 estabeleceu regras de transição que consideram a remuneração do servidor até a data da reforma (1º de janeiro de 2019) para o cálculo dos proventos.\n*   **Abono de Permanência:** Para os servidores que não preenchessem todos os requisitos para aposentadoria na data da reforma, foi instituído o abono de permanência, equivalente à média dos salários do último ano e dos 20 meses anteriores.\n*   **Direito Adquirido:** A EC 103 garantiu o direito adquirido à aposentadoria com base nas regras anteriores à reforma para os servidores que já estavam aposentados ou tinham direito à aposentadoria na data da entrada em vigor da Emenda.\n\n**Em resumo, para um servidor público federal se aposentar com as regras da LC 142, ele precisaria estar vinculado a um RPPS estadual, do Distrito Federal ou municipal.** Caso contrário, as regras da EC 103 e da LC 142 (aplicável ao regime federal) seriam aplicáveis.\n\n**Recomendações:**\n\n*   Consulte a legislação específica do seu RPPS para entender as regras de transição aplicáveis ao seu caso.\n*   Procure um advogado especializado em direito previdenciário para analisar sua situação e orientá-lo sobre as melhores opções para se aposentar.\n\nEspero que esta informação seja útil!",
+   "answer_chars": 2048,
+   "grounded": false,
+   "supported": 8,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "aposentadoria"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 1,
+   "qid": "q5",
+   "time_s": 13.06,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos e a legislação pertinente, o prazo de prescrição para a ação de usucapião extraordinária é de **15 anos**.\n\n**Justificativa:**\n\nEmbora os documentos apresentados não contenham explicitamente o prazo de prescrição para a usucapião, a Lei de Usucapião (Lei nº 9.472/97) estabelece que:\n\n*   A usucapião extraordinária tem prazo prescricional de **15 anos**.\n\nOs outros documentos citados tratam de temas como inscrição empresarial, prepostos, foro competente em ações judiciais, prescrição de dívidas e execução fiscal, mas não abordam especificamente o prazo para a ação de usucapião.",
+   "answer_chars": 622,
+   "grounded": false,
+   "supported": 1,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 0
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2584
+  },
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 13.45,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a idade de **vinte e um anos**.\n\nEspecificamente:\n\n*   **Art. 16, I:** Menciona que são beneficiários do Regime Geral de Previdência Social, na condição de dependentes, o filho não emancipado, de qualquer condição, menor de vinte e um anos ou inválido.\n*   **Art. 16, III:**  Inclui também os irmãos não emancipados menores de vinte e um anos ou inválidos como beneficiários.\n\nÉ importante notar que a legislação pode ter sido atualizada desde esses documentos, mas essa é a informação extraída dos textos fornecidos.",
+   "answer_chars": 609,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2431
+  }
+ ],
+ "wall_time_s": 127.6,
+ "finished_at": "2026-09-12T07:37:01.350876"
+}

@@ -1,0 +1,140 @@
+{
+ "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
+ "num_ctx": "default",
+ "iters": 1,
+ "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+ "started_at": "2026-09-12T07:09:36.993763",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q1",
+   "time_s": 45.13,
+   "error": null,
+   "answer": "Os **requisitos da aposentadoria por invalidez** estão previstos na **Lei nº 8.213/1991**, consolidada no **Art. 28** e **Art. 30** do **Decreto 3.048/1999**, e foram reorganizados e atualizados pela **Reforma Previdenciária (EC nº 103/2019)**.\n\nA seguir, apresento os **requisitos principais** da aposentadoria por invalidez, com base nas normas atuais:\n\n---\n\n### ✅ **Requisitos da Aposentadoria por Invalidez (Atualizados pela EC nº 103/2019)**\n\n#### 1. **Invalidez Permanente para o Trabalho**\n- A aposentadoria por invalidez **passou a se chamar \"aposentadoria por incapacidade permanente para o trabalho\"**, conforme a **EC nº 103/2019, art. 40**.\n- A condição de invalidez deve ser **permanente**, ou seja, **não reversível**, e **não permitir a realização de atividades de trabalho**.\n- A condição deve ser **comprovada por exame médico** e **avaliação periódica**.\n\n#### 2. **Avaliação Periódica (Requisito Jurídico e Prático)**\n- O segurado **está obrigado a submeter-se a exames médicos periódicos**, conforme o **Decreto 3.048/1999, art. 46**:\n  - **Exames médicos periódicos bem como exames médicos-periciais** devem ser realizados **bienalmente** (a cada dois anos).\n  - O objetivo é **verificar a continuidade da condição de invalidez** e se há possibilidade de **reabilitação profissional**.\n  - A **falta de submissão a esses exames** pode resultar na **suspensão do benefício**.\n\n#### 3. **Reabilitação Profissional (Obrigatória)**\n- O segurado **deve participar de um processo de reabilitação profissional**, custeado pela Previdência Social.\n- Esse processo inclui:\n  - Avaliação de habilidades e capacidades;\n  - Proposta de readaptação ao trabalho (se possível);\n  - Formação em novas atividades ou adaptação de funções.\n- A **reabilitação é gratuita**, exceto para **cirurgias e transfusão de sangue**, que são **facultativas**.\n\n#### 4. **Requisitos de Idade e Tempo de Contribuição (Conforme a Lei 8.213/1991 e EC 103/2019)**\n- A aposentadoria por invalidez **não depende de idade mínima**, mas **exige o tempo de contribuição** (não é um requisito de idade, mas de tempo de contribuição).\n- O **tempo de contribuição** é considerado para a **concessão do benefício**, especialmente para aposentadoria por tempo de contribuição, mas **a invalidez é o critério principal**.\n- A **invalidez deve ter sido decorrente de doença ou acidente do trabalho**.\n\n#### 5. **Cálculo do Benefício (Art. 10, § 1º, II, da EC 103/2019)**\n- O valor do benefício é calculado com base na **média dos salários de contribuição**.\n- O **percentual do benefício** é de **60% da média dos salários de contribuição**, **com acréscimo de 2% por ano de contribuição que exceda 20 anos**.\n- **Exceção**: Em casos de **invalidez decorrente de acidente do trabalho, doença profissional ou doença do trabalho**, o percentual é de **100% da média**, **exceto** em casos de **doença grave, contagiosa ou incurável**, onde a exceção não se aplica.\n\n> ⚠️ **Importante**: A **exceção de 100%** para doenças do trabalho ou acidentes do trabalho **não se aplica mais a doenças graves, contagiosas ou incuráveis**, conforme a EC 103/2019.\n\n---\n\n### ✅ **Requisitos Específicos de Concessão (Art. 28 da Lei 8.213/1991 e art. 40 da EC 103/2019)**\n\n| Requisito | Descrição |\n|---------|----------|\n| **1. Invalidez Permanente** | A pessoa deve estar com condição médica que impossibilita o trabalho. |\n| **2. Comprovação Médica** | Exame médico comprovando a condição de invalidez. |\n| **3. Tempo de Contribuição** | O segurado deve ter contribuído pelo menos o tempo exigido (não é um requisito fixo, mas depende do caso). |\n| **4. Reabilitação Profissional** | O segurado deve participar de processo de reabilitação, se possível. |\n| **5. Avaliação Periódica** | Exames médicos a cada dois anos para verificar a continuidade da invalidez. |\n| **6. Não Exclusão de Direito** | O direito à aposentadoria **não é perdido** após a perda da qualidade de segurado (art. 181 do Decreto 3.048/1999). |\n\n---\n\n### ✅ **Observações Legais Importantes**\n\n- A **aposentadoria por invalidez** **não é uma aposentadoria por idade ou tempo de contribuição**, mas sim **por condição médica**.\n- A **EC 103/2019** **não alterou o valor do benefício** para a aposentadoria por invalidez, mas **reestruturou os critérios de avaliação e reabilitação**.\n- O **benefício é concedido com eficácia plena e imediata**, conforme o art. 10, § 1º, II, da EC 103/2019.\n\n---\n\n### ✅ **Resumo Final: Requisitos da Aposentadoria por Invalidez**\n\n| Requisito | Detalhe |\n|---------|--------|\n| **1. Invalidez Permanente** | Condição médica que impede o trabalho |\n| **2. Comprovação Médica** | Exame médico comprovando a condição |\n| **3. Avaliação Periódica** | Exames médicos a cada 2 anos (bienal) |\n| **4. Reabilitação Profissional** | Processo obrigatório, custeado pela Previdência |\n| **5. Tempo de Contribuição** | Requisito secundário, não fixo |\n| **6. Valor do Benefício** | 60% da média de salário de contribuição (com acréscimo de 2% por ano acima de 20 anos), **exceto em doenças do trabalho**, onde pode ser 100% (exceto em doenças graves, contagiosas ou incuráveis) |\n\n---\n\nSe desejar, posso elaborar um **modelo de carta de solicitação** ou **análise de caso específico** com base nesses requisitos.",
+   "answer_chars": 5262,
+   "grounded": false,
+   "supported": 46,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "invalidez"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2249
+  },
+  {
+   "iter": 1,
+   "qid": "q2",
+   "time_s": 20.84,
+   "error": null,
+   "answer": "A **carência mínima para a aposentadoria por tempo de contribuição** é definida conforme o **Art. 56**, do **Decreto 3.048/99**, com a redação atualizada pelo **Decreto nº 6.042/2007**.\n\n### Resposta:\n\nA carência mínima para a aposentadoria por tempo de contribuição é:\n\n- **35 anos**, para **homens**;\n- **30 anos**, para **mulheres**.\n\n> **Art. 56. A aposentadoria por tempo de contribuição será devida ao segurado após trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher, observado o disposto no art. 199-A. (Redação dada pelo Decreto nº 6.042, de 2007).**\n\n---\n\n### Observações importantes:\n\n1. **Revogação de anteriores normas**:  \n   O texto anterior do Decreto 3.048/99 (art. 188, incisos I e II) previa carências de 53 anos para homens e 48 para mulheres, e tempo de contribuição de 30 anos para homens e 25 para mulheres — **mas essas disposições foram revogadas pelo Decreto nº 4.729/2003**, que redefiniu o regime de aposentadoria por tempo de contribuição.\n\n2. **Aplicação especial para professores**:  \n   O **§ 1º do Art. 56** trata do professor que exerce exclusivamente atividade docente em educação infantil, ensino fundamental ou médio. Nesse caso, a aposentadoria será devida nos termos do **§ 8º do art. 201 da Constituição**, o que pode implicar uma análise específica de tempo de contribuição e carência, mas **não altera a carência mínima geral**.\n\n3. **Função de magistério**:  \n   O **§ 2º do Art. 56** define que \"função de magistério\" é a atividade docente exercida exclusivamente em sala de aula — importante para a validade do benefício para professores.\n\n---\n\n✅ **Conclusão**:  \nA **carência mínima para aposentadoria por tempo de contribuição** é:\n\n- **35 anos para homens**;\n- **30 anos para mulheres**.\n\nEssa norma é a vigente, conforme a redação do **Decreto 6.042/2007**, que substituiu as anteriores e é aplicável ao Regime Geral de Previdência Social.",
+   "answer_chars": 1909,
+   "grounded": false,
+   "supported": 15,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "carência",
+     "tempo de contribuição",
+     "benefício"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2172
+  },
+  {
+   "iter": 1,
+   "qid": "q3",
+   "time_s": 41.38,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"O que configura acidente de trabalho e quais as obrigações do empregador?\"** — pode ser respondida com base nos documentos fornecidos, especialmente no **Vademécum do Senado Federal (DOC 9 e DOC 10)**, que tratam da legislação do trabalho brasileira, com foco na **proteção do trabalhador** e nos **direitos relacionados a acidentes de trabalho**.\n\n---\n\n### ✅ **O que configura acidente de trabalho?**\n\nSegundo o **Art. 41 do Vademécum do Senado Federal (DOC 9)**, **o empregador é obrigado a registrar todos os dados relativos ao trabalho dos empregados**, incluindo:\n\n- Admissão no emprego  \n- Duração e efetividade do trabalho  \n- Férias  \n- **Acidentes**  \n- Demais circunstâncias que interessem à proteção do trabalhador  \n\nIsso indica que **o acidente de trabalho é um evento registrado no livro de registro do empregado**, e que deve ser documentado com precisão.\n\nAlém disso, o **Art. 41** menciona que **os acidentes são parte essencial do registro**, o que implica que:\n\n> Um **acidente de trabalho** é qualquer **evento físico ou médico** que ocorra durante o exercício da atividade laboral, **no local de trabalho ou durante o tempo de serviço**, e que resulte em **lesão física ou doença** que esteja ligada à atividade empregada.\n\n---\n\n### ✅ **Quais são as obrigações do empregador?**\n\nAs obrigações do empregador em relação a acidentes de trabalho são derivadas da **Lei de Trabalho (CLT)**, especialmente do **Art. 145, 146 e 41**, e do **princípio de proteção do trabalhador**.\n\n#### 1. **Registro obrigatório (Art. 41)**\nO empregador **deve manter um livro de registro** dos trabalhadores, com anotação de:\n- Acidentes ocorridos durante o trabalho  \n- Data, hora, local e circunstâncias  \n- Natureza da lesão ou doença  \n- Tratamento e resultado  \n\n> Isso é obrigatório em **todas as atividades**, conforme previsto no Art. 41.\n\n#### 2. **Acompanhamento e fiscalização (Art. 41 e 145)**\nO empregador deve:\n- Acompanhar o **tempo de serviço** e os **períodos de férias**  \n- Garantir que os **direitos do trabalhador** sejam respeitados, incluindo os direitos em caso de acidente  \n- **Fiscalizar a regularidade da cobrança e distribuição da gorjeta** (em casos de atividades com gorjetas, como mencionado em outro documento), mas isso é mais específico e não direto para acidentes.\n\n#### 3. **Responsabilidade por riscos (Art. 10406, art. 612 e 611 – embora não diretamente sobre acidentes, indicam responsabilidade por riscos)**\nEmbora o documento **Lei 10.406** trate de empreitadas, ele mostra que:\n- Se o empreiteiro **apenas fornece mão de obra**, os **riscos correm por conta do dono da obra**  \n- Se o empreiteiro **fornecer materiais**, os riscos correm por sua conta até a entrega  \n- Isso implica que o **empregador (ou contratante)** é responsável por **os riscos inerentes à atividade** que o empregado realiza\n\n> Portanto, o empregador tem a **obrigação de garantir condições seguras de trabalho**, e **não pode delegar a responsabilidade dos riscos ao empregado**.\n\n#### 4. **Indenização em caso de acidente (Art. 146)**\nNa **cessação do contrato de trabalho**, o empregado tem direito à **remuneração simples ou em dobro** correspondente ao período de férias que tenha adquirido — mas isso **não é diretamente sobre acidentes**.\n\nNo entanto, **em caso de acidente de trabalho**, o empregado tem direito a:\n- **Indenização por acidente do trabalho** (Art. 41, parágrafo III)  \n- **Acesso ao seguro de acidentes do trabalho** (embora não detalhado aqui, é previsto na CLT)  \n- **Acesso ao sistema de saúde e auxílio médico**  \n- **Acesso ao benefício de aposentadoria especial**, se o acidente resultar em deficiência ou invalidez\n\n---\n\n### ✅ Resumo final:\n\n| Pergunta | Resposta |\n|--------|--------|\n| **O que configura acidente de trabalho?** | É qualquer **lesão física ou doença** que ocorra durante o exercício da atividade laboral, **no local de trabalho ou durante o tempo de serviço**, e que esteja **ligada à atividade empregada**. Deve ser **registrado no livro de registro do empregado** (Art. 41). |\n| **Quais são as obrigações do empregador?** | 1. Manter **livro de registro** com dados de acidentes; <br> 2. **Garantir condições seguras de trabalho** e **evitar riscos**; <br> 3. **Fiscalizar** a atividade e os riscos; <br> 4. **Indenizar** o empregado em caso de acidente (por meio do seguro ou da responsabilidade civil); <br> 5. **Respeitar os direitos do trabalhador**, incluindo o direito à saúde e ao bem-estar. |\n\n---\n\n### ⚠️ Observação:\nEmbora os documentos fornecidos não mencionem **direitos específicos de indenização por acidente** de forma explícita, o **Art. 41** e o **contexto geral da CLT** (não apresentado aqui em detalhes) indicam que o **acidente de trabalho é um evento de proteção do trabalhador**, e que o **empregador tem a obrigação de prevenir, registrar e responder** por qualquer evento que cause lesão.\n\nPara uma análise mais completa, seria necessário consultar a **CLT (Lei nº 5.452/66)**, especialmente os **artigos 187 a 194**, que tratam diretamente dos **acidentes de trabalho** e das **obrigações do empregador**.\n\n---\n\n✅ **Conclusão:**  \nO **acidente de trabalho** é definido como uma lesão ou doença ocorrida durante o exercício do trabalho, registrada no livro de registro. O **empregador** é obrigado a **registra-lo, prevenir os riscos, garantir condições seguras e indenizar o trabalhador**, conforme previsto na legislação do trabalho brasileira.",
+   "answer_chars": 5466,
+   "grounded": true,
+   "supported": 35,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "acidente de trabalho",
+     "empregador",
+     "obrigação"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2208
+  },
+  {
+   "iter": 1,
+   "qid": "q4",
+   "time_s": 37.4,
+   "error": null,
+   "answer": "A pergunta do advogado — *\"O que precisa para se aposentar com as regras da LC 142?\"* — **contém um erro de referência**.\n\nA **Lei Complementar nº 142** **não existe** no contexto da reforma previdenciária brasileira de 2019, nem está mencionada em nenhum dos documentos fornecidos (como a EC 103/2019, a Constituição, ou os demais arquivos).\n\nO que está presente nos documentos é a **Emenda Constitucional nº 103, de 2019 (EC 103/2019)**, que **reformulou o regime previdenciário brasileiro**, especialmente o de **aposentadorias especiais**, como a dos policiais civis e militares.\n\n---\n\n### ✅ Resposta correta à pergunta:\n\n**A Lei Complementar nº 142 não existe no contexto da reforma previdenciária brasileira.**  \nO documento correto e relevante é a **Emenda Constitucional nº 103, de 2019 (EC 103/2019)**.\n\nPortanto, para responder à pergunta com precisão:\n\n---\n\n## 📌 O que precisa para se aposentar com as regras da **EC 103/2019** (não da LC 142)?\n\nA EC 103/2019 **não estabelece regras genéricas para todos os servidores públicos**, mas **reformulou as aposentadorias especiais**, especialmente para **policiais civis e militares**.\n\n### ✅ Para se aposentar como policial civil (ou militar) com base na EC 103/2019:\n\n#### 1. **Requisitos de idade e tempo de contribuição**\n- **Idade mínima**: 60 anos (para homens) ou 55 anos (para mulheres).\n- **Tempo de contribuição**: **25 anos de contribuição**.\n- **Pelo menos 15 anos de exercício em cargo de natureza estritamente policial** (para mulheres).\n\n> ⚠️ *Essa exigência foi incluída pela LC 144/2014, que foi incorporada na EC 103/2019.*\n\n#### 2. **Aposentadoria especial**\n- Aposentadoria concedida **na forma da Lei Complementar nº 51/1985**, desde que sejam observados os requisitos de idade mínima (art. 5º da EC 103/2019).\n\n#### 3. **Cálculo do benefício**\n- O benefício é calculado com base na **média dos 30 anos de contribuição** (art. 202 da Constituição).\n\n#### 4. **Aplicação da Súmula Vinculante nº 33 do STF**\n- A **Súmula Vinculante nº 33** continua aplicável, garantindo que a aposentadoria especial seja regulada pelo **Regime Geral de Previdência Social (RGPS)**, **não por regras próprias**.\n\n#### 5. **Regra de transição**\n- Aposentadorias concedidas **antes da entrada em vigor da EC 103/2019** (até 2019) são **mantidas com eficácia plena**.\n- A **regra de transição** permite que os servidores que já atingiram a idade mínima ou contribuíram por 25 anos possam se aposentar conforme a legislação anterior, desde que não tenham sido afetados por mudanças de regra.\n\n---\n\n### ❌ O que não é verdade:\n- **Não há \"regras da LC 142\"** — essa lei não existe no sistema previdenciário brasileiro.\n- A **EC 103/2019** é a principal norma que reformulou as aposentadorias especiais, especialmente para policiais.\n\n---\n\n### ✅ Resumo final:\n\n> Para se aposentar como policial civil com base na **EC 103/2019**, é necessário:\n> 1. Ter **60 anos (homem)** ou **55 anos (mulher)**;\n> 2. Ter **25 anos de contribuição previdenciária**;\n> 3. Ter **pelo menos 15 anos de exercício em cargo de natureza estritamente policial** (para mulheres);\n> 4. Ter cumprido os requisitos de idade mínima e tempo de contribuição;\n> 5. O benefício será calculado com base na média dos 30 anos de contribuição (art. 202 da CF);\n> 6. A aposentadoria será concedida na forma da **LC 51/1985**, respeitando a **Súmula Vinculante nº 33 do STF**.\n\n---\n\n### 📚 Fontes:\n- EC 103/2019 (art. 40, § 4º, III; art. 5º)\n- LC 144/2014 (inclusão de exigência de 15 anos de exercício policial para mulheres)\n- Súmula Vinculante nº 33 do STF\n- Art. 202 da Constituição Federal\n\n---\n\nSe o advogado quis dizer **\"LC 144/2014\"**, então a resposta seria:\n> A LC 144/2014 estabelece que, para mulheres, é necessário **pelo menos 15 anos de exercício em cargo de natureza estritamente policial** para se qualificar para aposentadoria especial.\n\nMas **não há LC 142**.\n\n---\n\n✅ **Conclusão**:  \nA pergunta contém um erro. A resposta correta é baseada na **EC 103/2019**, não na LC 142.  \nPara se aposentar como policial, são necessários **idade mínima, tempo de contribuição (25 anos), e 15 anos de exercício em cargo policial (para mulheres)**.",
+   "answer_chars": 4167,
+   "grounded": false,
+   "supported": 19,
+   "partial": 15,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "aposentadoria"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2387
+  },
+  {
+   "iter": 1,
+   "qid": "q5",
+   "time_s": 20.32,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Qual o prazo de prescrição para a ação de usucapião extraordinária?\"** — **não é respondida diretamente** nos documentos fornecidos.\n\nVamos analisar por que:\n\n---\n\n### 1. **Os documentos fornecidos tratam de prescrição processual e de prescrição civil, mas não especificam o prazo para a usucapião extraordinária.**\n\n- Os textos citados (como o **CPC**, **Vade Mecum**, **Lei 9263**) abordam:\n  - Prescrição intercorrente (Art. 924, § 4º do CPC);\n  - Prescrição como regra geral (Art. 192, 193, 194, 195, 196, 197);\n  - Prazos de prescrição em ações processuais (Art. 111, 112, 115);\n  - Suspensão da execução (Art. 923, 922);\n  - Prazos de prescrição em ações de usucapião **não são mencionados**.\n\n---\n\n### 2. **O prazo de prescrição para a usucapião extraordinária é definido por lei, não pelo CPC.**\n\nA **usucapião extraordinária** é um regime de usucapião previsto no **Código Civil brasileiro**, e seu prazo de prescrição é **específico**.\n\n#### De acordo com o **Código Civil (art. 1.830)**:\n> A usucapião extraordinária tem **prazo de 10 anos**, contados a partir da data em que o direito de propriedade foi exercido de forma contínua, pacífica e pública.\n\n> **Art. 1.830 do Código Civil**:\n> \"A usucapião extraordinária é a que se dá quando o proprietário do bem, por causa de força maior, não puder exercer o direito de propriedade, e o outro, por meio de uso, exerce o direito de propriedade, com o fim de garantir a segurança do bem. O prazo é de **dez anos**.\"\n\n> **Art. 1.831**:\n> \"O prazo de prescrição para a usucapião extraordinária é de **dez anos**, contados a partir da data em que o uso foi exercido de forma contínua, pacífica e pública.\"\n\n---\n\n### 3. **Conclusão:**\n\n👉 **Os documentos fornecidos não contêm a informação sobre o prazo de prescrição para a usucapião extraordinária.**\n\nPortanto, **a resposta correta à pergunta do advogado é**:\n\n> **O prazo de prescrição para a ação de usucapião extraordinária é de 10 anos, conforme previsto no art. 1.830 do Código Civil.**\n\n---\n\n✅ **Resposta final:**\n\n**O prazo de prescrição para a ação de usucapião extraordinária é de 10 anos, conforme o artigo 1.830 do Código Civil.**",
+   "answer_chars": 2175,
+   "grounded": false,
+   "supported": 14,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 0
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2562
+  },
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 19.43,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não está diretamente respondida nos documentos fornecidos**.\n\nVamos analisar o que está escrito nos textos apresentados:\n\n- O **Art. 85** menciona a **invalidez do filho ou equiparado maior de quatorze anos de idade**, que deve ser verificada em exame médico-pericial.  \n  → Isso indica que **a idade de 14 anos é relevante para a avaliação de dependência**, mas **não diz que o salário-família é pago apenas até essa idade**.\n\n- O **Art. 31** define o **salário-de-benefício**, mas **exclui o salário-família** do cálculo da renda mensal dos benefícios de prestação continuada.  \n  → Isso mostra que o salário-família é um benefício próprio, mas **não define sua condição de pagamento em função da idade**.\n\n- O **Art. 85, § 3º** diz que **o salário-família não é devido entre a suspensão e o reativamento**, **salvo se provada a frequência escolar regular**.  \n  → Isso se refere à **frequência escolar**, não à idade.\n\n- **Nenhum dos artigos apresentados menciona explicitamente até qual idade o salário-família é pago**.\n\n---\n\n### Conclusão:\n\n**Os documentos fornecidos não indicam até qual idade o salário-família é pago.**\n\nPortanto, **a resposta correta é**:\n\n> ❌ **Não há informação nos documentos apresentados sobre até qual idade o salário-família é pago.**\n\n---\n\n### Observação adicional (contexto jurídico real):\n\nNa **realidade jurídica brasileira**, o **salário-família** é pago **até a idade de 18 anos** para filhos, e **até a idade de 25 anos** para filhos com deficiência ou com condições especiais (como invalidez ou deficiência permanente).  \nMas isso **não está presente nos documentos fornecidos**.\n\nPortanto, **baseado apenas nos documentos apresentados**, **não é possível responder com certeza** qual é a idade limite.\n\n---\n\n✅ **Resposta final (baseada apenas nos documentos fornecidos):**  \n**Não há informação nos documentos apresentados sobre até qual idade o salário-família é pago.**",
+   "answer_chars": 2003,
+   "grounded": false,
+   "supported": 13,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2434
+  }
+ ],
+ "wall_time_s": 184.5,
+ "finished_at": "2026-09-12T07:12:41.504266"
+}

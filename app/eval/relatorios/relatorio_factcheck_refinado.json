@@ -1,0 +1,280 @@
+{
+  "generated_at": "2026-09-12T05:00:41.573187",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a responder sua pergunta.\n\nA aposentadoria por invalidez é um benefício previdenciário concedido ao servidor público que se encontra incapacitado para o trabalho devido à doença ou lesão. Para obter essa aposentadoria, é necessário atender aos seguintes requisitos:\n\n1. Incapacidade permanente: O servidor deve estar insuscetível de readaptação e não ser capaz de desempenhar suas atribuições no cargo;\n2. Avaliação médica: O servidor deve ser submetido a uma junta médica oficial que ateste a invalidez, caracterizada pela incapacidade para o desempenho das atribuições do cargo ou a impossibilidade de se aplicar o disposto no art. 24.\n3. Concessão da aposentadoria: A aposentadoria por invalidez é concedida automaticamente, e o valor do benefício será igual ao salário-de-benefício.\n\nÉ importante lembrar que esses requisitos estão previstos na Constituição Federal (EC nº 103/2019) e em regulamentações específicas da previdência social.\n\nEspero que isso tenha ajudado a responder sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.222,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 10,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é muito interessante! Vou ajudar a responder.\n\nDe acordo com o Decreto nº 3.048/99, art. 64, § 1º, a carência mínima para aposentadoria por tempo de contribuição é de 15, 20 ou 25 anos, dependendo do caso.\n\nPara segurados empregados, trabalhadores avulsos e contribuintes individuais que tenham trabalhado em condições especiais que prejudiquem a saúde ou a integridade física, a carência mínima é de:\n\n* 15 anos para segurados que tenham trabalhado em condições especiais que prejudiquem a saúde;\n* 20 anos para segurados que tenham trabalhado em condições especiais que prejudiquem a integridade física;\n* 25 anos para segurados que tenham trabalhado em condições especiais que prejudiquem tanto a saúde quanto a integridade física.\n\nEssa é a carência mínima para aposentadoria por tempo de contribuição, como previsto no Decreto nº 3.048/99.",
+      "num_sources": 15,
+      "avg_distance": 0.2237,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 5,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "A pergunta é muito interessante!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Excelente pergunta!\n\nDe acordo com a Consolidação das Leis do Trabalho (CLT), art. 2º, § 1º, considera-se empregador a empresa que assume os riscos da atividade econômica e admite, assalaria e dirige a prestação pessoal de serviços.\n\nJá o art. 7º da CLT define acidente do trabalho como \"qualquer lesão corporal ou doença contrada em decorrência direta do trabalho, independentemente de ter sido este o único agente causador\".\n\nQuanto às obrigações do empregador, é importante mencionar que, nos casos de acidente do trabalho, o empregador tem a seguinte responsabilidade:\n\n* Art. 340 do Decreto nº 3.048/99: O Ministério do Trabalho e Emprego fiscalizará e os sindicatos e entidades representativas de classe acompanharão o fiel cumprimento das normas relativas ao acidente do trabalho.\n* Art. 339 do Decreto nº 3.048/99: Os médicos peritos da previdência social devem comunicar formalmente aos demais órgãos interessados na providência, inclusive para aplicação e cobrança da multa devida, sempre que constatarem o descumprimento do disposto nos arts. 338 e 343.\n\nAlém disso, é importante lembrar que a empresa também tem a responsabilidade de anotar na Carteira de Trabalho e Previdência Social (CTPS) dos empregados o salário fixo e a média dos valores das gorjetas referente aos últimos doze meses, como previsto no art. 8º da CLT.\n\nEssas são as principais obrigações do empregador em caso de acidente do trabalho.",
+      "num_sources": 15,
+      "avg_distance": 0.2228,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "empregador"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 2,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Já o art. 7º da CLT define acidente do trabalho como \"qualquer lesão corporal ou doença contrada em decorrência direta do trabalho, independentemente de ter sido este o único agente causador\".",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Além disso, é importante lembrar que a empresa também tem a responsabilidade de anotar na Carteira de Trabalho e Previdência Social (CTPS) dos empregados o salário fixo e a média dos valores das gorjetas referente aos últimos doze meses, como previsto no art. 8º da CLT.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a esclarecer essa dúvida.\n\nA Lei Complementar nº 142 (LC 142) é uma norma que regula o Regime de Previdência dos Servidores Públicos Federais. Para se aposentar com as regras da LC 142, você precisará atender aos seguintes requisitos:\n\n1. Tempo de contribuição: Você precisará ter pelo menos 35 anos de contribuição para o Regime Geral de Previdência Social (RGPS) ou 25 anos de contribuição se for mulher.\n2. Idade: A idade mínima para aposentadoria é 60 anos para os homens e 55 anos para as mulheres.\n3. Remuneração: Você precisará ter uma remuneração igual ou superior ao valor mínimo estabelecido pela Lei nº 8.212/91, que é atualizado anualmente.\n\nAlém disso, você também precisará atender às seguintes condições:\n\n* Ter exercido cargo público por pelo menos 10 anos;\n* Não ter sido punido com pena de demissão ou suspensão superior a 30 dias;\n* Não ter sido condenado por crime doloso ou culposo.\n\nÉ importante lembrar que essas são as regras gerais e que podem haver exceções específicas para determinados casos. É sempre recomendável consultar um advogado especializado em direito previdenciário para obter orientação personalizada sobre sua situação específica.\n\nEspero que isso tenha ajudado a esclarecer sua dúvida!",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.2311,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 9,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Para se aposentar com as regras da LC 142, você precisará atender aos seguintes requisitos:\n\n1.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 10,
+            "text": "Além disso, você também precisará atender às seguintes condições:\n\n* Ter exercido cargo público por pelo menos 10 anos;\n* Não ter sido punido com pena de demissão ou suspensão superior a 30 dias;\n* Não ter sido condenado por crime doloso ou culposo.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 12,
+            "text": "É sempre recomendável consultar um advogado especializado em direito previdenciário para obter orientação personalizada sobre sua situação específica.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 13,
+            "text": "Espero que isso tenha ajudado a esclarecer sua dúvida!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta do advogado refere-se ao prazo de prescrição para a ação de usucapião extraordinária. Para responder essa pergunta, precisamos analisar as disposições legais pertinentes.\n\nNo Brasil, o prazo de prescrição para a ação de usucapião ordinária é de 15 anos (art. 1.032 do Código Civil Brasileiro). No entanto, no caso da usucapião extraordinária, o prazo de prescrição pode ser diferente.\n\nA Lei nº 8.004/90 estabelece que a usucapião extraordinária tem um prazo de prescrição de 30 anos (art. 1.033 do Código Civil Brasileiro). Portanto, para uma ação de usucapião extraordinária, o prazo de prescrição é de 30 anos.\n\nEspero que essa resposta tenha ajudado!",
+      "num_sources": 15,
+      "avg_distance": 0.2571,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "15 anos",
+          "30 anos",
+          "30 anos"
+        ],
+        "dispositivo_claims": [
+          "art. 1",
+          "art. 1"
+        ]
+      }
+    }
+  ]
+}

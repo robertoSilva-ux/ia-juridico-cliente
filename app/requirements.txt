@@ -1,0 +1,12 @@
+streamlit
+langchain
+langchain-community
+psycopg2-binary
+pgvector
+langchain-ollama
+pypdf
+pydantic
+streamlit-authenticator
+bcrypt
+python-dotenv
+ruff

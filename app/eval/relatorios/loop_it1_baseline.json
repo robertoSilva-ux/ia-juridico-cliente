@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-12T05:36:18.693383",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "De acordo com o Art. 88 do Decreto nº 3048/99, o direito ao salário-família cessa automaticamente:\n\nI - por morte do filho ou equiparado, a contar do mês seguinte ao do óbito;\n\nII - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\n\nPortanto, o salário-família é pago até que o dependente complete 14 anos de idade, exceto se for inválido.",
+      "num_sources": 15,
+      "avg_distance": 0.2324,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "quatorze",
+          "14",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

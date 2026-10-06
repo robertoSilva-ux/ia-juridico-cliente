@@ -1,0 +1,431 @@
+{
+ "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
+ "num_ctx": "default",
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T06:48:39.984578",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 29.1,
+   "error": null,
+   "answer": "O salário-família **é pago até que o filho ou equiparado complete 14 anos de idade**, **salvo se for inválido**.\n\nEsse limite está previsto no **Art. 88 do Decreto 3.048/99**, que diz:\n\n> \"O direito ao salário-família cessa automaticamente:  \n> I – por morte do filho ou equiparado, a contar do mês seguinte ao do óbito;  \n> II – quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\"\n\nPortanto, **a resposta à pergunta do advogado é**:\n\n👉 **O salário-família é pago até a completar 14 anos de idade, exceto se o dependente for inválido.**\n\n> ⚠️ Observação: Embora o artigo 16 da Lei 8.213 (Lei de Previdência Social) mencione que o cônjuge, companheiro e filho menor de 21 anos ou inválido são beneficiários, o **prazo de pagamento do salário-família** (um benefício específico) é definido no Decreto 3.048/99, e **não se estende além dos 14 anos**, conforme acima.",
+   "answer_chars": 946,
+   "grounded": false,
+   "supported": 2,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2346
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 25.58,
+   "error": null,
+   "answer": "A pergunta apresentada — **\"Até qual idade do dependente é pago o salário família?\"** — **não está diretamente respondida nos documentos fornecidos** (DOC 7 a DOC 13), que tratam de temas como:\n\n- Salário-maternidade  \n- Salário-de-contribuição  \n- Benefícios de previdência social (como salário-família, pensão por morte, etc.)  \n- Cálculo do salário-de-benefício  \n- Responsabilidades de empresas e trabalhadores avulsa  \n\nNo entanto, **o artigo 6º do Decreto 3.048/99** menciona o **salário-família** como um benefício previsto, mas **não especifica a idade máxima do dependente** para o recebimento desse benefício.\n\n### Conclusão:\n\n👉 **Os documentos fornecidos não contêm a informação sobre a idade máxima do dependente para o pagamento do salário-família.**\n\n---\n\n### Informação complementar (fora dos documentos):\n\nEm geral, **de acordo com a legislação brasileira vigente (Lei nº 8.213/1991, regulamentada pelo Decreto 3.048/99)**, o **salário-família** é pago aos dependentes **até a idade de 18 anos**, sendo que:\n\n- Para **crianças**, o benefício é pago até completar **18 anos**.\n- Para **filhos com deficiência ou com necessidades especiais**, pode haver prorrogação até a idade de **25 anos**, dependendo da condição.\n- O benefício **não é pago após a maioridade**, a menos que haja justificativa especial (como deficiência ou dependência).\n\n> ⚠️ **Importante:** Essa informação (sobre idade máxima) **não está nos documentos fornecidos**, então não pode ser inferida diretamente a partir deles.\n\n---\n\n### Resposta final:\n\n**Os documentos apresentados não indicam até qual idade o salário-família é pago. Portanto, não é possível responder com base apenas nos textos fornecidos.**\n\nSe for necessário, a resposta correta com base na legislação brasileira geral é:\n\n> **O salário-família é pago aos dependentes até a idade de 18 anos, com possibilidade de prorrogação para dependentes com deficiência ou condições especiais até a idade de 25 anos.**\n\nMas, **como a pergunta foi feita com base nos documentos fornecidos**, a resposta precisa ser:\n\n> ❌ **Não há informação sobre a idade máxima do dependente no conteúdo fornecido.**",
+   "answer_chars": 2142,
+   "grounded": false,
+   "supported": 4,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2421
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 25.56,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos fornecidos (DOC 7 a DOC 13).\n\nVamos analisar o que está disponível:\n\n---\n\n### 1. **O que os documentos dizem sobre o salário-família?**\n\n- **Art. 31, Decreto 3.048/99**:  \n  > \"Salário-de-benefício é o valor básico utilizado para cálculo da renda mensal dos benefícios de prestação continuada, inclusive os regidos por normas especiais, exceto o salário-família, a pensão por morte, o salário-maternidade e os demais benefícios de legislação especial.\"  \n  → Isso confirma que o **salário-família é um benefício especial**, mas **não menciona a idade máxima do dependente**.\n\n- **Art. 199, do Vademécum do Senado Federal (3ª edição)**:  \n  > \"Quando o pai e mãe forem servidores públicos e viverem em comum, o salário-família será pago a um deles; quando separados, será pago a um e outro, de acordo com a distribuição.\"  \n  → Este trecho trata apenas da **distribuição do benefício entre pais**, **não da idade do dependente**.\n\n---\n\n### 2. **O que a legislação brasileira prevê sobre a idade máxima para o salário-família?**\n\nApesar de **não estar explicitamente mencionado nos documentos fornecidos**, **a legislação brasileira atual (Lei nº 8.213/1991, art. 199, e a legislação previdenciária)** prevê que:\n\n> O **salário-família** é pago aos **dependentes menores de 18 anos** ou **com deficiência**, e **não é pago após a maioridade** (ou seja, após os 18 anos).\n\nAlém disso, **a Lei nº 8.213/1991**, que instituiu o sistema previdenciário, **não prevê o pagamento do salário-família após os 18 anos**, exceto em casos específicos de deficiência ou dependência especial.\n\n---\n\n### ✅ Conclusão:\n\n**Os documentos fornecidos não contêm a informação sobre a idade máxima do dependente para o pagamento do salário-família.**\n\nNo entanto, **com base na legislação previdenciária brasileira vigente**, a resposta correta é:\n\n> **O salário-família é pago até a idade de 18 anos.**\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 18 anos.**\n\n> ⚠️ *Observação: Embora essa informação não esteja explicitamente nos documentos apresentados, é uma previsão consolidada da legislação previdenciária brasileira (Lei 8.213/1991 e normas complementares), e é a resposta correta com base no contexto jurídico brasileiro.*",
+   "answer_chars": 2368,
+   "grounded": false,
+   "supported": 6,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.236
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 28.67,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos apresentados.\n\nVamos analisar com base nos textos fornecidos:\n\n---\n\n### 1. **O que dizem os documentos?**\n\nOs documentos apresentados (Lei 8213, Decreto 3048, artigos 16, 22, 26, 312, etc.) **não mencionam explicitamente a idade máxima até a qual o salário-família é pago**.\n\n- O **art. 16** da Lei 8213 trata dos **dependentes** do segurado, mas **não especifica a idade limite** para o salário-família.\n- O **art. 26** do Decreto 3048 menciona o **salário-família** como um benefício, mas **não define a idade máxima**.\n- O **art. 16**, em sua redação atual (Lei 12.470/2011), define quem é considerado dependente (cônjuge, companheiro, filho não emancipado, menor de 21 anos ou inválido ou com deficiência mental), mas **não menciona a idade limite para o salário-família**.\n\n---\n\n### 2. **O que é o salário-família?**\n\nO salário-família é um benefício previdenciário pago ao segurado para compensar a perda de renda por causa de filhos menores ou dependentes. Ele é concedido **para dependentes menores de idade** ou **em situação de dependência**.\n\nNo entanto, **a legislação não estabelece uma idade máxima** para o pagamento do salário-família. O pagamento **é geralmente concedido até a emancipação do filho ou a idade de 21 anos**, conforme o art. 16 da Lei 8213.\n\n> **Art. 16, I — \"o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido\"**\n\nIsso indica que o filho é considerado dependente **até os 21 anos de idade**, ou se for inválido.\n\n---\n\n### 3. **Conclusão**\n\nApesar de não haver uma menção explícita ao **máximo de idade** para o salário-família nos documentos fornecidos, **a norma que define quem é dependente** (art. 16, Lei 8213) **estabelece que o filho é dependente até os 21 anos de idade**.\n\nPortanto, **o salário-família é pago até a idade de 21 anos**, ou até a emancipação do filho, **caso o filho seja maior de 21 anos**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 21 anos, ou até a emancipação do dependente, conforme previsto no art. 16, I da Lei 8213/1990.**\n\n> ⚠️ *Observação: Embora os documentos apresentados não mencionem explicitamente o salário-família, a idade máxima de 21 anos para o filho como dependente é claramente estabelecida no art. 16 da Lei 8213, que define quem é considerado dependente para fins de benefícios previdenciários.*",
+   "answer_chars": 2477,
+   "grounded": true,
+   "supported": 17,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2361
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 29.14,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos fornecidos (Lei 8.213, Decreto 3.048/99, etc.).\n\nNo entanto, com base na **Lei nº 8.213/1992**, que institui o **salário-família**, e nos **artigos e redações** apresentados, podemos analisar o que está claro e o que está ausente:\n\n---\n\n### 🔍 O que os documentos dizem:\n\n- O **salário-família** é um benefício concedido aos **segurados** que têm **dependentes**.\n- O **artigo 19** da Lei 8.213 (que está implícito nos documentos) prevê que o salário-família é pago **para os dependentes**.\n- O **artigo 19, § 2º** da Lei 8.213 (como citado em [DOC 7]) diz que **o salário-família é pago ao segurado**, **exceto ao salário-família, à reabilitação profissional e ao auxílio-acidente, quando empregado** — mas isso não define a **idade máxima** do dependente.\n\n- O **Decreto 3.048/99** (art. 6º e outros) menciona o salário-família como um dos benefícios, mas **não especifica a idade máxima do dependente**.\n\n---\n\n### 📚 O que a legislação brasileira prevê (fora dos documentos fornecidos):\n\nNa **realidade jurídica brasileira**, o **salário-família** é pago **até a idade de 18 anos** para filhos, e **até 21 anos** para filhos com deficiência ou que estejam cursando ensino superior (em casos específicos).\n\nMas **isso não está nos documentos fornecidos**.\n\n---\n\n### ✅ Conclusão:\n\n**Nenhum dos documentos apresentados (Lei 8.213, Decreto 3.048/99, etc.) menciona a idade máxima do dependente para o pagamento do salário-família.**\n\nPortanto, **a resposta correta à pergunta do advogado, com base apenas nos documentos fornecidos, é:**\n\n> ❌ **Não há informação sobre a idade máxima do dependente no salário-família nos documentos apresentados.**\n\n---\n\n### ✅ Resposta final (para o advogado):\n\n> **Os documentos fornecidos não especificam até qual idade o salário-família é pago aos dependentes. Portanto, não é possível determinar, com base apenas nos textos apresentados, até qual idade o benefício é concedido.**\n\n> ⚠️ Para responder com precisão, seria necessário consultar a **Lei nº 8.213/1992**, especialmente o **art. 19**, ou a **Lei nº 12.470/2011**, que trata da previdência e dos benefícios familiares, que pode conter a regra sobre a idade máxima dos dependentes.\n\n> Em geral, a legislação brasileira prevê o pagamento do salário-família até a **idade de 18 anos**, com possibilidade de prorrogação até **21 anos** para dependentes com deficiência ou em curso de ensino superior — mas isso **não está presente nos documentos fornecidos**.\n\n---\n\n✅ **Resposta final (resumida):**  \n**Não há informação nos documentos fornecidos sobre a idade máxima do dependente para o pagamento do salário-família.**",
+   "answer_chars": 2745,
+   "grounded": false,
+   "supported": 6,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2403
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 15.16,
+   "error": null,
+   "answer": "O salário-família **é pago até que o filho complete 14 anos de idade**, **salvo se o filho for inválido**.\n\nEsse limite está previsto no **Art. 88 do Decreto 3.048/99**, que diz:\n\n> \"O direito ao salário-família cessa automaticamente:  \n> I - por morte do filho ou equiparado, a contar do mês seguinte ao do óbito;  \n> II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\"\n\n### Resumo:\n- **Até 14 anos**: o salário-família é pago.\n- **A partir de 14 anos**: o benefício **cessa automaticamente**, **a menos que o dependente seja inválido** (em que caso, o benefício continua).\n- O corte é **automático**, não depende de decisão judicial.\n\nPortanto, **a idade máxima para o pagamento do salário-família é 14 anos**, com exceção de casos de invalidez.",
+   "answer_chars": 835,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 31.47,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é diretamente respondida nos documentos fornecidos**.\n\nVamos analisar com base nos textos apresentados:\n\n---\n\n### 1. **O que os documentos dizem sobre o salário família?**\n\n- O **Decreto 3.048/1999 (art. 22)** menciona a **inscrição de dependentes**, mas **não especifica a idade limite para o pagamento do salário-família**.\n- O **art. 22** trata da **inscrição do dependente**, exigindo documentos como certidões de casamento, nascimento, etc., mas **não menciona idade**.\n- O **art. 98 e 100** tratam do **salário-maternidade**, não do salário-família.\n- A **Lei 8.213/1991 (Lei do RGPS)** menciona o salário-família como benefício, mas **não define a idade máxima** para o seu pagamento.\n- O **art. 9º da Lei 8.213** (não citado aqui) e outros dispositivos legais (como o art. 10 da Lei 8.213) **definem o salário-família como benefício para dependentes**, mas **não estabelecem uma idade máxima**.\n\n---\n\n### 2. **O que a legislação brasileira prevê sobre a idade limite do salário família?**\n\nApesar dos documentos fornecidos **não mencionarem a idade limite**, **a legislação brasileira atual (em vigor)** **não estabelece uma idade máxima para o pagamento do salário-família**.\n\nO **salário-família** é pago **durante a vida do segurado**, **até o falecimento do segurado ou a emancipação do dependente**, e **não há limite de idade** para o seu pagamento, **a menos que o dependente seja emancipado ou atinja a maioridade**.\n\nNo entanto, **a emancipação** (ou a condição de menor de 21 anos ou inválido) é mencionada em:\n\n> \"o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente\"\n\nIsso indica que **o salário-família é pago até a emancipação ou até a maioridade (21 anos)**, **mas não que a idade máxima seja 21 anos** — **a emancipação é o critério de desistência**, não uma idade fixa.\n\n---\n\n### 3. **Conclusão**\n\n**Os documentos fornecidos não indicam uma idade máxima para o pagamento do salário-família.**\n\nNo entanto, **a prática jurídica e a legislação vigente** (não explicitada aqui) **considera que o salário-família é pago até a emancipação do dependente**, que ocorre:\n\n- **Ao atingir 21 anos de idade**, **se não houver deficiência ou incapacidade**;\n- **Ou quando o dependente for emancipado judicialmente**, por deficiência ou incapacidade.\n\n---\n\n### ✅ Resposta final:\n\n> **O salário-família é pago até a emancipação do dependente, o que ocorre geralmente ao atingir a idade de 21 anos, ou quando o dependente for declarado judicialmente incapaz ou emancipado.**\n\n> **Portanto, a idade máxima mencionada nos documentos fornecidos é de 21 anos**, embora **não seja explicitamente estabelecida como limite de pagamento do salário-família**.\n\n> ⚠️ **Observação**: A resposta baseia-se na **interpretação do texto fornecido** e na **legislação brasileira comum**, pois **não há menção explícita à idade máxima no conteúdo apresentado**.\n\n---\n\n✅ **Resposta direta à pergunta:**\n\n> **O salário família é pago até a emancipação do dependente, geralmente até a idade de 21 anos.**",
+   "answer_chars": 3263,
+   "grounded": false,
+   "supported": 15,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2378
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 31.06,
+   "error": null,
+   "answer": "A pergunta **\"Até qual idade do dependente é pago o salário família?\"** **não é respondida diretamente** nos documentos fornecidos (DOCs 7 a 12), que tratam de aspectos como:\n\n- O cálculo do salário-de-benefício;\n- O pagamento do salário-maternidade;\n- O salário-família para trabalhadores avulsos;\n- A suspensão do salário-família por falta de comprovação de frequência escolar;\n- O regime geral de previdência social e os benefícios como pensão por morte, salário-maternidade, etc.\n\nNo entanto, **o que pode ser inferido com base no conteúdo dos documentos** é o seguinte:\n\n---\n\n### 🔍 Análise dos documentos:\n\n- O **art. 85** do Decreto 3.048/99 menciona o salário-família, mas **não especifica a idade máxima** do dependente.\n- O **art. 100** fala sobre o salário-maternidade para trabalhadoras avulsas, mas **não menciona idade**.\n- O **art. 6º** define os regimes da previdência, mas **não detalha a idade limite** para o salário-família.\n- O **art. 85**, em parte, fala sobre suspensão do salário-família **por falta de comprovação de frequência escolar**, o que indica que o benefício é **condicionado à escolaridade do dependente**, mas **não define uma idade máxima**.\n\n---\n\n### 📚 Conhecimento jurídico geral (não presente nos documentos):\n\nNa **legislação brasileira**, o **salário-família** é um benefício concedido ao **dependente** (filho ou outro familiar) e é pago **até a idade de 18 anos**, **ou até 21 anos se for estudante universitário**.\n\nEsse limite é estabelecido pela **Lei nº 8.213/1991**, que instituiu o salário-família, e por **normas do Regime Geral de Previdência Social (RGPS)**, conforme o **Decreto 3.048/99**.\n\n> **Art. 100 do Decreto 3.048/99** (revisado):  \n> O salário-família será pago ao dependente do segurado, **até a idade de 18 anos**, **ou até 21 anos se estiver cursando ensino superior**.\n\n---\n\n### ✅ Resposta à pergunta:\n\n> **Até qual idade do dependente é pago o salário família?**\n\n👉 **O salário-família é pago até a idade de 18 anos, ou até 21 anos se o dependente estiver cursando ensino superior.**\n\n---\n\n### ⚠️ Observação importante:\n\nEmbora **esse conteúdo não esteja explicitamente mencionado nos documentos fornecidos**, é um **fato jurídico consolidado** no sistema previdenciário brasileiro, e **a ausência de referência clara nos documentos** pode indicar que o conteúdo foi omitido ou que a pergunta exige conhecimento de legislação geral, não apenas dos documentos apresentados.\n\nPortanto, **com base na legislação vigente e no contexto previdenciário brasileiro**, a resposta é:\n\n> ✅ **Até 18 anos, ou até 21 anos se for estudante universitário.**\n\nSe a pergunta for restrita apenas aos documentos fornecidos, **a resposta seria: \"Não há informação sobre a idade máxima no documento fornecido.\"**\n\nMas, como o contexto é jurídico e a pergunta é comum no direito previdenciário, a resposta mais adequada é:\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 18 anos, ou até 21 anos se o dependente estiver cursando ensino superior.**  \n*(Esse limite é previsto na legislação previdenciária brasileira, embora não esteja explicitamente mencionado nos documentos fornecidos.)*",
+   "answer_chars": 3155,
+   "grounded": false,
+   "supported": 7,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 18.36,
+   "error": null,
+   "answer": "O salário-família é pago **até o completar 14 anos de idade** do dependente.\n\n### Fundamento legal:\nConforme estabelecido no **Art. 88 do Decreto 3.048/99**, o direito ao salário-família **cessa automaticamente** quando o filho ou equiparado **completa quatorze anos de idade**, salvo se for inválido.\n\n> **Art. 88. O direito ao salário-família cessa automaticamente:**  \n> **II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.**\n\n### Observações:\n- A exceção é o caso de **deficiência ou invalidez**, onde o benefício continua até a morte do dependente.\n- O limite de 14 anos se aplica **independentemente da condição de saúde**, exceto quando há comprovação judicial de invalidez.\n- O benefício é pago **pelo Instituto Nacional do Seguro Social (INSS)** a partir do mês seguinte ao aniversário do completar 14 anos.\n\n### Conclusão:\n✅ **Até 13 anos e 11 meses** (ou seja, até o mês anterior ao completar 14 anos) – o salário-família é pago.  \n❌ **A partir do 14º ano de idade**, o benefício **cessa automaticamente**, salvo se o dependente for inválido.\n\n---\n\n**Resposta final:**  \n👉 **O salário-família é pago até a idade de 14 anos, salvo se o dependente for inválido.**",
+   "answer_chars": 1260,
+   "grounded": true,
+   "supported": 11,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.236
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 28.95,
+   "error": null,
+   "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos para responder com precisão.\n\n---\n\n### Análise dos documentos:\n\n1. **Documento [DOC 7] – Lei 8213, art. 16**  \n   Trata sobre os **benefícios de dependente** no Regime Geral de Previdência Social.  \n   O texto menciona:\n   - Cônjuge, companheiro, companheira e **filho não emancipado**, menor de 21 anos ou inválido.\n   - Inclusão de **deficiência intelectual ou mental** que o torne incapaz (art. 16, I, redação da Lei 12.470/2011).\n\n   → **Não menciona o salário família**, mas define quem é dependente.\n\n2. **Documento [DOC 11] – Decreto 3048, art. 6**  \n   Lista os benefícios do Regime Geral de Previdência Social:  \n   > **IV - salário-família e auxílio-reclusão para os dependentes dos segurados de baixa renda**  \n   → Confirma que o **salário-família** é um benefício concedido a **dependentes de segurados de baixa renda**.\n\n3. **Documento [DOC 10] – Decreto 3048, art. 312**  \n   Trata da concessão de benefícios para beneficiários no exterior e sobre procedimentos.  \n   → Irrelevante para a idade limite do salário família.\n\n4. **Documento [DOC 9] – Lei 8213, § 3º e § 4º**  \n   Trata do cálculo do salário-de-benefício, não da idade do dependente.\n\n---\n\n### Conclusão:\n\nOs documentos **não especificam explicitamente até qual idade o salário-família é pago**.\n\nNo entanto, **o salário-família é um benefício concedido aos dependentes de baixa renda**, e **a condição de dependência é definida pelo art. 16 da Lei 8213**, que prevê:\n\n> \"o filho não emancipado, de qualquer condição, menor de 21 anos ou inválido\"\n\nOu seja, **o filho é considerado dependente até os 21 anos de idade** (ou se for inválido).\n\nAinda que o salário-família seja concedido apenas a **segurados de baixa renda**, a **condição de dependência** (e, portanto, a idade máxima para o benefício) **é definida pelo limite de 21 anos**.\n\n---\n\n### Resposta final:\n\n✅ **O salário-família é pago até a idade de 21 anos para os dependentes (filhos não emancipados).**\n\n> **Resposta:**  \n> **O salário-família é pago até a idade de 21 anos para os dependentes.**\n\n---\n\n⚠️ Observação:  \nA legislação não define uma idade máxima específica para o salário-família como um benefício em si, mas a **condição de dependência** para o direito ao benefício (como o salário-família) é definida pela **idade de 21 anos**, conforme o art. 16 da Lei 8213. Após os 21 anos, o filho passa a ser considerado **não dependente**, e o benefício é interrompido.",
+   "answer_chars": 2546,
+   "grounded": true,
+   "supported": 18,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2394
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 30.9,
+   "error": null,
+   "answer": "A pergunta apresentada — **\"Até qual idade do dependente é pago o salário família?\"** — **não está diretamente respondida nos documentos fornecidos (DOC 7 a DOC 13)**.\n\nVamos analisar com base no conteúdo fornecido:\n\n---\n\n### 1. **O que dizem os documentos?**\n\n- **DOC 7 (Lei 8.213)**: Fala sobre o cálculo do *salário-de-benefício*, incluindo ganhos habituais, mas **não menciona a idade limite para o pagamento do salário-família**.\n- **DOC 8 (Decreto 3.048/99)**: Define que o *salário-família* é um benefício previsto, mas **não especifica a idade máxima do dependente**.\n- **DOC 9 (Decreto 3.048/99, art. 6)**: Classifica o *salário-família* como um benefício, mas **não menciona idade**.\n- **DOC 10 (Decreto 3.048/99, art. 31)**: Define que o *salário-de-benefício* é usado para cálculo de benefícios de prestação continuada, **exceto o salário-família**, mas **não menciona a idade do dependente**.\n- **DOC 12 (art. 22)**: Trata da **inscrição do dependente**, exigindo documentos, mas **não define idade limite**.\n- **DOC 13 (art. 312)**: Fala sobre o processo de requerimento, mas **não menciona idade**.\n\n---\n\n### 2. **Conclusão com base nos documentos fornecidos**\n\n👉 **Nenhum dos documentos apresentados menciona a idade máxima do dependente para o pagamento do salário-família.**\n\nPortanto, **não é possível responder com precisão a pergunta com base apenas nos documentos fornecidos**.\n\n---\n\n### 3. **O que sabemos do tema fora dos documentos?**\n\nNa **legislação brasileira atual**, o **salário-família** é pago aos dependentes **até a idade de 21 anos**, conforme previsto no **art. 198 da Lei nº 8.213/1991** (com atualizações).\n\n> **Art. 198 – O salário-família será pago aos dependentes até a idade de 21 anos, exceto quando o dependente for maior de 21 anos e tiver sido inscrito como dependente por motivo de deficiência ou doença grave.**\n\nMas **esse conteúdo não está presente nos documentos fornecidos**.\n\n---\n\n### ✅ Resposta final:\n\n> **Com base apenas nos documentos apresentados (DOC 7 a DOC 13), não há menção à idade máxima do dependente para o pagamento do salário-família. Portanto, não é possível determinar essa idade a partir dos textos fornecidos.**\n\nSe a pergunta for feita em contexto de legislação brasileira atual, a resposta seria: **até a idade de 21 anos**, conforme o art. 198 da Lei 8.213/1991 — **mas isso não está presente nos documentos fornecidos**.\n\n---\n\n📌 **Resposta direta à pergunta (com base nos documentos):**  \n**Não há informação sobre a idade máxima do dependente no conteúdo fornecido.**",
+   "answer_chars": 2544,
+   "grounded": false,
+   "supported": 16,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2442
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 27.4,
+   "error": null,
+   "answer": "A pergunta do advogado é: **\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos para responder com precisão.\n\n---\n\n### Análise dos documentos:\n\n#### [DOC 8] – Decreto 3048, art. 85:\n> \"A invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\"\n\n→ Isso indica que **a condição de dependente para o salário-família pode ser afetada a partir dos 14 anos**, mas **não define diretamente a idade máxima para o benefício**.\n\n#### [DOC 9] – Lei 8213, art. 16 (Redação da Lei nº 12.470, de 2011):\n> \"I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\"\n\n→ Aqui está a **cláusula-chave**: o filho é considerado dependente **menor de 21 anos** ou inválido.\n\n→ O **limite de idade de 21 anos** é o que define o **fim da condição de dependente para o salário-família**.\n\n#### [DOC 8] – Art. 85 (continuação):\n> \"O salário-família será suspenso, até que a documentação seja apresentada. [...] A comprovação de freqüência escolar será feita mediante apresentação de documento emitido pela escola...\"\n\n→ Isso se aplica **apenas quando o dependente está em escola**, ou seja, **a suspensão ocorre por falta de comprovação de frequência**, não por idade.\n\n---\n\n### Conclusão:\n\nO **salário-família** é pago **para dependentes menores de 21 anos**.\n\nA **idade máxima** para o benefício de salário-família é, portanto, **20 anos completos**.\n\n> **Importante**: Após os 21 anos, o filho **não é mais considerado dependente** no regime geral de previdência social, e, consequentemente, **não tem direito ao salário-família**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 21 anos. Ou seja, para dependentes menores de 21 anos.**\n\n> **Resposta direta à pergunta:**  \n**O salário família é pago até a idade de 21 anos.**",
+   "answer_chars": 2061,
+   "grounded": false,
+   "supported": 11,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2329
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 23.5,
+   "error": null,
+   "answer": "O salário-família é pago **até a idade de 21 anos** para o filho (ou equiparado) do segurado.\n\n### Fundamento Legal:\nO artigo 16 da **Lei nº 8.213/1991**, com redação dada pela **Lei nº 9.032/1995** e posteriormente pela **Lei nº 12.470/2011**, estabelece que os seguintes são beneficiários do Regime Geral de Previdência Social na condição de dependentes:\n\n> **I – o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;**  \n> **I – o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.**\n\n### Conclusão:\nPortanto, **o salário-família é pago até a idade de 21 anos** para filhos (ou equiparados) que não estejam emancipados.\n\n> ⚠️ **Importante:**  \n> A idade de 21 anos é um limite de **idade**, não de tempo. Após completar 21 anos, o filho perde o direito ao salário-família, **mesmo que seja inválido**.  \n> No entanto, se o filho for **inválido** (ou deficiente intelectual ou mental), o direito ao salário-família **pode ser mantido**, conforme previsto no art. 16, **mesmo após os 21 anos**, desde que comprovado judicialmente.\n\n---\n\n✅ **Resposta final:**  \n**O salário-família é pago até a idade de 21 anos para o filho ou equiparado. Após os 21 anos, o benefício é suspensão, exceto se o dependente for inválido ou deficiente intelectual/mental, comprovado judicialmente.**",
+   "answer_chars": 1558,
+   "grounded": true,
+   "supported": 7,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2339
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 27.09,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos fornecidos.\n\nVamos analisar com base nos textos apresentados:\n\n---\n\n### 1. **O que dizem os documentos sobre o \"salário-família\"?**\n\nNo **Decreto 3048/1999 (art. 6)**, há a menção:\n\n> **IV - salário-família e auxílio-reclusão para os dependentes dos segurados de baixa renda**\n\nOu seja, o **salário-família é um benefício concedido a dependentes**, especialmente de **segurados de baixa renda**.\n\nMas **não há nenhuma menção à idade máxima ou mínima** para o recebimento do salário-família.\n\n---\n\n### 2. **O que dizem sobre a idade dos dependentes?**\n\nHá, sim, referências à **idade dos dependentes** no artigo 16 da **Lei 8.213/1991**, que define quem é considerado dependente:\n\n> **\"o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente\"**\n\nOu seja, **o filho é considerado dependente até os 21 anos de idade**, ou se for inválido.\n\nMas **isso se refere ao direito de dependência**, não ao **salário-família**.\n\n---\n\n### 3. **O salário-família tem limite de idade?**\n\n**Não há nenhuma norma nos documentos fornecidos que estabeleça um limite de idade para o pagamento do salário-família.**\n\nO salário-família é um benefício concedido **para dependentes**, e o critério principal é o **status de dependência**, que, para filhos, é até os 21 anos ou quando inválido.\n\nPortanto, **o salário-família é pago até a idade de 21 anos**, **se o filho for menor de 21 anos e não emancipado**.\n\n---\n\n### ✅ Conclusão:\n\n> **O salário-família é pago até a idade de 21 anos**, **quando o dependente é filho não emancipado**.\n\nEsse limite está **implícito no art. 16 da Lei 8.213/1991**, que define o limite de idade para o direito de dependência.\n\n---\n\n### 📌 Resposta final:\n\n**O salário-família é pago até a idade de 21 anos, quando o dependente é filho não emancipado.**\n\n> ⚠️ *Observação:* Caso o dependente seja inválido, o benefício pode ser concedido mesmo após os 21 anos. Mas, em geral, o limite de idade é de 21 anos para filhos não emancipados.",
+   "answer_chars": 2277,
+   "grounded": false,
+   "supported": 13,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2394
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 31.84,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos apresentados (Decreto 3.048/99, Lei 8.213, etc.).\n\nNo entanto, com base no **contexto legal brasileiro**, especialmente no **Decreto 3.048/99 (Lei de Previdência Social)**, podemos esclarecer o seguinte:\n\n### ✅ Resposta direta:\n**O salário-família é pago até a idade de 18 anos para filhos, e até a idade de 25 anos para filhos com deficiência ou com condições especiais (como deficiência física ou mental).**\n\nMas atenção: **esse limite não está explicitamente mencionado nos documentos fornecidos** (como o Decreto 3.048/99 ou a Lei 8.213). A informação sobre a **idade máxima** do dependente para o salário-família é **prevista em normas complementares ou em dispositivos específicos de regulamentação do INSS**, que **não foram incluídos** no conjunto de documentos apresentados.\n\n---\n\n### 📚 Fonte legal (contextual):\nA **regra sobre a idade máxima para o salário-família** está prevista no **Decreto 3.048/99**, no **Art. 26**, que menciona os benefícios como o salário-família, mas **não especifica a idade máxima**.\n\nA **regra sobre a idade** é, na verdade, estabelecida no **Decreto 3.048/99, art. 26, § 3º**, que diz:\n\n> \"O salário-família será pago aos dependentes até a idade de 18 anos, exceto nos casos de filhos com deficiência ou com condições especiais, que serão beneficiados até a idade de 25 anos.\"\n\n**Mas esse trecho não está presente nos arquivos fornecidos.**\n\n---\n\n### Conclusão:\n👉 **Com base apenas nos documentos apresentados, não é possível determinar até qual idade o salário-família é pago.**\n\n✅ **Resposta correta e precisa (com base nos documentos fornecidos):**  \n**Os documentos apresentados não especificam a idade máxima do dependente para o pagamento do salário-família.**\n\n---\n\n### Sugestão para o advogado:\nPara responder com precisão, o advogado deverá consultar o **Decreto 3.048/99, art. 26, § 3º**, ou o **Regulamento do INSS sobre o salário-família**, que contém a regra sobre a idade máxima dos dependentes.\n\nSe o objetivo é um **resumo técnico**, a resposta seria:\n\n> **O salário-família é pago aos dependentes até a idade de 18 anos, exceto para filhos com deficiência ou condições especiais, que podem receber até 25 anos.**  \n> *No entanto, essa informação não está explicitamente presente nos documentos fornecidos e deve ser verificada em normas complementares ou no próprio Decreto 3.048/99, art. 26, § 3º.*\n\n---\n\n✅ **Resposta final (para a pergunta):**  \n**Os documentos apresentados não indicam até qual idade o salário-família é pago. A idade máxima é prevista em normas complementares do Decreto 3.048/99, que não foram incluídas no conjunto de arquivos fornecidos.**",
+   "answer_chars": 2757,
+   "grounded": false,
+   "supported": 5,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2361
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 29.5,
+   "error": null,
+   "answer": "A pergunta do advogado é: **\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos com atenção ao tema.\n\n---\n\n### 1. **Art. 16 da Lei 8.213 (Lei do Regime Geral de Previdência Social)**  \nO artigo trata dos **benefícios de dependente**, especificamente o **salário-família** (que é um benefício de previdência social para dependentes).\n\nO texto diz:\n\n> \"São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:  \n> I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;  \n> I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\"\n\n➡️ **Conclusão**: O filho é considerado dependente **até os 21 anos de idade**, ou se for inválido.\n\n---\n\n### 2. **Art. 85 do Decreto 3.048/99 (sobre invalidez e dependência)**  \n> \"A invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\"\n\n➡️ Isso mostra que **a idade de 14 anos é relevante para a avaliação de invalidez**, mas **não define o limite de idade para o salário-família**.\n\n---\n\n### 3. **Art. 85, § 3º do Decreto 3.048/99**  \n> \"Não é devido salário-família no período entre a suspensão do benefício motivada pela falta de comprovação da frequência escolar e o seu reativamento, salvo se provada a frequência escolar regular no período.\"\n\n➡️ Isso trata da **suspensão do benefício por falta de comprovação de frequência escolar**, não da idade limite.\n\n---\n\n### 4. **Art. 85, § 4º do Decreto 3.048/99**  \n> \"A comprovação de frequência escolar será feita mediante apresentação de documento emitido pela escola...\"\n\n➡️ Também não menciona idade limite.\n\n---\n\n### **Conclusão:**\n\nO **salário-família** é pago para **filhos não emancipados** até que **atingam 21 anos de idade**, ou se forem **inválidos**.\n\nA **idade de 14 anos** mencionada no Decreto 3.048/99 é referente à **verificação de invalidez**, não ao fim do benefício.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até os 21 anos de idade do dependente, ou se o dependente for inválido.**",
+   "answer_chars": 2437,
+   "grounded": true,
+   "supported": 18,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2398
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 17.26,
+   "error": null,
+   "answer": "O salário-família é pago até que o **filho ou equiparado complete 14 anos de idade**, **salvo se inválido**.\n\nEsse limite está previsto no **Art. 88, II do Código de Trabalho (CLT)**, conforme citado no seu conteúdo:\n\n> **Art. 88. O direito ao salário-família cessa automaticamente:**  \n> **II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.**\n\n### Resposta final:\n**O salário-família é pago até os 14 anos de idade do dependente, exceto se o dependente for inválido.**",
+   "answer_chars": 557,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 30.47,
+   "error": null,
+   "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos para responder com precisão.\n\n---\n\n### Análise dos documentos:\n\n1. **Documento [DOC 9] – Decreto 3048, art. 85**  \n   > *\"Art. 85. A invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\"*\n\n   Isso indica que **a idade de 14 anos é relevante para o tratamento de dependência**, mas **não diz diretamente que o salário-família é pago até essa idade**.\n\n2. **Documento [DOC 9] – Decreto 3048, art. 85 (continuação)**  \n   > *\"§ 3º Não é devido salário-família no período entre a suspensão do benefício motivada pela falta de comprovação da freqüência escolar e o seu reativamento, salvo se provada a freqüência escolar regular no período.\"*\n\n   Isso trata da **condição de frequência escolar**, não da idade máxima.\n\n3. **Documento [DOC 10] – Decreto 3048, art. 6**  \n   > Lista os benefícios, incluindo o salário-família, mas não especifica a idade limite.\n\n4. **Documento [DOC 7] – EC 103/2019**  \n   > Fala sobre **pensão por morte** e **idade de 14 anos** como critério para o início do benefício para filhos ou equiparados.  \n   > *\"II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário\"*  \n   > Isso mostra que **a dependência é considerada até os 14 anos**, e **a partir desse momento, o dependente passa a ser tratado como não dependente** para fins de benefícios como o salário-família.\n\n---\n\n### Conclusão:\n\nO **salário-família** é pago **apenas enquanto o dependente é menor de 14 anos de idade**.\n\nA partir dos 14 anos, o filho ou equiparado **deixa de ser considerado dependente** para efeitos de benefícios como o salário-família, **a menos que seja inválido**.\n\nIsso está alinhado com a **norma do art. 40 da Constituição** e com a **interpretação do Decreto 3048/1999**, que estabelece que:\n\n- O filho ou equiparado **é considerado dependente até completar 14 anos**.\n- Após os 14 anos, **não é mais considerado dependente**, e portanto **não tem direito ao salário-família**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a completar 14 anos de idade do dependente.**  \nA partir dos 14 anos, o dependente deixa de ser considerado dependente para efeitos do salário-família, salvo se inválido.",
+   "answer_chars": 2421,
+   "grounded": true,
+   "supported": 17,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2398
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 28.45,
+   "error": null,
+   "answer": "A pergunta do advogado — **\"Até qual idade do dependente é pago o salário família?\"** — **não é respondida diretamente** nos documentos fornecidos (DOC 7 a DOC 13), que tratam do **cálculo do salário-de-benefício**, **regras de aposentadoria**, **salário-maternidade**, **auxílio-acidente**, e **benefícios de previdência**, mas **não especificam a idade máxima para o pagamento do salário-família**.\n\nNo entanto, com base na **Lei nº 8.213/1991**, que institui o **salário-família**, e nos **artigos e dispositivos** que tratam desse benefício, podemos **analisar o que está previsto**:\n\n---\n\n### 📌 **Constituição e base legal do salário-família**\n\nA **Lei nº 8.213/1991**, art. 12, prevê que:\n\n> \"O salário-família será pago ao segurado empregado, com base na remuneração devidamente contribuída, e será pago **até a emancipação dos filhos**.\"\n\nOu seja, o salário-família **é pago enquanto o dependente for menor de idade**.\n\n---\n\n### 📌 **Idade máxima para o pagamento do salário-família**\n\nA **emancipação** dos filhos ocorre **quando atingem a idade de 18 anos**, **exceto** em casos de **deficiência ou incapacidade**, quando a emancipação pode ser deferida por decisão judicial.\n\nPortanto, **o salário-família é pago até a idade de 18 anos**, **a menos que haja deficiência ou outro fator que justifique a permanência**.\n\n---\n\n### ✅ Conclusão:\n\n> **O salário-família é pago até a idade de 18 anos do dependente**, **a menos que o dependente seja considerado incapaz ou deficiente, o que pode resultar em permanência do benefício**.\n\n---\n\n### 📚 Fonte:\n\n- **Lei nº 8.213/1991**, art. 12: *\"O salário-família será pago ao segurado empregado, com base na remuneração devidamente contribuída, e será pago até a emancipação dos filhos.\"*\n- O conceito de \"emancipação\" é amplamente reconhecido como **a idade de 18 anos**, conforme a legislação previdenciária e jurisprudência do INSS.\n\n---\n\n### ✅ Resposta final:\n\n> **O salário-família é pago até a idade de 18 anos do dependente.**  \n> (Apenas em casos especiais, como deficiência ou incapacidade, pode haver permanência do benefício.)\n\n---\n\n> ⚠️ **Observação**: Os documentos fornecidos não contêm a regra específica sobre a idade máxima do dependente. A resposta é baseada na **Lei 8.213/1991**, que é a principal norma sobre o salário-família, e na interpretação jurídica comum da legislação previdenciária brasileira.",
+   "answer_chars": 2372,
+   "grounded": false,
+   "supported": 2,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2402
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 29.33,
+   "error": null,
+   "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos, especialmente o **Decreto 3048/1999 (art. 31 e art. 26)** e a **Lei 8213/1990**, que tratam do **salário-família**, um dos benefícios da Previdência Social.\n\n---\n\n### Análise do conteúdo fornecido:\n\nNo **Documento [DOC 12] – Decreto 3048, art. 26**, temos:\n\n> **Art. 26.** [...]  \n> **f) salário-família**;  \n> **g) salário-maternidade**;  \n> **h) auxílio-acidente**;  \n> **II - quanto ao dependente:**  \n> a) pensão por morte; e  \n> b) auxílio-reclusão;  \n> **III - quanto ao segurado e dependente:** reabilitação profissional.\n\nOu seja, o **salário-família** é um benefício concedido ao **segurado** e aos **dependentes**.\n\nAgora, vamos procurar **quais são as condições de elegibilidade do dependente para o salário-família**, ou seja, **até qual idade** o dependente pode receber esse benefício.\n\nNo **Documento [DOC 11] – Lei 8213, art. 16**, na seção \"Dos Dependentes\", temos:\n\n> **Art. 16. São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:**  \n> I – o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, **menor de 21 (vinte e um) anos ou inválido**;  \n> (Redação dada pela Lei nº 9.032, de 1995)  \n>  \n> I – o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, **menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente**;  \n> (Redação dada pela Lei nº 12.470, de 2011)\n\n---\n\n### Conclusão:\n\nO **salário-família** é concedido aos **dependentes**, como o **cônjuge, companheiro, companheira ou filho**.\n\nO **critério de idade** para o filho ser considerado dependente é:\n\n> **menor de 21 anos**.\n\n**Importante:**  \nA Lei **não estabelece um limite de idade acima de 21 anos** para o salário-família.  \nO benefício é concedido **até os 21 anos de idade**, ou quando o dependente é **inválido** (independentemente da idade).\n\nPortanto, **o salário-família é pago até a idade de 21 anos**, ou quando o dependente é inválido.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 21 anos, ou quando o dependente é inválido.**\n\n> **Resposta do advogado:**  \n> O salário-família é pago até a idade de 21 anos, ou quando o dependente é inválido.",
+   "answer_chars": 2402,
+   "grounded": true,
+   "supported": 13,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2389
+  }
+ ],
+ "wall_time_s": 538.8,
+ "finished_at": "2026-09-12T06:57:38.817027"
+}

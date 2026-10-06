@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-12T05:39:05.615025",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta do advogado refere-se à idade do dependente para pagamento do salário-família. De acordo com o Decreto 3048, art. 16, inciso I, são beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:\n\n\"I - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;\"\n\nPortanto, até 21 anos ou inválido é pago o salário-família.",
+      "num_sources": 15,
+      "avg_distance": 0.2325,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

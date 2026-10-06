@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-09-12T05:38:06.017750",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "**RESPOSTA**\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com o art. 197 da Lei do Regime Jurídico dos Servidores Públicos Civis, o salário-família é devido ao servidor ativo ou ao inativo, por dependente econômico.\n\nConsiderando-se os dependentes econômicos para efeito de percepção do salário-família, encontramos:\n\nI - o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\n\nII - o menor de 21 (vinte e um) anos que, mediante autorização judicial, vive na companhia e às expensas do servidor, ou do inativo;\n\nIII - a mãe e o pai sem economia própria.\n\nPortanto, até a idade de 21 (vinte e um) anos é pago o salário-família.",
+      "num_sources": 10,
+      "avg_distance": 0.2223,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

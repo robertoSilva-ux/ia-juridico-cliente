@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-09-12T05:45:30.356982",
+  "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Vamos analisar os documentos fornecidos e responder à sua pergunta.\n\nPara responder à sua pergunta, é importante destacar que a aposentadoria por invalidez é um benefício previsto na Lei nº 8.112/90 e regulamentado pelo Decreto nº 3.048/99.\n\nA partir da análise dos documentos fornecidos (DOC 7, DOC 8, DOC 9, DOC 10, DOC 11, DOC 12 e DOC 13), podemos identificar os seguintes requisitos para a concessão da aposentadoria por invalidez:\n\n1. Incapacidade permanente para o trabalho: O segurado deve estar incapacitado para exercer suas funções ou atividades laborais de forma definitiva (DOC 9 e DOC 11);\n2. Avaliação médica: É necessário que o segurado seja submetido a avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (DOC 10);\n3. Exame médico: O segurado aposentado por invalidez está obrigado a submeter-se a exames médicos a cargo da previdência social, processo de reabilitação profissional por ela prescrito e custeado e tratamento dispensado gratuitamente (DOC 8);\n4. Sustação do pagamento do benefício: O aposentado por invalidez fica obrigado a submeter-se a exames médico-periciais, a realizarem-se bienalmente, sob pena de sustação do pagamento do benefício (DOC 8);\n5. Reabilitação profissional: O segurado aposentado por invalidez está obrigado a participar de processo de reabilitação profissional prescrito e custeado pela previdência social (DOC 8).\n\nAlém disso, é importante lembrar que a EC nº 103/2019 estabeleceu novas regras para a concessão da aposentadoria por incapacidade permanente para o trabalho, incluindo a possibilidade de aproveitamento de tempo de contribuição decorrente de cargo, emprego ou função pública (DOC 11).\n\nEspero que essa resposta tenha ajudado a esclarecer os requisitos para a concessão da aposentadoria por invalidez. Se tiver mais alguma dúvida, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2214,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 13,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA carência mínima para aposentadoria por tempo de contribuição é de 30 (trinta) anos de contribuição, como previsto no art. 29 do Decreto nº 3.048/99.\n\nNo entanto, é importante lembrar que existem outras hipóteses de aposentadoria que possuem carências mínimas diferentes, como por exemplo, a aposentadoria especial, que exige 15 (quinze), 20 (vinte) ou 25 (vinte e cinco) anos de contribuição, dependendo do caso.\n\nAlém disso, é importante mencionar que a Emenda Constitucional nº 103/2019 estabeleceu novas regras para aposentadoria voluntária, que incluem requisitos como idade e tempo de contribuição.\n\nSe você tiver alguma dúvida adicional ou precisar de mais informações, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2235,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, com 25 anos de contribuição, posso ajudar a responder sua pergunta.\n\nDe acordo com o Decreto nº 3.048/99 (art. 202), um acidente de trabalho é considerado qualquer lesão ou doença que ocorra em decorrência do exercício da atividade profissional, seja ela leve, média ou grave.\n\nQuanto às obrigações do empregador, o Decreto nº 3.048/99 (art. 339) estabelece que o Ministério do Trabalho e Emprego fiscalizará e os sindicatos e entidades representativas de classe acompanharão o fiel cumprimento das seguintes obrigações:\n\n1. O empregador é obrigado a prestar assistência médica ao segurado empregado ou trabalhador avulso que tenha sofrido um acidente de trabalho;\n2. O empregador deve manter registros e informações sobre os acidentes de trabalho, bem como as providências tomadas para prevenir e combater esses acidentes;\n3. O empregador é responsável por cumprir as normas e regulamentações trabalhistas, incluindo a realização de treinamentos e cursos para os segurados empregados ou trabalhadores avulsos.\n\nAlém disso, o Decreto nº 3.048/99 (art. 338) estabelece que o empregador é obrigado a fornecer ao Ministério do Trabalho e Emprego as informações necessárias para o registro dos acidentes de trabalho no Cadastro Nacional de Informações sobre Segurança e Medicina do Trabalho (CNIS).\n\nEssas são algumas das principais obrigações do empregador em relação aos acidentes de trabalho. Se tiver alguma dúvida adicional, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2245,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 9,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 8,
+            "text": "Além disso, o Decreto nº 3.048/99 (art. 338) estabelece que o empregador é obrigado a fornecer ao Ministério do Trabalho e Emprego as informações necessárias para o registro dos acidentes de trabalho no Cadastro Nacional de Informações sobre Segurança e Medicina do Trabalho (CNIS).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, pretensão para haver prestações alimentares, a partir da data em que se vencerem.\n\nPara responder à sua pergunta, é necessário analisar as regras estabelecidas pela Lei Complementar nº 142 (LC 142) e outras normas constitucionais e infraconstitucionais aplicáveis ao caso.\n\nA LC 142 estabelece que os proventos de aposentadoria não podem ser inferiores ao valor mínimo estabelecido pelo Regime Geral de Previdência Social (RGPS) ou superiores ao limite máximo estabelecido para o RGPS. Além disso, a LC 142 também estabelece que os proventos de aposentadoria serão calculados com base na remuneração do servidor no cargo efetivo em que se der a aposentadoria.\n\nPara se aposentar com as regras da LC 142, é necessário atender aos seguintes requisitos:\n\n1. Ter contribuído por pelo menos 25 anos;\n2. Ter exercido cargo de natureza estritamente policial por pelo menos 15 anos (para mulheres);\n3. Ter atingido a idade máxima estabelecida pela LC 142.\n\nAlém disso, é importante lembrar que as regras da LC 142 são aplicáveis apenas aos servidores públicos federais e não se aplicam aos servidores públicos vinculados aos Regimes de Previdência Públicos (RPPS) dos Estados, do Distrito Federal e dos Municípios.\n\nEspero que isso ajude a esclarecer as regras para se aposentar com as regras da LC 142. Se tiver mais alguma dúvida ou precisar de mais informações, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.2311,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 12,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta do advogado refere-se ao prazo de prescrição para a ação de usucapião extraordinária. Para responder essa pergunta, é necessário analisar as disposições legais pertinentes.\n\nEm primeiro lugar, é importante lembrar que a Lei nº 8.004/90 estabelece o prazo de 15 anos para a prescrição da ação de usucapião ordinária (art. 1.024 do Código Civil).\n\nNo entanto, a pergunta se refere à ação de usucapião extraordinária, que é regulamentada pela Lei nº 6.015/73.\n\nSegundo o art. 192 da Lei nº 6.015/73, os prazos de prescrição não podem ser alterados por acordo das partes.\n\nPortanto, para determinar o prazo de prescrição para a ação de usucapião extraordinária, é necessário analisar as disposições específicas da Lei nº 6.015/73.\n\nInfelizmente, não há disposição expressa sobre o prazo de prescrição para a ação de usucapião extraordinária na Lei nº 6.015/73.\n\nNo entanto, é possível argumentar que o prazo de prescrição para a ação de usucapião ordinária (15 anos) também se aplica à ação de usucapião extraordinária, pois ambas são espécies de ações reivindicatórias.\n\nAlém disso, é importante lembrar que a Lei nº 6.015/73 estabelece um prazo máximo de 5 anos para a prescrição da ação de usucapião extraordinária (art. 1.025 do Código Civil).\n\nPortanto, considerando as disposições legais pertinentes e a falta de disposição expressa sobre o prazo de prescrição para a ação de usucapião extraordinária na Lei nº 6.015/73, é possível argumentar que o prazo de prescrição para a ação de usucapião ordinária (15 anos) também se aplica à ação de usucapião extraordinária.\n\nNo entanto, é importante ressaltar que essa é apenas uma interpretação e que a resposta definitiva dependerá da análise específica do caso concreto e das disposições legais aplicáveis.",
+      "num_sources": 15,
+      "avg_distance": 0.2571,
+      "min_distance": 0.2172,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 12,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [
+          "não há"
+        ],
+        "numeric_claims": [
+          "15 anos",
+          "15 anos",
+          "5 anos",
+          "15 anos"
+        ],
+        "dispositivo_claims": [
+          "art. 1",
+          "art. 192",
+          "art. 1"
+        ]
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nDe acordo com o Art. 16 da Lei nº 8,213/91 (Lei que instituiu o Regime Geral de Previdência Social), o salário-família é pago até a idade de 21 anos do dependente, desde que seja menor ou inválido.\n\nSe o dependente tiver mais de 21 anos e for inválido ou tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, também é considerado beneficiário do salário-família.\n\nPortanto, a resposta à sua pergunta é: até 21 anos do dependente.",
+      "num_sources": 15,
+      "avg_distance": 0.2391,
+      "min_distance": 0.1885,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

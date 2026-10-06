@@ -1,0 +1,600 @@
+{
+  "generated_at": "2026-09-13T04:31:05.048759",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Os requisitos para a aposentadoria por invalidez, com base nos documentos recuperados, incluem as seguintes condições:\n\n1. O segurado deve estar em gozo de auxílio-doença ou ser considerado incapaz para o trabalho e insuscetível de reabilitação (Documento 1 - Decreto 3048, art. 43).\n2. A condição de invalidez é determinada por exame médico-pericial a cargo da previdência social; no entanto, o segurado pode se acompañar de um médico de sua confiança às suas próprias expensas (Documento 1 - Decreto 3048, art. 43, § 1º).\n3. Uma doença ou lesão pré-existente ao filiar-se ao Regime Geral de Previdência Social não confere direito à aposentadoria por invalidez, exceto quando a incapacidade sobreveja devido progressão ou agravamento dessa condição (Documento 1 - Decreto 3048, art. 43, § 2º).\n4. O segurado aposentado por invalidez que se julgar apto para retornar à atividade deve solicitar uma nova avaliação médico-pericial; caso seja concluído pela recuperação da capacidade laborativa, a aposentadoria será cancelada (Documento 1 - Decreto 3048, art. 47).\n5. A concessão de aposentadoria por invalidez é condicionada ao afastamento de todas as atividades, incluindo o trabalho remunerado ou não remunerado, e à incapacidade total e definitiva para o trabalho (Documento 1 - Decreto 3048, art. 43, § 3º; Documento 4 - Decreto 3048, art. 168).\n6. O segurado aposentado por invalidez está obrigado a submeter-se regularmente a exame médico-pericial, sem prejuízo do benefício, para verificar sua capacidade de trabalho (Documento 1 - Decreto 3048, art. 46).\n\nEssas são as condições principais extraídas dos documentos fornecidos no contexto da base jurídica.",
+      "num_sources": 15,
+      "avg_distance": 0.2186,
+      "min_distance": 0.1729,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 13,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Com base no contexto fornecido, particularmente nos documentos [DOC 4] — Decreto 3048 e [DOC 9] — ec-103-2019.pdf, podemos determinar os requisitos mínimos para a aposentadoria por tempo de contribuição.\n\nSegundo o decreto [DOC 4], um segurado que se filiar ao Regime Geral de Previdência Social até 16 de dezembro de 1998, cumprida a carência exigida, terá direito à aposentadoria com valores proporcionais ao tempo de contribuição, quando, cumulativamente:\n\nI - contar cinquenta e três anos ou mais de idade, se homem, e quarenta e oito anos ou mais de idade, se mulher;\nII - contar tempo de contribuição igual, no mínimo, à soma de: 35 (trinta e cinco) anos, se homem, e 30 (trinta) anos, se mulher.\n\nO decreto [DOC 9] especifica que um segurado ou servidor público federal pode aposentar-se voluntariamente quando preencher os seguintes requisitos cumulativamente:\n\nII - 35 (trinta e cinco) anos de contribuição, se homem;\n\nEsses documentos indicam que a carência mínima para aposentadoria por tempo de contribuição é de 35 anos para homens.",
+      "num_sources": 15,
+      "avg_distance": 0.2216,
+      "min_distance": 0.1818,
+      "source_files": [
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 2,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "O decreto [DOC 9] especifica que um segurado ou servidor público federal pode aposentar-se voluntariamente quando preencher os seguintes requisitos cumulativamente:\n\nII - 35 (trinta e cinco) anos de contribuição, se homem;\n\nEsses documentos indicam que a carência mínima para aposentadoria por tempo de contribuição é de 35 anos para homens.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Com base no contexto fornecido, os seguintes dispositivos legais configuram um acidente de trabalho:\n\n1. Artigo 41 da Vade-Mecum do Senado Federal (3ª Edición), de acordo com o documento [DOC 2], art. 41: \"III – para cálculo de indenização por acidente do trabalho ou molestia profissional.\"\n\n2. Artigo 166, também da Vade-Mecum do Senado Federal (3ª Edição), conforme os documentos [DOC 3] e [DOC 7]: O artigo estabelece que a empresa é obrigada a fornecer aos empregados, gratuitamente, equipamento de proteção individual adequado ao risco.\n\n3. Artigo 339, extraído dos mesmos documentos [DOC 6], discute o papel do Ministério do Trabalho em fiscalizar o cumprimento das obrigações relacionadas ao acidente de trabalho e requerer comunicação formal com outros órgãos interessados no caso de descumprimento dessas obrigações.\n\n4. O artigo 145 da Vade-Mecum do Senado Federal (3ª Edición), extraído dos documentos [DOC 8], especifica que, desde a cessação do contrato de trabalho por qualquer causa, é devido ao empregado uma remuneração simples ou em dobro correspondente ao período de férias adquirido.\n\n5. Artigo 1º da Consolidação das Leis do Trabalho (CLT) conforme o documento [DOC 11]: \"Art. 2 - Considera-se empregador a empresa, individual ou coletiva, que, assumindo os riscos da atividade econômica, admite, assalaria e dirige a prestação pessoal de serviços.\"\n\n6. Artigo 3º da Consolidação das Leis do Trabalho (CLT) conforme o documento [DOC 11]: \"§ 2o Equiparam-se ao empregador, para os efeitos exclusivos da relação de emprego, os profissionais liberais...\"\n\nCom base nesses dispositivos legais, um acidente de trabalho é entendido como uma lesão corporal decorrente de uma ocorrência que se produz no âmbito do exercício das funções ou em atividade relacionada à empresa. As obrigações do empregador incluem garantir a segurança e saúde dos empregados fornecendo equipamentos de proteção individual adequados ao risco (artigo 166), fiscalizar o cumprimento das obrigações relacionadas ao acidente de trabalho (artigo 339) e compensar os trabalhadores por férias adquiridas no caso da cessação do contrato de trabalho (artigo 145).\n\nÉ importante notar que, embora esses dispositivos legais forneçam diretrizes gerais sobre o conceito de acidente de trabalho e as obrigações do empregador, a aplicação prática pode variar dependendo das circunstâncias específicas do caso. Portanto, é recomendável consultar um profissional jurídico para obter orientações adaptadas à situação específica em questão.",
+      "num_sources": 15,
+      "avg_distance": 0.2222,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 14,
+        "supported": 6,
+        "partial": 8,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Artigo 41 da Vade-Mecum do Senado Federal (3ª Edición), de acordo com o documento [DOC 2], art. 41: \"III – para cálculo de indenização por acidente do trabalho ou molestia profissional.\"\n\n2.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Artigo 166, também da Vade-Mecum do Senado Federal (3ª Edição), conforme os documentos [DOC 3] e [DOC 7]: O artigo estabelece que a empresa é obrigada a fornecer aos empregados, gratuitamente, equipamento de proteção individual adequado ao risco.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "Artigo 339, extraído dos mesmos documentos [DOC 6], discute o papel do Ministério do Trabalho em fiscalizar o cumprimento das obrigações relacionadas ao acidente de trabalho e requerer comunicação formal com outros órgãos interessados no caso de descumprimento dessas obrigações.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 7,
+            "text": "O artigo 145 da Vade-Mecum do Senado Federal (3ª Edición), extraído dos documentos [DOC 8], especifica que, desde a cessação do contrato de trabalho por qualquer causa, é devido ao empregado uma remuneração simples ou em dobro correspondente ao período de férias adquirido.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Artigo 1º da Consolidação das Leis do Trabalho (CLT) conforme o documento [DOC 11]: \"Art.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 11,
+            "text": "Artigo 3º da Consolidação das Leis do Trabalho (CLT) conforme o documento [DOC 11]: \"§ 2o Equiparam-se ao empregador, para os efeitos exclusivos da relação de emprego, os profissionais liberais...\"\n\nCom base nesses dispositivos legais, um acidente de trabalho é entendido como uma lesão corporal decorrente de uma ocorrência que se produz no âmbito do exercício das funções ou em atividade relacionada à empresa.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 12,
+            "text": "As obrigações do empregador incluem garantir a segurança e saúde dos empregados fornecendo equipamentos de proteção individual adequados ao risco (artigo 166), fiscalizar o cumprimento das obrigações relacionadas ao acidente de trabalho (artigo 339) e compensar os trabalhadores por férias adquiridas no caso da cessação do contrato de trabalho (artigo 145).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 14,
+            "text": "Portanto, é recomendável consultar um profissional jurídico para obter orientações adaptadas à situação específica em questão.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Para se aposentar sob o Decreto Legislativo n.º 142 (LC 142), é necessário cumprir certos requisitos conforme delineado no texto do decreto. No entanto, como você solicitou informações específicas sobre a LC 142 sem fornecer detalhes específicos dentro do contexto recuperado, vou precisar fazer algumas suposições com base na estrutura geral de legislação trabalhadora brasileira.\n\nNormalmente, para se aposentar sob uma lei trabalhista específica, é necessário:\n\n1. **Cumprimento dos Prêmios Requisitados**: O empregado deve ter cumprido o número mínimo de anos de serviço exigido pela lei.\n2. **Idade Mínima**: Deve atender à idade mínima estipulada na legislação para se aposentar (por exemplo, 60 anos no caso do regime de aposentadoria por invalidez).\n3. **Forma de Aposentadoria**: Dependendo da lei, pode haver diferentes formas de aposentadoria, como regular ou extraordinária.\n4. **Documentação e Procedimentos**: Deve ser feito o pedido formal de aposentadoria através dos canais apropriados, geralmente pelo empregador ou diretamente pela instituição previdenciária responsável.\n\nPara informações detalhadas específicas sobre os requisitos do LC 142, seria necessário consultar o texto completo desse decreto legislativo. Se você puder fornecer mais detalhes específicos da LC 142 em questão, ficarei feliz em ajudar com as informações precisas.",
+      "num_sources": 15,
+      "avg_distance": 0.2387,
+      "min_distance": 0.231,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 8,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "No entanto, como você solicitou informações específicas sobre a LC 142 sem fornecer detalhes específicos dentro do contexto recuperado, vou precisar fazer algumas suposições com base na estrutura geral de legislação trabalhadora brasileira.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Normalmente, para se aposentar sob uma lei trabalhista específica, é necessário:\n\n1.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "**Idade Mínima**: Deve atender à idade mínima estipulada na legislação para se aposentar (por exemplo, 60 anos no caso do regime de aposentadoria por invalidez).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 12,
+            "text": "Se você puder fornecer mais detalhes específicos da LC 142 em questão, ficarei feliz em ajudar com as informações precisas.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Não localizei informações específicas sobre o prazo de prescrição para a ação de usucapião extraordinário na base jurídica fornecida. As disposições relativas à prescrição estão disponíveis, mas não mencionam especificamente o tipo de reivindicação como a usucapião extraordinária. No contexto da Lei 10406, art. 205, é mencionado que a prescrição ocorre em dez anos quando a lei não lhe(has) fixado prazo menor para as pretensões dos hospedeiros ou fornecedores de víveres destinados ao consumo no próprio estabelecimento (artigo 205). No entanto, essa disposição se refere à prescrição das reivindicações relacionadas com hospedagem e alimentos, não especificamente à usucapião extraordinária. Portanto, faltou na base jurídica fornecida o detalhamento do prazo para a ação de usucapião extraordinária.",
+      "num_sources": 15,
+      "avg_distance": 0.2544,
+      "min_distance": 0.2172,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 4,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "No contexto da Lei 10406, art. 205, é mencionado que a prescrição ocorre em dez anos quando a lei não lhe(has) fixado prazo menor para as pretensões dos hospedeiros ou fornecedores de víveres destinados ao consumo no próprio estabelecimento (artigo 205).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "De acordo com a Lei 8213, art. 16, revisado pela Lei nº 12.470, de 2011, os beneficiários do Regime Geral de Previdência Social como dependentes são:\n\nI - o cônjuge, companheiro e filho, menor de 21 (vinte e um) anos ou inválido;\nI - o cônjuge, companheiro e filho não emancipado, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\n\nPortanto, o salário família é pago até os 20 (vinte) anos de idade do dependente. Se for uma filha, isso se aplica a filhas; para filhos, inclui também enteados até 14 (quatorze) anos de idade e inválidos. A lei foi atualizada em 2011, estabelecendo o limite em 21 ano, mas mantendo os casos especiais de deficiência intelectual ou mental que podem prolongar o benefício além dos 21 anos.",
+      "num_sources": 15,
+      "avg_distance": 0.2266,
+      "min_distance": 0.1856,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "quatorze",
+          "14",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 3,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "A lei foi atualizada em 2011, estabelecendo o limite em 21 ano, mas mantendo os casos especiais de deficiência intelectual ou mental que podem prolongar o benefício além dos 21 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "Com base nos documentos recuperados na base jurídica fornecida, um filho não emancipado é considerado dependente do segurado até os 21 anos no Regime Geral de Previdência Social (RGPS) para fins de pensão por morte. Esta informação está explicitada em [DOC 3] — Lei 8213, art. 16 e [DOC 8] — Decreto 3048, art. 18.",
+      "num_sources": 15,
+      "avg_distance": 0.2335,
+      "min_distance": 0.1776,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Lcp 142.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "21"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 2,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "Com base na Emenda Constitucional nº 103/2019, as idades mínimas de aposentadoria voluntária no serviço público federal variam conforme o cargo. Para os servidores vinculados ao Regime Próprio de Previdência Social (RPPS) dos Estados, Distrito Federal e Municípios, a idade mínima é de 57 anos para mulheres e 60 anos para homens, conforme especificado na Emenda Constitucional nº 103/2019, artigo 20, §2º. Para os ocupantes de cargos não vinculados ao RPPS, como professor em um município, as idades mínimas são reduzidas à 65 anos para mulheres e 70 anos para homens, observando a redação da Emenda Constitucional nº 103/2019, artigo 2º.",
+      "num_sources": 15,
+      "avg_distance": 0.2076,
+      "min_distance": 0.1828,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "65",
+          "mulher"
+        ],
+        "hit_count": 2,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 1,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Para os servidores vinculados ao Regime Próprio de Previdência Social (RPPS) dos Estados, Distrito Federal e Municípios, a idade mínima é de 57 anos para mulheres e 60 anos para homens, conforme especificado na Emenda Constitucional nº 103/2019, artigo 20, §2º.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Para os ocupantes de cargos não vinculados ao RPPS, como professor em um município, as idades mínimas são reduzidas à 65 anos para mulheres e 70 anos para homens, observando a redação da Emenda Constitucional nº 103/2019, artigo 2º.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "De acordo com o Decreto 3048, art. 347, o prazo de decadência do segurado ou beneficiário para a revisão do ato de concessão de benefício previdenciário é de dez anos, contando desde o primeiro mês após o recebimento da primeira prestação ou, quando for o caso, do dia em que tomar conhecimento da decisão indeferitória definitiva no âmbito administrativo.",
+      "num_sources": 15,
+      "avg_distance": 0.198,
+      "min_distance": 0.1373,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "dez anos",
+          "decadência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 1,
+        "supported": 1,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

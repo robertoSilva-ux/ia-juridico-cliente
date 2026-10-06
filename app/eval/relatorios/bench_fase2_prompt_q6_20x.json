@@ -1,0 +1,435 @@
+{
+ "model": "phi4-mini:3.8b",
+ "num_ctx": 8192,
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-13T14:37:04.030699",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 21.54,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" aparece em vários contextos dentro das leis e decretos fornecidos.\n\nNo contexto da Lei nº 8213 (RGPS), referenciado nas DOCs [1], [4] e [7], os dependentes são definidos como:\n- Conjugal ou companheiro, filhos até 21 anos de idade ou inválidos.\n- Menores de 21 anos que vivem na companhia do servidor sem economia própria, estudantes até 24 anos ou inválidos.\n\nNo Decreto nº 3048 (referenciado nas DOCs [2], [3], [6], [7], [9], [10] e [12]), os dependentes são definidos como:\n- Conjugal ou companheiro, filhos até 21 anos de idade ou inválidos.\n- Menores de 21 anos que vivem na companhia do servidor sem economia própria, estudantes até 24 anos ou inválidos.\n\nCom base nas informações fornecidas nessas fontes legais, o salário familiar é pago para dependentes menores de 21 anos de idade. Para os casos em que o dependent seja um estudante, a elegibilidade continua até aos 24 anos de idade. Além disso, se o menor for considerado indeficiente judicialmente (deficiência intelectual ou mental), ele também pode ser elegível ao salário familiar.\n\nPortanto, com base nas normas jurídicas recuperadas do RGPS e do Decreto nº 3048, o salário familiar é pago para dependentes menores de 21 anos de idade. Para estudantes, a elegibilidade continua até aos 24 anos de idade.",
+   "answer_chars": 1434,
+   "grounded": false,
+   "supported": 5,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2281
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 14.29,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada da que o salário familiar é pago, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" aparece em vários documentos, indicando diferentes regimes jurídicos (RGPS e Regime Jurídico dos Servidores Civis). No contexto do RGPS, o dependente é definido como um cônjuge, companheiro ou filho de qualquer condição até 21 anos (Vinte e Um) ou inválido. Em contrapartida, no regime jurídico próprio dos servidores, os filhos são considerados dependentes até 14 anos.\n\nCom base na informação fornecida:\n\n- Para o RGPS: O salário familiar é pago até a idade de 21 anos.\n- Para o Regime Jurídico dos Servidores Civis (servidor público): O salário familiar é pago até a idade de 14 anos.\n\nPortanto, com base no regime jurídico aplicável à questão do advogado, se for um dependente do RGPS, ele receberá o salário familiar até os 21 anos. Se for um dependente dentro do Regime Jurídico dos Servidores Civis (servidor público), o salário familiar será pago até a idade de 14 anos.",
+   "answer_chars": 1025,
+   "grounded": false,
+   "supported": 5,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2281
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 17.08,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" aparece nas fontes fornecidas, indicando que estamos lidando com o Regime Geral de Previdência Social (RGPS).\n\nCom base no Artigo 197 da Lei do Regime Jurídico dos Servidores Públicos Civis, conforme recuperado na DOC [1], os dependentes para efeito de percepção do salário familiar são:\nI - o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\nII - o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\nIII - a mãe e o pai sem economia própria.\n\nPortanto, no contexto do RGPS, o salário familiar é pago até os filhos menores de 21 (vinte e um) anos. Se eles forem estudantes, o benefício continua até aos 24 (vinte e quatro) anos. Para inválidos, independentemente da idade, também são considerados dependentes.\n\nA resposta final, conforme a base jurídica fornecida, é que o salário familiar é pago até os filhos menores de 21 (vinte e um) anos, ou até 24 (vinte e quatro) anos se forem estudantes, ou para qualquer inválido.",
+   "answer_chars": 1289,
+   "grounded": true,
+   "supported": 7,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2341
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 19.3,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada até qual ponto o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS), conforme indicado pelo contexto fornecido.\n\nCom base no [DOC 1] — Lei nº 8213, art. 16, os dependentes do segurado incluem:\n- O cônjuge, a companheira, o companheiro e o filho menor de 21 anos ou inválido.\n- No caso dos filhos não emancipados, também se inclui até 21 (vinte e um) ano de idade ou inválido. A redação adicional da Lei nº 9.032, de 1995, expande isso para filhos com deficiência intelectual ou mental que os torna incapazes.\n\nAssim, segundo o Regime Geral de Previdência Social (RGPS), o salário familiar é pago até a idada dos dependentes, que são:\n- O cônjuge, companheiro e filho menor de 21 anos.\n- Os filhos não emancipados menores de 21 (vinte e um) ano de idade ou inválidos.\n\nPortanto, no contexto do RGPS, o salário familiar é pago até a idada dos dependentes conforme descrito.",
+   "answer_chars": 973,
+   "grounded": false,
+   "supported": 5,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 23.14,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada até qual ponto o salário familiar é pago, precisamos identificar o regime jurídico relevante. A questão menciona termos como \"segurado\", \"benefício\" e \"RGPS\", que se referem ao Regime Geral de Previdência Social (RGPS) e possivelmente ao Regime Jurídico dos Servidores Públicos Civis (RJSC). No entanto, a pergunta não especifica claramente o contexto do regime jurídico aplicável.\n\nDado os termos usados na questão (\"segurado\" é frequentemente associado com RGPS), analisaremos as normas relacionadas ao RGPS. A Lei nº 8213, de 1990, que estabelece o RGPS, foi atualizada pela Lei nº 9.032, de 1995 (referida como DOC 1).\n\nSegundo a Lei nº 9.032, de 1995 (DOC 1), os dependentes do segurado no RGPS são:\n\nI - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 anos ou inválido;\nII - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente (Redação dada pela Lei nº 12.470, de 2011).\n\nCom base na redação da Lei nº 9.032, de 1995, o salário familiar no RGPS é pago até os 21 anos de idade do dependente, ou em caso de invalidez.\n\nAgora, vamos identificar o regime jurídico aplicável:\n\n- Se a questão se refere ao segurado do RGPS, a resposta seria até aos 21 anos de idade do dependente.\n- Se for um servidor público (RJSC), as regras podem variar conforme a Lei nº 8.112/90, e é necessário especificar qual servedor específico ou regime jurídico dentro do RJSC.\n\nA falta de contexto na pergunta impede que possamos determinar com precisão o regime jurídico aplicável. Portanto, para uma resposta precisa, seria necessário mais informações sobre se o segurado em questão pertence ao RGPS ou a um servidor público (RJSC) e quais regras específicas são relevantes.",
+   "answer_chars": 1921,
+   "grounded": false,
+   "supported": 8,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 15.0,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos identificar as normas aplicáveis ao contexto da questão. O termo \"dependente\" sugere que estamos nos referindo a um regime jurídico específico, como os servidores públicos ou segurados no Regime Geral de Previdência Social (RGPS). No entanto, o documento fornecido não especifica qual regime se aplica.\n\nDadas as informações disponíveis:\n\n- Na Lei nº 8213, art. 16, é mencionado que dependentes do RGPS são menores de 21 anos ou inválidos.\n- O Decreto nº 3048, em seus artigos relacionados ao salário familiar (art. 81 e art. 83), especifica que o salário familiar é pago até os filhos ou equiparados terem 14 anos de idade.\n\nCom base nas informações fornecidas no contexto da consulta do advogado, parece que a questão se refere ao Regime Geral de Previdência Social (RGPS). Portanto, com base na Lei nº 8213 e no Decreto nº 3048, o salário familiar é pago até os filhos ou equiparados terem 14 anos de idade.",
+   "answer_chars": 1009,
+   "grounded": false,
+   "supported": 6,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 19.92,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) e às leis específicas relacionadas com o salário familiar.\n\nCom base nas informações fornecidas:\n\n1. De acordo com [DOC 2], Lei nº 8213, art. 16, os dependentes do segurado são:\n   - O cônjuge, a companheira, o companheiro e o filho de qualquer condição, menor de 21 (vinte e um) anos ou inválido.\n\n2. De acordo com [DOC 6], Lei do Regime Jurídico dos Servidores Públicos Civis, Art. 197, os dependentes econômicos para efeito de percepção do salário familiar são:\n   - O cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\n\n3. De acordo com [DOC 7], Lei do Regime Jurídico dos Servidores Públicos Civis, Art. 198, a dependência econômica não é configurada quando o beneficiário do salário familiar recebe rendimento do trabalho ou de qualquer outra fonte, incluindo pensão ou provimento da aposentadoria, em valor igual ou superior ao salário mínimo.\n\n4. De acordo com [DOC 12], Lei nº 5.545/2005, a cota do salário familiar por filho ou equiparado até quatorze anos de idade ou inválido é de R$ 20,00 (vinte reais), para o segurado com remuneração mensal não superior a R$ 390,00 (trezentos e noventa reais).\n\nCom base nessas informações, o salário familiar é pago até que o dependente tenha 21 (vinte e um) anos. Se for estudante, ele pode receber até aos 24 (vinte e quatro) anos ou se estiver inválido.\n\nAssim, a resposta final à pergunta do advogado é: O salário familiar é pago até que o dependente tenha 21 (vinte e um) anos de idade.",
+   "answer_chars": 1744,
+   "grounded": true,
+   "supported": 14,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2271
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 20.17,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) e às leis específicas relacionadas com o salário familiar.\n\nCom base nas informações fornecidas:\n\n1. A Lei 8213, artigo 16, menciona que os dependentes incluem:\n   - O cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido.\n   \n2. O Decreto 3048, artigo 197, especifica ainda mais sobre dependentes para o salário familiar:\n   - I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\n   - II – o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo.\n\nCom base nesses dispositivos legais, é claro que até os filhos menores de 21 (vinte e um) anos são considerados dependentes para fins de pagamento do salário familiar. Se o filho for estudante, a idade aumenta até 24 (vinte e quatro) anos. Além disso, se houver necessidade judicial de que o menor viva na companhia do servidor, ele também é considerado um dependente.\n\nPortanto, com base nas normas fornecidas no contexto legal, o salário familiar é pago para os filhos até eles atingirem 21 (vinte e um) anos de idade. Se forem estudantes, a idade aumenta até 24 (vinte e quatro) anos. A presença judicial que permite ao menor viver na companhia do servidor não altera esse limite de idade.\n\nRegime jurídico aplicado: Regime Geral de Previdência Social (RGPS), conforme as leis da Previdência Social (Lei nº 8213).\n\nResposta final: O salário familiar é pago até os filhos atingirem a idade de 21 (vinte e um) anos. Se forem estudantes, o limite aumenta para 24 (vinte e quatro) anos.",
+   "answer_chars": 1869,
+   "grounded": false,
+   "supported": 13,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 17.24,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) e às leis específicas relacionadas com o salário familiar.\n\nCom base nas informações fornecidas:\n\n1. De acordo com a Lei 8213, art. 16, os dependentes que podem receber o salário familiar são:\n   - O cônjuge, companheiro ou filho menor de 21 anos (vinte e um) ou inválido.\n   - O cônjuge, companheiro ou filho não emancipado, menor de 21 anos (vinte e um), inválido ou com deficiência intelectual ou mental que o torne incapaz judicialmente.\n\n2. A Lei Complementar nº 123, de 2006, menciona dependentes até os 18 anos, mas esta lei é uma interpretação do RGPS, não especificamente sobre salário familiar.\n3. O Decreto Federal n.º 3048, art. 197, também define dependentes econômicos para o benefício do salário familiar como:\n   - Os cônjuges ou companheiros e filhos, inclusive os enteados até 21 anos de idade (vinte e um), salvo se forem estudantes até 24 anos (vinte e quatro) ou inválidos.\n   - O menor de 21 anos que, com autorização judicial, viva na companhia e às expensas do servidor.\n\nCom base nas informações fornecidas, o salário familiar é pago para dependentes menores de 21 anos. Para os casos em que o dependent seja estudante até aos 24 anos, ainda pode receber o salário familiar se tiver uma justificativa legal (como autorização judicial) para morar com a família.\n\nPortanto, no contexto do RGPS e das leis mencionadas, o salário familiar é pago até os 21 anos de idade. No entanto, em casos específicos onde o dependent seja estudante, ele pode receber até aos 24 anos.",
+   "answer_chars": 1667,
+   "grounded": false,
+   "supported": 4,
+   "partial": 9,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 15.97,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar (salário-maternidade) é pago, precisamos identificar o regime jurídico aplicável e as regras específicas dentro dele.\n\nA questão se refere ao \"dependente\" no contexto do Regime Geral de Previdência Social (RGPS), que é o regime jurídico próprio dos servidores públicos civis. Com base nas informações fornecidas:\n\n- O cônjuge ou companheiro, os filhos (menores de 21 anos) e a mãe são considerados dependentes econômicos para efeito da percepção do salário-maternidade no RGPS.\n\nA partir das normas recuperadas na base jurídica:\n\n1. Artigo 197 do Vade-Mecum do Regime Jurídico dos Servidores Públicos Civis especifica que o cônjuge ou companheiro, os filhos (menores de 21 anos) e a mãe são considerados dependentes econômicos.\n2. A Lei Complementar nº 123, de 2006, modifica essa lista incluindo também o pai sem economia própria.\n\nCom base nessas normas, no regime jurídico próprio dos servidores públicos civis (RGPS), o salário-maternidade é pago até que os filhos tenham atingido a idade de 21 anos. Se um filho for estudante ou inválido, o benefício continua sendo pago até ele completar 24 (vinte e quatro) anos.\n\nPortanto, na base jurídica fornecida, o salário familiar é pago até que cada filho tenha atingido a idade de 21 anos.",
+   "answer_chars": 1321,
+   "grounded": false,
+   "supported": 6,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2317
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 13.12,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada de pagamento do salário familiar para um dependente, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" aparece nas fontes fornecidas, indicando que se refere ao contexto do Regime Geral de Previdência Social (RGPS) e possivelmente também ao regime próprio dos servidores públicos.\n\nDe acordo com [DOC 6] — Vade_mecum_Senado_Federal_3ed.pdf, art. 197, o salário familiar é devido ao servidor ativo ou inativo por dependente econômico até os 21 anos de idade (vinte e um). Além disso, inclui:\n- O cônjuge ou companheiro do servidor.\n- Os filhos, inclusive os enteados até 21 (vinte e um) anos de idade, se ainda forem estudantes até aos 24 (vinte e quatro), ou se inválidos.\n\nPortanto, no contexto do RGPS e possivelmente também do regime próprio dos servidores públicos, o salário familiar é pago para dependentes até os 21 anos. No caso específico das filhas estudantes, a idada de pagamento continua até aos 24 anos.",
+   "answer_chars": 980,
+   "grounded": false,
+   "supported": 4,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.227
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 16.65,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) e às leis específicas relacionadas com o salário familiar.\n\nCom base nas informações fornecidas:\n\n1. Artigo 197 do Vade-Mecum do Regime Jurídico dos Servidores Públicos Civis (DOC 5), o dependente é considerado até os 21 anos de idade, ou se for estudante até aos 24 anos, ou inválido.\n2. A Lei Complementar nº 123, de 2006 (DOC 1) especifica que o segurado individual contribui na forma do § 2º da Artigo 21 da Lei n° 8.212/1991, não faz jus à aposentadoria por tempo de contribuição até os 21 anos.\n3. A Lei Complementar nº 123, de 2006 (DOC 1) também menciona que o segurado individual contribui na forma do § 2º da Artigo 21 da Lei n° 8.212/1991, não faz jus à aposentadoria por tempo de contribuição até os 21 anos.\n\nCom base nessas informações, é claro que a regra geral para o pagamento do salário familiar se estende até aos 21 anos de idade. No entanto, em casos específicos como estudantes até aos 24 anos ou inválidos, o período pode ser estendido até aos 24 ou indefinidamente, respectivamente.\n\nAssim, com base nas normas fornecidas na base jurídica recuperada, o salário familiar é pago até os 21 anos de idade do dependente. Em casos especiais, como estudantes até aos 24 anos ou inválidos, o período pode estender-se até aos 24 ou indefinidamente.",
+   "answer_chars": 1439,
+   "grounded": false,
+   "supported": 4,
+   "partial": 7,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 18.12,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada de pagamento do salário familiar, precisamos considerar as disposições da Lei nº 8213 (RGPS) e dos decretos relacionados.\n\nCom base na Lei nº 8213, os seguintes grupos são considerados como dependentes para fins de percepção do salário familiar:\n\n1. O cônjuge ou companheiro e os filhos, inclusive os enteados até 21 anos de idade ou, se estudante, até 24 anos (exceto em casos de invalidez) ou, caso inválido.\n2. O menor de 21 anos que, com autorização judicial, vive na companhia e às expensas do servidor ou inativo.\n3. A mãe e o pai sem economia própria.\n\nO decreto nº 3048, art. 81 complementa essas informações, especificando a cessação dos direitos ao salário familiar:\n\n- Por morte do filho ou equiparado, no mês seguinte à data da morte.\n- Quando o filho ou equiparado completar 14 anos de idade, salvo se inválido, no mês seguinte ao aniversário.\n\nAssim, com base nas disposições legais recuperadas na base jurisprudática fornecida, o salário familiar é pago até a idada dos 21 anos para os filhos (inclusive enteados e estudantes) e até os 24 anos em casos de estudante, exceto em casos de invalidez. Para indivíduos que são considerados inválidos ou com deficiência intelectual/mental, o pagamento continua sendo realizado judicialmente.\n\nA resposta final, conforme recuperado da base jurisprudática fornecida, é:\n\nO salário familiar é pago até a idada dos 21 (vinte e um) anos para os filhos (inclusive enteados), até aos 24 (vinte e quatro) anos em casos de estudantes. Para indivíduos considerados inválidos ou com deficiência intelectual/mental, o pagamento continua sendo realizado judicialmente.",
+   "answer_chars": 1653,
+   "grounded": false,
+   "supported": 10,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2317
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 19.06,
+   "error": null,
+   "answer": "Para responder esta pergunta, precisamos considerar o regime jurídico dos servidores públicos civis (RGPC), conforme descrito nos documentos fornecidos.\n\nOs documentos [DOC 3] e [DOC 9] são relevantes para este caso. De acordo com o artigo 197 da Seção III do Vade-Mecum do Senado Federal (artigo 197) no RGPC, o salário-família é devido ao servidor ativo ou inativo por dependente econômico.\n\nOs parágrafos únicos especificam os seguintes casos de dependentes econômicos para a percepção do salário-família:\n\nI - O cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\nII - O menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor ou inativo;\nIII - A mãe e o pai sem economia própria.\n\nCom base nesta informação, no RGPC, o salário-família é pago até os 21 (vinte e um) anos de idade para filhos. Para estudantes, a duração se estende até aos 24 (vinte e quatro) anos ou, em caso de invalidez, de qualquer idade. O artigo não especifica uma idade superior para outros dependentes econômicos como o cônjuge ou pai sem economia própria.\n\nPortanto, com base na legislação do RGPC, é pago o salário família até os 21 (vinte e um) anos de idade para filhos, até aos 24 (vinte e quatro) anos para estudantes, ou de qualquer idade em caso de invalidez. Não há necessidade de referência a outros regimes jurídicos, pois a pergunta não especificou nenhum contexto alternativo.",
+   "answer_chars": 1545,
+   "grounded": false,
+   "supported": 7,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2252
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 23.84,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável. Os termos \"segurado\", \"benefício\" e \"RGPS\" indicam que o contexto se refere ao Regime Geral de Previdência Social (RGPS), que é a previdência social padrão no Brasil.\n\nCom base nas informações fornecidas na Lei nº 8213, artigo 197 do Vade-Mecum do Senado Federal, os dependentes para o benefício do salário familiar incluem:\n\nI - o cônjuge ou companheiro e os filhos, de qualquer condição, menores de 21 (vinte e um) anos ou inválidos;\nII - o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\nIII - a mãe e o pai sem economia própria.\n\nPortanto, no contexto do RGPS, o salário familiar é pago até os filhos menores de 21 (vinte e um) anos. Se estiverem inválidos, também são considerados até os 21 (vinte e um) anos. Os estudantes até 24 (vinte e quatro) anos ou os inválidos podem ser considerados até a idade em que concluíram o ensino médio regular ou se tiverem deficiência intelectual ou mental.\n\nO contexto fornecido não especifica sobre dependentes além dos filhos, mas com base na Lei nº 8213, artigo 197, é claro que os filhos são os principais beneficiários do salário familiar até os 21 (vinte e um) anos. Se houver outros dependentes como o cônjuge ou companheiro, eles também podem receber o benefício, dependendo das condições específicas da situação.\n\nA resposta final é: O salário familiar é pago para filhos menores de 21 (vinte e um) anos, incluindo aqueles inválidos. Além disso, estudantes até 24 (vinte e quatro) anos ou inválidos com deficiência intelectual ou mental também são considerados, conforme as regras do RGPS.",
+   "answer_chars": 1762,
+   "grounded": false,
+   "supported": 8,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2361
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 15.19,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" é usado no contexto de Regime Geral de Previdência Social (RGPS) e em outro contexto relacionado a servidores públicos.\n\nA base jurídica fornecida inclui tanto o RGPS quanto regras específicas para servidores públicos. A pergunta não especifica qual regime se aplica, mas como um assistente jurídico oficial, devo fornecer informações que sejam válidas para ambos os regimes.\n\nNo Regime Geral de Previdência Social (RGPS), conforme Lei nº 8213, artigo 16, os dependentes incluem o cônjuge, companheiro e filhos menores de 21 anos ou aqueles que são inválidos. No contexto dos servidores públicos, a mesma lei (Lei nº 8.212/1991) especifica que os dependentes incluem o cônjuge, companheiro e filhos até os 18 anos.\n\nPortanto, tanto no RGPS quanto para servidores públicos, o salário familiar é pago pelos menores de 21 anos ou até os 18 anos, respectivamente. Para inválidos, o benefício continua sendo pago conforme as regras específicas do regime (RGPS: indefinido; servidor público: até a maior idade).\n\nA resposta final é que o salário familiar é pago para dependentes até os 21 anos no RGPS e até os 18 anos nos servidores públicos.",
+   "answer_chars": 1298,
+   "grounded": false,
+   "supported": 5,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2287
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 15.52,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos identificar as normas relevantes dentro da base jurídica fornecida.\n\nPrimeiro, identifiquei que a questão se refere ao \"salário familiar\", que está regido pelo Decreto 3048 e pela Lei 8213. A informação específica sobre idades de dependentes pode ser encontrada no Vade-Mecum do Senado Federal (Documento 10) e no Decreto 3048 (Documento 11).\n\nSegundo, o Vade-Mecum do Senado Federal (Documento 10, Artigo 197) especifica que os filhos são considerados dependentes econômicos até a idade de 21 anos. No entanto, se forem estudantes, eles recebem benefícios até aos 24 anos ou até que sejam inválidos.\n\nTerceiro, conforme o Decreto 3048 (Documento 11, Artigo 81), o salário familiar é pago mensalmente ao segurado empregado e ao trabalhador avulso com um salário-de-contribuição inferior ou igual a R$360,00, nos termos do número de filhos observados no período.\n\nCom base nesses dados:\n\n- O dependente masculino (filho) recebe o salário familiar até ele completar 21 anos.\n- Se for estudante, receberá benefícios até aos 24 anos.\n- A cessação dos benefícios ocorre quando o filho completa 21 anos, se não estiver inválido ou estudando.",
+   "answer_chars": 1234,
+   "grounded": false,
+   "supported": 3,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2297
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 14.38,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada do dependente que recebe o salário familiar, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) conforme estabelecido no Decreto 3048 e outras fontes fornecidas.\n\nCom base nos documentos:\n\n- Na Lei nº 9.032, de 1995 (DOC 1), os dependentes do segurado são o cônjuge, companheiro ou filho menor de 21 anos ou inválido.\n- No Decreto 3.048, de 1999 (DOC 2 e DOC 12), os dependentes incluem o cônjuge, companheiro ou filho não emancipado menor de 22 anos ou inválido.\n\nCombinando essas informações, o RGPS prevê que o salário familiar é pago até a idade de 21 anos para filhos ou equiparados. No entanto, se for um estudante, ele continua recebendo até os 24 anos (DOC 7). Para aqueles com deficiência intelectual ou mental, as condições podem variar conforme declarado judicialmente (DOC 1).\n\nPortanto, o salário familiar é pago até a idade de 21 anos para filhos ou equiparados. Se forem estudantes, eles recebem até aos 24 anos. Caso tenha dependentes com deficiência intelectual ou mental, os termos variam e devem ser determinados judicialmente.\n\nA base não fornece informações sobre dependentes com mais de 22 anos, portanto, só podemos afirmar que o RGPS paga salário familiar até a idade de 21 (ou 24 se for estudante).",
+   "answer_chars": 1300,
+   "grounded": false,
+   "supported": 6,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2286
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 14.26,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idada até qual ponto o salário familiar é pago, precisamos identificar o regime jurídico relevante. A questão menciona \"dependente\", que se refere ao Regime Geral de Previdência Social (RGPS), conforme indicado pelo termo no contexto.\n\nDe acordo com [DOC 7], Lei nº 8213, art. 16, os dependentes do segurado são:\nI - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz.\n\nAssim, com base na Lei nº 8213, art. 16, o salário familiar é pago até a idade de 21 (vinte e um) anos do dependente, seja filho, filha ou qualquer outra pessoa categorizada como dependente sob esta lei.",
+   "answer_chars": 899,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2289
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 18.0,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável. O termo \"dependente\" aparece em vários documentos, indicando diferentes regimes jurídicos (RGPS e Regime Próprio dos Servidores). No contexto da Previdência Geral de Saúde (RGPS), o RGPS se refere ao sistema de previdência social brasileiro que cobre os trabalhadores públicos, servidores e autônomos.\n\nNo documento [DOC 1], do Lei nº 8213, art. 16, é mencionado que dependentes incluem o cônjuge, companheiro, filho menor de 21 anos ou inválido. No entanto, a Lei nº 9.032, de 1995 (redação dada pela Lei nº 12.470, de 2011), especifica que os dependentes são o cônjuge, companheiro e filhos não emancipados menores de 21 anos ou inválidos.\n\nCom base nessa informação, no regime do RGPS, o salário familiar é pago até a idade de 21 anos para um filho (ou filiação) ou até que se torne inválido. Se houver uma mudança na redação entre os dois documentos citados ([DOC 1] e [DOC 5]), devemos nos referir à última versão, conforme fornecida no Decreto nº 12.470, de 2011.\n\nAssim, com base nas normas recuperadas da base legal, o salário familiar é pago até a idade de 21 anos do dependente ou até que se torne inválido. Não há necessidade de considerar outros regimes jurídicos neste caso, pois o termo \"dependente\" foi claramente associado ao RGPS no contexto fornecido.\n\n**Resposta:**\n\nNo regime do RGPS (Previdência Geral de Saúde), o salário familiar é pago até a idade de 21 anos do dependente ou até que se torne inválido.",
+   "answer_chars": 1566,
+   "grounded": false,
+   "supported": 5,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2278
+  }
+ ],
+ "wall_time_s": 351.8,
+ "finished_at": "2026-09-13T14:42:55.815092"
+}

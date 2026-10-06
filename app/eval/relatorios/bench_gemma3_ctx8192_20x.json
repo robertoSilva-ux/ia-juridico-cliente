@@ -1,0 +1,451 @@
+{
+ "model": "gemma3:4b-it-qat",
+ "num_ctx": 8192,
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T07:21:56.271048",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 40.25,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é:\n\n**A idade máxima para percepção do salário-família como dependente é de 21 anos (vinte e um anos) para filhos, enteados e cônjuges/companheiros.**  No caso de estudantes, o limite é de 24 anos (vinte e quatro anos), e para aqueles considerados inválidos, a idade não tem limite.\n\n**Fundamentação:**\n\n*   **Art. 197 da Lei nº 8.213/91 (Vade Mecum):**  \"O salário-família é devido ao servidor ativo ou inativo, por dependente econômico.\"\n*   **Parágrafo único do Art. 197:** Detalha os critérios para consideração de dependentes:\n    *   “I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;”\n    *   “II – o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;”\n    *   “III – a mãe e o pai sem economia própria.”\n\n**Observações Importantes:**\n\n*   **Art. 198 da Lei nº 8.213/91:**  Estabelece que não se configura dependência econômica quando o beneficiário percebe rendimento igual ou superior ao salário mínimo.\n*   **Decreto 3048-99 (Vade Mecum):**  Especifica as condições para comprovação da vacinação e freqüência escolar dos filhos, a partir dos sete anos de idade, como requisitos para o pagamento do salário-família.\n*   **Art. 87 do Decreto 3048-99:** Trata do caso de divórcio, separação ou perda do pátrio poder, alterando a forma de pagamento do benefício.\n*   **Art. 88 do Decreto 3048-99:**  Define as situações que cessam o direito ao salário-família, incluindo a morte do filho/equiparado e a idade de quatorze anos (salvo se inválido).\n\n**Referência Legislativa Completa:**\n\nLei nº 8.213, de 24 de julho de 1991 (Vade Mecum Senado Federal - 3ª edição)",
+   "answer_chars": 1893,
+   "grounded": false,
+   "supported": 10,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 29.0,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do dependente que recebe o salário-família é:\n\n**Considerando os documentos analisados, o salário-família é devido até os 21 anos de idade (vinte e um anos) do dependente, desde que este seja estudante ou inválido.**\n\nA seguir, detalho as informações relevantes dos documentos para responder à sua pergunta:\n\n*   **Art. 197 do Vade Mecum:**  Estabelece que o salário-família é devido ao servidor ativo ou inativo por dependentes econômicos. O parágrafo único define os critérios para consideração de dependência, incluindo:\n    *   I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 anos de idade (vinte e um anos), ou, se estudante, até 24 anos de idade, ou, se inválido, de qualquer idade.\n    *   II – o menor de 21 anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo.\n    *   III – a mãe e o pai sem economia própria.\n\n*   **Decreto 3048-99 (arts. 85, 87 e 88):**  Reforça a idade limite de 21 anos para filhos, com exceções:\n    *   Art. 88, I – se o filho ou equiparado for inválido, o benefício é pago de qualquer idade.\n    *   Art. 88, II – se o filho ou equiparado completar 14 anos de idade, o benefício cessa, salvo se inválido.\n\n*   **Lei 8213 (art. 16):**  Especifica que os dependentes são: cônjuge, companheiro, companheira, filho não emancipado, e filho inválido, independentemente da idade. No entanto, a redação do artigo 16, atualizada pela Lei nº 12.470/2011, adiciona a possibilidade de o filho ser considerado dependente se tiver deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, com declaração judicial.\n\n**Observações Importantes:**\n\n*   A legislação previdenciária pode ser complexa e sujeita a interpretações diversas.\n*   É fundamental verificar as normas específicas aplicáveis ao caso concreto, considerando a situação individual de cada dependente.\n*   Os documentos analisados são do Decreto 3048/99, que é um marco regulatório importante, mas outras leis e decretos podem complementar ou modificar os critérios estabelecidos.\n\nEspero que esta resposta detalhada seja útil para sua análise jurídica.",
+   "answer_chars": 2217,
+   "grounded": false,
+   "supported": 10,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2367
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 26.28,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para a sua pergunta sobre a idade até a qual o salário-família é pago aos dependentes é a seguinte:\n\nO Decreto 3048, em seus artigos 84, 16 e 85, estabelece as condições para o pagamento do salário-família. De acordo com esses dispositivos, o salário-família é devido ao segurado ou inativo por um dependente econômico.  Especificamente:\n\n*   **Artigo 84:** Condiciona o pagamento a atestado de vacinação obrigatória até seis anos de idade e comprovação de freqüência escolar do filho ou equiparado, a partir dos sete anos de idade.\n*   **Artigo 16:** Define os dependentes como cônjuge, companheira, companheiro e filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido.  Adicionalmente, inclui pais e irmão não emancipado, menores de vinte e um anos ou inválidos.\n*   **Artigo 85:** Menciona a invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\n\nPortanto, o salário-família é pago até os **14 anos** do filho ou equiparado (considerando a regra do artigo 84), ou até que este seja considerado inválido, conforme determinado por exame médico-pericial (artigo 85).  A legislação não estabelece um limite superior à idade, desde que o dependente continue a ser considerado economicamente dependente.\n\nÉ importante ressaltar que a Lei 8213/90 e suas alterações (Lei nº 9.032/95 e Lei nº 9.528/97) também tratam do salário-família, mas não detalham especificamente a idade limite para o benefício, reforçando os critérios estabelecidos no Decreto 3048.\n\n**Observação:** A legislação sobre salário-família pode ser complexa e sujeita a interpretações. Recomenda-se consultar a legislação atualizada e as jurisprudências pertinentes para uma análise mais completa do caso concreto.",
+   "answer_chars": 1837,
+   "grounded": false,
+   "supported": 7,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.241
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 25.94,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do dependente que recebe o salário-família é:\n\n**A idade máxima para percepção do salário-família como dependente é de 21 anos (vinte e um anos) ou, se estudante, até 24 anos (vinte e quatro anos). Se o dependente for inválido, a idade não tem limite.**\n\n**Fundamentação:**\n\n*   **Art. 197 do Vade Mecum:** \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\"\n*   **Art. 197 da Constituição Federal:** \"XII - salário-família para os seus dependentes;\" (A redação atualizada pela Emenda Constitucional nº 20, de 1998, reforça a aplicação do Art. 197 do Vade Mecum).\n*   **Lei 8213/90 (Art. 16):**  Especifica que \"São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado: I - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;\"\n*   **Decreto 3048/99 (Art. 85):**  Estabelece que a invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social, indicando que a idade não é um fator limitante para o benefício quando há incapacidade.\n\nÉ importante notar que o Decreto 3048/99 e seus anexos (Decretos nº 3.265/99 e nº 4.862/2003) detalham as condições para a concessão do salário-família, incluindo a comprovação de renda e a apresentação de documentos.\n\n**Observação:** A legislação previdenciária está sujeita a alterações. Recomenda-se sempre consultar as normas vigentes no momento da análise do caso concreto.",
+   "answer_chars": 1708,
+   "grounded": false,
+   "supported": 10,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2385
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 28.42,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do dependente que recebe o salário-família é:\n\n**A idade máxima do dependente que tem direito ao recebimento do salário-família é de 21 anos (vinte e um anos), ou seja, até a idade em que o dependente completa vinte e um anos.**\n\n**Fundamentação:**\n\n*   **Decreto 3048, art. 84:** Estabelece que o pagamento do salário-família está condicionado à apresentação de documentos relativos ao dependente, incluindo certidão de nascimento ou documentação equivalente.\n*   **Lei 8213, art. 16, I:** Define como \"filho\" para fins de salário-família aqueles menores de 21 anos ou inválidos.\n*   **Decreto 3048, art. 16:**  Especifica que o filho não emancipado, menor de vinte e um anos ou inválido, é considerado dependente.\n*   **Vade Mecum Senado Federal (art. 197):**  Define como \"dependente econômico\" o cônjuge, companheiro, filho (inclusive enteados até 21 ou 24 anos se estudante ou inválidos), e pai/mãe sem economia própria.\n*   **Decreto 3048, art. 87:**  Especifica que, em caso de divórcio, separação ou perda do pátrio poder, o salário-família passa a ser pago àquele que sustenta o menor ou, se houver determinação judicial, a outra pessoa.\n*   **Decreto 3048, art. 88:**  Estabelece que o direito ao salário-família cessa quando o filho completa 14 anos de idade (salvo se inválido).\n\nÉ importante notar que, conforme o Decreto 3048, a comprovação da vacinação obrigatória até seis anos de idade e a freqüência escolar do filho ou equiparado são requisitos para o recebimento do benefício. Além disso, o salário-família não é devido quando o dependente percebe rendimentos iguais ou superiores ao salário mínimo (Decreto 3048, art. 198).\n\nEspero que esta resposta seja útil. Se precisar de mais esclarecimentos ou informações adicionais, por favor, me diga.",
+   "answer_chars": 1850,
+   "grounded": false,
+   "supported": 9,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2414
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 20.66,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO salário-família é devido aos dependentes econômicos, conforme definido em diversos dispositivos. De acordo com o Decreto 3048, art. 16, inciso I, o salário-família é pago ao cônjuge, companheiro, companheira, filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido.\n\nNo entanto, o Art. 88 do mesmo Decreto estabelece que o direito ao salário-família cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido.  O Art. 197 do Vade Mecum Senado Federal, em sua seção sobre Salário-Família, também detalha os critérios de dependência econômica, incluindo a idade limite para filhos (vinte e um anos) ou, se estudante, até vinte e quatro anos, ou se inválido, de qualquer idade.\n\nPortanto, considerando as informações dos documentos, o salário-família pode ser pago ao dependente até a idade de **quatorze anos**, desde que este seja inválido, ou até os **vinte e um anos** para cônjuge, companheiro, filho não emancipado ou irmão não emancipado, ou até os **vinte e quatro anos** se for estudante, ou até qualquer idade se for inválido.\n\nÉ importante ressaltar que a legislação previdenciária pode ser complexa e sujeita a interpretações diversas. Recomenda-se consultar as normas atualizadas e buscar orientação jurídica especializada para casos específicos.",
+   "answer_chars": 1459,
+   "grounded": true,
+   "supported": 9,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2391
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 24.59,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO Decreto 3048/99, em seu artigo 87, estabelece que o salário-família passará a ser pago diretamente àquele a cujo cargo ficar o sustento do menor, ou a outra pessoa, se houver determinação judicial nesse sentido.  No entanto, o artigo 88 especifica as condições para o cessamento do benefício:\n\n*   **I - por morte do filho ou equiparado**, a contar do mês seguinte ao do óbito;\n*   **II - quando o filho ou equiparado completar quatorze anos de idade**, a contar do mês seguinte ao da data do aniversário.\n\nAdicionalmente, a Lei 8213/91 (art. 16), e posteriormente a Lei 12.470/2011,  ampliam essa regra para incluir dependentes com deficiência intelectual ou mental que sejam declarados incapazes judicialmente, de qualquer idade.\n\nPortanto, o salário-família é pago até os **quatorze anos** do filho ou equiparado, salvo em casos excepcionais como a invalidez permanente (art. 88, II) ou a condição de dependente com deficiência intelectual ou mental (Lei 12.470/2011).\n\nÉ importante ressaltar que o Decreto 3048/99 e suas alterações estabelecem as regras gerais para o pagamento do salário-família, sendo fundamental consultar outras normas específicas e jurisprudência para casos concretos.",
+   "answer_chars": 1329,
+   "grounded": false,
+   "supported": 3,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2399
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 37.35,
+   "error": null,
+   "answer": "A base para responder à sua pergunta reside nos documentos fornecidos, especificamente nos artigos 197 e 198 do Decreto 3.048/99, Lei 8213 e seus decretos complementares.\n\n**Análise da Base:**\n\n*   **Artigo 197 do Decreto 3.048/99:** Define que o salário-família é devido ao servidor ativo ou inativo por dependente econômico. O parágrafo único estabelece os critérios para consideração de dependentes:\n    *   I – cônjuge ou companheiro e filhos, até 21 anos (vinte e um) ou, se estudante, até 24 anos (vinte e quatro), ou inválidos, de qualquer idade;\n    *   II – menor de 21 anos que vive na companhia e às expensas do servidor ou inativo, mediante autorização judicial;\n    *   III – mãe e pai sem economia própria.\n\n*   **Artigo 198 do Decreto 3.048/99:**  Especifica que não se configura dependência econômica quando o beneficiário percebe rendimento igual ou superior ao salário mínimo.\n\n*   **Lei 8213 (art. 16):**  No âmbito do Regime Geral de Previdência Social (RGPS), define como dependentes para fins de concessão de benefícios: cônjuge, companheiro, filho (qualquer condição) menor de 21 anos ou inválido.\n\n*   **Decreto 3048, art. 88:**  Estabelece que o direito ao salário-família cessa quando o filho ou equiparado completa 14 anos de idade, salvo se inválido.\n\n*   **Decreto 3048, art. 85:**  Reforça a necessidade de comprovação da vacinação e freqüência escolar do filho/equiparado até os seis anos de idade e a partir dos sete anos, comprovando a regularidade da matrícula e freqüência escolar.\n\n*   **Decreto 3048, art. 87:**  Especifica que, em caso de divórcio, separação judicial ou de fato, ou perda do pátrio poder, o pagamento do salário-família passa a ser feito àquele que sustente o menor ou, se houver determinação judicial, a outra pessoa.\n\n*   **Decreto 3048, art. 99:**  No caso de empregos concomitantes, a segurada fará jus ao salário-maternidade relativo a cada emprego.\n\n**Conclusão:**\n\nCom base nos documentos fornecidos, o salário-família é pago até os **21 anos** do dependente (filho ou equiparado), desde que não receba rendimentos superiores ao salário mínimo e comprove a dependência econômica.  No entanto, se o dependente for inválido, o pagamento continua até que a invalidez persista. Além disso, se o dependente tiver mais de 14 anos, mas for considerado inválido judicialmente, o benefício persiste.\n\n**Observação:** É importante ressaltar que a legislação previdenciária está sujeita a alterações e interpretações jurisprudenciais. A análise completa do caso concreto deve considerar as normas vigentes no momento da concessão do benefício.",
+   "answer_chars": 2594,
+   "grounded": false,
+   "supported": 11,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2388
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 27.82,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO artigo 197 do Vade Mecum (DOC 1) estabelece que o salário-família é devido ao servidor ativo ou inativo por dependente econômico. O Parágrafo único do mesmo artigo detalha os critérios para consideração de dependentes, especificando:\n\n*   **I –** o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\n*   **II –** o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n*   **III –** a mãe e o pai sem economia própria.\n\nO artigo 198 do mesmo documento estabelece que não se configura dependência econômica quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte em valor igual ou superior ao salário mínimo.\n\nO Decreto 3048, art. 87 (DOC 2), complementa essa informação, indicando que a dependência econômica é considerada quando o beneficiário recebe um rendimento igual ou superior ao salário mínimo.\n\nAdicionalmente, a Lei 8213, art. 16 (DOC 6) e a Constituição Federal, art. XII, inciso XII (DOC 10), reforçam que o salário-família é devido aos filhos até 21 anos ou inválidos, com possibilidade de extensão da idade em caso de estudante ou invalidez.\n\nPortanto, considerando os dispositivos legais apresentados, o salário-família pode ser pago até a idade de **24 anos** para filhos estudantes ou até a idade de qualquer idade para filhos inválidos. A legislação também considera dependência econômica a mãe e o pai sem economia própria.\n\nÉ importante ressaltar que a análise da situação específica do dependente deve levar em conta a existência de rendimentos, conforme previsto no artigo 198 do Vade Mecum (DOC 1).",
+   "answer_chars": 1878,
+   "grounded": false,
+   "supported": 3,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2392
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 27.51,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do dependente que recebe o salário-família é:\n\n**A idade máxima do dependente que pode receber o salário-família é de 21 anos (vinte e um anos) se for estudante ou inválido. Caso seja menor de 21 anos, mas inválido, a percepção do benefício continua até qualquer idade.**\n\n**Fundamentação:**\n\n*   **Art. 197 do Vade Mecum:** \"O salário-família é devido ao servidor ativo ou inativo, por dependente econômico.\"\n*   **Parágrafo único do Art. 197:** Detalha os critérios para consideração de dependentes:\n    *   **I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;**\n*   **Art. 198 do Vade Mecum:**  Estabelece que não se configura dependência econômica quando o beneficiário percebe rendimento igual ou superior ao salário mínimo.\n*   **Lei 8213/90 (Art. 16):**  Especifica que são considerados dependentes: \"o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de 21 (vinte e um) anos ou inválido\".\n*   **Decreto 3048/99 (Art. 85):**  Adiciona que, em caso de invalidez do filho ou equiparado maior de quatorze anos, o benefício é verificado em exame médico-pericial a cargo da previdência social.\n\n**Observações Importantes:**\n\n*   O Decreto 3048/99 (Art. 85) e o Decreto 3048 (Art. 87) tratam especificamente do cessamento do direito ao salário-família em situações como divórcio, separação ou perda do pátrio poder, com a transferência do benefício para outra pessoa responsável pelo sustento do menor.\n*   O Art. 198 do Vade Mecum estabelece que o beneficiário não pode perceber rendimentos superiores ao salário mínimo para ser considerado dependente.\n\nEspero que esta análise detalhada seja útil para sua prática jurídica.",
+   "answer_chars": 1884,
+   "grounded": true,
+   "supported": 15,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2396
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 26.9,
+   "error": null,
+   "answer": "A base para responder à sua pergunta reside nos documentos legais fornecidos, especificamente nos artigos 197 e 198 do Decreto 3.048/99, Lei 8213 e seus decretos complementares.\n\n**Resposta:**\n\nDe acordo com o contexto fornecido, o salário-família é devido aos dependentes econômicos, conforme definido nos seguintes critérios:\n\n*   **Art. 197 do Decreto 3.048/99:** Consideram-se dependentes econômicos:\n    *   I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\n    *   II – o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n    *   III – a mãe e o pai sem economia própria.\n\n*   **Art. 198 do Decreto 3.048/99:**  Não se configura a dependência econômica quando o beneficiário do salário-família perceber rendimento do trabalho ou de qualquer outra fonte, em valor igual ou superior ao salário mínimo.\n\nPortanto, a idade máxima para o pagamento do salário-família como filho é até 21 anos (vinte e um anos), podendo ser estendida até 24 anos (vinte e quatro anos) se for estudante, ou até qualquer idade se for inválido.  A legislação não estabelece uma idade máxima superior a 21 anos para o pagamento do benefício como filho, mesmo que este seja inválido.\n\n**Observações Importantes:**\n\n*   O Decreto 3048/99 é a base legal primária para o cálculo e concessão do salário-família.\n*   A Lei 8213/90 estabelece os princípios gerais da Seguridade Social, incluindo a proteção aos dependentes, mas não detalha as idades específicas para cada tipo de dependência.\n*   O Decreto nº 3.265/99 e o Decreto nº 4.079/2002  estabelecem procedimentos e prazos relacionados ao pagamento do benefício, mas não alteram a idade máxima para o recebimento pelo filho.\n\nEspero que esta resposta detalhada seja útil para sua análise jurídica.",
+   "answer_chars": 1935,
+   "grounded": false,
+   "supported": 10,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2404
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 24.22,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO artigo 197 do Vade Mecum (DOC 1) estabelece que o salário-família é devido ao servidor ativo ou inativo por dependente econômico. O Parágrafo único do mesmo artigo detalha os critérios para consideração de dependência econômica, especificando as seguintes idades:\n\n*   **Cônjuge ou companheiro e filhos:** até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos.\n*   **Filhos:** até 21 (vinte e um) anos de idade, desde que inválidos, a qualquer idade.\n\nO Decreto 3048-99 (DOC 2), em seus artigos 84, 85 e 87, reforça esses critérios, com foco na comprovação da dependência econômica e nas condições para o recebimento do benefício. O artigo 88 do mesmo decreto estabelece que o direito ao salário-família cessa quando o filho ou equiparado completa quatorze anos de idade, salvo se inválido.\n\nO Decreto 3048 (DOC 13) também menciona a inclusão de dependentes de baixa renda no benefício.\n\nA Lei 8213/95 (DOC 7) e a Lei 12.470/2011 (DOC 7) complementam esses critérios, incluindo a possibilidade de consideração de filhos inválidos, independentemente da idade, e de filhos com deficiência intelectual ou mental que se declarem judicialmente incapazes.\n\nPortanto, considerando os dispositivos legais apresentados, o salário-família pode ser pago até a idade de 24 anos (se estudante) ou até 21 anos (se inválido), conforme estabelecido no artigo 197 do Vade Mecum e reforçado pelos demais documentos.",
+   "answer_chars": 1559,
+   "grounded": false,
+   "supported": 5,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2348
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 28.49,
+   "error": null,
+   "answer": "A resposta para a sua pergunta, com base nos documentos fornecidos, é a seguinte:\n\nO salário-família é devido ao servidor ativo ou inativo por um dependente econômico. De acordo com o Art. 197 do Vade Mecum, consideram-se dependentes econômicos os seguintes casos:\n\n*   **I –** o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\n*   **II –** o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n*   **III –** a mãe e o pai sem economia própria.\n\nO Art. 198 estabelece que não se configura dependência econômica quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, em valor igual ou superior ao salário mínimo.\n\nNo entanto, o Art. 200 do Vade Mecum exclui a consideração de dependência para aqueles que percebem renda igual ou superior ao salário mínimo.\n\nO Art. 199 trata da situação em que pai e mãe são servidores públicos e vivem em comum, determinando que o salário-família será pago a um deles; quando separados, será pago a um e outro, de acordo com a distribuição dos dependentes.\n\nO Art. 84 do Decreto 3048 estabelece que o pagamento do salário-família é condicionado à apresentação anual de atestado de vacinação obrigatória (até seis anos de idade) e de comprovação semestral de freqüência escolar (a partir dos sete anos de idade).\n\nO Art. 88, inciso I, do Decreto 3048 prevê a cessação do pagamento do salário-família com o falecimento do filho ou equiparado, a contar do mês seguinte ao do óbito. O Art. 88, inciso II, estabelece que o direito ao benefício cessa quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido.\n\nEm resumo, o salário-família é pago até os 21 anos (ou até a invalidez) do dependente, conforme o Art. 197 e o Art. 88 do Decreto 3048. A comprovação da idade ou condição de invalidez é fundamental para a manutenção do benefício.\n\n**Observação:** Os documentos fornecidos não contêm informações sobre a idade máxima para recebimento do salário-família em casos específicos, como dependência econômica por autorização judicial (Art. 197, II).",
+   "answer_chars": 2231,
+   "grounded": false,
+   "supported": 20,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2367
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 28.26,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para a sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO artigo 197 da Lei nº 8.213/91 estabelece que o salário-família é devido ao servidor ativo ou inativo por dependente econômico. No entanto, o Parágrafo único do mesmo artigo detalha os critérios para consideração de dependência econômica, especificando as seguintes idades:\n\n*   **Cônjuge ou companheiro e filhos:** até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos. Se o filho for inválido, a idade é de qualquer idade.\n*   **Menores de 21 anos:** que vivem na companhia e às expensas do servidor, ou inativo, com autorização judicial.\n*   **Mãe e pai sem economia própria:**\n\nO Decreto 3048/99, em seus artigos 85 e 87, complementa essa informação, estabelecendo que a invalidez do filho maior de quatorze anos deve ser verificada por exame médico-pericial. Além disso, o artigo 87 trata da situação de divórcio, separação judicial ou de fato, ou perda do pátrio poder, determinando que o pagamento do salário-família passe a ser feito diretamente à pessoa responsável pelo sustento do menor, mediante determinação judicial.\n\nO Decreto 3048/99 também estabelece que, quando o filho completar quatorze anos, o benefício cessa, salvo se o filho for inválido.\n\nÉ importante ressaltar que o artigo 16 da Lei nº 8213/91, em sua redação atualizada, também reforça a idade de 21 anos para o cônjuge, companheiro e filho não emancipado, ou inválido.  O Decreto 3048, art. 16, também menciona a possibilidade de incluir o irmão não emancipado como dependente, desde que menor de vinte e um anos ou inválido.\n\nEm resumo, considerando os documentos fornecidos, o salário-família pode ser pago até a idade de **21 anos** para o cônjuge, companheiro e filho, ou até a idade de qualquer idade para filhos inválidos.  A legislação também prevê a possibilidade de extensão do benefício em casos específicos, como a invalidez do dependente ou a necessidade de sustento por outra pessoa.\n\nEspero que esta resposta detalhada seja útil para sua análise jurídica.",
+   "answer_chars": 2111,
+   "grounded": false,
+   "supported": 9,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2407
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 32.83,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para a sua pergunta sobre a idade até a qual o salário-família é pago é multifacetada e exige análise cuidadosa das normas. A determinação da idade de recebimento do salário-família depende de diferentes critérios, conforme o caso:\n\n**1. Salário-Família por Filhos ou Equiparados (Decreto 3048/99 - Art. 87):**\n\n*   **Até 21 anos:** O salário-família é devido ao filho ou equiparado até completar 21 anos de idade, salvo se este for inválido, em que caso o benefício será pago por toda a vida.\n*   **Equiparados:** Consideram-se equiparados os enteados até 21 anos de idade ou, se estudante, até 24 anos, ou se inválido, de qualquer idade.\n\n**2. Salário-Família por Dependente Econômico (Vade Mecum - Senado Federal - Art. 197):**\n\n*   **Até 21 anos:** O salário-família é devido ao cônjuge/companheiro e filhos até 21 anos de idade, ou se inválido, de qualquer idade.\n*   **Menores de 21 anos (autorização judicial):** Permite o recebimento do salário-família por menores de 21 anos que vivem sob os cuidados do servidor ou inativo, mediante autorização judicial.\n*   **Mãe e Pai sem economia própria:**  O salário-família também é devido à mãe e ao pai que não possuam condições econômicas próprias.\n\n**3. Salário-Família e Rendimento (Decreto 3048/99 - Art. 198):**\n\n*   Se o beneficiário do salário-família perceber rendimentos de trabalho ou qualquer outra fonte, em valor igual ou superior ao salário mínimo, não fará jus ao benefício.\n\n**4. Salário-Família e Frequência Escolar (Decreto 3048/99 - Art. 85):**\n\n*   A comprovação da freqüência escolar é exigida para crianças até 6 anos de idade e, a partir dos 7 anos, comprovadamente semestralmente.\n\n**Considerações Adicionais:**\n\n*   **Lei 8213 (Art. 16):**  Define os dependentes como cônjuge, companheira, companheiro, filho não emancipado, de qualquer condição, menor de 21 anos ou inválido.\n*   **Decreto 3048 (Art. 6):**  Inclui o salário-família e auxílio-reclusão para dependentes de baixa renda.\n\n**Conclusão:**\n\nA idade máxima para recebimento do salário-família, considerando os documentos fornecidos, é **21 anos**, com a possibilidade de extensão por invalidez ou autorização judicial para menores de 21 anos. É importante ressaltar que a legislação pode ser complexa e sujeita a interpretações, sendo sempre recomendável consultar a legislação mais recente e buscar orientação jurídica especializada para cada caso concreto.\n\n**Observação:** A Lei nº 12.470/2011 alterou o Art. 16 da Lei 8.213/91, incluindo a possibilidade de dependência econômica por filhos inválidos.\n",
+   "answer_chars": 2590,
+   "grounded": false,
+   "supported": 23,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2393
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 35.65,
+   "error": null,
+   "answer": "A base legal para determinar até que idade o salário-família é pago reside nos artigos 197 e 199 do Vade Mecum do Senado Federal, Decreto 3048/99 e Lei 8213/90.\n\n**Base Legal:**\n\n*   **Art. 197 do Vade Mecum:** Define que o salário-família é devido ao servidor ativo ou inativo por dependente econômico.\n*   **Art. 197, Parágrafo Único, I:** Especifica os critérios para consideração de dependentes econômicos:\n    *   Cônjuge ou companheiro e filhos (inclusive enteados) até 21 anos de idade ou, se estudante, até 24 anos;\n    *   Filhos menores de 21 anos que vivem na companhia e às expensas do servidor (com autorização judicial);\n    *   Mãe e pai sem economia própria.\n*   **Art. 199:**  Regulamenta o pagamento do salário-família em casos de separação ou divórcio dos pais, determinando que ele seja pago a quem tiver o sustento do menor.\n*   **Lei 8213/90, Art. 16, I:**  Estabelece que o salário-família é devido ao cônjuge, companheiro, filho (de qualquer condição), menor de 21 anos ou inválido.\n*   **Lei 8213/90, Art. 16, I (Redação dada pela Lei nº 12.470):**  Adiciona a possibilidade de o filho ser considerado dependente se for inválido, de qualquer idade, desde que declarado judicialmente com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz.\n*   **Decreto 3048/99 (Art. 88, I e II):**  Define as condições para cessação do direito ao salário-família: morte do filho ou equiparado (a partir do mês seguinte ao óbito) ou, se o filho for inválido, a partir de 14 anos, salvo se inválido de qualquer idade.\n\n**Conclusão:**\n\nDe acordo com os dispositivos legais analisados, o salário-família é pago até que o dependente atinja a idade de **21 anos**, ou seja, até completar 21 anos de idade, exceto em casos específicos:\n\n*   Filhos menores de 21 anos que vivem sob autorização judicial na companhia e às expensas do servidor.\n*   Filhos inválidos, independentemente da idade.\n*   Filhos com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, desde que declarados judicialmente.\n\nÉ importante ressaltar que a legislação prevê a possibilidade de extensão do benefício em casos de dependência permanente (inválidez), conforme previsto no Art. 16, I, da Lei 8213/90 e no Art. 85 do Decreto 3048/99.\n\n**Observação:** A legislação sobre o salário-família pode ser complexa e sujeita a interpretações. Recomenda-se consultar a legislação atualizada e buscar orientação jurídica especializada para casos específicos.",
+   "answer_chars": 2485,
+   "grounded": false,
+   "supported": 17,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2342
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 31.75,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para a pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO artigo 197 do Vade Mecum (DOC 1) estabelece que o salário-família é devido ao servidor ativo ou inativo, por dependente econômico. O parágrafo único desse artigo detalha os critérios para consideração de dependência econômica, incluindo:\n\n*   **I –** o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\n*   **II –** o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n*   **III –** a mãe e o pai sem economia própria.\n\nO artigo 198 do mesmo documento estabelece que não se configura dependência econômica quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, em valor igual ou superior ao salário mínimo.\n\nO Decreto 3048 (DOC 2) e seus anexos (DOC 3, DOC 4, DOC 5, DOC 6, DOC 7, DOC 8, DOC 9, DOC 10, DOC 11, DOC 12) tratam de aspectos relacionados ao cálculo do salário-família, como a suspensão do benefício em caso de rendimento superior ao salário mínimo e as condições para comprovação da dependência.\n\nA Lei 8213 (DOC 7) também trata dos dependentes, especificamente no artigo 16, que estabelece que são beneficiários do Regime Geral de Previdência Social na condição de dependentes do segurado: o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido.\n\nO Decreto 3048, artigo 85 (DOC 4), estabelece que, em caso de invalidez do filho ou equiparado maior de quatorze anos, a verificação da invalidez deve ser feita por meio de exame médico-pericial a cargo da previdência social.\n\nO Decreto 3048, artigo 88 (DOC 2), estabelece que o direito ao salário-família cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido.\n\nPortanto, considerando os dispositivos legais analisados, o salário-família pode ser pago até a idade de **quatorze anos** do dependente, desde que este seja inválido. Caso o dependente não seja inválido, o pagamento cessa ao completar 21 anos (ou 24 anos se estudante).\n\nÉ importante ressaltar que a legislação previdenciária pode ser complexa e sujeita a interpretações diversas. Recomenda-se consultar um especialista para análise de casos específicos.",
+   "answer_chars": 2448,
+   "grounded": false,
+   "supported": 5,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2367
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 28.24,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para a sua pergunta sobre a idade até a qual o salário-família é pago aos dependentes é a seguinte:\n\nO Decreto 3048, em seus artigos 84, 16 e 85, estabelece as condições para o pagamento do salário-família. De acordo com esses dispositivos, o salário-família é devido ao segurado ou inativo por um dependente econômico. No entanto, a idade limite para o recebimento do benefício varia conforme a condição do dependente:\n\n*   **Filhos:** O salário-família é pago aos filhos até os 14 anos de idade, ou em caso de inválidos, de qualquer idade.\n*   **Cônjuge/Companheira:** O cônjuge ou companheira pode receber o benefício até a morte do segurado.\n*   **Pai e Mãe sem Economia Própria:** Os pais são considerados dependentes econômicos, independentemente da idade, desde que não possuam economia própria.\n*   **Irmão:** O irmão não emancipado, menor de 21 anos ou inválido, também tem direito ao benefício.\n\nÉ importante ressaltar que o artigo 197 do Vade Mecum do Senado Federal (DOC 2) detalha os critérios para a consideração de dependentes econômicos, incluindo as idades mencionadas acima. O Decreto 3048, em seus artigos 85 e 88, também aborda a cessação do direito ao salário-família em situações específicas, como o cumprimento dos 14 anos de idade (salvo se inválido) ou o reconhecimento da dependência econômica.\n\n**Observações:**\n\n*   O Decreto 3048, art. 85, estabelece que a invalidez do filho ou equiparado maior de quatorze anos deve ser verificada em exame médico-pericial.\n*   A legislação prevê a possibilidade de extensão do direito ao salário-família em casos específicos, como o de menor emancipado que vive na companhia e às expensas do servidor (artigo 197 do Vade Mecum).\n\nEspero que esta resposta seja útil para sua análise jurídica. Caso necessite de informações adicionais ou esclarecimentos sobre outros aspectos relacionados ao salário-família, não hesite em perguntar.",
+   "answer_chars": 1943,
+   "grounded": false,
+   "supported": 10,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.241
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 35.39,
+   "error": null,
+   "answer": "A base legal para determinar a idade limite para percepção do salário-família reside nos artigos 197 e 198 da Lei nº 8.213/91, complementados pelos Decretos 3.048/99 e 3.265/99, além dos artigos 16 e 88 da Lei nº 8.213/91 e do Decreto 3048/99.\n\n**Análise dos Dispositivos Legais:**\n\n*   **Artigo 197 da Lei nº 8.213/91:** Estabelece que o salário-família é devido ao servidor ativo ou inativo, por dependente econômico. O parágrafo único define os critérios para consideração de dependência econômica:\n    *   **I –**  O cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\n    *   **II –** O menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n    *   **III –** A mãe e o pai sem economia própria.\n\n*   **Artigo 198 da Lei nº 8.213/91:**  Determina que não se configura a dependência econômica quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, em valor igual ou superior ao salário mínimo.\n\n*   **Artigo 16 da Lei nº 8.213/91:**  Especifica que são beneficiários do Regime Geral de Previdência Social (RGPS), na condição de dependentes, o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 anos ou inválido.\n\n*   **Artigo 88 da Lei nº 8.213/91:**  Estabelece as condições para cessação do direito ao salário-família:\n    *   I - por morte do filho ou equiparado, a contar do mês seguinte ao do óbito;\n    *   II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\n\n**Conclusão:**\n\nDe acordo com os dispositivos legais analisados, o salário-família pode ser pago até a idade de **21 anos** para filhos (incluindo enteados), ou até 24 anos caso sejam estudantes ou inválidos.  Para menores de 21 anos que vivem sob as despesas do servidor, a dependência econômica deve ser comprovada por meio de autorização judicial.  Em casos de falecimento do filho ou equiparado, o benefício cessa no mês seguinte ao do óbito. Para filhos maiores de 14 anos, a continuidade do benefício depende da comprovação de invalidez.\n\n**Observação:** É importante ressaltar que a legislação previdenciária está sujeita a alterações e interpretações jurisprudenciais. Recomenda-se sempre consultar as normas vigentes no momento da análise do caso concreto.",
+   "answer_chars": 2491,
+   "grounded": false,
+   "supported": 8,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2386
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 30.77,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, a resposta para sua pergunta sobre a idade máxima do pagamento do salário-família é a seguinte:\n\nO artigo 197 do Vade Mecum do Senado Federal estabelece que o salário-família é devido ao servidor ativo ou inativo, por dependente econômico. No entanto, o Parágrafo único detalha os critérios para consideração de dependência econômica, especificamente nos seguintes casos:\n\n*   **I –** O cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\n*   **II –** O menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo;\n*   **III –** A mãe e o pai sem economia própria.\n\nO artigo 198 determina que não se configura a dependência econômica quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, em valor igual ou superior ao salário mínimo.\n\nO Decreto 3048, artigos 87 e 88, tratam da cessação do benefício em situações específicas:\n\n*   **Art. 87:**  Em caso de divórcio, separação judicial ou de fato, abandono legal ou perda do pátrio poder, o salário-família passa a ser pago diretamente àquele que sustenta o menor ou a outra pessoa com determinação judicial.\n*   **Art. 88. I –** Por morte do filho ou equiparado, a contar do mês seguinte ao do óbito; e **II –** Quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte à data do aniversário.\n\nO Decreto 3048, artigo 85, estabelece que a invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\n\nA Lei 8213, artigos 16 e 77, também tratam dos dependentes, especificando que são beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado: o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido.\n\nPortanto, considerando os dispositivos acima, o salário-família pode ser pago até a idade de **24 anos** para filhos estudantes ou inválidos, e até a idade de **14 anos** se o filho for inválido.  A legislação não estabelece uma idade máxima fixa para todos os dependentes, mas sim critérios específicos baseados na condição individual (estudante, inválido, menor emancipado, etc.).\n\nÉ importante ressaltar que a análise da situação específica do dependente deve levar em conta as particularidades de cada caso, considerando a legislação aplicável e as normas internas do INSS.",
+   "answer_chars": 2601,
+   "grounded": false,
+   "supported": 10,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2367
+  }
+ ],
+ "wall_time_s": 590.4,
+ "finished_at": "2026-09-12T07:31:46.647451"
+}

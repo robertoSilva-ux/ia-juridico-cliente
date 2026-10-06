@@ -1,0 +1,244 @@
+{
+  "generated_at": "2026-09-12T04:48:51.364280",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta do advogado é sobre os requisitos para a aposentadoria por invalidez. Vou reunir as informações presentes nos documentos fornecidos.\n\nDe acordo com o Decreto 3048, art. 46:\n\n* O segurado aposentado por invalidez está obrigado a submeter-se a exame médico a cargo da previdência social;\n* Processo de reabilitação profissional por ela prescrito e custeado;\n* Tratamento dispensado gratuitamente, exceto o cirúrgico e a transfusão de sangue, que são facultativos.\n\nAlém disso, é importante mencionar que a EC nº 103, de 2019, estabelece que a aposentadoria por invalidez permanente para o trabalho será concedida quando o segurado for insuscetível de readaptação e apresente incapacidade permanente para o trabalho.\n\nJá o Decreto 3048, art. 168, estabelece que o retorno do aposentado à atividade não prejudica o recebimento da aposentadoria por invalidez, desde que seja observado o disposto no parágrafo único do art. 69.\n\nPor fim, é importante lembrar que a Lei nº 8.213/1991 estabelece os requisitos para a concessão de auxílio-doença e aposentadoria por invalidez: 12 (doze) contribuições mensais.\n\nPortanto, os requisitos para a aposentadoria por invalidez são:\n\n* Incapacidade permanente para o trabalho;\n* Insuscetibilidade de readaptação;\n* Concessão do benefício pela previdência social;\n* Submissão ao exame médico e processo de reabilitação profissional, se necessário.\n\nEspero que isso ajude a responder à sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.22,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 8,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Vou reunir as informações presentes nos documentos fornecidos.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nDe acordo com o art. 26 do Decreto nº 3.048/99, a carência mínima para aposentadoria por tempo de contribuição é o tempo correspondente ao número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\n\nPortanto, não há uma carência mínima específica para aposentadoria por tempo de contribuição, pois isso depende do regime e das condições específicas do segurado.",
+      "num_sources": 15,
+      "avg_distance": 0.2231,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Excelente pergunta!\n\nDe acordo com a legislação trabalhista brasileira, um acidente de trabalho é considerado qualquer lesão corporal ou doença profissional que ocorra ao trabalhador em decorrência da atividade laboral.\n\nEm relação às obrigações do empregador, estão previstas as seguintes:\n\n1. Prevenção de acidentes e doenças: O empregador é obrigado a implementar medidas para prevenir os acidentes e doenças no local de trabalho (Art. 200 da Consolidação das Leis do Trabalho);\n2. Fornecimento de equipamentos de proteção individual: O empregador deve fornecer aos trabalhadores os equipamentos de proteção individual necessários para a realização do trabalho (Art. 159 da Consolidação das Leis do Trabalho);\n3. Anotação na Carteira de Trabalho e Previdência Social: O empregador é obrigado a anotar na Carteira de Trabalho e Previdência Social o salário fixo e a média dos valores das gorjetas referentes aos últimos doze meses (Art. 202 da Lei nº 8.112/90);\n4. Cobrança de gorjeta: O empregador é obrigado a cobrar as gorjetas dos trabalhadores, desde que essas gorjetas sejam previstas em convenção ou acordo coletivo de trabalho (Art. 5 da Lei nº 8.112/90);\n5. Fiscalização e orientação: O empregador é obrigado a colaborar com a empresa na aplicação dos dispositivos do Capítulo VI da Consolidação das Leis do Trabalho, inclusive na fiscalização e orientação quanto ao cumprimento das disposições constantes desse Capítulo (Art. 159 da Consolidação das Leis do Trabalho);\n6. Comunicação de acidente: O empregador é obrigado a comunicar formalmente os órgãos interessados sobre o acidente de trabalho, bem como ao Ministério do Trabalho e Emprego (Art. 339 da Lei nº 8.112/90).\n\nEssas são apenas algumas das obrigações do empregador em relação à prevenção e ao tratamento dos acidentes de trabalho no local de trabalho.",
+      "num_sources": 15,
+      "avg_distance": 0.2247,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 16,
+        "supported": 16,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Para responder à sua pergunta, é importante lembrar que a Lei Complementar nº 144 (LC 144) é uma norma específica que regula as regras de aposentadoria para os servidores públicos.\n\nPara se aposentar com as regras da LC 144, você precisa atender aos seguintes requisitos:\n\n1. Ter pelo menos 25 anos de contribuição;\n2. Ter exercido cargo de natureza estritamente policial por, no mínimo, 15 anos (se mulher);\n3. Cumprir o tempo mínimo de contribuição estabelecido pela LC 144.\n\nAlém disso, é importante lembrar que a LC 144 também prevê outras regras e critérios para a concessão da aposentadoria especial, como a idade mínima e a remuneração do servidor público federal.\n\nSe você tiver alguma dúvida adicional ou precisar de mais informações sobre as regras da LC 144, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2387,
+      "min_distance": 0.2311,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "25 anos",
+          "15 anos"
+        ],
+        "dispositivo_claims": []
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta é interessante, pois a usucapião é um instituto jurídico que permite ao proprietário de uma coisa ou direito adquirir a propriedade mediante o exercício de posse pacífica e contínua durante um determinado prazo.\n\nDe acordo com o Código Civil Brasileiro (CC), o prazo para a usucapião ordinária é de 15 anos, enquanto que a usucapião extraordinária tem um prazo mais curto, que é de 5 anos (art. 1.267 do CC).\n\nPortanto, a resposta à sua pergunta é: o prazo de prescrição para a ação de usucapião extraordinária é de 5 anos.\n\nEspero que isso tenha ajudado!",
+      "num_sources": 15,
+      "avg_distance": 0.2543,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "15 anos",
+          "5 anos",
+          "5 anos"
+        ],
+        "dispositivo_claims": [
+          "art. 1"
+        ]
+      }
+    }
+  ]
+}

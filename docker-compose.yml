@@ -1,0 +1,66 @@
+services:
+  db:
+    image: ankane/pgvector
+    container_name: legal-db
+    mem_limit: 512m
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5439:5432"
+    volumes:
+      - /srv/ia-juridico/vetorial:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama
+    container_name: legal-ollama
+    mem_limit: 6g
+    environment:
+      OLLAMA_KEEP_ALIVE: 5m
+    volumes:
+      - /srv/ia-juridico/modelos:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          memory: 2G
+
+  app:
+    build: ./app
+    container_name: legal-app
+    mem_limit: 512m
+    ports:
+      - "8501:8501"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL}
+      LLM_MODEL: ${LLM_MODEL}
+      LLM_NUM_CTX: ${LLM_NUM_CTX}
+      TEMPERATURE: ${TEMPERATURE}
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD}
+      TOP_K: ${TOP_K}
+    volumes:
+      - /srv/ia-juridico/documentos:/srv/documentos
+      - /var/log/ia-juridico:/var/log/app
+      - ./app/eval/relatorios:/app/eval/relatorios
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped

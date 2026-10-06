@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-09-12T04:45:10.213858",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é muito interessante! Vou ajudar a responder.\n\nA aposentadoria por invalidez, também conhecida como aposentadoria por incapacidade permanente para o trabalho, tem os seguintes requisitos:\n\n1. Incapacidade permanente para o trabalho: O servidor deve estar insuscetível de readaptação e não ter condições de exercer suas atribuições no cargo ou emprego público (Decreto 3048, art. 168);\n2. Avaliações periódicas: É necessário realizar avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (EC nº 103, de 2019, art. 40);\n3. Invalidez permanente: O servidor deve estar inválido desde o início do seu serviço público ou ter se tornado inválido durante o exercício do cargo ou emprego público (Decreto 3048, art. 46 e EC nº 103, de 2019, art. 40);\n4. Idade-limite: O servidor deve atingir a idade-limite de permanência no serviço ativo, que é de 65 anos para os servidores do Regime Geral (Decreto 3048, art. 115 e Vade_mecum_Senado_Federal_3ed.pdf, art. 187);\n5. Exame médico-pericial: O servidor deve ser submetido a exame médico-pericial para atestar a invalidez (Decreto 3048, art. 46 e EC nº 103, de 2019, art. 40).\n\nEsses são os requisitos básicos para a concessão da aposentadoria por invalidez.",
+      "num_sources": 15,
+      "avg_distance": 0.2223,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 9,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "A pergunta é muito interessante!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é muito interessante! Vou analisar os documentos fornecidos e responder com base nas informações presentes.\n\nDe acordo com o art. 24 da Lei nº 8.213/1991 (Lei dos Benefícios), a carência mínima para aposentadoria por tempo de contribuição é o número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\n\nJá no art. 26 do Decreto nº 3.048/1999 (Regulamento da Previdência Social), é estabelecido que o período de carência para aposentadoria por tempo de contribuição é o tempo correspondente ao número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\n\nPortanto, a resposta à pergunta é: não há uma carência mínima específica estabelecida na Lei ou no Regulamento da Previdência Social. A carência mínima para aposentadoria por tempo de contribuição depende do caso concreto e do tipo de benefício requerido.\n\nEspero que isso tenha ajudado! Se tiver mais alguma dúvida, sinta-se à vontade para perguntar novamente.",
+      "num_sources": 15,
+      "avg_distance": 0.2211,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 7,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "A pergunta é muito interessante!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Vou analisar os documentos fornecidos e responder com base nas informações presentes.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Muito obrigado por me perguntar!\n\nDe acordo com a legislação brasileira, um acidente de trabalho é considerado qualquer lesão ou doença que ocorra em decorrência da atividade profissional exercida pelo trabalhador, seja ela causada por fatores internos (como esforço excessivo) ou externos (como risco ambiental).\n\nEm relação às obrigações do empregador, é importante mencionar que o Decreto nº 3.048/99 estabelece as seguintes responsabilidades:\n\n1. O empregador tem a obrigação de fornecer ao trabalhador um ambiente seguro e saudável para o exercício da atividade profissional.\n2. O empregador deve realizar inspeções periódicas nos locais de trabalho para verificar se estão atendendo às normas de segurança e saúde.\n3. O empregador tem a obrigação de fornecer ao trabalhador treinamento e orientação sobre as práticas de segurança e saúde no trabalho.\n4. O empregador deve manter registros das lesões e doenças decorrentes do trabalho, bem como dos acidentes ocorridos no local de trabalho.\n\nAlém disso, o Decreto nº 3.048/99 também estabelece que o empregador tem a obrigação de:\n\n1. Fornecer ao trabalhador um ambiente livre de riscos ambientais e de doenças ocupacionais.\n2. Manter registros das lesões e doenças decorrentes do trabalho, bem como dos acidentes ocorridos no local de trabalho.\n3. Realizar inspeções periódicas nos locais de trabalho para verificar se estão atendendo às normas de segurança e saúde.\n\nÉ importante ressaltar que essas são apenas algumas das obrigações do empregador previstas na legislação brasileira. É sempre recomendável consultar a legislação específica e os regulamentos aplicáveis ao caso em questão.",
+      "num_sources": 15,
+      "avg_distance": 0.2223,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador",
+          "obrigação"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 18,
+        "supported": 17,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 18,
+            "text": "É sempre recomendável consultar a legislação específica e os regulamentos aplicáveis ao caso em questão.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Para se aposentar com as regras da Lei Complementar nº 142 (LC 142), você precisará atender aos seguintes requisitos:\n\n1. Tempo de contribuição: Você precisa ter contribuído por pelo menos 35 anos no Regime Geral de Previdência Social (RGPS);\n2. Idade máxima: A idade máxima para aposentadoria é 65 anos, contados a partir da data de nascimento;\n3. Cálculo do benefício: O benefício será calculado com base na média dos trinta e cinco últimos salários;\n4. Observância da lei: Você precisa ter observado as regras estabelecidas pela LC 142 e outras leis aplicáveis.\n\nAlém disso, é importante lembrar que a LC 142 prevê uma série de regras específicas para aposentadoria, como a possibilidade de complementação da aposentadoria com o Regime de Previdência Complementar (RPPS) e a vedação de complementação de aposentadorias de servidores públicos e de pensões por morte a seus dependentes.\n\nSe você tiver alguma dúvida ou precisar de mais informações, estou aqui para ajudá-lo.",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.2311,
+      "source_files": [
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 8,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 9,
+            "text": "Se você tiver alguma dúvida ou precisar de mais informações, estou aqui para ajudá-lo.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "35 anos",
+          "65 anos"
+        ]
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta do advogado é sobre o prazo de prescrição para a ação de usucapião extraordinária.\n\nDe acordo com o art. 922 do CPC, o prazo de prescrição para a ação de usucapião extraordinária é de 1 (um) ano, contado da data em que o executado ou seus bens penhoráveis forem localizados.\n\nPortanto, a resposta é: 1 (um) ano.",
+      "num_sources": 15,
+      "avg_distance": 0.2549,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [],
+        "numeric_claims": []
+      }
+    }
+  ]
+}

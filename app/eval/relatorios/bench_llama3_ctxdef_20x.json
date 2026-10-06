@@ -1,0 +1,414 @@
+{
+ "model": "llama3:latest",
+ "num_ctx": "default",
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T20:24:30.488819",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 42.04,
+   "error": null,
+   "answer": "A pergunta do advogado!\n\nLembre-se que não há informações específicas sobre a idade do dependente no conjunto de documentos fornecidos. No entanto, posso ajudar a responder essa pergunta com base em outras fontes.\n\nNo Brasil, o salário-família é um benefício pago pela Previdência Social ao segurado que tem dependentes e contribui para o Regime Geral de Previdência Social (RGPS). O salário-família é calculado com base no salário-de-benefício do segurado e é pago até a idade de 18 anos dos filhos, ou 24 anos se estiver estudando.\n\nPortanto, em resumo, o salário-família é pago até a idade de 18 anos dos filhos, ou 24 anos se estiver estudando.",
+   "answer_chars": 648,
+   "grounded": false,
+   "supported": 4,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2337
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 19.52,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se à idade até a qual o salário-família é pago ao dependente.\n\nDe acordo com o Art. 16 do Decreto nº 3.048/99, o salário-família é pago ao dependente menor de 21 anos ou inválido.\n\nPortanto, a resposta é: 21 anos.",
+   "answer_chars": 249,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2329
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 19.92,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta é muito simples e direta. Segundo o Art. 16 da Lei nº 8,213/91 (Regime Geral de Previdência Social), o salário-família é pago até a idade de 21 anos do dependente, ou inválido.\n\nPortanto, a resposta é: 21 anos!",
+   "answer_chars": 227,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2401
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 29.24,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com a Constituição Federal (art. X, inciso XII), o salário-família é pago em razão do dependente do trabalhador de baixa renda.\n\nNo entanto, para saber até qual idade do dependente é pago o salário-família, precisamos consultar outro dispositivo legal. Segundo o Decreto nº 3.048/99 (art. 81), o salário-família será devido ao segurado empregado ou trabalhador avulso que tenham salário-de-contribuição inferior ou igual a R$ 360,00, na proporção do respectivo número de filhos ou equiparados.\n\nPortanto, não há uma idade específica mencionada para o pagamento do salário-família. O benefício é pago enquanto houver dependentes que atendam aos requisitos legais.",
+   "answer_chars": 744,
+   "grounded": false,
+   "supported": 6,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2292
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 29.59,
+   "error": null,
+   "answer": "Olá!\n\nDe acordo com a Lei nº 9.528, de 1997, o segurado contribuinte individual que trabalhe por conta própria, sem relação de trabalho com empresa ou equiparado, e o segurado facultativo que contribuam na forma do § 2o do art. 21 da Lei nº 8.212, de 24 de julho de 1991, não farão jus à aposentadoria por tempo de contribuição.\n\nJá em relação ao salário-família, como mencionado no Decreto 3048, art. 26, o período de carência é o tempo correspondente ao número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\n\nPortanto, não há uma idade específica mencionada para o pagamento do salário-família. O benefício é pago aos dependentes menores de 21 anos ou inválidos, como estabelece o Decreto 3048, art. 16.\n\nEspero que isso tenha ajudado!",
+   "answer_chars": 868,
+   "grounded": true,
+   "supported": 6,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.238
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 19.9,
+   "error": null,
+   "answer": "A pergunta do advogado!\n\nDe acordo com o Decreto 3048, art. 83, o valor da cota do salário-família por filho ou equiparado de qualquer condição, até quatorze anos de idade ou inválido, é de R$ 8,65 (oito reais e sessenta e cinco centavos).\n\nPortanto, o salário-família é pago até a idade de 14 anos do dependente.",
+   "answer_chars": 313,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2327
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 34.35,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta é muito simples e direta. De acordo com a Constituição Federal (art. X - proteção do salário na forma da lei, constituindo crime sua retenção dolosa; XI - participação nos lucros, ou resultados, desvinculada da remuneração, e, excepcionalmente, participação na gestão da empresa, conforme definido em lei; XII - salário-família para os seus dependentes;), o salário-família é pago para os dependentes do trabalhador.\n\nAgora, se você perguntar até qual idade do dependente é pago o salário família, a resposta é: não há uma idade específica estabelecida na Constituição Federal. O que está previsto é que o salário-família seja pago para os dependentes do trabalhador.\n\nNo entanto, é importante mencionar que existem outras normas e regulamentações que podem estabelecer limites de idade para a concessão do benefício. Por exemplo, no Regulamento do INSS (Decreto 3.048/99), o salário-família é pago até a maioridade do dependente (18 anos).\n\nPortanto, se você precisar saber qual é a idade limite para o pagamento do salário família em um caso específico, é necessário consultar as normas e regulamentações aplicáveis ao caso.",
+   "answer_chars": 1143,
+   "grounded": false,
+   "supported": 7,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2311
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 18.45,
+   "error": null,
+   "answer": "Olá!\n\nDe acordo com o Decreto nº 3.048/99, art. 83, o salário-família é pago até a idade de 14 anos ou inválido.\n\nPortanto, a resposta à sua pergunta é: até 14 anos de idade do dependente é pago o salário família.",
+   "answer_chars": 213,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2327
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 18.08,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao salário-família, que é um benefício da Previdência Social. De acordo com o Decreto nº 3.048/99 (art. 6), o salário-família é pago até a idade de 21 anos.\n\nPortanto, a resposta à pergunta do advogado é: até 21 anos.",
+   "answer_chars": 256,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2353
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 37.55,
+   "error": null,
+   "answer": "A pergunta do advogado!\n\nVou analisar os documentos fornecidos para responder à sua pergunta.\n\nEm primeiro lugar, vamos ao Decreto 3048, art. 16:\n\n\"Art. 16. São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de vinte e um anos ou inválido;\"\n\nE no Decreto 3048, art. 22:\n\n\"Art. 22. Considera-se inscrição de dependente, para os efeitos da previdência social, o ato pelo qual o segurado o qualifica perante ela e de corre da apresentação de: ... I - para os dependentes preferenciais: a) cônjuge e filhos - certidões de casamento e de nascimento; b) companheira ou companheiro - documento de identidade e certidão de casamento com averbação da separação judicial ou divórcio, quando um dos companheiros ou ambos já tiverem sido casados, ou de óbito, se for o caso; e c) equiparado a filho - certidão judicial de tutela e, em se tratando de enteado, certidão de casamento do segurado e de nascimento do dependente, observado o disposto no § 3º do art. 16;\"\n\nPortanto, até a idade de 21 anos ou inválido é pago o salário família.\n\nEspero que isso tenha ajudado!",
+   "answer_chars": 1201,
+   "grounded": true,
+   "supported": 9,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 28.3,
+   "error": null,
+   "answer": "Excelente pergunta!\n\nDe acordo com a Lei nº 8.212, de 24 de julho de 1991, e o Decreto nº 3.048/99, o salário-família é pago até que o dependente atinja a idade de 18 anos.\n\nNo entanto, é importante lembrar que há exceções para essa regra. Segundo o art. 85 do Decreto nº 3.048/99, se o filho ou equiparado for maior de 14 anos de idade, sua invalidez deve ser verificada em exame médico-pericial a cargo da previdência social.\n\nPortanto, para responder à sua pergunta, o salário-família é pago até que o dependente atinja a idade de 18 anos, exceto se for maior de 14 anos e tiver invalidez, caso em que a verificação do estado de saúde será feita pela previdência social.",
+   "answer_chars": 673,
+   "grounded": false,
+   "supported": 3,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2307
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 17.74,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao salário-família, que é um benefício previsto na legislação trabalhista. De acordo com a Lei nº 8.212/91, art. 6º, o salário-família é pago até a idade de 18 anos dos filhos dependentes.\n\nPortanto, a resposta à pergunta do advogado é: até os 18 anos do dependente é pago o salário-família.",
+   "answer_chars": 330,
+   "grounded": false,
+   "supported": 2,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2409
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 24.3,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com a Lei nº 8.212, de 24 de julho de 1991, e o Decreto nº 3.048-99, art. 81, o salário-família é pago mensalmente ao segurado empregado ou trabalhador avulso que tenha salário-de-contribuição inferior ou igual a R$ 360,00 (trezentos e sessenta reais), na proporção do respectivo número de filhos ou equiparados.\n\nPortanto, não há uma idade específica para o dependente até quando é pago o salário-família. O benefício é pago enquanto o dependente for menor de 18 anos ou for pessoa com deficiência, independentemente da idade.",
+   "answer_chars": 609,
+   "grounded": false,
+   "supported": 4,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2297
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 25.72,
+   "error": null,
+   "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar a responder à sua pergunta.\n\nA resposta está contida no Decreto 3048, art. 81:\n\n\"O salário-família será devido, mensalmente, ao segurado empregado, exceto o doméstico, e ao trabalhador avulso que tenham salário-de-contribuição inferior ou igual a R$ 360,00 (trezentos e sessenta reais), na proporção do respectivo número de filhos ou equiparados, nos termos do art. 16, observado o disposto no art. 83.\"\n\nPortanto, o salário-família é pago até a idade de 14 anos do dependente.\n\nEspero que isso tenha ajudado! Se tiver mais alguma dúvida, sinta-se à vontade para perguntar.",
+   "answer_chars": 661,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2307
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 23.94,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com a Lei nº 8,213/91 e o Decreto nº 3.048/99, o salário-família é pago mensalmente ao segurado empregado ou trabalhador avulso que tenha salário-de-contribuição inferior ou igual a R$ 360,00 (trezentos e sessenta reais), na proporção do respectivo número de filhos ou equiparados.\n\nPortanto, não há uma idade específica para o dependente até qual é pago o salário-família. O pagamento do salário-família é condicionado ao salário-de-contribuição do segurado e ao número de dependentes que ele tenha.",
+   "answer_chars": 582,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2297
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 15.97,
+   "error": null,
+   "answer": "Olá!\n\nDe acordo com a Lei nº 8,213/91 e o Decreto nº 3.048/99, o salário-família é pago até a menoridade do dependente, ou seja, até os 21 anos de idade.\n\nPortanto, a resposta à sua pergunta é: até 21 anos de idade.",
+   "answer_chars": 215,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2387
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 18.58,
+   "error": null,
+   "answer": "Olá!\n\nDe acordo com o Decreto 3048, art. 16, I - \"o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\" são beneficiários do Regime Geral de Previdência Social.\n\nPortanto, até os 21 anos de idade do dependente é pago o salário-família.",
+   "answer_chars": 306,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2292
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 18.24,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com a Lei nº 8,213/91 e Decreto nº 3.048/99, o salário-família é pago para os dependentes do trabalhador até a idade de 18 anos.\n\nPortanto, a resposta à pergunta do advogado é: até 18 anos.",
+   "answer_chars": 271,
+   "grounded": false,
+   "supported": 2,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2297
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 30.22,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta é interessante! Vou analisar os documentos fornecidos e tentar encontrar a resposta.\n\nEm primeiro lugar, vamos verificar se há alguma menção à idade do dependente em relação ao pagamento do salário-família. Não encontrei nenhuma referência específica sobre isso nos documentos fornecidos (Lei 8213, Decreto 3048 e Constituição).\n\nNo entanto, podemos analisar a Lei 8213, que define o salário-família como uma prestação da Previdência Social para os dependentes do trabalhador. A lei não estabelece uma idade específica para o pagamento do salário-família.\n\nEm seguida, vamos verificar se há alguma menção à idade do dependente em relação ao salário-família na Constituição. Sim, encontrei! Artigo XII da Constituição Brasileira define que o salário-família será pago \"para os seus dependentes\". Não há uma idade específica mencionada nesse artigo.\n\nEm resumo, não encontrei nenhuma menção específica à idade do dependente para o pagamento do salário-família nos documentos fornecidos. Portanto, a resposta é: não há uma idade específica estabelecida para o pagamento do salário-família.\n\nEspero que isso ajude!",
+   "answer_chars": 1127,
+   "grounded": true,
+   "supported": 14,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2326
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 16.5,
+   "error": null,
+   "answer": "Olá!\n\nA pergunta do advogado refere-se ao salário-família, que é um benefício da Previdência Social. De acordo com a Lei nº 8.212/91 e o Decreto nº 3.265/99, o salário-família é pago até a idade de 14 anos do dependente.\n\nPortanto, a resposta à pergunta do advogado é: até 14 anos.",
+   "answer_chars": 281,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2311
+  }
+ ],
+ "wall_time_s": 488.2,
+ "finished_at": "2026-09-12T20:32:38.662671"
+}

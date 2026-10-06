@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-12T05:41:09.158616",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta do advogado refere-se ao pagamento do salário-família. De acordo com a Lei nº 8,213/91 e Decreto nº 3.265/99, o salário-família é pago para os dependentes do trabalhador até a idade de 14 anos.\n\nPortanto, a resposta à pergunta do advogado é: até 14 anos de idade do dependente é pago o salário-família.",
+      "num_sources": 15,
+      "avg_distance": 0.2297,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "14"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

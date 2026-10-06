@@ -1,0 +1,9 @@
+## 📋 CONTEXTO RECUPERADO DA BASE JURÍDICA
+
+{context}
+
+---
+
+**PERGUNTA DO ADVOGADO:**
+
+{input}

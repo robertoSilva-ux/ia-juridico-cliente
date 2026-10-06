@@ -1,0 +1,259 @@
+{
+  "generated_at": "2026-09-12T05:04:34.518246",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Vamos analisar as informações fornecidas e responder à sua pergunta.\n\nA partir dos documentos apresentados (DOC 7, DOC 9, DOC 10, DOC 11, DOC 12 e DOC 13), podemos identificar os seguintes requisitos para a aposentadoria por invalidez:\n\n1. Incapacidade permanente para o trabalho: O segurado deve estar insuscetível de readaptação e necessitar de avaliações periódicas para verificação da continuidade das condições que ensejaram a concessão da aposentadoria (DOC 11, art. 40).\n2. Exame médico: O segurado aposentado por invalidez está obrigado a submeter-se a exames médicos periódicos, a cargo da previdência social, para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (DOC 9, art. 46).\n3. Avaliações periódicas: O segurado aposentado por invalidez deve realizar avaliações periódicas para verificação da continuidade das condições que ensejaram a concessão da aposentadoria (DOC 11, art. 40).\n\nEsses são os requisitos básicos para a aposentadoria por invalidez. Lembre-se de que essas informações podem ser complementadas ou alteradas por outras normas e regulamentações.\n\nEspero que isso tenha ajudado! Se tiver mais alguma dúvida, sinta-se à vontade para perguntar.",
+      "num_sources": 15,
+      "avg_distance": 0.2216,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 12,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Como assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA carência mínima para aposentadoria por tempo de contribuição é igual ao número de meses necessário à concessão do benefício requerido. Isso está previsto no § 1º do Decreto nº 3048/99.\n\nPortanto, não há um valor específico de carência mínima, mas sim uma condição que depende do benefício solicitado.",
+      "num_sources": 15,
+      "avg_distance": 0.2202,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso dizer que um acidente de trabalho é considerado qualquer lesão ou doença decorrente de risco ambiental no local de trabalho, que afete a saúde ou integridade física do trabalhador.\n\nEm relação às obrigações do empregador, o Decreto 3048/99 estabelece que:\n\n* O empregador é responsável por fornecer ao trabalhador um ambiente seguro e saudável no local de trabalho (art. 339);\n* O empregador deve anotar na Carteira de Trabalho e Previdência Social do empregado o salário fixo e a média dos valores das gorjetas referentes aos últimos doze meses (art. 8º);\n* O empregador é obrigado a cobrar e distribuir as gorjetas de que trata o § 3º do art. 340, mediante convenção ou acordo coletivo de trabalho;\n* O empregador deve constituir comissão de empregados para acompanhamento e fiscalização da regularidade da cobrança e distribuição da gorjeta (art. 10);\n* O empregador é responsável por fornecer ao trabalhador equipamentos de proteção individual e instruções para o uso correto desses equipamentos (art. 159).\n\nAlém disso, o Decreto 3048/99 estabelece que o empregador é responsável por:\n\n* Fornecer ao trabalhador um ambiente seguro e saudável no local de trabalho;\n* Cobrar e distribuir as gorjetas de que trata o § 3º do art. 340;\n* Constituir comissão de empregados para acompanhamento e fiscalização da regularidade da cobrança e distribuição da gorjeta;\n* Fornecer ao trabalhador equipamentos de proteção individual e instruções para o uso correto desses equipamentos.\n\nEssas são as principais obrigações do empregador em relação a acidentes de trabalho.",
+      "num_sources": 15,
+      "avg_distance": 0.2243,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 1,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Em relação às obrigações do empregador, o Decreto 3048/99 estabelece que:\n\n* O empregador é responsável por fornecer ao trabalhador um ambiente seguro e saudável no local de trabalho (art. 339);\n* O empregador deve anotar na Carteira de Trabalho e Previdência Social do empregado o salário fixo e a média dos valores das gorjetas referentes aos últimos doze meses (art. 8º);\n* O empregador é obrigado a cobrar e distribuir as gorjetas de que trata o § 3º do art. 340, mediante convenção ou acordo coletivo de trabalho;\n* O empregador deve constituir comissão de empregados para acompanhamento e fiscalização da regularidade da cobrança e distribuição da gorjeta (art. 10);\n* O empregador é responsável por fornecer ao trabalhador equipamentos de proteção individual e instruções para o uso correto desses equipamentos (art. 159).",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a esclarecer a questão.\n\nA Lei Complementar nº 142 (LC 142) é uma norma que regula o Regime de Previdência dos Servidores Públicos Federais. Para se aposentar com as regras da LC 142, você precisa atender aos seguintes requisitos:\n\n1. Ter contribuído por pelo menos 35 anos para o Regime Geral de Previdência Social (RGPS);\n2. Ter exercido cargo público federal por pelo menos 20 anos;\n3. Ter idade igual ou superior a 60 anos (para homens) ou 55 anos (para mulheres).\n\nAlém disso, é importante lembrar que as regras da LC 142 são aplicáveis apenas aos servidores públicos federais e não aos servidores estaduais ou municipais.\n\nSe você tiver alguma dúvida adicional sobre a LC 142 ou precisar de mais informações, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.239,
+      "min_distance": 0.2311,
+      "source_files": [
+        "Constituição.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 7,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Para se aposentar com as regras da LC 142, você precisa atender aos seguintes requisitos:\n\n1.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Se você tiver alguma dúvida adicional sobre a LC 142 ou precisar de mais informações, sinta-se à vontade para perguntar!",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta é interessante, pois não há um artigo específico que estabeleça o prazo de prescrição para a ação de usucapião extraordinária. No entanto, podemos analisar alguns conceitos e regras que podem nos ajudar a responder essa pergunta.\n\nA usucapião é uma figura jurídica que permite ao proprietário de um imóvel adquirir o título de propriedade sobre outro imóvel, desde que atenda aos requisitos previstos em lei. A usucapião extraordinária é uma modalidade específica da usucapião que se aplica em casos de calamidade pública.\n\nEm geral, os prazos de prescrição são estabelecidos por lei e podem variar de acordo com o tipo de ação ou figura jurídica envolvida. No entanto, não há um prazo específico para a usucapião extraordinária.\n\nNo entanto, podemos considerar que a usucapião é uma figura jurídica que se relaciona à propriedade imobiliária e, portanto, pode ser influenciada pelas regras de prescrição aplicáveis às ações relativas à propriedade. Nesse sentido, podemos considerar que o prazo de prescrição para a usucapião extraordinária pode ser similar ao prazo de prescrição estabelecido para as ações de usucapião ordinária.\n\nDe acordo com o Código Civil Brasileiro (CC), o prazo de prescrição para as ações de usucapião é de 15 anos (art. 1.349, CC). No entanto, é importante notar que essa regra se aplica às ações de usucapião ordinária e não específicamente à usucapião extraordinária.\n\nEm resumo, embora não haja um prazo específico para a usucapião extraordinária, podemos considerar que o prazo de prescrição pode ser similar ao prazo de prescrição estabelecido para as ações de usucapião ordinária, que é de 15 anos. No entanto, é importante consultar a lei aplicável e os casos específicos para determinar o prazo de prescrição adequado para cada caso.",
+      "num_sources": 15,
+      "avg_distance": 0.2535,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 13,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [
+          "não há"
+        ],
+        "numeric_claims": [
+          "15 anos",
+          "15 anos"
+        ],
+        "dispositivo_claims": [
+          "art. 1"
+        ]
+      }
+    }
+  ]
+}

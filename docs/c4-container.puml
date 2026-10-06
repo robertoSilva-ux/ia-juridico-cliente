@@ -1,0 +1,42 @@
+@startuml C4-Container-LegalizAI
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Legaliz.ai — Container Diagram
+
+LAYOUT_WITH_LEGEND
+
+Person(advogado, "Advogado / Usuário", "Pessoa física que acessa a plataforma via navegador")
+Person(admin, "Administrador", "Usuário com role admin — gerencia usuários, documentos e configurações")
+
+System_Boundary(legaliz, "Legaliz.ai") {
+    Container(webapp, "Streamlit UI", "Python + Streamlit", "Interface web — Chat Jurídico, Gerenciar Documentos, Painel Admin, Auditoria")
+    Container(agent, "Agent RAG", "Python + LangChain", "Pipeline de recuperação e geração — Retrieval, HyDE, MMR Rerank, Fact-check, Citations")
+    Container(auth, "Auth Module", "Python + streamlit-authenticator", "Autenticação com roles admin/user — login, logout, gestão de sessão")
+    Container(ingest, "Ingest Pipeline", "Python", "PDF → chunks → embeddings → PostgreSQL — processamento e indexação de documentos")
+    Container(legal_parser, "Legal Parser", "Python", "Extração de metadados jurídicos — artigo, parágrafo, inciso, tipo_doc, numero_doc")
+    Container(ranking, "Ranking Engine", "Python", "MMR re-ranking, HyDE, regime boost, RRF fusion")
+    Container(factcheck, "Fact-check", "Python", "Verificação de groundedness pós-geração — citações e sentenças apoiadas")
+    Container(embeddings, "Embeddings", "Python + nomic-embed-text", "Wrapper de embeddings com prefixos assimétricos para Ollama")
+}
+
+ContainerDb(postgres, "PostgreSQL + pgvector", "ankane/pgvector", "Banco de dados vetorial — documentos, embeddings, usuários, logs de auditoria")
+Container(ollama, "Ollama Server", "ollama/ollama (Docker)", "Servidor de modelos LLM locais e embeddings — llama3.2:3b, gemma4, nomic-embed-text")
+Container(gpu, "GPU NVIDIA", "NVIDIA CUDA", "Aceleração para inferência de LLM e embeddings")
+
+Rel(advogado, webapp, "Acessa via navegador HTTPS", "HTTP")
+Rel(admin, webapp, "Acessa via navegador HTTPS", "HTTP")
+Rel(webapp, auth, "Autentica login/logout", "Sessão")
+Rel(webapp, agent, "Envia pergunta, recebe resposta", "Python API")
+Rel(agent, ollama, "Embeddings + LLM inference", "Ollama API (localhost:11434)")
+Rel(agent, postgres, "Busca semântica vetorial + armazenamento", "pgvector / SQL")
+Rel(agent, embeddings, "Gera embeddings para busca", "Python API")
+Rel(agent, ranking, "Re-ranking MMR e fusão RRF", "Python API")
+Rel(agent, factcheck, "Verifica groundedness da resposta", "Python API")
+Rel(ingest, ollama, "Gera embeddings dos chunks", "Ollama API")
+Rel(ingest, postgres, "Armazena chunks indexados", "pgvector / SQL")
+Rel(ingest, legal_parser, "Extrai metadados jurídicos dos chunks", "Python API")
+Rel(legal_parser, postgres, "Persiste metadados dos documentos", "SQL")
+Rel(ollama, gpu, "Inferência no GPU", "CUDA")
+
+@enduml

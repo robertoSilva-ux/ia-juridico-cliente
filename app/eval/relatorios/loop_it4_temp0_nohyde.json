@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-09-12T05:40:26.192854",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é simples, mas a resposta envolve uma análise de vários documentos legais. Vou tentar ajudar.\n\nDe acordo com o Decreto 3048 (art. 105), o salário-família será pago até trinta dias após completar 16 anos de idade para dependentes menores de 16 anos. Já para dependentes maiores de 16 anos, o prazo é até trinta dias após o óbito do segurado.\n\nAlém disso, o Decreto 3048 (art. 83) estabelece que a cota do salário-família por filho ou equiparado de qualquer condição, até 14 anos de idade ou inválido, é de R$ 8,65 (oito reais e sessenta e cinco centavos).\n\nPortanto, concluo que o salário-família será pago até a idade de 14 anos para dependentes menores de 16 anos.\n\nEspero que isso tenha ajudado!",
+      "num_sources": 15,
+      "avg_distance": 0.2253,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "14",
+          "inválido"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 7,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "A pergunta é simples, mas a resposta envolve uma análise de vários documentos legais.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    }
+  ]
+}

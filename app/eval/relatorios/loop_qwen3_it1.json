@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-09-12T06:08:03.187236",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "O salário família é um benefício pago pelo Sistema de Previdência Social (Lei 8.213/1991) aos dependentes que atendam aos critérios estabelecidos. De acordo com a legislação brasileira, **o salário família é pago até a idade de 18 anos** para dependentes que não sejam estudantes. \n\nNo entanto, para estudantes que estejam cursando educação superior ou cursos técnicos, o limite é estendido até **21 anos**. \n\nEmbora os documentos fornecidos não contenham explicitamente a idade limite (como [DOC 8] menciona apenas até 5 anos para creches e pré-escolas), a resposta baseia-se na legislação brasileira padrão, que define **18 anos** como a idade máxima para o pagamento do salário família em casos gerais.\n\n**Resposta:** Até a idade de **18 anos** (com exceção para estudantes, que podem ter até 21 anos). \n\n**Resposta direta para a pergunta:** **18 anos**.",
+      "num_sources": 15,
+      "avg_distance": 0.2321,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 6,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

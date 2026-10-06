@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-09-12T05:50:40.289818",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A pergunta!\n\nDe acordo com a Constituição (DOC 9), o salário-família é pago para os dependentes do trabalhador de baixa renda, sem especificar uma idade específica.\n\nNo entanto, no Decreto 3048 (DOC 10), Art. 31, é mencionado que o salário-de-benefício é utilizado para cálculo da renda mensal dos benefícios de prestação continuada, inclusive os regidos por normas especiais, exceto o salário-família.\n\nNo Decreto 3048 (DOC 7), Art. 85, é mencionado que a invalidez do filho ou equiparado maior de quatorze anos de idade deve ser verificada em exame médico-pericial a cargo da previdência social.\n\nPortanto, podemos concluir que o salário-família é pago até a idade de 14 anos do dependente.",
+      "num_sources": 15,
+      "avg_distance": 0.233,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "quatorze",
+          "14"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 7,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

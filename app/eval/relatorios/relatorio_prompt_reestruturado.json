@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-09-12T04:33:18.509944",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Vamos analisar as informações fornecidas e responder à sua pergunta.\n\nA partir dos documentos apresentados (DOC 7, DOC 8, DOC 9, DOC 10, DOC 11 e DOC 12), podemos identificar os seguintes requisitos para a aposentadoria por invalidez:\n\n1. Invalidez permanente: O segurado deve estar incapacitado permanentemente para o trabalho (DOC 7, art. 46; DOC 10);\n2. Contribuição ao Regime Geral de Previdência Social (RGPS): O segurado deve ter contribuído ao RGPS por um período determinado (DOC 9, II);\n3. Exame médico: O aposentado por invalidez está obrigado a submeter-se a exames médicos periódicos (DOC 8, Parágrafo único);\n4. Reabilitação profissional: O segurado deve estar disposto a realizar tratamento e reabilitação profissional prescritos pela previdência social (DOC 8, art. 46);\n5. Ausência de capacidade para o trabalho: O segurado não pode mais exercer atividades laborais por causa da sua invalidez (DOC 7, art. 168; DOC 10).\n\nAlém disso, é importante mencionar que a EC nº 103, de 2019, estabeleceu novas regras para a concessão e cálculo da aposentadoria por invalidez permanente (DOC 10). No entanto, essas disposições transitórias não se aplicam às hipóteses de doença grave, contagiosa ou incurável.\n\nEspero que essa resposta tenha ajudado. Se tiver mais alguma dúvida, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2233,
+      "min_distance": 0.1729,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 12,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Como assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "answer": "Olá!\n\nA pergunta do advogado é sobre a carência mínima para aposentadoria por tempo de contribuição.\n\nDe acordo com o Decreto 3048, art. 26, a carência mínima para aposentadoria por tempo de contribuição é de 35 anos de contribuição para homem e 30 anos para mulher (Redação dada pelo Decreto nº 6.042, de 2007).\n\nAlém disso, o art. 56 do mesmo decreto estabelece que a aposentadoria por tempo de contribuição será devida ao segurado após 35 anos de contribuição, se homem, ou 30 anos, se mulher.\n\nPortanto, a carência mínima para aposentadoria por tempo de contribuição é de 35 anos de contribuição para homem e 30 anos para mulher.",
+      "num_sources": 15,
+      "avg_distance": 0.2163,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "answer": "Muito obrigado pelo desafio!\n\nA pergunta é muito interessante, pois aborda um tema fundamental na área trabalhista. Segundo o Decreto 3048/99 (art. 202), acidente de trabalho é considerado qualquer lesão corporal ou doença contrada em decorrência do exercício da atividade profissional.\n\nAgora, quanto às obrigações do empregador, podemos destacar as seguintes:\n\n1. **Fiscalização**: O Ministério do Trabalho e Emprego fiscalizará o cumprimento das normas de segurança e saúde no trabalho (art. 339);\n2. **Prevenção**: A empresa deve implementar medidas de prevenção de acidentes e doenças ocupacionais, como a utilização de equipamentos de proteção individual (EPI) em obras de construção, demolição ou reparos (art. 200, I);\n3. **Comunicação**: Em caso de acidente de trabalho, o empregador deve comunicar formalmente os órgãos interessados e a previdência social (art. 339, § 4º);\n4. **Indenização**: Se o empregado for vítima de acidente de trabalho, o empregador é obrigado a indenizá-lo por danos morais e materiais (art. 497).\n\nEssas são apenas algumas das obrigações do empregador em caso de acidente de trabalho. É importante lembrar que a prevenção é sempre melhor do que a reparaçãeste",
+      "num_sources": 15,
+      "avg_distance": 0.2226,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 10,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

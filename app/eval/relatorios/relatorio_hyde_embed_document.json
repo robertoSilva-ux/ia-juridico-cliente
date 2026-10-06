@@ -1,0 +1,154 @@
+{
+  "generated_at": "2026-09-12T04:16:47.714464",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "answer": "**DIRETRIZES DE RESPOSTA:**\n\n1. ANCORAGEM OBRIGATÓRIA: responda EXCLUSIVAMENTE com base no contexto acima.\n   É PROIBIDO usar conhecimento próprio para fatos, números, prazos ou citações.\n\n**RESPosta:**\n\nA aposentadoria por invalidez é regulamentada pelo art. 10 da EC nº 103/2019 e pelo Decreto 3048/1999. Conforme o contexto, os requisitos para a concessão de aposentadoria por invalidez são:\n\n* Incapacidade permanente para o trabalho, no cargo em que estiver investido, quando insuscetível de readaptação (art. 10 da EC nº 103/2019);\n* Obrigatória a realização de avaliações periódicas para verificação da continuidade das condições que ensejaram a concessão da aposentadoria (art. 10 da EC nº 103/2019);\n* Submissão à junta médica oficial, que atestará a invalidez quando caracterizada a incapacidade para o desempenho das atribuições do cargo ou a impossibilidade de se aplicar o disposto no art. 24 (art. 187 do Vade Mecum Senado Federal);\n* Submissão a exame médico a cargo da previdência social, processo de reabilitação profissional por ela prescrito e custeado e tratamento dispensado gratuitamente, exceto o cirúrgico e a transfusão de sangue, que são facultativos (art. 46 do Decreto 3048/1999);\n* Submissão a exames médico-periciais, realizados bienalmente (parágrafo único do art. 46 do Decreto 3048/1999).\n\n**Observações:**\n\n* A aposentadoria por invalidez é automática e declarada por ato, com vigência a partir do dia imediato àquele em que o servidor atingir a idade-limite de permanência no serviço ativo (art. 187 do Vade Mecum Senado Federal);\n* O período de licença para tratamento de saúde não excede 24 meses (art. 188 do Vade Mecum Senado Federal).",
+      "num_sources": 15,
+      "avg_distance": 0.2199,
+      "min_distance": 0.1729,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 4,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "ANCORAGEM OBRIGATÓRIA: responda EXCLUSIVAMENTE com base no contexto acima.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "É PROIBIDO usar conhecimento próprio para fatos, números, prazos ou citações.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "answer": "**Resposta baseada no contexto**\n\nA carência mínima para aposentadoria por tempo de contribuição não está explicitamente mencionada no contexto fornecido. Portanto, não posso fornecer uma resposta definitiva sobre essa questão.\n\n**Observação**: Se você estiver procurando informações sobre a carência mínima para aposentadoria por tempo de contribuição, sugiro que consulte fontes oficiais ou normas específicas do Regime Geral de Previdência Social.",
+      "num_sources": 15,
+      "avg_distance": 0.2209,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 2,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Portanto, não posso fornecer uma resposta definitiva sobre essa questão.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "answer": "**Configuração de Acidente de Trabalho:**\n\nSegundo o Decreto 3.048/99, art. 339, § 1º, considera-se acidente de trabalho \"qualquer lesão corporal ou doença contrada em decorrência do exercício do trabalho, independentemente da responsabilidade do empregador\".\n\n**Obrigações do Empregador:**\n\nDe acordo com o Decreto 3.048/99, art. 339, § 2º, as obrigações do empregador são:\n\n* Prestar assistência médica ao empregado lesionado ou doente;\n* Fornecer informações sobre a lesão ou doença ao Ministério do Trabalho e Emprego;\n* Manter registro das lesões e doenças ocorridas no local de trabalho.\n\nAlém disso, o Decreto 3.048/99, art. 340, estabelece que o empregador deve:\n\n* Fornecer equipamentos de proteção individual (EPI) aos empregados;\n* Prestar instruções sobre a utilização dos EPI e a observância das normas de segurança;\n* Manter registro das lesões e doenças ocorridas no local de trabalho.\n\n**Fiscalização:**\n\nO Ministério do Trabalho e Emprego fiscalizará o cumprimento dessas obrigações, e os sindicatos e entidades representativas de classe acompanharão o fiel cumprimento das normas de segurança e medicina do trabalho.",
+      "num_sources": 15,
+      "avg_distance": 0.2232,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

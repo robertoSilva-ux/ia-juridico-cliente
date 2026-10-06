@@ -1,0 +1,297 @@
+{
+  "generated_at": "2026-09-12T05:12:39.980239",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Vamos analisar as informações fornecidas e responder à sua pergunta.\n\nA aposentadoria por invalidez é um benefício concedido ao segurado que não pode mais exercer suas funções devido a uma incapacidade permanente para o trabalho. De acordo com os documentos apresentados, os requisitos para a concessão da aposentadoria por invalidez são:\n\n1. Incapacidade permanente para o trabalho: O segurado deve estar insuscetível de readaptação e não poder mais exercer suas funções devido à sua incapacidade (Decreto 3048, art. 168);\n2. Avaliação periódica: A aposentadoria por invalidez é condicionada à realização de avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (EC nº 103, art. 40);\n3. Insuscetibilidade de readaptação: O segurado deve ser insuscetível de readaptação e não poder mais exercer suas funções devido à sua incapacidade (EC nº 103, art. 40);\n4. Condições que ensejaram a concessão da aposentadoria: A aposentadoria por invalidez é concedida quando o segurado está insuscetível de readaptação e não pode mais exercer suas funções devido à sua incapacidade (Decreto 3048, art. 46).\n\nAlém disso, é importante lembrar que a aposentadoria por invalidez é um benefício concedido ao segurado que está insuscetível de readaptação e não pode mais exercer suas funções devido à sua incapacidade. Portanto, o segurado deve estar realmente incapacitado para o trabalho e não poder mais exercer suas funções.\n\nEspero que isso ajude a responder à sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.2223,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 4,
+        "flagged_sentences": [
+          {
+            "n": 6,
+            "text": "Incapacidade permanente para o trabalho: O segurado deve estar insuscetível de readaptação e não poder mais exercer suas funções devido à sua incapacidade (Decreto 3048, art. 168);\n2.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 7,
+            "text": "Avaliação periódica: A aposentadoria por invalidez é condicionada à realização de avaliações periódicas para verificar a continuidade das condições que ensejaram a concessão da aposentadoria (EC nº 103, art. 40);\n3.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "Insuscetibilidade de readaptação: O segurado deve ser insuscetível de readaptação e não poder mais exercer suas funções devido à sua incapacidade (EC nº 103, art. 40);\n4.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Condições que ensejaram a concessão da aposentadoria: A aposentadoria por invalidez é concedida quando o segurado está insuscetível de readaptação e não pode mais exercer suas funções devido à sua incapacidade (Decreto 3048, art. 46).",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta do advogado é sobre a carência mínima para aposentadoria por tempo de contribuição.\n\nDe acordo com o art. 56 do Decreto nº 3.048/99, a aposentadoria por tempo de contribuição será devida ao segurado após trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher, observado o disposto no art. 199-A.\n\nPortanto, a carência mínima para aposentadoria por tempo de contribuição é de trinta e cinco anos de contribuição para homens e trinta anos para mulheres.\n\nEspero que isso tenha ajudado!",
+      "num_sources": 15,
+      "avg_distance": 0.2176,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 1,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com o art. 56 do Decreto nº 3.048/99, a aposentadoria por tempo de contribuição será devida ao segurado após trinta e cinco anos de contribuição, se homem, ou trinta anos, se mulher, observado o disposto no art. 199-A.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a responder à sua pergunta.\n\nDe acordo com o art. 199 do Capítulo VII da Consolidação das Leis do Trabalho (CLT), um acidente de trabalho é considerado qualquer lesão ou doença que ocorra ao trabalhador em decorrência do exercício do trabalho, seja por culpa do empregador, do próprio trabalhador ou de terceiros.\n\nJá as obrigações do empregador em caso de acidente de trabalho são estabelecidas pelo art. 339 do Decreto nº 3.048/99, que determina a fiscalização do Ministério do Trabalho e Emprego para garantir o cumprimento das normas de segurança e saúde no trabalho.\n\nAlém disso, o empregador também tem a obrigação de prestar assistência ao trabalhador acidentado, como previsto no art. 338 do Decreto nº 3.048/99, e de comunicar formalmente os órgãos competentes sobre o acidente, como previsto no § 4o do art. 339 do mesmo decreto.\n\nEspero que isso tenha ajudado a responder à sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.2215,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador",
+          "obrigação"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 3,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com o art. 199 do Capítulo VII da Consolidação das Leis do Trabalho (CLT), um acidente de trabalho é considerado qualquer lesão ou doença que ocorra ao trabalhador em decorrência do exercício do trabalho, seja por culpa do empregador, do próprio trabalhador ou de terceiros.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "Já as obrigações do empregador em caso de acidente de trabalho são estabelecidas pelo art. 339 do Decreto nº 3.048/99, que determina a fiscalização do Ministério do Trabalho e Emprego para garantir o cumprimento das normas de segurança e saúde no trabalho.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "Além disso, o empregador também tem a obrigação de prestar assistência ao trabalhador acidentado, como previsto no art. 338 do Decreto nº 3.048/99, e de comunicar formalmente os órgãos competentes sobre o acidente, como previsto no § 4o do art. 339 do mesmo decreto.",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, pretensão para haver prestações alimentares, a partir da data em que se vencerem.\n\nPara se aposentar com as regras da Lei Complementar nº 144 (LC 144), é necessário atender aos seguintes requisitos:\n\n1. Ter pelo menos 25 anos de contribuição;\n2. Ter exercido cargo de natureza estritamente policial por, no mínimo, 15 anos.\n\nEsses são os requisitos mínimos para se aposentar com as regras da LC 144. É importante lembrar que outros fatores podem influenciar o cálculo dos proventos de aposentadoria e a concessão da pensão.\n\nSe você tiver alguma dúvida ou precisar de mais informações, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.2311,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta é muito interessante! Vou analisar os documentos fornecidos e tentar encontrar a resposta.\n\nEm primeiro lugar, vamos verificar se há algum artigo específico que trate do prazo de prescrição para a ação de usucapião extraordinária. Não encontrei nada nesses documentos.\n\nNo entanto, podemos utilizar o princípio da analogia. A usucapião é um instituto jurídico que permite ao proprietário adquirir a propriedade de um imóvel mediante a posse pacífica e contínua durante um determinado período de tempo (geralmente 10 anos).\n\nA prescrição, por sua vez, é o prazo dentro do qual uma ação pode ser intentada. Em geral, o prazo de prescrição é de 10 anos para a usucapião.\n\nPortanto, podemos concluir que o prazo de prescrição para a ação de usucapião extraordinária é de 10 anos, contados a partir da data da posse pacífica e contínua do imóvel.\n\nLembre-se de que essa é apenas uma interpretação baseada na analogia e não há um artigo específico que confirme isso. Se você precisar de mais informações ou tiver alguma dúvida adicional, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2535,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 11,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 6,
+            "text": "No entanto, podemos utilizar o princípio da analogia.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [
+          "não há",
+          "não encontrei"
+        ],
+        "numeric_claims": [
+          "10 anos",
+          "10 anos",
+          "10 anos"
+        ],
+        "dispositivo_claims": []
+      }
+    }
+  ]
+}

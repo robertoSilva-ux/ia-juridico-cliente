@@ -1,0 +1,10 @@
+.env
+*.zip
+*.dump
+__pycache__/
+*.pyc
+*.pyo
+bench_resume.log
+get-docker.sh
+.backups/
+.antigravitycli/

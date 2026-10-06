@@ -1,0 +1,377 @@
+{
+  "generated_at": "2026-09-25T02:31:55.139492",
+  "results": [
+    {
+      "top_k": 5,
+      "threshold": 0.8,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 0,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 0.833,
+      "article_accuracy": null
+    },
+    {
+      "top_k": 5,
+      "threshold": 0.6,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 0,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 0.833,
+      "article_accuracy": null
+    },
+    {
+      "top_k": 15,
+      "threshold": 0.8,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 0,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 0.833,
+      "article_accuracy": null
+    },
+    {
+      "top_k": 15,
+      "threshold": 0.6,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 0,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 0.833,
+      "article_accuracy": null
+    },
+    {
+      "top_k": 30,
+      "threshold": 0.8,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 0,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 0.833,
+      "article_accuracy": null
+    },
+    {
+      "top_k": 30,
+      "threshold": 0.6,
+      "questions": [
+        {
+          "id": "q1",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q2",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q3",
+          "source_hit": 0,
+          "source_total": 0,
+          "article_hit": null
+        },
+        {
+          "id": "q4",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q5",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q6",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q7",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q8",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        },
+        {
+          "id": "q9",
+          "source_hit": 1,
+          "source_total": 1,
+          "article_hit": null
+        }
+      ],
+      "source_recall": 1.0,
+      "article_accuracy": null
+    }
+  ]
+}

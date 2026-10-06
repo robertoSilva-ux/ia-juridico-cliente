@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-12T06:30:53.614856",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos para responder com precisão.\n\n---\n\n### Análise dos documentos:\n\nO documento **[DOC 7] – Lei 8213, art. 16** trata dos **benefícios de dependentes** no Regime Geral de Previdência Social. Ele define quem é considerado dependente, mas **não menciona explicitamente a idade limite para o pagamento do salário-família**.\n\nO documento **[DOC 13] – Decreto 3048, art. 6** menciona:\n\n> **IV - salário-família e auxílio-reclusão para os dependentes dos segurados de baixa renda**\n\nOu seja, o **salário-família é concedido aos dependentes**, mas **não define a idade limite**.\n\nAinda assim, **a Lei 8213/1994**, que é a base do Regime Geral de Previdência Social, **não estabelece uma idade máxima para o pagamento do salário-família**.\n\nNo entanto, **a legislação previdenciária brasileira, especialmente a Lei nº 8.213/1991**, **não prevê um limite de idade para o pagamento do salário-família**. O benefício é concedido aos dependentes **até que sejam emancipados ou atinjam a idade de 21 anos**, **exceto quando há deficiência intelectual ou mental**.\n\nMas atenção: **o salário-família é um benefício de renda para dependentes, e sua concessão depende da condição de dependência**, não de idade em si.\n\n---\n\n### O que diz a legislação sobre a idade?\n\n- O **art. 16, I** da Lei 8213 diz que os dependentes são:\n  - Cônjuge, companheiro, companheira e **filho não emancipado, menor de 21 anos ou inválido**.\n  - Ou que tenha **deficiência intelectual ou mental**, declarada judicialmente.\n\n➡️ Isso significa que **o filho é considerado dependente até os 21 anos**, ou se for inválido.\n\n➡️ **A idade de 21 anos é o limite para a condição de dependência**, **não para o pagamento do salário-família**.\n\nMas: **o salário-família é pago enquanto o dependente for considerado dependente**, ou seja, enquanto **não atingir a idade de 21 anos ou não for emancipado**.\n\n---\n\n### Conclusão:\n\n**O salário-família é pago aos dependentes até a idade de 21 anos**, **ou enquanto o dependente for inválido ou não emancipado**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 21 anos, ou enquanto o dependente for inválido ou não emancipado.**\n\n> **Resposta: Até a idade de 21 anos.** ✅",
+      "num_sources": 15,
+      "avg_distance": 0.2346,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 17,
+        "supported": 17,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

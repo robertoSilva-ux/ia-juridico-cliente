@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-09-12T05:51:28.052626",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é sobre o salário-família e até que idade do dependente é pago. De acordo com a Constituição (DOC 8), o salário-família é pago para os dependentes do trabalhador.\n\nNo entanto, não há uma idade específica mencionada na Constituição. Para saber mais sobre isso, precisamos verificar outras fontes de lei ou regulamentação.\n\nEm DOC 9, Art. 85, vemos que a invalidez do filho ou equiparado maior de 14 anos de idade deve ser verificada em exame médico-pericial. Isso sugere que o salário-família pode ser pago até essa idade.\n\nMas, para ter uma resposta mais precisa, precisamos verificar outras fontes de lei ou regulamentação. Se você tiver alguma outra pergunta ou mais informações sobre isso, estou aqui para ajudar!",
+      "num_sources": 15,
+      "avg_distance": 0.2315,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "14"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 8,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 5,
+            "text": "Para saber mais sobre isso, precisamos verificar outras fontes de lei ou regulamentação.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Mas, para ter uma resposta mais precisa, precisamos verificar outras fontes de lei ou regulamentação.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    }
+  ]
+}

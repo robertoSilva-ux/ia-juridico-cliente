@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-09-12T05:08:19.071448",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a responder sua pergunta.\n\nA aposentadoria por invalidez é um benefício previdenciário concedido ao segurado que não pode mais exercer suas atividades profissionais devido à incapacidade permanente para o trabalho. Para obter essa aposentadoria, é necessário atender aos seguintes requisitos:\n\n1. O segurado deve ter contribuído por tempo suficiente para a obtenção da aposentadoria;\n2. Deve haver uma avaliação médica que confirme a incapacidade permanente do segurado para o trabalho;\n3. O segurado não pode ser readaptado para outro tipo de atividade profissional.\n\nEsses requisitos estão previstos na Constituição Federal, especificamente no art. 40 da EC nº 103/2019.\n\nAlém disso, é importante lembrar que a reforma previdenciária introduziu mudanças importantes na concessão e cálculo da aposentadoria por invalidez permanente. É fundamental verificar as disposições transitórias e normas específicas aplicáveis ao caso em questão.\n\nEspero que isso tenha ajudado! Se tiver mais alguma dúvida, sinta-se à vontade para perguntar.",
+      "num_sources": 15,
+      "avg_distance": 0.2228,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 11,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 10,
+            "text": "É fundamental verificar as disposições transitórias e normas específicas aplicáveis ao caso em questão.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nA pergunta é muito simples, mas importante. A carência mínima para aposentadoria por tempo de contribuição é de 35 anos de contribuição.\n\nIsso está previsto no artigo 26 do Decreto nº 3.048/99, que estabelece as regras para o Regime Geral de Previdência Social (RGPS).\n\nLembre-se de que essa é a carência mínima para aposentadoria por tempo de contribuição. Existem outras hipóteses de aposentadoria, como aposentadoria por idade, invalidez e especial, que têm carências diferentes.\n\nEspero que isso tenha ajudado!",
+      "num_sources": 15,
+      "avg_distance": 0.2213,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 6,
+        "partial": 0,
+        "no_support": 1,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Isso está previsto no artigo 26 do Decreto nº 3.048/99, que estabelece as regras para o Regime Geral de Previdência Social (RGPS).",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Muito obrigado por me perguntar!\n\nAqui estão algumas informações relevantes sobre acidentes de trabalho e suas consequências:\n\n**Definição de Acidente de Trabalho:**\n\nDe acordo com o Decreto 3048/99, art. 202, considera-se acidente de trabalho \"qualquer lesão corporal ou doença contrada em decorrência do exercício da atividade profissional, mesmo que não haja relação direta com a função\".\n\n**Obrigações do Empregador:**\n\n1. **Cobertura por Acidentes do Trabalho:** O empregador é obrigado a oferecer cobertura para acidentes do trabalho aos seus empregados e trabalhadores avulsos, mediante a contribuição da empresa (art. 202, Decreto 3048/99).\n2. **Anotação na Carteira de Trabalho:** O empregador é obrigado a anotar na Carteira de Trabalho e Previdência Social do empregado o salário fixo e a média dos valores das gorjetas referentes aos últimos 12 meses (art. 8, Lei nº 6.745/79).\n3. **Fiscalização da Cobrança e Distribuição da Gorjeta:** Empresas com mais de 60 empregados devem constituir uma comissão de empregados para fiscalizar a regularidade da cobrança e distribuição da gorjeta (art. 10, Lei nº 6.745/79).\n4. **Auxílio-Acidente:** O empregador é obrigado a pagar o auxílio-acidente ao segurado que sofreu acidente de trabalho, considerando-o como salário-de-contribuição para fins de concessão de qualquer aposentadoria (art. 32, § 8º, Decreto 3048/99).\n\nEssas são algumas das obrigações do empregador em relação a acidentes de trabalho. Se você tiver mais alguma dúvida ou precisar de esclarecimentos adicionais, sinta-se à vontade para perguntar!",
+      "num_sources": 15,
+      "avg_distance": 0.2227,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 10,
+        "partial": 0,
+        "no_support": 2,
+        "flagged_sentences": [
+          {
+            "n": 6,
+            "text": "**Anotação na Carteira de Trabalho:** O empregador é obrigado a anotar na Carteira de Trabalho e Previdência Social do empregado o salário fixo e a média dos valores das gorjetas referentes aos últimos 12 meses (art. 8, Lei nº 6.745/79).",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "**Fiscalização da Cobrança e Distribuição da Gorjeta:** Empresas com mais de 60 empregados devem constituir uma comissão de empregados para fiscalizar a regularidade da cobrança e distribuição da gorjeta (art. 10, Lei nº 6.745/79).",
+            "status": "no_support",
+            "reason": "dispositivo_sem_lastro",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar. Para responder à sua pergunta, é importante lembrar que a Lei Complementar nº 144 (LC 144) é uma norma específica que regula as regras de aposentadoria para os servidores públicos.\n\nPara se aposentar com as regras da LC 144, você precisa atender aos seguintes requisitos:\n\n1. Ter pelo menos 25 anos de contribuição;\n2. Ter exercido cargo de natureza estritamente policial por pelo menos 15 anos (se mulher);\n3. Atender ao tempo mínimo de contribuição estabelecido pela LC 144.\n\nAlém disso, é importante lembrar que a LC 144 também prevê outras regras e critérios para a concessão de aposentadoria especial, como a idade máxima e o cálculo dos proventos.\n\nSe você tiver mais alguma dúvida ou precisar de esclarecimentos adicionais, estou aqui para ajudar.",
+      "num_sources": 15,
+      "avg_distance": 0.239,
+      "min_distance": 0.2311,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 8,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "Para se aposentar com as regras da LC 144, você precisa atender aos seguintes requisitos:\n\n1.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, estou aqui para ajudar a esclarecer sua dúvida.\n\nA pergunta é sobre o prazo de prescrição para a ação de usucapião extraordinária. Para responder isso, precisamos analisar as disposições legais pertinentes.\n\nDe acordo com o Art. 192 do Código de Processo Civil (CPC), os prazos de prescrição não podem ser alterados por acordo das partes. Além disso, o Art. 111 do CPC estabelece que o pedido de reconsideração e o recurso, quando cabíveis, interrompem a prescrição.\n\nA usucapião é um instituto jurídico que permite ao proprietário de um bem adquirir a propriedade por meio da posse contínua e pacífica durante um determinado prazo. No caso da usucapião extraordinária, o prazo é de 15 anos (Art. 1.047 do Código Civil).\n\nPortanto, para responder à sua pergunta, o prazo de prescrição para a ação de usucapião extraordinária é de 15 anos.\n\nEspero que isso tenha ajudado! Se tiver mais alguma dúvida ou precisar de ajuda adicional, não hesite em perguntar.",
+      "num_sources": 15,
+      "avg_distance": 0.2582,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 14,
+        "supported": 14,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "15 anos",
+          "15 anos"
+        ],
+        "dispositivo_claims": [
+          "Art. 192",
+          "Art. 111",
+          "Art. 1"
+        ]
+      }
+    }
+  ]
+}

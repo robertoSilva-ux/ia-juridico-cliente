@@ -1,0 +1,440 @@
+{
+ "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
+ "num_ctx": 8192,
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T06:57:41.260514",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 32.11,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido em diferentes dispositivos legais, com base nos documentos recuperados.\n\nDe acordo com o **Art. 197, I, do Vade-mecum do Senado Federal**, os filhos são considerados dependentes econômicos até **21 anos de idade**, ou **até 24 anos se estudantes**, ou **de qualquer idade se inválidos**.\n\nEsse limite de 21 anos é reforçado no **Art. 16, inciso I, do Decreto 3.048/99**, que define como beneficiários do Regime Geral de Previdência Social os filhos **menores de 21 anos ou inválidos**.\n\nAlém disso, o **Art. 88, I, do mesmo Decreto**, prevê a cessação automática do salário-família quando o filho completar **14 anos de idade**, **salvo se inválido**. Isso indica que, após os 14 anos, o benefício pode ser suspenso, mas permanece ativo se o dependente for inválido.\n\nPortanto, a resposta à pergunta é:\n\n> O salário-família é pago aos filhos até **21 anos de idade**, com exceção de casos de **inválido**, que têm direito até a **idade indefinida**.  \n>  \n> Para filhos com idade superior a 14 anos, o benefício pode ser suspenso, mas permanece ativo se o dependente for inválido.  \n>  \n> O limite de 24 anos se aplica apenas aos filhos que estão em situação de estudo, conforme previsto no Art. 197, I, do Vade-mecum do Senado Federal.\n\nAssim, o **limite geral de idade para o pagamento do salário-família é de 21 anos**, com exceções para dependentes inválidos ou estudantes até 24 anos.",
+   "answer_chars": 1480,
+   "grounded": false,
+   "supported": 9,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 35.5,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido em diferentes dispositivos legais, principalmente no **Art. 197, parágrafo único, inciso I**, da **Lei do Regime Jurídico dos Servidores Públicos Civis**, e no **Art. 16, inciso I**, do **Decreto 3.048/1999**, que regula o Regime Geral de Previdência Social.\n\n### 1. **Idade máxima para filhos e dependentes em geral**\n\nDe acordo com o **Art. 197, parágrafo único, inciso I**, do **Vade-mecum do Senado Federal**, os filhos são considerados dependentes econômicos até:\n\n- **21 anos de idade**, **ou**\n- **24 anos de idade, se estudante**, **ou**\n- **Qualquer idade, se inválido**.\n\nAssim, o limite de idade para o pagamento do salário-família é de **21 anos**, com exceção de filhos estudantes, que podem ter direito até **24 anos**.\n\nEsse dispositivo é alinhado ao **Art. 16, inciso I**, do Decreto 3.048/1999, que prevê que os filhos são dependentes **menores de 21 anos ou inválidos**. A redação posterior da Lei nº 12.470/2011 ampliou a condição de dependência para filhos com deficiência intelectual ou mental, declarada judicialmente, mas não altera o limite de idade.\n\n### 2. **Outros dependentes**\n\nO **Art. 197, parágrafo único, inciso II**, prevê que o menor de 21 anos que viver na companhia e às expensas do servidor também é considerado dependente, mas não estabelece um limite de idade além do de 21 anos.\n\nO **Art. 197, parágrafo único, inciso III**, trata da mãe e do pai sem economia própria, sem limitação de idade, mas com a condição de dependência econômica.\n\n### 3. **Cessação do benefício por idade**\n\nO **Art. 88, inciso II**, do Decreto 3.048/1999, prevê que o direito ao salário-família **cessa automaticamente quando o filho ou equiparado completar 14 anos de idade**, **salvo se inválido**.\n\nNo entanto, **esse limite de 14 anos não é um limite de pagamento**, mas sim um **limite de permanência do benefício**. A partir dos 14 anos, o dependente passa a ser considerado **maior de idade**, e o benefício **não é pago automaticamente**, mas **pode ser mantido se houver comprovação de invalidez**.\n\nOu seja, **o benefício pode ser mantido após os 14 anos, desde que o dependente seja inválido**, conforme previsto no **Art. 85** e **Art. 197**.\n\n### Conclusão\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**, com exceção de:\n\n- **Estudantes**, que podem ter direito até **24 anos**;\n- **Pessoas inválidas**, que têm direito de qualquer idade.\n\nO limite de 14 anos mencionado no artigo refere-se à **cessação automática do benefício**, não ao fim do direito ao salário-família. Assim, **o salário-família pode ser pago após os 14 anos, desde que o dependente seja inválido ou estudante**.\n\n---\n\n✅ **Resposta final:**\n\nO salário-família é pago até a **idade de 21 anos** para filhos e dependentes comuns, **até 24 anos se estudantes**, e **até qualquer idade se inválidos**. O benefício cessa automaticamente quando o filho completa 14 anos, **salvo se inválido**, o que significa que a idade máxima para o pagamento é de **21 anos**, com exceções para estudantes e pessoas inválidas.",
+   "answer_chars": 3131,
+   "grounded": false,
+   "supported": 22,
+   "partial": 6,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 27.14,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido no **Art. 197, I**, do **Vademécum do Senado Federal**, e no **Art. 16, I**, da **Lei nº 8.213/1991**, com suas redações posteriores.\n\nDe acordo com o **Art. 197, I**, do Vademécum do Senado Federal:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nOu seja, **os filhos são considerados dependentes econômicos até 21 anos de idade**, **mas se forem estudantes, a idade máxima é de 24 anos**.\n\nAlém disso, o **Art. 16, I**, da Lei nº 8.213/1991 (com redação da Lei nº 12.470/2011), estabelece que:\n\n> \"I – o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido...\"\n\nOu seja, **a condição de dependência para filhos é de menor de 21 anos**, com exceção do caso de **inválido**, que é considerado dependente de qualquer idade.\n\nPortanto, **a idade máxima para o pagamento do salário-família, em caso de filho não inválido, é de 21 anos**.  \nNo entanto, **se o filho for estudante, o limite é de 24 anos**.  \nE, **em caso de invalidez, o pagamento continua até a morte do dependente**, ou seja, **sem limite de idade**.\n\nAssim, a resposta à pergunta é:\n\n> **O salário-família é pago até a idade de 21 anos para filhos não estudantes, até 24 anos para filhos estudantes, e de forma indefinida para filhos inválidos.**\n\nEssa disposição é consistente com a legislação do Regime Jurídico dos Servidores Públicos Civis (Lei nº 8.112/1990), conforme o Vademécum do Senado Federal, e com a Lei nº 8.213/1991, que estabelece os critérios de dependência para o cálculo de benefícios previdenciários, incluindo o salário-família.",
+   "answer_chars": 1819,
+   "grounded": false,
+   "supported": 7,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2346
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 24.03,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos e enteados, **exceto quando o dependente é estudante**, nesse caso, o limite é de **24 anos**, ou **qualquer idade se o dependente for inválido**.\n\nEsse entendimento está diretamente fundamentado no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que estabelece:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAssim, a idade máxima para o recebimento do salário-família é:\n\n- **21 anos** para filhos e enteados não estudantes;\n- **24 anos** se o dependente for estudante;\n- **Qualquer idade** se o dependente for inválido.\n\nEssa norma é complementada pela **Lei nº 8.213/1991**, que, no **Art. 16, inciso I**, estabelece que os filhos são considerados dependentes até os 21 anos ou inválidos, reforçando a base jurídica para a condição de dependência no regime de previdência social, embora o salário-família seja instituído como benefício específico no âmbito do regime dos servidores públicos civis.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**, com **redução para 24 anos em caso de estudo** e **não limitação em caso de invalidez**.\n\n> ⚠️ Observação: Embora o Decreto 3.048/1999 (art. 16) mencione a condição de dependência para filhos menores de 21 anos, esse dispositivo se refere ao regime geral de previdência social e não ao salário-família, que é instituído de forma específica no contexto do regime jurídico dos servidores públicos civis (Lei do Regime Jurídico dos Servidores Públicos Civis, art. 197). Assim, a resposta é baseada exclusivamente no dispositivo jurídico do contexto fornecido que trata do salário-família.",
+   "answer_chars": 1801,
+   "grounded": false,
+   "supported": 5,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2395
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 24.6,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para os filhos, com uma exceção para estudantes, que podem receber o benefício até **24 anos de idade**, desde que estejam estudando.\n\nEsse entendimento está diretamente fundamentado no **Art. 197, I, do Vade-mecum do Senado Federal (3ª edição)**, que estabelece:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAlém disso, o **Art. 16, do Decreto 3.048/99**, que define os beneficiários do Regime Geral de Previdência Social, também menciona:\n\n> \"I - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido.\"\n\nOu seja, o limite de 21 anos é o padrão geral para a condição de dependente, com a exceção expressa para estudantes, que podem ter o benefício até 24 anos.\n\nÉ importante notar que, conforme o **Art. 88, do Decreto 3.048/99**, o direito ao salário-família **cessa automaticamente quando o filho completar 14 anos de idade**, **salvo se inválido**. No entanto, esse limite de 14 anos **não se aplica aos filhos que estão em situação de estudo**, pois o artigo 197 prevê a continuidade do benefício até 24 anos para estudantes.\n\nPortanto, a resposta à pergunta é:\n\n✅ **O salário-família é pago até a idade de 21 anos para filhos não estudantes, e até 24 anos para filhos que estão estudando.**\n\nEssa interpretação é consistente com a legislação vigente, conforme os dispositivos do **Vade-mecum do Senado Federal (3ª edição)** e do **Decreto 3.048/99**, que são os principais documentos jurídicos referenciados no contexto.",
+   "answer_chars": 1690,
+   "grounded": false,
+   "supported": 4,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 21.63,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, com exceção de casos em que o dependente seja **inválido**, nos quais o benefício é pago **de qualquer idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do *Vade-mecum do Senado Federal*, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 198** do mesmo documento estabelece que o direito à dependência econômica é perdido quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, inclusive pensão ou provento da aposentadoria, em valor igual ou superior ao salário mínimo — mas isso não altera o limite de idade para o pagamento do salário-família.\n\nO limite de 21 anos também é confirmado no **Art. 16, I**, do Decreto 3.048/1999, que define como beneficiários dependentes os filhos \"menores de vinte e um anos ou inválidos\".\n\nNo entanto, é importante destacar que, **quando o dependente é estudante**, o limite é estendido para **24 anos**, conforme previsto no mesmo artigo (Art. 197, I).\n\nPortanto, a resposta à pergunta é:\n\n> O salário-família é pago até a idade de **21 anos** para filhos, **até 24 anos se o dependente for estudante**, e **de qualquer idade se for inválido**.\n\nEssa disposição é clara e diretamente apoiada nos dispositivos legais recuperados, especialmente no **Art. 197, I**, do *Vade-mecum do Senado Federal*, que é a norma mais específica e atualizada sobre o tema.",
+   "answer_chars": 1558,
+   "grounded": false,
+   "supported": 10,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2335
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 23.66,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos e enteados, **exceto quando o dependente é inválido**, em que o benefício é pago **de qualquer idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 16, inciso I**, do **Decreto 3.048/1999**, também estabelece que os filhos são considerados dependentes **menores de 21 anos ou inválidos**, reforçando a idade de 21 anos como limite para a condição de dependência econômica.\n\nNo entanto, é importante destacar que, **quando o dependente é estudante**, o limite é **até 24 anos**, conforme previsto no mesmo artigo (Art. 197, I). Assim, a resposta deve ser diferenciada:\n\n- **Para filhos e enteados não estudantes**: até **21 anos**;\n- **Para filhos e enteados estudantes**: até **24 anos**;\n- **Para filhos ou enteados inválidos**: **de qualquer idade**.\n\nPortanto, **a idade máxima para o pagamento do salário-família depende da condição do dependente**:\n- **21 anos** (ou 24 anos se estudante) para filhos e enteados comum;\n- **Sem limite** (qualquer idade) se inválido.\n\nEssa interpretação está alinhada com a norma do **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que é a principal fonte jurídica para o tema, e com o **Art. 16, inciso I**, do **Decreto 3.048/1999**, que reforça a condição de dependência por idade.",
+   "answer_chars": 1598,
+   "grounded": false,
+   "supported": 9,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2394
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 21.79,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, com exceção de casos em que o dependente seja **inválido**, nos quais o benefício é mantido **de qualquer idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 16, inciso I**, do **Decreto 3.048/99**, também estabelece que:\n\n> \"o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\".\n\nEssa norma reforça o limite de 21 anos para filhos não inválidos, com a exceção do caso de invalidez, que não tem limite de idade.\n\nOu seja, **o limite de idade para o pagamento do salário-família é de 21 anos**, **exceto quando o dependente é inválido**, em que o benefício é mantido **por toda a vida**.\n\n> ⚠️ Observação: O limite de 24 anos se aplica apenas aos filhos que estão estudando, conforme previsto no Art. 197, I, do **Vade-mecum do Senado Federal**, e não é um limite geral de idade. O limite de 21 anos é o que regula a condição de dependência para fins de direito ao salário-família.\n\nPortanto, **a resposta à pergunta é**:\n\n✅ **O salário-família é pago até a idade de 21 anos para filhos não inválidos; para filhos inválidos, o benefício é pago de qualquer idade.**",
+   "answer_chars": 1443,
+   "grounded": false,
+   "supported": 10,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2384
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 20.3,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos e dependentes não emancipados, com uma exceção para **pessoas inválidas**, que têm direito ao benefício **de qualquer idade**.\n\nEsse entendimento está diretamente fundamentado no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que estabelece:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAlém disso, o **Decreto 3.048/1999**, no **Art. 16, inciso I**, define os dependentes como:\n\n> \"o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\".\n\nOu seja, a idade limite de 21 anos se aplica aos filhos que não são inválidos. No caso de **estudantes**, a idade máxima é **24 anos**, e para **pessoas inválidas**, o benefício é concedido **sem limite de idade**.\n\nPortanto, a resposta à pergunta é:\n\n✅ **O salário-família é pago até a idade de 21 anos para filhos não inválidos; para estudantes, até 24 anos; e para dependentes inválidos, de qualquer idade.**\n\nEssa distinção é essencial para a análise do direito ao benefício, conforme previsto nos dispositivos legais citados.",
+   "answer_chars": 1235,
+   "grounded": false,
+   "supported": 5,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2356
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 23.08,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido no **Art. 197, I**, do **Vade-mecum do Senado Federal**, e no **Art. 16, I**, do **Decreto 3.048/1999**, que são dispositivos que tratam do regime de previdência social e dos beneficiários do salário-família.\n\nSegundo o **Art. 197, I**, os filhos são considerados dependentes econômicos **até 21 (vinte e um) anos de idade**, **ou, se estudante, até 24 (vinte e quatro) anos**, **ou, se inválido, de qualquer idade**.\n\nO mesmo critério é confirmado no **Art. 16, I**, do Decreto 3.048/1999, que define como beneficiários do salário-família os filhos **menores de 21 anos ou inválidos**.\n\nAlém disso, o **Art. 88, II**, do mesmo Decreto 3.048/1999, prevê que o direito ao salário-família **cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade**, **salvo se inválido**.\n\nPortanto, a resposta à pergunta é:\n\n> O salário-família é pago aos dependentes até a idade de **21 anos**, **ou até 24 anos se estudante**, **ou de forma indefinida se inválido**.  \n> No entanto, **o direito cessa automaticamente aos 14 anos de idade, salvo se o dependente for inválido**.\n\nAssim, a idade máxima para o pagamento do salário-família, **em condições normais**, é de **21 anos**, com exceção do caso de **estudante**, que pode ter direito até **24 anos**, e do caso de **invalidade**, que mantém o direito de forma indefinida.\n\nEssa análise é baseada exclusivamente nos dispositivos legais recuperados no contexto fornecido.",
+   "answer_chars": 1529,
+   "grounded": false,
+   "supported": 10,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 38.78,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido em diferentes dispositivos legais, especialmente no **Art. 197, do Vade-mecum do Senado Federal**, e no **Art. 16, da Lei nº 8.213/1992 (Lei de Previdência Social)**, com suas redações posteriores.\n\n### 1. **Idade máxima para filhos e dependentes não emancipados**\nDe acordo com o **Art. 197, I**, do *Vade-mecum do Senado Federal*:\n\n> \"o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nOu seja, **o salário-família é pago aos filhos até 21 anos de idade**, **mas se o filho for estudante, o limite é estendido até 24 anos**.\n\nEsse limite é reforçado no **Art. 16, da Lei nº 8.213/1992**, que define os beneficiários do Regime Geral de Previdência Social como:\n\n> \"o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido.\"\n\nA redação da Lei nº 9.032/1995 (que alterou o artigo) mantém esse limite de **21 anos**, com a possibilidade de extensão para **24 anos se o dependente for estudante**.\n\n### 2. **Situação de invalidez**\nO artigo **197, I** prevê que, **se o dependente for inválido**, o salário-família é pago **de qualquer idade**, independentemente da idade.\n\n### 3. **Situação de maior de 21 anos**\nO **Art. 198** estabelece que a depender econômica **não se configura** quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, inclusive pensão ou provento da aposentadoria, em valor igual ou superior ao salário mínimo.\n\nNo entanto, **não há dispositivo que suspenda o pagamento do salário-família por idade superior a 21 anos**, exceto quando o dependente atingir **14 anos de idade**, conforme o **Art. 88, I**, do Decreto 3.048/1999:\n\n> \"O direito ao salário-família cessa automaticamente: I - por morte do filho ou equiparado, a contar do mês seguinte ao do óbito; II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário.\"\n\n⚠️ **Importante**: Esse artigo **não prevê a cessação do pagamento do salário-família por idade superior a 14 anos**, mas sim **a cessação do direito ao benefício quando o dependente completar 14 anos**, **salvo se inválido**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**, com **extensão para 24 anos se o dependente for estudante**.\n\n---\n\n### ✅ Conclusão:\n\nO salário-família é pago aos dependentes até:\n\n- **21 anos de idade**, se não forem estudantes;\n- **24 anos de idade**, se forem estudantes;\n- **De qualquer idade**, se forem inválidos.\n\nEssa interpretação está alinhada com os dispositivos legais do **Art. 197 do Vade-mecum do Senado Federal** e do **Art. 16 da Lei nº 8.213/1992**, com suas redações posteriores, que estabelecem claramente os limites de idade para o benefício.\n\n> ⚠️ Observação: O **Art. 88, II**, do Decreto 3.048/1999, menciona a cessação do benefício quando o dependente completar 14 anos, mas **isso não é um limite de idade para o pagamento**, e sim uma condição de **cessação do direito ao benefício**, **salvo se inválido**. Assim, o limite de 21 anos (ou 24 anos para estudantes) é o que define o período de pagamento, não a cessação.\n\n---\n\n### Resposta final:\n\n**O salário-família é pago até a idade de 21 anos para filhos não estudantes, até 24 anos para filhos estudantes, e de forma indefinida para dependentes inválidos.**",
+   "answer_chars": 3536,
+   "grounded": false,
+   "supported": 16,
+   "partial": 8,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2355
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 21.94,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, **exceto quando o dependente é estudante**, nesse caso, o benefício é mantido até **24 anos de idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do *Vade-mecum do Regime Jurídico dos Servidores Públicos Civis*, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAssim, para filhos:\n- **Até 21 anos**: o benefício é pago, independentemente do status de estudo;\n- **Se estudante**: o benefício é mantido até **24 anos**;\n- **Se inválido**: o benefício é pago **de qualquer idade**.\n\nEsse dispositivo é alinhado ao que prevê o **Art. 16, I**, do *Decreto 3.048/99*, que define os dependentes como filhos \"menores de vinte e um anos ou inválidos\", reforçando a base jurídica para a condição de dependência econômica.\n\nPortanto, a resposta à pergunta é:\n\n> **O salário-família é pago até a idade de 21 anos para filhos, com a possibilidade de prorrogação até 24 anos se o dependente for estudante.**\n\nEssa interpretação está firmada nos dispositivos legais do *Vade-mecum do Senado Federal* e no *Decreto 3.048/99*, que, embora com diferentes redações, convergem na mesma regra de idade para a concessão do benefício.",
+   "answer_chars": 1331,
+   "grounded": false,
+   "supported": 3,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2346
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 23.33,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos e enteados, **exceto quando o dependente é estudante**, nesse caso, o benefício é mantido até **24 anos de idade**, **ou, se inválido, de qualquer idade**.\n\nEsse dispositivo está explicitamente previsto no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que estabelece:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 16, inciso I**, do **Decreto 3.048/1999**, que trata dos beneficiários do Regime Geral de Previdência Social, também prevê que os filhos são considerados dependentes **menores de 21 anos ou inválidos**, reforçando a base jurídica para a idade máxima de 21 anos.\n\nÉ importante observar que, embora o Decreto 3.048/1999 tenha sido revogado parcialmente (como o art. 16, que foi revogado pelo Decreto 4.032/2001), o **Art. 197**, referente ao salário-família dos servidores públicos civis, **não foi revogado** e permanece vigente como parte do Regime Jurídico dos Servidores Públicos Civis, conforme consta no documento recuperado.\n\nPortanto, **a idade máxima para o pagamento do salário-família, para filhos e enteados, é de 21 anos**, com exceção para estudantes, que têm direito até **24 anos**, ou para dependentes inválidos, que têm direito de qualquer idade.\n\n> ✅ **Resposta final**: O salário-família é pago até a idade de **21 anos** para filhos e enteados, **até 24 anos se estudante**, ou **de qualquer idade se inválido**.",
+   "answer_chars": 1603,
+   "grounded": false,
+   "supported": 6,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2398
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 31.04,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, e no **Art. 16, I**, do **Decreto 3.048/1999**, que regula o Regime Geral de Previdência Social.\n\nDe acordo com o **Art. 197, I**, os filhos são considerados dependentes econômicos até:\n- **21 anos de idade**, **ou**\n- **24 anos de idade**, **se estudantes**;\n- **Qualquer idade**, **se inválidos**.\n\nOu seja, **a idade máxima para o pagamento do salário-família é de 21 anos**, com **extensão para 24 anos apenas se o dependente for estudante**.\n\nAlém disso, o **Art. 88, II**, do **Decreto 3.048/1999**, prevê que o direito ao salário-família **cessa automaticamente quando o filho ou equiparado completar 14 anos de idade**, **salvo se inválido**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**, com exceção de:\n- **Estudantes até 24 anos**;\n- **Pessoas inválidas, de qualquer idade**.\n\nAssim, o **prazo máximo para o benefício ser pago é de 21 anos**, com **extensão para 24 anos apenas se o dependente for estudante**.\n\n> ⚠️ Observação: Embora o **Art. 197** do **Vademécum do Senado Federal** mencione a idade de 24 anos para estudantes, o **Art. 88, II**, do **Decreto 3.048/1999**, estabelece que o benefício **cessa automaticamente aos 14 anos**, salvo se inválido. Isso indica que, **após os 14 anos**, o dependente passa a ser considerado **maior de idade**, e o benefício **não é pago**, **a menos que seja reconhecido como inválido**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**, com **regra especial para estudantes até 24 anos**, **mas apenas se o dependente for estudante e não completar 21 anos**.\n\n**Conclusão:**\nO salário-família é pago até a **idade de 21 anos**, **ou até 24 anos se o dependente for estudante**, **e em qualquer idade se for inválido**.  \nNo entanto, **a cessação automática ocorre aos 14 anos**, **salvo se inválido**, o que implica que **a idade máxima para o benefício ser pago é de 21 anos**, **com exceção de estudantes até 24 anos**.\n\n✅ **Resposta final: O salário-família é pago até a idade de 21 anos, ou até 24 anos se o dependente for estudante, e em qualquer idade se for inválido.**",
+   "answer_chars": 2271,
+   "grounded": false,
+   "supported": 9,
+   "partial": 9,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2404
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 28.0,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido na **Lei do Regime Jurídico dos Servidores Públicos Civis**, especificamente no **Art. 197**, que define os critérios para a consideração de dependente econômico.\n\nDe acordo com o **Art. 197, inciso I**, os filhos são considerados dependentes econômicos até:\n\n- **21 anos de idade**, **ou**\n- **24 anos de idade**, **se estudante**;\n- **Qualquer idade**, **se inválido**.\n\nAlém disso, o **Art. 199** menciona que, quando o pai e a mãe são servidores públicos e vivem em comum, o salário-família é pago a um deles; em caso de separação, será pago a ambos, conforme a distribuição dos dependentes.\n\nO **Art. 198** estabelece que a dependência econômica não se configura quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, inclusive pensão ou provento da aposentadoria, em valor igual ou superior ao salário mínimo — o que pode impactar a percepção do salário-família, mas não altera o limite de idade.\n\nO **Decreto 3.048/1999 (art. 84 e art. 85)**, embora trate de exigências de comprovação de freqüência escolar e vacinação, não altera o limite de idade para o pagamento do salário-família, apenas estabelece condições de atualização e suspensão do benefício.\n\nA **Lei 8.213/1991 (art. 16)**, que trata do Regime Geral de Previdência Social, também confirma a condição de dependência por filhos menores de **21 anos ou inválidos**, reforçando a norma de idade.\n\nPortanto, **o limite de idade para o pagamento do salário-família é de 21 anos**, com exceção de:\n\n- **Estudantes até 24 anos**;\n- **Pessoas inválidas, de qualquer idade**.\n\nAssim, **a resposta à pergunta é**:\n\n> O salário-família é pago aos dependentes até a idade de 21 anos, **exceto quando o dependente é estudante, em que o limite é de 24 anos**, ou quando o dependente é inválido, **em que o pagamento é mantido por qualquer idade**.\n\nEssa interpretação está firmemente baseada nos dispositivos legais do **Art. 197, inciso I**, da **Lei do Regime Jurídico dos Servidores Públicos Civis**, e reforçada pela **Lei 8.213/1991 (art. 16)** e pelo **Decreto 3.048/1999**, que não introduzem alterações no limite de idade, apenas em exigências de documentação.",
+   "answer_chars": 2242,
+   "grounded": false,
+   "supported": 11,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2311
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 22.78,
+   "error": null,
+   "answer": "O pagamento do salário-família é condicionado à idade do dependente, conforme estabelecido no **Art. 197, I**, do **Vade-mecum do Regime Jurídico dos Servidores Públicos Civis**, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAlém disso, o **Art. 197, II**, menciona o caso do menor de 21 anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, o que também se enquadra no conceito de dependência econômica.\n\nO **Art. 199**, do mesmo documento, trata da situação em que o pai e a mãe são servidores públicos e vivem em comum ou separados, mas não altera o limite de idade para o pagamento do salário-família.\n\nO **Decreto 3.048/1999**, embora trate de outros benefícios previdenciários, não estabelece um limite de idade diferente para o salário-família, e o dispositivo que define a idade dos dependentes está claramente no **Vade-mecum do Regime Jurídico dos Servidores Públicos Civis**.\n\nPortanto, com base nos documentos recuperados:\n\n- Para filhos **não emancipados**, o salário-família é pago até **21 anos de idade**.\n- Se o filho for **estudante**, o pagamento se estende até **24 anos de idade**.\n- Em caso de **invalidade**, o pagamento é mantido **de qualquer idade**.\n\nAssim, **a idade máxima para o pagamento do salário-família, em função da condição do dependente, é de 24 anos**, quando o dependente é estudante, e **21 anos**, quando não é estudante.\n\n> ✅ **Resposta final:** O salário-família é pago até **21 anos de idade** para filhos não estudantes, e até **24 anos de idade** para filhos estudantes. Em caso de invalidez, o pagamento é mantido **de qualquer idade**.",
+   "answer_chars": 1769,
+   "grounded": false,
+   "supported": 9,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2351
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 21.84,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, com exceção de casos em que o dependente seja **estudante**, nesse caso, o limite é **até 24 anos**, ou, se **inválido**, **de qualquer idade**.\n\nEsse entendimento está diretamente estabelecido no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAssim, a idade máxima para o pagamento do salário-família é:\n\n- **21 anos** para filhos comuns ou enteados, **sem condição de estudante ou invalidez**;\n- **24 anos** se o dependente for estudante;\n- **Qualquer idade** se o dependente for inválido.\n\nEssa norma é complementada pelo **Art. 16, inciso I**, do **Decreto 3.048/1999**, que também reconhece o filho não emancipado como dependente, com limite de idade de 21 anos, mas com a possibilidade de equiparação ao filho por declaração judicial, especialmente em casos de deficiência intelectual ou mental, conforme a redação da Lei nº 12.470/2011.\n\nNo entanto, a **regra de limite de idade** (21 anos) é a que mais diretamente responde à pergunta, e é a que está claramente estabelecida no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**.\n\nPortanto, **até a idade de 21 anos** é pago o salário-família para filhos, com exceção de estudantes (até 24 anos) e dependentes inválidos (qualquer idade).",
+   "answer_chars": 1515,
+   "grounded": false,
+   "supported": 5,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2362
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 17.7,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, **exceto quando o dependente é estudante**, nos quais o benefício é mantido até **24 anos de idade**, **ou, se inválido, de qualquer idade**.\n\nEsse entendimento está diretamente estabelecido no **Art. 197, I**, do *Vade-mecum do Senado Federal*, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 16, I**, da Lei nº 8.213/1992 (Lei do RGPS), que define os beneficiários do regime geral de previdência, também menciona:\n\n> \"o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\".\n\nOu seja, a idade limite de 21 anos é a base para o cálculo do direito ao salário-família, com exceção para estudantes, que têm direito até 24 anos, e para pessoas inválidas, que têm direito de forma permanente.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos, com exceção de estudantes (até 24 anos) e pessoas inválidas (de qualquer idade)**.",
+   "answer_chars": 1112,
+   "grounded": false,
+   "supported": 4,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2346
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 20.47,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, com exceção de casos em que o dependente seja **inválido**, nos quais o benefício é mantido **de qualquer idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do **Lei do Regime Jurídico dos Servidores Públicos Civis**, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade\".\n\nAlém disso, o **Art. 16, inciso I**, do **Decreto 3.048/99**, também confirma a condição de dependência para filhos menores de 21 anos ou inválidos:\n\n> \"o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\".\n\nAinda, o **Art. 88, I**, do mesmo Decreto, prevê a **cessação automática** do salário-família quando o filho completar 14 anos, **salvo se inválido**, o que reforça a distinção entre a idade de 14 anos (para o fim do benefício) e a idade de 21 anos (para a condição de dependência).\n\nPortanto, o **prazo máximo para o pagamento do salário-família por filhos não inválidos é de 21 anos**, com possibilidade de prorrogação até 24 anos se o dependente for estudante. No caso de invalidez, o benefício é mantido **por toda a vida**.\n\n> ✅ **Resposta final**: O salário-família é pago até a idade de **21 anos** para filhos não inválidos, podendo ser estendido até **24 anos** se o dependente for estudante. Em caso de invalidez, o benefício é pago **de qualquer idade**.",
+   "answer_chars": 1490,
+   "grounded": false,
+   "supported": 9,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 20.13,
+   "error": null,
+   "answer": "O salário-família é pago até a idade de **21 anos** para filhos, **exceto quando o dependente é estudante**, nesse caso, o benefício é mantido até **24 anos de idade**.\n\nEsse limite é estabelecido no **Art. 197, I**, do *Vade-mecum do Regime Jurídico dos Servidores Públicos Civis*, que prevê:\n\n> \"I – o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade.\"\n\nAlém disso, o **Art. 198** do mesmo documento estabelece que a dependência econômica não se configura quando o beneficiário perceber rendimento do trabalho ou de qualquer outra fonte, inclusive pensão ou provento da aposentadoria, em valor igual ou superior ao salário mínimo — o que pode influenciar na análise do direito ao salário-família, mas não altera o limite de idade.\n\nO limite de 21 anos para filhos não emancipados é reforçado também no **Art. 16, I**, do Decreto 3.048/99, que define como beneficiários dependentes:\n\n> \"o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido.\"\n\nAssim, o limite de **21 anos** é o padrão geral, com exceção para **estudantes**, que têm direito até **24 anos**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos, com exceção para dependentes estudantes, que podem receber até 24 anos de idade**.",
+   "answer_chars": 1415,
+   "grounded": false,
+   "supported": 4,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  }
+ ],
+ "wall_time_s": 499.9,
+ "finished_at": "2026-09-12T07:06:01.128880"
+}

@@ -1,0 +1,561 @@
+{
+  "generated_at": "2026-09-25T02:11:04.126279",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Os requisitos para a aposentadoria por invalidez, conforme recuperado dos documentos jurídicos, incluem:\n\n1. A condição do segurado deve estar ou não em gozo de auxílio-doença.\n2. O segurado deve ser considerado incapaz e insusceptível de reabilitação para o exercício de atividade que lhe garanta subsistência (Lei nº 8213, art. 42; Decreto 3048, art. 168).\n3. A aposentadoria dependerá da verificação da condição de incapacidade através de exame médico-pericial a cargo da Previdência Social. O segurado pode contratar um médico de sua confiança às suas expensas para acompanhar (Lei nº 8213, art. 44; Decreto 3048, art. 43).\n4. A aposentadoria não lhe será conferida por uma doença ou lesão pré-existente ao se inscrever no Regime Geral de Previdência Social, exceto quando a incapacidade sobrevive devido à progressão ou agravamento dessa condição (Decreto 3048, art. 2º; Lei nº 8213, art. 44).\n5. A aposentadoria por invalidez será precedida de licença para tratamento de saúde, com um período máximo não excedendo 24 meses (Decreto 3048, art. 47, §1o; Artigo 188). Se o servidor não estiver em condições de reassumir seu cargo ou ser readaptado após este período, ele será aposentado.\n6. O lapso entre o término da licença e a publicação do ato de aposentadoria é considerado como prorrogação da licença (Artigo 188).\n7. Para os fins desta aposentadoria, são consideradas apenas as licenças motivadas pela enfermidade ou doenças correlacionadas com a invalidez (Artigo 188).\n\nA base não fornece informações sobre idades específicas, prazos ou valores monetários relacionados à aposentadoria por invalidez.",
+      "num_sources": 15,
+      "avg_distance": 0.1915,
+      "min_distance": 0.1533,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 17,
+        "supported": 13,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 9,
+            "text": "A aposentadoria não lhe será conferida por uma doença ou lesão pré-existente ao se inscrever no Regime Geral de Previdência Social, exceto quando a incapacidade sobrevive devido à progressão ou agravamento dessa condição (Decreto 3048, art. 2º; Lei nº 8213, art. 44).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 11,
+            "text": "A aposentadoria por invalidez será precedida de licença para tratamento de saúde, com um período máximo não excedendo 24 meses (Decreto 3048, art. 47, §1o; Artigo 188).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 14,
+            "text": "O lapso entre o término da licença e a publicação do ato de aposentadoria é considerado como prorrogação da licença (Artigo 188).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 16,
+            "text": "Para os fins desta aposentadoria, são consideradas apenas as licenças motivadas pela enfermidade ou doenças correlacionadas com a invalidez (Artigo 188).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece explicitamente um número mínimo específico de contribuições mensais indispensáveis (carência) para que o beneficiário faça jus ao benefício de aposentadoria por tempo de contribuição. A vigência da Lei nº 8213, art. 24, indica que havendo perda da qualidade de segurado, as contribuições anteriores a data específica só serão computadas para efeito de carência depois que o segurado contar, à nova filiação à Previdência Social, com, no mínimo, um terço do número de contribuições exigidas para o cumprimento da carência definida para o benefício. No entanto, esse artigo foi revogado pela Medida Provisória nº 739, de 2016, e a vigência é encerrada.\n\nPortanto, A VIGÊNCIA NÃO ESTÁ INDICADA NA BASE JURÍDICA RECUPERADA.",
+      "num_sources": 15,
+      "avg_distance": 0.1827,
+      "min_distance": 0.1178,
+      "source_files": [
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "A base recuperada fornece informações sobre o que constitui um acidente de trabalho sob a Lei nº 8213 (Consolidação das Leis do Trabalho), conhecida como Consolidação.\n\nUm **acidente de trabalho** é definido na Consolidação, em seu artigo 21, de forma ampla e inclui:\n\nI - o acidente ligado ao trabalho que, embora não tenha sido a causa única, haja contribuído diretamente para a morte do segurado;\nII - o acidente sofrido pelo segurado no local e no horário do trabalho, em consequência de:\n   - ato de agressão, sabotagem ou terrorismo praticado por terceiro ou companheiro de trabalho;\n   - ofensa física intencional, inclusive de terceiro, por motivo de disputa relacionada ao trabalho;\n   - ato de imprudência, de negligência ou de imperícia de terceiro ou de companheiro de trabalho;\n   - ato de pessoa privada do uso da razão;\n   - desabamento, inundação, incêndio e outros casos fortuitos ou decorrentes de força maior.\n\nAlém disso, o artigo 22 estabelece que a empresa deve comunicar o acidente ao Previdência Social. O empregador tem obrigações adicionais quando o acidente ocorre em atividades consideradas perigosas (artigo 193) ou se ocorrer durante períodos de descanso determindidos pela legislação trabalhista (artigo 13 da Consolidação).\n\nO empregador também é obrigado, conforme os artigos 75 e 76 da Consolidação, a instruir os empregados sobre precauções para evitar doenças e acidentes no trabalho. Além disso, o artigo 158 exige que os empregados observem normas de segurança do trabalho.\n\nEm resumo, as obrigações do empregador em caso de acidente de trabalho incluem:\n\n1. Informar a Previdência Social da ocorrência.\n2. Atribuir indenização ao segurado empregado pelo seu salário integral durante o período de incapacidade decorrente do acidente (artigo 21 da Consolidação).\n3. Abrir um processo de indemnização, se necessário, para cobrir os custos médicos e outros benefícios derivados do acidente (artigo 22 da Consolidação).\n4. Informar a Previdência Social sobre o acidente no prazo estipulado.\n5. Cumprir com as obrigações relacionadas à segurança e saúde no trabalho, incluindo instruções aos empregados sobre precauções de segurança (artigos 75, 76, e 193 da Consolidação).\n\nA base recuperada não fornece informações detalhadas sobre os valores das indenizações ou prazos para a comunicação do acidente, que podem estar sujeitos às modificações legais posteriores à data de corte do conhecimento.",
+      "num_sources": 15,
+      "avg_distance": 0.2194,
+      "min_distance": 0.1889,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 17,
+        "supported": 11,
+        "partial": 6,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Um **acidente de trabalho** é definido na Consolidação, em seu artigo 21, de forma ampla e inclui:\n\nI - o acidente ligado ao trabalho que, embora não tenha sido a causa única, haja contribuído diretamente para a morte do segurado;\nII - o acidente sofrido pelo segurado no local e no horário do trabalho, em consequência de:\n   - ato de agressão, sabotagem ou terrorismo praticado por terceiro ou companheiro de trabalho;\n   - ofensa física intencional, inclusive de terceiro, por motivo de disputa relacionada ao trabalho;\n   - ato de imprudência, de negligência ou de imperícia de terceiro ou de companheiro de trabalho;\n   - ato de pessoa privada do uso da razão;\n   - desabamento, inundação, incêndio e outros casos fortuitos ou decorrentes de força maior.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Além disso, o artigo 22 estabelece que a empresa deve comunicar o acidente ao Previdência Social.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "O empregador tem obrigações adicionais quando o acidente ocorre em atividades consideradas perigosas (artigo 193) ou se ocorrer durante períodos de descanso determindidos pela legislação trabalhista (artigo 13 da Consolidação).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Além disso, o artigo 158 exige que os empregados observem normas de segurança do trabalho.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 10,
+            "text": "Atribuir indenização ao segurado empregado pelo seu salário integral durante o período de incapacidade decorrente do acidente (artigo 21 da Consolidação).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 12,
+            "text": "Abrir um processo de indemnização, se necessário, para cobrir os custos médicos e outros benefícios derivados do acidente (artigo 22 da Consolidação).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "A base recuperada refere-se ao regime jurídico do Previdência Social (RGPS), especificamente à aposentadoria por tempo de contribuição. O contexto não fornece informações sobre o regime próprio dos servidores, a Constituição Federal ou os decretos relacionados aos benefícios de invalidez.\n\nPara se aposentar com as regras da LC 142 (Lei Complementar nº 142/2009) que regulamenta a aposentadoria por invalidez no sistema de Previdência Social, é necessário:\n\n1. Cumprimento do período de carência exigido pela Previdência Social.\n2. Consideração como incapaz para o trabalho e insuscetível de reabilitação para exercício de atividade (LC 142, art. 3).\n\nA base recuperada não fornece detalhes sobre a LC 142 específica necessária para se aposentar com as regras da aposentadoria por invalidez no RGPS. O segurado deve consultar os dispositivos legais atuais do Decreto Complementar nº 138/2017 e o Decreto Complementar nº 152/2015, que regulamentam o regime de invalidez na Previdência Social.",
+      "num_sources": 15,
+      "avg_distance": 0.1703,
+      "min_distance": 0.1099,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8212 - Consolidada.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "dicionario-juridico.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L8069.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria",
+          "carência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Para determinar o prazo de prescrição da ação de usucapião extraordinário, precisamos identificar se há um prazo específico estabelecido pela legislação pertinente. No contexto fornecido, não encontramos uma referência direta ao prazo de prescrição do direito de usucapião extraordinário.\n\nA base recuperada inclui disposições sobre prescrição geral e suas causas de interrupção ou suspensão (Lei nº 10406, artigos 192 a 206), mas nenhuma menção específica à ação de usucapião extraordinária. Portanto, com base nas informações fornecidas, não é possível determinar o prazo de prescrição para a ação de usucapião extraordinário.\n\nA vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.2405,
+      "min_distance": 0.2241,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A base jurídica recuperada refere-se ao regime jurídico próprio dos servidores (Lei nº 8.112/90), especificamente à Previdência Social para Servidores Públicos (RGPS).\n\nCom base nos documentos recuperados, a resposta específica sobre até qual idade de um dependente o salário familiar é pago não está explicitamente fornecida na base jurídica recuperada. A informação faltante é: O limite máximo de idade ao qual o salário familiar continua sendo pago aos dependentes sob o regime RGPS. No entanto, com base no Decreto 3048, art. 86, o salário-família será pago integralmente até a cessação do benefício pelo Instituto Nacional do Seguro Social.\n\nPara obter as informações completas sobre o limite máximo de idade para pagamento do salário familiar nos regimes de previdência social, seria necessário consultar os artigos ou decretos mais recentes que regulam esses benefícios dentro do regime RGPS. No entanto, com base nas fontes recuperadas, não se pode fornecer a informação específica da idade máxima até qual o benefício é pago.",
+      "num_sources": 15,
+      "avg_distance": 0.201,
+      "min_distance": 0.1399,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 6,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "A base recuperada contém normas de regimes jurídicos diferentes (ex.: Lei nº 8.213/1991 e Decreto nº 3.048/1999; regime jurídico próprio dos servidores públicos - Lei nº 8.112/1990; Constituição Federal; EC nº 103/2019). A mesma pergunta pode ter respostas diferentes em regimes distintos.\n\nA questão se aplica ao \"RGPS\" (Regime Geral de Previdência Social), que refere-se à previdência geral, conforme indicado pelo termo do advogado (\"filho não emancipado\").\n\nO contexto recupera dois dispositivos relevantes sobre a idade para um filho ser considerado dependente no RGPS:\n\n1. [DOC 2] — Decreto 3048, art. 16: \"o filho de qualquer condição, menor de vinte e um anos ou inválido.\"\n2. [DOC 4] — Lei 8213, art. 16 (vários dispositivos com alterações): as versões mais recentes indicam que o filho não emancipado é considerado dependente até os \"vinte e um\" ano.\n\nCom base nas informações recuperadas, no RGPS, o filho não emancipado é considerado dependente até os 21 anos (20 de julho). A alteração feita pela Lei nº 12.470, em 2011, que mudou para \"vinte e um\", deve ser considerada válida, pois não há indicação da vigência sendo revogada ou alterada na base recuperada.\n\nAssim, o filho não emancipado é considerado dependente até os 21 anos no RGPS, para fins de pensão por morte.",
+      "num_sources": 15,
+      "avg_distance": 0.1715,
+      "min_distance": 0.1328,
+      "source_files": [
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "vinte e um",
+          "21",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "O regime aplicável à pergunta é o do servidor público federal, conforme especificado pelo termo \"servidor público federal\" na Pergunta.\n\nA base recuperada não fornece diretamente uma idade mínima específica para aposentadoria voluntária no serviço público federal. No entanto, em [DOC 11] - ec-103-2019.pdf, está mencionado que a reforma estabeleceu um requisito de idade inferior em cinco anos às idagens fixadas para os servidores em geral dos respectivos entes federados.\n\nComo o documento específico da idade mínima não é recuperado na base fornecida, fica claro que essa informação falta. A resposta deve indicar isso conforme as regras de segurança:\n\nA idade mínima para aposentadoria voluntária no serviço público federal está indicada nas normas constitucionais e complementares dos Estados, do Distrito Federal e dos Municípios; essas idagens variam entre os diferentes entes federativos.\n\n---\n\n## ARBITRAGEM DE REGIME JURÍDICO (obrigatória antes de concluir):\n\nA base reúne dispositivos da Constituição Federal (CF) e das Emendas Constitucionais (EC), especificamente a EC nº 103/2019, que se aplicam ao serviço público federal. A pergunta é sobre o regime do servidor público federal.\n\nO termo \"idade mínima\" refere-se à idagem para aposentadoria voluntária nos diferentes regimes de servidores públicos dos Estados, Distrito Federal e Municípios; no entanto, na base recuperada, não há especificação das idagens mínimas individuais desses entes federativos. A idade mínima varia entre os distintos regimes do serviço público federal.\n\nA vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.212,
+      "min_distance": 0.174,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 10,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "Os dispositivos legais recuperados apresentam divergências em relação ao prazo de decadência para o seguro (RGPS) e para os servidores públicos, bem como mudanças decorrentes das medidas provisórias. No entanto, com base nas informações fornecidas:\n\n- Para segurado ou beneficiário do RGPS, conforme Lei nº 8213, art. 103 (redação dada pela Lei nº 9.711, de 20.11.98 e Lei nº 10.839, de 2004), o prazo é de dez anos.\n- O mesmo prazo se aplica ao servidor público, segundo Decreto n.º 3048, art. 347 (reduzido a cinco anos por medição provisória, conforme Decreto n.º 5.545, de 2005) e Lei nº 9.528, de 1997.\n\nA divergência é devido à medição provisória que reduz o prazo para segurados do RGPS em casos específicos, mas não altera o prazo geral de dez anos estabelecido pela legislação original (Lei nº 10.839, de 2004).\n\n**Resposta:**\n\nO prazo de decadência para o seguro (RGPS) e servidor público é de **dez anos**, conforme as disposições mais recentes da Lei nº 8213, art. 103, redigidas pelas leis n.º 9.711, de 20.11.98, e n.º 10.839, de 2004.\n\n**Regime Jurídico Aplicado:**\n\nRGPS (Seguros Gerais Penenciais)",
+      "num_sources": 15,
+      "avg_distance": 0.1485,
+      "min_distance": 0.1011,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "dez anos",
+          "decadência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "article_hit": null,
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 5,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 6,
+            "text": "**Regime Jurídico Aplicado:**\n\nRGPS (Seguros Gerais Penenciais)",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    }
+  ]
+}

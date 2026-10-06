@@ -1,0 +1,573 @@
+{
+  "generated_at": "2026-09-14T01:29:21.864893",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Para determinar os requisitos da aposentadoria por invalidez, precisamos considerar o contexto do Decreto de 3.048/99, que regula o Regime Geral de Previdência Social (RGPS).\n\nOs principais pontos a serem observados no decreto em relação à aposentadoria por invalidez são:\n\n1. A aposentadoria por invalidez é concedida ao segurado considerado incapaz para o trabalho e insuscetível de reabilitação para o exercício de atividade que lhe garanta subsistência, conforme os artigos 43 e 45 do Decreto.\n\n2. O seguro-médico deve verificar a condição de incapacidade total e definitiva para o trabalho (artigo 44).\n\n3. A aposentadoria por invalidez é paga desde o dia imediato à cessação do auxílio-doença, com base na perícia médica inicial que confirma essa incapacidade (artigos 43 e 47).\n\n4. O segurado aposentado por invalidez está obrigado a submeter-se regularmente a exames médicos para verificar sua condição de invalidez, conforme os artigos 46.\n\n5. A recuperação da capacidade laborativa do segurado por invalidez pode resultar na cessação ou redução dos proventos de aposentadoria (artigo 48).\n\n6. O valor da aposentadoria por invalidez é aumentado em vinte e cinco por cento se o segurado necessitar de assistência permanente, conforme os artigos 45.\n\n7. A aposentadoria por invalidez também pode ser transformada em outras formas de aposentadoria, como a aposentadoria por idade ou tempo de contribuição (artigo 55).\n\n8. O RGPS contempla outros benefícios para dependentes dos aposentados, como pensão por morte e auxílio-reclusão (seção II da articulação do artigo 25).\n\nOs requisitos específicos incluem:\n\n- A incapacidade total e definitiva para o trabalho.\n- Verificação médica pela invalidez.\n- Pagamento de aposentadoria desde a cessação do auxílio-doença.\n- Submissão regular à avaliação médico-pericial.\n- Possibilidade de transformação na forma da aposentadoria por idade ou tempo de contribuição, se aplicável.\n\nO regime jurídico em vigor é o RGPS, conforme estabelecido pelo Decreto de 3.048/99 e regulamentado pela Constituição Federal (CF) e Lei Complementar nº 2/03 (LC n° 2/2003). A EC nº 103/2019 tem eficácia limitada no âmbito da União, mas prevê avaliações periódicas para a continuação dos benefícios por invalidez.\n\nA resposta é baseada na vigência do Decreto de 3.048/99 e nos dispositivos legais pertinentes ao RGPS. Não há necessidade de considerar outros regimes jurídicos ou disposições que não estejam diretamente relacionados à aposentadoria por invalidez no contexto do RGPS.",
+      "num_sources": 15,
+      "avg_distance": 0.2106,
+      "min_distance": 0.1533,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 26,
+        "supported": 22,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 5,
+            "text": "O seguro-médico deve verificar a condição de incapacidade total e definitiva para o trabalho (artigo 44).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 11,
+            "text": "A recuperação da capacidade laborativa do segurado por invalidez pode resultar na cessação ou redução dos proventos de aposentadoria (artigo 48).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 15,
+            "text": "A aposentadoria por invalidez também pode ser transformada em outras formas de aposentadoria, como a aposentadoria por idade ou tempo de contribuição (artigo 55).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 17,
+            "text": "O RGPS contempla outros benefícios para dependentes dos aposentados, como pensão por morte e auxílio-reclusão (seção II da articulação do artigo 25).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Para determinar a carência mínima para aposentadoria por tempo de contribuição conforme as normas recuperadas da base jurídica, é necessário analisar o contexto específico do regime jurídico aplicável. No caso em questão, os dispositivos legais referenciados se aplicam ao Regime Geral de Previdência Social (RGPS), especificamente à previdência dos servidores públicos.\n\nDe acordo com a Lei nº 8.844/94, artigo 47, §1º, modificado em 2019 pelo Decreto Federal n.º 2.950, atualmente o mínimo de tempo de contribuição para aposentadoria por tempo de contribuição no RGPS é de 20 anos (400 meses) para homens e 15 anos (300 meses) para mulheres.\n\nNo entanto, como a consulta se refere especificamente ao \"tempo de contribuição\", devemos considerar também os dispositivos relativos à Previdência Social dos servidores públicos. De acordo com o Decreto Federal nº 3.048/99, artigo 1º, modificado em 2019 pelo Decreto Federal n.º 13.887/2019, para aposentadoria por tempo de contribuição e especial, a carência exigida é igual ao número mínimo de contribuições mensais indispensáveis, considerando o período máximo de contribuição.\n\nAssim, com base nas normas recuperadas da base jurídica, a carência mínima para aposentadoria por tempo de contribuição no contexto do RGPS dos servidores públicos é de 20 anos (400 meses) para homens e 15 anos (300 meses) para mulheres. No entanto, se houver uma diferença específica na aplicação ao caso em questão, seria necessário consultar as disposições mais recentes ou o especialista jurídico correspondente.",
+      "num_sources": 15,
+      "avg_distance": 0.2171,
+      "min_distance": 0.1886,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 4,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com a Lei nº 8.844/94, artigo 47, §1º, modificado em 2019 pelo Decreto Federal n.º 2.950, atualmente o mínimo de tempo de contribuição para aposentadoria por tempo de contribuição no RGPS é de 20 anos (400 meses) para homens e 15 anos (300 meses) para mulheres.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "De acordo com o Decreto Federal nº 3.048/99, artigo 1º, modificado em 2019 pelo Decreto Federal n.º 13.887/2019, para aposentadoria por tempo de contribuição e especial, a carência exigida é igual ao número mínimo de contribuições mensais indispensáveis, considerando o período máximo de contribuição.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Assim, com base nas normas recuperadas da base jurídica, a carência mínima para aposentadoria por tempo de contribuição no contexto do RGPS dos servidores públicos é de 20 anos (400 meses) para homens e 15 anos (300 meses) para mulheres.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, é necessário considerar o contexto das normas jurídicas relacionadas ao assunto. No caso apresentado, os documentos fornecidos se referem principalmente aos princípios da Previdência Geral do Trabalho (RGPS) no Brasil.\n\n**Acidente de Trabalho:**\nUm acidente de trabalho é definido como qualquer incidente que ocorre durante a execução de uma atividade relacionada à função ou ocupação, resultando em lesão corporal, incapacidade temporária ou permanente, morte ou necessidade de hospitalização. No contexto da RGPS, o Decreto 3048 (decreto do ministro da Previdência Social) complementa as normas estabelecidas na Consolidação das Leis do Trabalho (CLT), especificando situações que podem resultar no reconhecimento de um acidente de trabalho.\n\n**Obrigações do Empregador:**\nOs empregadores têm várias obrigações em relação aos acidentes de trabalho, conforme delineado nos documentos:\n\n1. **Assistência e Indenização:** O empregador é obrigado a fornecer assistência médica gratuita ou indenizar pelo prejuízo sofrido devido ao acidente (Decreto 3048, art. 104).\n2. **Proteção Individual:** A empresa deve fornecer equipamentos de proteção individual apropriados aos trabalhadores quando o risco do trabalho justifica sua necessidade (Decreto 3048, art. 166).\n3. **Medidas Preventivas:** O empregador é responsável por implementar medidas preventivas de saúde no trabalho e pela adesão dos empregados a essas medidas (Decreto 3048, art. 159).\n\nA resposta fornecida baseia-se nos documentos recuperados da Legaliz.ai, sem recorrer à arbitragem entre diferentes regimes jurídicos ou ao uso de dispositivos não encontrados na fonte original.",
+      "num_sources": 15,
+      "avg_distance": 0.2202,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 11,
+        "supported": 10,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 11,
+            "text": "A resposta fornecida baseia-se nos documentos recuperados da Legaliz.ai, sem recorrer à arbitragem entre diferentes regimes jurídicos ou ao uso de dispositivos não encontrados na fonte original.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Para responder à sua pergunta, é necessário identificar o regime jurídico aplicável. No contexto fornecido, a referência está ao \"servidor\" e ao \"RGPS\", que indicam o Regime Geral de Previdência Social (previdência social geral) para servidores públicos brasileiros.\n\nCom base no documento [DOC 1] — ec-103-2019.pdf, particularmente na seção § 5º, é possível concluir as seguintes informações:\n\nPara se aposentar com as regras do Regime Geral de Previdência Social (RGPS), um servidor público brasileiro deve cumprir as exigências para a concessão da aposentadoria voluntária. Se o servidor optar por permanecer em atividade após atingir a idade para aposentadoria compulsória, ele terá direito a receber um abono de permanência.\n\nO documento não fornece informações específicas sobre a idades ou outros requisitos particulares do Regime Geral de Previdência Social (LC 142), mas com base no contexto fornecido, é possível concluir que o servidor deve:\n\n1. Atender os prazos estabelecidos para aposentadoria voluntária conforme as regras do RGPS.\n2. Cumprir quaisquer exigências adicionais especificadas na legislação vigente.\n\nPara obter informações detalhadas sobre a idades específicas e outros requisitos necessários para se aposentar com base no Regime Geral de Previdência Social (LC 142), é recomendável consultar o Decreto-Lei nº 27, de 15 de janeiro de 1967, em vigor atualizado, ou acessar diretamente as fontes oficiais do Ministério da Fazenda.\n\nA resposta foi baseada na vigência das normas jurídicas fornecidas nos documentos recuperados. Não foram aplicadas legislações posteriores a essas normas.",
+      "num_sources": 15,
+      "avg_distance": 0.2422,
+      "min_distance": 0.2346,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "ec-103-2019.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "ec-103-2019.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 11,
+        "supported": 11,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Para determinar o prazo de prescrição para a ação de usucapião extraordinário, precisamos identificar qual regime jurídico se aplica à questão. O termo \"extraordinário\" sugere que pode estar relacionado ao regime do Código Civil (CC/02), já mencionado na base jurídica fornecida.\n\nA partir dos documentos recuperados:\n\n[DOC 8] — Lei 10406, art. 206\nConteúdo: Art. 206-A. A prescrição intercorrente observará o mesmo prazo de prescrição da pretensão, observadas as causas de impedimento, de suspensão e de interrupção da prescrição previstas neste Código e observado o disposto no art. 921 da Lei nº 13.105, de 16 de março de 2015 (Código de Processo Civil).\n\n[DOC 12] — Vade_mecum_Senado_Federal_3ed.pdf, art. 111\nConteúdo: O prazo de prescrição será contado da data da publicação do ato impugnado ou da data da ciência pelo interessado, quando o ato não for publicado.\n\nCom base nessas informações:\n\n- A prescrição para a ação de usucapião extraordinária deve seguir o mesmo prazo que as pretensões correspondentes.\n- O cálculo começa na data da publicação do ato (se público) ou da data da ciência do interessado (se não divulgado).\n\nNo entanto, os detalhes específicos sobre qual período se aplica à pretensão específica em questão não são fornecidos no contexto. Portanto, é necessário consultar o código civil relevante para determinar a duração exata do prazo de prescrição para as pretensões específicas envolvidas na ação de usucapião extraordinário.\n\n**Resposta:** O prazo de prescrição para a ação de usucapião extraordinária deve seguir o mesmo período que as pretensões correspondentes, começando da data da publicação do ato (se público) ou da data da ciência pelo interessado (se não divulgado). Os detalhes específicos devem ser consultados no código civil relevante.",
+      "num_sources": 15,
+      "avg_distance": 0.2485,
+      "min_distance": 0.2317,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi",
+          "15"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 11,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "A partir dos documentos recuperados:\n\n[DOC 8] — Lei 10406, art. 206\nConteúdo: Art.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta do advogado, precisamos identificar o regime jurídico aplicável. O contexto fornecido inclui disposições tanto da Lei nº 8.212/1991 (Lei de Previdência Social) quanto do Decreto nº 3.048/99 (regime jurídico dos servidores), indicando que a questão pode se aplicar ao regime próprio dos servidores ou ao RGPS.\n\nComo o pedido não especifica qual regime é aplicável, analisarei ambas as possibilidades:\n\n**Caso Regime Próprio dos Servidores:**\nDe acordo com o Decreto nº 3.048/99 (artigo 197, §1º), os dependentes econômicos para efeito de percepção do salário-família incluem:\n- O cônjuge ou companheiro e os filhos até 21 (vinte e um) anos de idade, inclusive os enteados até 21 (vinte e um) anos, salvo se estudante até 24 (vinte e quatro) anos ou inválido, de qualquer idade.\n- O menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor ou inativo.\n\n**Caso Regime Geral de Previdência Social (RGPS):**\nDe acordo com a Lei nº 8.212/1991 (artigo 197), os dependentes econômicos para efeito de percepção do salário-família incluem:\n- O cônjuge ou companheiro e os filhos até 21 (vinte e um) anos de idade, inclusive os enteados até 21 (vinte e um) anos, salvo se estudante até 24 (vinte e quatro) anos ou inválido, de qualquer idade.\n- O menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor ou inativo.\n\nEm ambos os casos, o dependente é pago pelo salário família até a idade de 21 (vinte e um) anos. Para estudantes, o pagamento continua até aos 24 (vinte e quatro) anos, e para inválidos, independentemente da idade.\n\n**Resposta:**\nAté qual idade do dependente é pago o salário família? Até os 21 (vinte e um) anos de idade, inclusive para filhos que são estudantes. Para crianças estudantes, o pagamento continua até aos 24 (vinte e quatro) anos. Para inválidos, independentemente da idade, o pagamento continua.\n\nA resposta se aplica tanto ao regime próprio dos servidores quanto ao RGPS, conforme as disposições mencionadas nas fontes fornecidas.",
+      "num_sources": 15,
+      "avg_distance": 0.2124,
+      "min_distance": 0.1774,
+      "source_files": [
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 11,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Como o pedido não especifica qual regime é aplicável, analisarei ambas as possibilidades:\n\n**Caso Regime Próprio dos Servidores:**\nDe acordo com o Decreto nº 3.048/99 (artigo 197, §1º), os dependentes econômicos para efeito de percepção do salário-família incluem:\n- O cônjuge ou companheiro e os filhos até 21 (vinte e um) anos de idade, inclusive os enteados até 21 (vinte e um) anos, salvo se estudante até 24 (vinte e quatro) anos ou inválido, de qualquer idade.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "**Caso Regime Geral de Previdência Social (RGPS):**\nDe acordo com a Lei nº 8.212/1991 (artigo 197), os dependentes econômicos para efeito de percepção do salário-família incluem:\n- O cônjuge ou companheiro e os filhos até 21 (vinte e um) anos de idade, inclusive os enteados até 21 (vinte e um) anos, salvo se estudante até 24 (vinte e quatro) anos ou inválido, de qualquer idade.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, precisamos identificar a norma relevante dentro do contexto fornecido que aborda a condição de dependência e a idade limite para um filho não emancipado ser considerado como tal no Regime Geral de Previdência Social (RGPS).\n\nApós analisar os documentos fornecidos, o Decreto 3048, art. 16, é identificado como a fonte legal pertinente ao assunto em questão.\n\nDe acordo com o artigo 16 do Decreto 3048, de 1999, os dependentes do segurado no RGPS incluem:\n\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;\n\nII - os pais; ou\n\nIII - o irmão não emancipado, de qualquer condição, menor de vinte e um anos ou inválido.\n\nA partir dessas informações, é possível concluir que no RGPS, o filho não emancipado é considerado dependente do segurado até atingir a idade de 21 (vinte e um) anos. A emancipação ocorre quando o filho atinge essa idade limite, tornando-o responsável próprio perante os direitos e obrigações civis.\n\nPortanto, na questão apresentada, o filho não emancipado é considerado dependente do segurado no RGPS até alcançar a idade de 21 (vinte e um) anos.",
+      "num_sources": 15,
+      "avg_distance": 0.2224,
+      "min_distance": 0.1864,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "vinte e um",
+          "21",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 5,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com o artigo 16 do Decreto 3048, de 1999, os dependentes do segurado no RGPS incluem:\n\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;\n\nII - os pais; ou\n\nIII - o irmão não emancipado, de qualquer condição, menor de vinte e um anos ou inválido.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, identificaremos o regime jurídico aplicável e citaremos diretamente da base recuperada.\n\nO contexto refere-se ao \"serviço público federal\", que se alinha com o regime jurídico próprio dos servidores públicos federais. A consulta relevante é a EC 103/2019.\n\nA idade mínima para aposentadoria voluntária no serviço público federal, conforme estipulado na Emenda Constitucional nº 103 de 2019 (EC 103/2019), são:\n\n- Para mulheres: 57 anos\n- Para homens: 60 anos\n\nEsta informação foi recuperada do documento EC 103-2019.pdf, art. 20, que especifica os requisitos cumulativos para aposentadoria voluntária no serviço público federal.",
+      "num_sources": 15,
+      "avg_distance": 0.2085,
+      "min_distance": 0.1798,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "mulher"
+        ],
+        "hit_count": 1,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 3,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 4,
+            "text": "A idade mínima para aposentadoria voluntária no serviço público federal, conforme estipulado na Emenda Constitucional nº 103 de 2019 (EC 103/2019), são:\n\n- Para mulheres: 57 anos\n- Para homens: 60 anos\n\nEsta informação foi recuperada do documento EC 103-2019.pdf, art. 20, que especifica os requisitos cumulativos para aposentadoria voluntária no serviço público federal.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "O contexto fornece informações sobre dois dispositivos diferentes relacionados ao prazo de decadência do seguro geral (RGPS) e à revisão do ato de concessão de benefício. No entanto, como a pergunta não especifica se é um segurado RGPS ou uma outra situação, vou fornecer os prazos conforme estão estabelecidos para ambos.\n\nPara o segurado ou beneficiário do RGPS que deseja revisar o ato de concessão de benefício:\n\n- Existe um prazo de decadência de 5 anos, começando da data em que deveriam ter sido pagas todas as prestações vencidas ou quaisquer restituições ou diferenças devidas pela previdência social, conforme o Decreto nº 4.729, de 2003.\n- Alternativamente, existe um prazo de decadência de 10 anos para a revisão do ato de concessão de benefício, começando da data em que deveriam ter sido pagas todas as prestações vencidas ou quaisquer restituições ou diferenças devidas pela previdência social, conforme o Decreto nº 3048, art. 347 (redação original) e decreta pelo Decreto nº 5.545, de 2005.\n\nComo a base não fornece um contexto claro para determinar se é RGPS ou outra situação, forneci ambos os prazos que estão disponíveis na legislação mencionada. O advogado deve considerar o regime jurídico específico aplicável ao segurado ou beneficiário em questão.",
+      "num_sources": 15,
+      "avg_distance": 0.1937,
+      "min_distance": 0.102,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "10 anos",
+          "decadência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 6,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,429 @@
+{
+ "model": "phi4-mini:3.8b",
+ "num_ctx": 8192,
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-14T02:11:42.312441",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 22.77,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar (salário-família) é pago, precisamos identificar as regras específicas que governam a duração da elegibilidade para esse benefício. Com base no contexto fornecido:\n\n- O pagamento do salário-família começa com a apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado.\n- Há uma condição anual de vacinação obrigatória até os seis anos de idade, além de comprovação semestral de frequência à escola para aqueles acima dos sete anos.\n\nCom base nas informações fornecidas no contexto legal:\n\nO salário-família é pago a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado. A duração específica do benefício não está explicitamente mencionada nos documentos fornecidos, mas comumente o salário familiar é pago até que o dependente alcance os 16 anos (ou qualquer outro limite legal local se diferente).\n\nNo entanto, como a base não fornece uma idade máxima clara para o pagamento do salário-família, o advogado deve consultar as legislações locais atuais ou regulamentos adicionais específicos para determinar com precisão a duração da elegibilidade desse benefício. Se houver mudanças legislativas desde 1999 (a data dos documentos fornecidos), essas também devem ser consideradas.\n\nResposta: O salário familiar é pago a partir do nascimento do dependente até os 16 anos, mas o advogado deve verificar as legislações locais atuais para confirmar se houve alterações na duração da elegibilidade.",
+   "answer_chars": 1556,
+   "grounded": false,
+   "supported": 6,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1585
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 17.25,
+   "error": null,
+   "answer": "Para determinar até qual idade do dependente o salário familiar é pago, precisamos identificar o regime jurídico aplicável e as regras específicas que regem a aposentadoria de segurados. No contexto fornecido, parece haver referência ao \"Regime Geral de Previdência Social\" (RGPS), conforme indicado pelos termos como \"segurado\", \"benefício\" e \"RGPS\".\n\nO decreto em questão é o Decreto nº 3.048/99, que contém as normas do RGPS.\n\nCom base no Decreto nº 3.048/99, especificamente na art. 88, o salário familiar (salário-maternidade) é pago até certas idades dos dependentes:\n\n- Para os filhos: cessa automaticamente quando eles completam quatorze anos de idade.\n- Para indivíduos com deficiência: se não for mencionado outro prazo específico, geralmente termina ao completar doze anos.\n\nNo entanto, há exceções para casos específicos como invalidez ou sem tutoriação, onde o salário familiar pode continuar além dos prazos normais. Como o contexto fornecido não fornece detalhes sobre a condição de invalidez ou outros fatores especiais que possam afetar o prazo, só se basear nas regras gerais do Decreto nº 3.048/99.\n\nPortanto, com base no RGPS e no Decreto nº 3.048/99, o salário familiar é pago até os filhos completar quatorze anos de idade. Para indivíduos com deficiência ou outros casos especiais, pode haver prazos diferentes conforme as disposições legais específicas aplicáveis a esses casos.",
+   "answer_chars": 1402,
+   "grounded": true,
+   "supported": 9,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.187
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 18.91,
+   "error": null,
+   "answer": "Para determinar até qual idade um dependente recebe o salário familiar, precisamos consultar as disposições específicas relacionadas ao Salário-Maternidade no contexto da Previdência Geral (RGPS) ou previdência social rural, dependendo de onde o segurado está inscrito.\n\nCom base nas informações fornecidas na base jurídica:\n\n- O direito ao salário-maternidade cessa por morte do filho ou equiparado, a contar do mês seguinte ao óbito.\n- Quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, o direito também cesa no próximo mês após o aniversário.\n- A capacidade recuperada do filho ou equiparado inválido faz com que o direito à aposentadoria por invalidez ceda no próximo mês após a cessação da incapacidade.\n- O desemprego do segurado também leva ao fim do direito.\n\nNo contexto da RGPS, especificamente em relação aos portadores de seguro individual (segurados individuais), há menção adicional:\n\n- Do segurado contribuinte individual que trabalha por conta própria sem relação de trabalho com empresa ou equiparado, a partir da competência em que fizer a opção pela exclusão do direito ao benefício de aposentadoria por tempo de contribuição, uma alíquota de 11% sobre o limite mínimo mensal do salário-de-contribuição será aplicada (Decreto nº 6.042, de 2007).\n\nConsiderando as disposições acima, é claro que o direito ao salário-maternidade não se estende além dos quatorze anos de idade do dependente. Se o dependent for inválido até os 14 anos, o direito continua; no entanto, isso ainda está limitado pelo período máximo estipulado para a aposentadoria por invalidez.\n\nA resposta final à pergunta do advogado é que o salário-maternidade se paga até o aniversário do filho ou equiparado de quatorze anos.",
+   "answer_chars": 1742,
+   "grounded": true,
+   "supported": 9,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1646
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 16.82,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, primeiro identificaremos o regime jurídico relevante. Os termos usados no contexto, como \"segurado\", \"benefício\" e \"RGPS\" (Regime Geral de Previdência Social), indicam que a consulta se aplica ao Regime Geral de Previdência Social (RGPS) da previdência social brasileira.\n\nA pergunta específica é sobre a idade do dependente até qual ponto o salário família é pago. Com base nas informações fornecidas na Base Jurídica, particularmente nos artigos 84 e 86 do Decreto nº 3048/99, podemos determinar os seguintes pontos:\n\n- O pagamento do salário-família começa com a apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado (artigo 84).\n- O direito ao salário-família cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido (artículo 86, I).\n\nAssim, no contexto do RGPS, o salário família é pago até que o dependente complete os 14 anos de idade. Se o dependente for inválido após atingir a idade de 14 anos, o direito ao salário-família pode continuar.\n\nA resposta final, conforme as normas vigentes na Base Jurídica fornecida, é: O salário familiar é pago até que o dependente complete 14 anos de idade.",
+   "answer_chars": 1220,
+   "grounded": false,
+   "supported": 7,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1616
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 12.83,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos as normas relevantes dentro da base jurídica fornecida. A questão se refere à idade até que o salário familiar seja pago.\n\nOs documentos [11] e [12], ambos referenciando o Decreto 3048, art. 84, indicam que o pagamento do salário familiar é devido a partir da data de apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado. No entanto, há condições adicionais mencionadas no parágrafo único deste artigo: o dependente deve ter completado pelo menos seis anos de idade.\n\nPortanto, com base nas normas fornecidas na base jurídica, o salário familiar é pago até que o dependente tenha atingido a idade de seis anos.",
+   "answer_chars": 697,
+   "grounded": false,
+   "supported": 4,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1595
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 15.61,
+   "error": null,
+   "answer": "Para responder à pergunta sobre até qual idade de um dependente o salário familiar continua sendo pago, precisamos identificar o regime jurídico aplicável e as regras específicas relacionadas ao benefício de salário familiar. No contexto fornecido, parece haver referência a vários regimes jurídicos, como o Previdência Geral do Trabalho (RGPS) e outros específicos para servidores públicos ou trabalhadores em diferentes setores.\n\nNo entanto, o texto não especifica claramente qual regime específico se aplica à pergunta do advogado. Dado isso, não posso fornecer uma resposta definitiva sem mais informações sobre o contexto específico do dependente em questão (por exemplo, se for um filho de um trabalhador rural, empregado autônomo, etc.).\n\nCom base nas informações fornecidas no contexto recuperado da base jurídica:\n\n- Para filhos ou equiparados, o salário familiar cessa automaticamente quando eles completam 14 anos de idade, salvo se estiverem inválidos (Decreto 3048, art. 92).\n- O benefício também termina com a recuperação da capacidade do dependente inválido, após completar um mês desde que cessou a incapacidade; ou pelo desemprego do segurado (Decreto 3048, art. 92).\n\nSe o contexto específico for de um regime diferente não mencionado no texto fornecido, por favor, forneça mais informações para poder dar uma resposta precisa.",
+   "answer_chars": 1345,
+   "grounded": false,
+   "supported": 6,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1915
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 14.92,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos as normas relevantes dentro do contexto fornecido. A questão se refere ao período de pagamento do salário familiar para um dependente, especificamente até qual idade.\n\nOs dispositivos legais pertinentes são encontrados nos documentos [DOC 7] e [DOC 11], ambos referenciando o Decreto nº 3.048/99, artigo 84. Esses dispositivos estabelecem as condições para a apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado como base para o pagamento do salário familiar.\n\nCom base nos artigos citados:\n\n- O direito ao salário familiar começa com a apresentação da certidão de nascimento do filho (ou documentação relacionada ao equiparado).\n- A apresentação anual de atestado de vacinação obrigatória é uma condição.\n- O pagamento continua até que o dependente complete 6 anos de idade, desde o mês seguinte à data da certidão.\n\nPortanto, no contexto do Decreto nº 3.048/99, o salário familiar é pago até a idade de 6 anos do filho ou equiparado.",
+   "answer_chars": 1022,
+   "grounded": false,
+   "supported": 7,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1652
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 20.13,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificaremos as normas relevantes dentro do contexto fornecido. A questão se refere ao \"dependente\" e ao período de pagamento do \"salário familiar\", que está regido pelo Decreto 3048.\n\nOs dispositivos legais pertinentes são:\n\n- **DOC 9 — Decreto 3048, art. 84**: O pagamento do salário-família será devido a partir da data da apresentação da certidão de nascimento do filho ou da documentação relativa ao equiparado.\n  \n- **DOC 11 — Decreto 3048, art. 84**: O mesmo artigo estabelece que o pagamento é condicionado à apresentação anual de atestado de vacinação obrigatória.\n\nA resposta direta extraída das normas recuperadas no contexto é:\n\nO salário familiar será pago a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado, com condição adicional de apresentar anualmente um atestado de vacinação obrigatória. Não há limite específico de idade para o dependente mencionado nas disposições recuperadas; portanto, o salário familiar continua sendo pago até que uma das condições estipuladas no art. 84 (morte do filho ou equiparado, aniversário do filho, recuperação da capacidade do inválido, desemprego do segurado) seja atendida.\n\nA resposta completa, conforme as normas recuperadas:\n\nO salário familiar será pago a partir da data de apresentação da certidão de nascimento do dependente até que uma das seguintes condições ocorra: morte do filho ou equiparado; aniversário do filho (salvo se o filho for inválido); recuperação da capacidade do filho inválido; ou desemprego do segurado. Além disso, é necessário apresentar anualmente um atestado de vacinação obrigatória conforme estipulado no Decreto 3048, artigo 84.",
+   "answer_chars": 1715,
+   "grounded": false,
+   "supported": 6,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1623
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 21.18,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificaremos primeiro o regime jurídico aplicável com base nos termos usados no contexto da consulta.\n\nO termo \"dependente\" está relacionado ao \"filho ou equiparado\", e a questão se refere à idade até que o \"salário familiar\" seja pago. O contexto fornecido é sobre o Regime Geral de Previdência Social (RGPS), especificamente em relação aos benefícios do salário-família, sem mencionar outros regimes jurídicos como os servidores públicos ou previdência rural.\n\nCom base nas informações da [DOC 12], no RGPS, o \"salário familiar\" para portuários avulsos é pago pelo órgão gestor de mão-de-obra. No entanto, não há menção específica do limite máximo de idade dos dependentes em relação ao salário-família neste documento específico.\n\nNo entanto, com base na [DOC 14], que trata da aposentadoria por idade no RGPS, podemos inferir os limites máximos de idade para outros benefícios relacionados à família dentro do sistema. A aposentadoria por idade é paga até o portador completar 65 anos (homem) ou 60 anos (mulher), com ajustes para trabalhadores rurais.\n\nConsiderando que o salário-família é um benefício relacionado ao seguro social, e sem informações específicas no contexto fornecido sobre a idade máxima de pagamento do salário familiar dentro do RGPS, podemos inferir que os limites máximos de idade são semelhantes aos dos outros benefícios familiares. Portanto, com base na [DOC 14], pode-se concluir:\n\nO salário-família é pago até o dependente completar 65 anos (homem) ou 60 anos (mulher).\n\nNo entanto, como a consulta se refere especificamente ao \"salário família\" e não à aposentadoria por idade, seria prudente verificar se existem regras específicas para o salário familiar dentro do RGPS. No caso de tal informação não estar disponível no contexto fornecido, podemos fornecer a resposta inferida com base nas regras gerais aplicáveis aos dependentes na previdência social.\n\n**Resposta final:**\n\nO salário-família é pago até que o dependente complete 65 anos (homem) ou 60 anos (mulher).",
+   "answer_chars": 2045,
+   "grounded": false,
+   "supported": 8,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1768
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 15.76,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, primeiro identificaremos o regime jurídico aplicável. O termo \"segurado\" usado no contexto indica que a consulta se refere ao Regime Geral de Previdência Social (RGPS).\n\nA informação relevante está nos artigos 84 e 86 do Decreto nº 3.048/99, conforme recuperado da base jurídica.\n\nSegundo o artigo 84, o pagamento do salário familiar é devido a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado, com condições como a apresentação anual de atestado de vacinação obrigatória até seis anos de idade e comprovação semestral de frequência à escola do filho ou equiparado, a partir dos sete anos.\n\nPortanto, o salário familiar é pago desde que o dependente tenha six anos de idade. A cessação desse benefício ocorre em diferentes momentos: por morte do filho ou equiparado (a contar do mês seguinte ao óbito), quando o filho ou equiparado completar quatorze anos de idade (salvo se inválido, a contar do mês seguinte ao aniversário) e pela recuperação da capacidade do filho ou equiparado inválido (o mês subsequente à cessação da incapacidade).\n\nA resposta final é: O salário familiar é pago desde que o dependente tenha seis anos de idade.",
+   "answer_chars": 1229,
+   "grounded": false,
+   "supported": 6,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1668
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 17.29,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos primeiro o regime jurídico aplicável. O termo \"segurado\" usado no contexto refere-se ao regime de Previdência Geral do Trabalho (RGTP) ou RGPS, que é o regime jurídico próprio dos servidores públicos.\n\nCom base na Lei nº 8.213/1991, Artigo 51, referenciado em Documentos [11] e [12], o salário familiar é pago a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado. Este pagamento está condicionado à apresentação anual de atestado de vacinação obrigatória até seis anos de idade, e de comprovação semestral de frequência à escola do filho ou equiparado, a partir dos sete anos de idade.\n\nPortanto, o salário familiar é pago desde que o dependente tenha nacido (certidão de nascimento apresentada) e atende aos requisitos de vacinação e frequência escolar conforme mencionado. A vigília do seguro começa no mês seguinte ao óbito do filho ou na data do aniversário, com exceções específicas para invalidez ou desemprego.\n\nA resposta final, extraída diretamente da base legal sem qualquer inventação, é:\n\nO salário familiar é pago a partir do mês em que se apresenta o certificado de nascimento do filho e as condições de vacinação obrigatória até seis anos de idade são atendidas. A frequência escolar deve ser comprovada anualmente desde os sete anos de idade.",
+   "answer_chars": 1365,
+   "grounded": true,
+   "supported": 8,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1622
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 15.83,
+   "error": null,
+   "answer": "Para determinar até qual idade do dependente o salário familiar é pago, precisamos consultar as disposições específicas sobre o período de pagamento do salário-maternidade conforme estabelecido no Decreto 3048.\n\nCom base nas informações fornecidas:\n\n- O direito ao salário-família cessa por morte do filho ou equiparado (artigo 88).\n- Quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, o direito também acaba (artigo 88).\n- A cessação da capacidade do dependente inválido também termina o pagamento (artigo 88).\n- O direito ao salário-maternidade cessa pelo desemprego do segurado (artigo 88).\n\nNo entanto, não há menção explícita de um período de pagamento após a conclusão dos anos de idade mencionados. Portanto, com base nas informações fornecidas na base jurídica recuperada, o salário familiar é pago até que o filho ou equiparado completar quatorze anos de idade, exceto se inválido.\n\nA informação faltante para responder completamente à pergunta do advogado é se há alguma regra específica sobre a continuidade do pagamento após os 14 anos de idade em caso de invalidez. Se tal regra não estiver explicitada na base jurídica fornecida, seria necessário consultar outras fontes legais ou interpretar com o auxílio de um especialista no assunto.",
+   "answer_chars": 1282,
+   "grounded": false,
+   "supported": 4,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1941
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 17.74,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, precisamos identificar as regras específicas que determinam a duração da obrigação de pagamento do salário familiar. Com base no contexto fornecido, temos informações sobre o salário familiar em relação ao nascimento do filho e aos anos de escolaridade.\n\nDe acordo com o Decreto 3048, artigo 84 (Arquivo: Decreto 3.048-99.pdf), o pagamento do salário familiar é devido a partir da data da apresentação da certidão de nascimento do filho ou da documentação relativa ao equiparado. Há condições adicionais relacionadas à vacinação obrigatória e frequentação escolar.\n\nO parágrafo único do artigo 84 especifica que as cotas do salário familiar não são incorporadas, para qualquer efeito, ao salário ou benefício. No entanto, não há limite máximo de idade explicitamente declarado no texto fornecido.\n\nCom base nas informações disponíveis na base jurídica recuperada, o salário familiar é pago até seis anos de idade do dependente. Após os seis anos, a obrigação de pagamento depende da frequentação semestral à escola, conforme mencionado em um dos parágrafos únicos do artigo 84 (Arquivo: Decreto 3.048-99.pdf). No entanto, não há limite máximo de idade explicitamente declarado para o salário familiar após os seis anos.\n\nPortanto, com base nas informações fornecidas na base jurídica recuperada, o salário familiar é pago até seis anos de idade do dependente. A duração além dos seis anos depende da frequentação semestral à escola e não tem um limite máximo de idade especificado no texto fornecido.",
+   "answer_chars": 1539,
+   "grounded": false,
+   "supported": 8,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1523
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 19.76,
+   "error": null,
+   "answer": "Para responder à pergunta sobre a idade até qual ponto um dependente recebe o salário da família, precisamos identificar o regime jurídico em questão e as regras específicas que regem o benefício de salário familiar dentro desse contexto. No entanto, o texto fornecido não especifica claramente qual regime jurídico é sendo aplicado (RGPS ou Regime Próprio dos Servidores), pois menciona ambos sem indicar qual se aplica ao caso específico do advogado.\n\nDado isso, não posso fornecer uma resposta definitiva com base no contexto fornecido. Recomendaria que o advogado verifique a legislação específica aplicável à situação em questão, seja o RGPS (Previdência Geral de Previdência Social) ou o Regime Próprio dos Servidores, pois as regras podem variar entre esses regimes.\n\nNo entanto, com base nas informações disponíveis no contexto fornecido, podemos observar os seguintes pontos gerais sobre o benefício de salário familiar:\n\n1. O pagamento do salário da família é devido a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado.\n2. Há condições relacionadas à vacinação obrigatória e frequência escolar para menores de idade (até seis anos, anual até sete anos).\n3. O direito ao salário familiar cessa automaticamente em certas situações: por morte do filho ou equiparado, quando o filho ou equiparado completar quatorze anos (salvo se inválido), pela recuperação da capacidade do filho ou equiparado inválido, ou pelo desemprego do segurado.\n\nPara uma resposta precisa e aplicável ao caso específico, seria necessário saber qual regime jurídico é relevante para a situação em questão. Se o advogado puder fornecer essa informação, poderei dar uma resposta mais detalhada. Até agora, com base nas informações fornecidas, não posso especificar até qual idade um dependente recebe o salário da família, pois as regras podem variar entre os regimes RGPS e Regime Próprio dos Servidores.",
+   "answer_chars": 1939,
+   "grounded": false,
+   "supported": 10,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1789
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 14.16,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos a norma relevante dentro da base jurídica fornecida.\n\nA informação necessária está no Decreto 3048, art. 84, que especifica os termos para pagamento de salário-família:\n\n- O pagamento deve ser feito a partir da data da apresentação da certidão de nascimento do filho ou documentação relativa ao equiparado.\n- Está condicionado à apresentação anual de atestado de vacinação obrigatória até seis anos de idade.\n- Além disso, requer comprovação semestral de frequência à escola do filho ou equiparado, a partir dos sete anos de idade.\n\nCom base na legislação citada, o salário-família é pago desde que o dependente tenha six (6) anos até quinze (15) anos de idade. A obrigação continua com annualização da vacinação e semestralidade escolar após os sete (7) anos de idade.",
+   "answer_chars": 822,
+   "grounded": false,
+   "supported": 5,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.174
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 22.9,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos a norma relevante dentro da base jurídica fornecida.\n\nO documento pertinente para determinar até qual idade do dependente o salário familiar (salário-família) é pago é o Decreto 3048, art. 86, que afirma: \"O salário-família correspondente ao mês de afastamento do trabalho será pago integralmente pela empresa, pelo sindicato ou órgão gestor de mão-de-obra, conforme o caso, e o do mês da cessação de benefício pelo Instituto Nacional do Seguro Social.\"\n\nDo entanto, a pergunta não especifica se refere à aposentadoria por invalidez, tempo de contribuição, especialidade, etc., mas ao salário-família em geral. Portanto, precisamos considerar também as disposições sobre o salário-maternidade.\n\nO Decreto 3048, art. 88, fornece informações sobre o salário-maternidade: \"O direito ao salário-família cessa automaticamente: I - por morte do filho ou equiparado, a contar do mês seguinte ao do óbito; II - quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, a contar do mês seguinte ao da data do aniversário; III - pela recuperação da capacidade do filho ou equiparado inválido, a contar do mês seguinte ao da cessação da incapacidade; ou IV - pelo desemprego do segurado.\"\n\nCom base nessas disposições, o salário-maternidade (salário-família) é pago até que um dos seguintes eventos ocorra:\n1. A morte do filho ou equiparado.\n2. O filho ou equiparado completar 14 anos de idade, exceto se for inválido.\n3. Recuperação da capacidade do filho ou equiparado inválido.\n4. Desemprego do segurado.\n\nPortanto, o salário-maternidade é pago até que o filho ou equiparado alcance a idade de 14 anos (a menos que seja inválido), além dos outros eventos mencionados acima. Como não foi especificada uma condição específica como invalidez ou desemprego no contexto da pergunta, fornecemos as informações gerais.\n\n**Resposta:**\nO salário-maternidade é pago até que o filho ou equiparado alcance a idade de 14 anos (a menos se for inválido). Além disso, continua sendo pago após qualquer outra das condições mencionadas na subseção VII do art. 88 do Decreto 3048, caso ocorra.",
+   "answer_chars": 2143,
+   "grounded": false,
+   "supported": 14,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1711
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 13.65,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificaremos as normas relevantes dentro da base jurídica fornecida.\n\nPrimeiramente, observamos que a questão se refere ao \"salário familiar\", que está regulamentado pelo Decreto 3048. A informação específica sobre até qual idade um dependente pode ser cobrado com o salário familiar é encontrada no Artigo 84 do mesmo decreto.\n\nO artigo estabelece duas condições para o pagamento do salário familiar: \n1. Para filhos menores de seis anos, a condição é a apresentação anual de atestado de vacinação obrigatória.\n2. A partir dos sete anos de idade, a condição é a comprovação semestral da frequência à escola do filho ou equiparado.\n\nCom base nessas informações, o salário familiar é pago até que o dependente tenha pelo menos 7 anos de idade, desde que cumpra as condições mencionadas acima (atestado de vacinação obrigatória para menores de seis anos e comprovamento semestral de frequência à escola a partir dos sete anos.",
+   "answer_chars": 966,
+   "grounded": false,
+   "supported": 7,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1597
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 12.73,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, identificamos as normas relevantes dentro do contexto fornecido. A informação necessária está no Decreto 3048, art. 86 e em outros dispositivos relacionados ao Salário-Família.\n\nCom base nas disposições do artigo 86 do Decreto 3048:\n\n- O salário-família cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade.\n- Também termina com a morte do dependente, recuperação da capacidade do inválido (se aplicável) ou desemprego do segurado.\n\nPortanto, no contexto das normas brasileiras fornecidas na base legal, o salário-família não é pago além dos 14 anos de idade do filho ou equiparado.",
+   "answer_chars": 652,
+   "grounded": false,
+   "supported": 3,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "14",
+     "inválido"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.164
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 12.57,
+   "error": null,
+   "answer": "Para fornecer uma resposta precisa, preciso identificar o regime jurídico específico a que se refere a pergunta. O contexto fornecido inclui disposições de várias normas jurídicas, como o RGPS (Regime Geral de Previdência Social) e leis específicas para servidores públicos, trabalhadores rurais e garimpeiros, entre outros.\n\nA questão \"Até qual idade do dependente é pago o salário família?\" pode se aplicar a diferentes regimes jurídicos com idades variáveis. Sem especificar o regime jurídico ou o contexto dos termos usados (por exemplo, \"segurado\", \"dependente\" etc.), não posso fornecer uma resposta precisa conforme as regras de segurança e conduta.\n\nPor favor, especifique o regime jurídico relevante para sua pergunta.",
+   "answer_chars": 727,
+   "grounded": false,
+   "supported": 4,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1592
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 18.08,
+   "error": null,
+   "answer": "Para responder à pergunta do advogado, precisamos identificar o regime jurídico aplicável e as normas específicas que regem a cessação dos benefícios de salário familiar. A questão não especifica se se refere ao segurado individual ou coletivo (RGPS), mas com base no contexto fornecido, parece-se que estamos lidando com o RGPS.\n\nOs documentos recuperados referenciam principalmente o Decreto 3.048/99 e outras regulamentações relacionadas à Previdência Geral do Trabalho (PJT) antes de sua revogação por outros decretos. A informação específica sobre a cessação dos benefícios de salário familiar está no Artigo 86 do Decreto 3048.\n\nCom base na Lei nº 8.213/1991, que é referenciada no documento como sendo observada em relação às contribuições anteriores (Decreto 5.399/2005), o Salário Familiar cessa automaticamente com a seguinte situação:\n\n- Por morte do filho ou equiparado, contando do mês seguinte ao óbito.\n- Quando o filho ou equiparado completar quatorze anos de idade, salvo se inválido, contando do mês seguinte ao aniversário.\n- Pela recuperação da capacidade do filho ou equiparado inválido, contando do mês seguinte à cessação da incapacidade.\n- Pelo desemprego do segurado.\n\nEssas são as condições mencionadas no Artigo 86 do Decreto 3048. Portanto, o Salário Familiar não é pago além dos quatorze anos de idade do dependente, exceto em casos específicos como invalidez ou morte do dependant, onde os benefícios podem continuar até que a condição específica seja resolvida.\n\nA resposta final, conforme as normas vigentes no contexto fornecido, é: O Salário Familiar cessa automaticamente quando o filho ou equiparado completar quatorze anos de idade, exceto em casos específicos como invalidez ou morte do dependant.",
+   "answer_chars": 1735,
+   "grounded": false,
+   "supported": 9,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.1724
+  }
+ ],
+ "wall_time_s": 340.9,
+ "finished_at": "2026-09-14T02:17:23.244174"
+}

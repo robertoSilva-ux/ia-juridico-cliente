@@ -1,0 +1,12 @@
+{
+  "_comment": "Quiz reduzido do LOOP DE MELHORIA (q6 apenas) — iteração rápida: ajuste -> teste -> avalie -> diagnóstico -> ajuste. O quiz oficial (quiz.json) mantém as 6 perguntas para avaliação completa.",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "expected_files": [],
+      "expected_keywords": ["quatorze", "14", "inválido"]
+    }
+  ]
+}

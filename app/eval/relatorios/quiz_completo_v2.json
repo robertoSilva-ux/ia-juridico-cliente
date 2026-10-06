@@ -1,0 +1,52 @@
+{
+  "_comment": "Questionário baseline para avaliação de qualidade do RAG. Rode 'run_eval.py' antes/depois de cada mudança e compare os relatórios JSON gerados. Para cada pergunta é possível (opcional) listar fragmentos de arquivo esperados como 'gabarito' para medir recall.",
+  "_expectation": "Campo por pergunta: 'answer' = a base contém a resposta (espera-se resposta ancorada e citação); 'refuse' = a base NÃO contém (espera-se recusa ancorada, sem números/afirmações inventadas).",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "expected_files": [],
+      "expected_keywords": ["invalidez", "carência", "período de contribuição"]
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "expected_files": [],
+      "expected_keywords": ["carência", "tempo de contribuição", "benefício"]
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "expected_files": [],
+      "expected_keywords": ["acidente de trabalho", "empregador", "obrigação"]
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "expected_files": ["Lcp 142.pdf"],
+      "expected_keywords": ["deficiência", "aposentadoria", "carência"],
+      "_note": "LC 142/2013 indexada como 'Lcp 142.pdf' em 2026-09-12. Antes era sonda de recusa (refuse); agora mede recall real."
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "expected_files": [],
+      "expected_keywords": [],
+      "refusal_markers": ["não localizei", "não consta", "não contém", "não está na base", "não há", "sem fonte", "não encontrei", "não dispõe"],
+      "_note": "Verificar: se a base contiver Codigo Civil/usucapiao, mudar expectation para 'answer'. Ate entao serve como sonda de recusa."
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "expected_files": [],
+      "expected_keywords": ["quatorze", "14", "inválido"],
+      "_note": "Gabarito: art. 83 do Decreto 3.048/99 — cota por filho/equiparado 'até quatorze anos de idade ou inválido' (art. 85: invalidez do maior de 14 verificada por exame médico). Conteúdo confirmado na base em 2026-09-12 (Decreto 3.048-99.pdf, chunks 7210-7213)."
+    }
+  ]
+}

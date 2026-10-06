@@ -1,0 +1,139 @@
+{
+ "model": "gemma3:4b-it-qat",
+ "num_ctx": "default",
+ "iters": 1,
+ "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+ "started_at": "2026-09-12T07:31:49.210612",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q1",
+   "time_s": 39.79,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, podemos identificar os seguintes requisitos para a concessão de aposentadoria por incapacidade permanente para o trabalho (anteriormente conhecida como \"aposentadoria por invalidez\"):\n\n**1. Tipos de Aposentadoria:**\n\n*   **Aposentadoria por Invalidez Permanente:** É o tipo de aposentadoria que se refere à incapacidade permanente para o trabalho.\n*   **Outros tipos:** Os documentos listam outros tipos de benefícios, como aposentadoria por idade, tempo de serviço, etc., mas a questão da pergunta é especificamente sobre a aposentadoria por invalidez.\n\n**2. Condições Essenciais (Conforme Documento 10):**\n\n*   **Incapacidade para o Trabalho:** O segurado deve ser considerado permanentemente incapaz para continuar exercendo suas atividades profissionais.\n*   **Insuscetibilidade de Readaptação:** É crucial que não haja possibilidade de readaptação do segurado ao seu emprego anterior ou a outro trabalho compatível com sua condição.  A avaliação periódica é fundamental para verificar essa condição.\n\n**3. Avaliações Periódicas (Conforme Documento 10):**\n\n*   As aposentadorias por incapacidade permanente para o trabalho estão sujeitas a avaliações periódicas para garantir que as condições que levaram à concessão da aposentadoria ainda se mantêm.\n\n**4. Regras Específicas (Documentos 9 e 12):**\n\n*   **Retorno ao Trabalho:** O retorno do segurado à atividade não prejudica o recebimento da aposentadoria, *exceto* no caso de aposentadoria por invalidez ou especial (Documento 9).\n*   **Vacância do Cargo:**  O aproveitamento de tempo sob regime estatutário para fins de aposentadoria implica a vacância do cargo público (Documento 12).\n\n**5. Considerações Adicionais (Documentos 8 e 11):**\n\n*   **Regime Próprio de Previdência Social:**  Segurados em regimes próprios de previdência social são submetidos a regras específicas para aposentadoria, conforme mencionado no Documento 11.\n*   **Efeitos Imediatos:** A EC nº 103/2019 trouxe efeitos imediatos e aplicabilidade imediata às normas existentes sobre a aposentadoria por invalidez permanente (Documento 11).\n\n**Observações Importantes:**\n\n*   A legislação previdenciária é complexa e pode variar dependendo do regime de contribuição do segurado (rural ou urbano) e da sua situação específica.\n*   É fundamental consultar um advogado especializado em direito previdenciário para obter orientação jurídica precisa sobre o seu caso.\n\n**Em resumo, a aposentadoria por incapacidade permanente para o trabalho exige a comprovação de uma condição de invalidez que impede a readaptação ao trabalho e está sujeita a avaliações periódicas para garantir a continuidade das condições que levaram à concessão.**\n",
+   "answer_chars": 2697,
+   "grounded": true,
+   "supported": 18,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "invalidez"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2225
+  },
+  {
+   "iter": 1,
+   "qid": "q2",
+   "time_s": 25.44,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, a carência mínima para aposentadoria por tempo de contribuição varia dependendo do tipo de segurado e das condições específicas:\n\n**1. Segurado Geral (não especial):**\n\n*   **Carência Mínima:** 1/3 (um terço) do número de contribuições exigidas para o cumprimento da carência definida para o benefício a ser requerido, conforme a Lei 8213.\n*   **Detalhes Adicionais:** A Lei 8213 estabelece que esse período de carência deve ser computado a partir da nova filiação à Previdência Social.\n\n**2. Segurado Especial (com exposição a agentes nocivos):**\n\n*   **Carência Mínima:**  O tempo mínimo de efetivo exercício de atividade rural, ainda que descontínua, igual ao número de meses necessário à concessão do benefício requerido.\n*   **Detalhes Adicionais:** O Decreto 3048 (art. 26) define o período de carência para auxílios como aposentadoria por invalidez, salário-família, salário-maternidade e auxílio-acidente.\n\n**3. Aposentadoria com idade (para mulheres e homens):**\n\n*   **Idade Mínima:** 65 anos para homens e 62 anos para mulheres.\n*   **Tempo de Contribuição Mínimo:** 15 anos para ambos os sexos.\n\n**4. Aposentadoria por tempo de contribuição (para homens e mulheres):**\n\n*   **Homens:** 35 anos ou mais de idade.\n*   **Mulheres:** 30 anos ou mais de idade.\n*   **Tempo de Contribuição Mínimo:** 15 anos para ambos os sexos.\n\n**Observações Importantes:**\n\n*   Os Decretos 3048 (arts. 26, 134 e 188) e a Lei 8213 estabelecem regras diferentes para cada tipo de segurado e benefício.\n*   O Decreto 3048 (art. 188) menciona um valor adicional de 5% por ano de contribuição que supere a soma dos anos de contribuição mínimos exigidos.\n\n**Recomendação:** Para uma análise precisa da carência aplicável ao caso específico, é fundamental consultar a legislação vigente e as normas do Instituto Nacional do Seguro Social (INSS).",
+   "answer_chars": 1870,
+   "grounded": false,
+   "supported": 13,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "carência",
+     "tempo de contribuição",
+     "benefício"
+    ],
+    "hit_count": 3,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2199
+  },
+  {
+   "iter": 1,
+   "qid": "q3",
+   "time_s": 35.75,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos e na legislação trabalhista brasileira (principalmente a Consolidação das Leis do Trabalho - CLT), podemos responder à sua pergunta sobre o que configura acidente de trabalho e as obrigações do empregador.\n\n**O Que Configura Acidente de Trabalho?**\n\nDe acordo com os documentos, um acidente de trabalho é definido como:\n\n*   **Moléstia profissional:** Doença ou lesão causados diretamente pelo exercício da atividade laboral.\n*   **Acidente de trabalho:** Lesão corporal sofrida pelo empregado durante o exercício do trabalho, ou em razão dele.\n\nÉ importante notar que a legislação (especialmente o Art. 157 da CLT) exige uma relação causal direta entre o dano e a atividade profissional para que seja considerado acidente de trabalho.  Não basta apenas ter ocorrido um evento lesivo no ambiente de trabalho; é preciso comprovar que ele foi causado pelo trabalho.\n\n**O Vade Mecum (Art. 41)** menciona a importância do registro desses eventos, evidenciando a necessidade de documentação para fins de indenização e proteção do trabalhador.\n\n**Obrigações do Empregador em Relação ao Acidente de Trabalho:**\n\nOs documentos apontam diversas obrigações do empregador:\n\n*   **Registro:** O empregador é obrigado a registrar todos os dados relativos aos acidentes de trabalho no livro de registro de empregados (Art. 41).\n*   **Investigação:** É dever do empregador investigar o acidente para determinar suas causas e implementar medidas preventivas.\n*   **Prestar Socorro Imediato:** O empregador deve prestar socorro imediato ao trabalhador ferido, garantindo acesso a atendimento médico adequado.\n*   **Notificação:** O empregador deve notificar as autoridades competentes (como o Ministério do Trabalho) sobre o acidente, conforme exigido pela legislação.\n*   **Indenização:**  O empregador é responsável por pagar a indenização ao trabalhador ferido, incluindo:\n    *   Salário pelos dias de afastamento;\n    *   Auxílio-doença (se for o caso);\n    *   Lucros cessantes (se o trabalho impossibilitar o ganho habitual);\n    *   Outras despesas médicas e hospitalares.\n*   **Seguro Acidente de Trabalho:** O empregador é obrigado a contratar um seguro acidentes de trabalho para garantir o pagamento das indenizações aos trabalhadores feridos.\n\n**O Art. 5º do Decreto 3048/99** trata da proteção pessoal, mas é importante ressaltar que essa proteção não se aplica a todos os afastamentos.  Apenas aqueles relacionados à busca por segurança em vias públicas ou condições climáticas adversas, prática religiosa, descanso, lazer, estudo, alimentação, atividades sociais, higiene pessoal e troca de uniforme (quando não houver obrigatoriedade de troca na empresa) são considerados como não impactando o tempo disponível ao empregador.\n\n**O Art. 4º da CLT** define \"serviço efetivo\" e estabelece que os períodos em que o empregado está à disposição do empregador, aguardando ou executando ordens, devem ser computados no tempo de serviço.\n\n**Considerações Adicionais:**\n\n*   **Grupo Econômico:**  A responsabilidade solidária entre empresas que fazem parte de um grupo econômico é regulada pelo Art. 3º da CLT.\n*   **Contrato de Empreitada:** O Art. 610 da Lei 10406 estabelece as obrigações do empreiteiro, mas também implica responsabilidades para o empregador que encomendou a obra.\n\n**Observação Importante:**  A legislação trabalhista é complexa e está sujeita a interpretações diversas. É fundamental consultar um advogado especializado em direito do trabalho para obter orientação jurídica específica sobre cada caso.\n\nEspero que esta resposta seja útil! Se tiver mais perguntas, fique à vontade para perguntar.",
+   "answer_chars": 3643,
+   "grounded": false,
+   "supported": 27,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "acidente de trabalho",
+     "empregador"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2209
+  },
+  {
+   "iter": 1,
+   "qid": "q4",
+   "time_s": 38.48,
+   "error": null,
+   "answer": "A Lei Complementar nº 142/2013 (LC 142), conhecida como Reestruturação da Previdência Social, estabeleceu novas regras para a aposentadoria no Brasil. Para se aposentar sob essas regras, o servidor federal precisa atender a requisitos específicos e considerar as diferentes modalidades de transição previstas na legislação.\n\n**Requisitos Gerais para Aposentadoria com LC 142 (Servidores Federais):**\n\n*   **Idade:**\n    *   **Homens:** 65 anos\n    *   **Mulheres:** 62 anos\n*   **Tempo de Contribuição:**\n    *   **Homens:** 35 anos\n    *   **Mulheres:** 30 anos\n*   **Carência:**\n    *   **Homens:** 15 anos\n    *   **Mulheres:** 10 anos\n\n**Modalidades de Transição (LC 142):**\n\nA LC 142 previu diferentes modalidades de transição para os servidores públicos, visando a compatibilização com as regras anteriores e a garantia de direitos adquiridos. As principais são:\n\n1.  **Transição Consolidada:** É a modalidade mais comum e geralmente a mais vantajosa. Aplica-se aos servidores que já estavam aposentados ou tinham direito à aposentadoria antes da LC 142, ou que ingressaram no serviço público após a data de sua vigência (13/06/2013).\n    *   **Cálculo do Benefício:** Aposição com fração dos anos de contribuição, calculada por uma fórmula complexa que considera a idade e o tempo de contribuição.\n    *   **Requisitos:** Idade mínima, tempo mínimo de contribuição e carência.\n\n2.  **Transição Contínua:** Aplica-se aos servidores que estavam ativos no serviço público na data da vigência da LC 142 (13/06/2013).\n    *   **Cálculo do Benefício:** Aposição com o valor correspondente à média de salários de contribuição, calculada a partir da data de entrada no serviço público.\n    *   **Requisitos:** Idade mínima, tempo mínimo de contribuição e carência.\n\n3.  **Transição Especial:** Aplica-se a servidores que, na data da vigência da LC 142, estavam próximos de se aposentar, mas não atingiam os requisitos para a aposentadoria por idade ou tempo de contribuição.\n    *   **Cálculo do Benefício:** Aposição com fração dos anos de contribuição, calculada por uma fórmula que considera a idade e o tempo de contribuição.\n    *   **Requisitos:** Idade mínima, tempo mínimo de contribuição e carência.\n\n**Observações Importantes:**\n\n*   **Regras de Transição:** A LC 142 estabeleceu regras específicas para cada modalidade de transição, com diferentes fórmulas de cálculo e requisitos. É fundamental analisar o caso individualmente para determinar a modalidade mais vantajosa.\n*   **Emendas Constitucionais:** As Emendas Constitucionais nºs 103/2019 e 106/2019 alteraram algumas regras da LC 142, especialmente no que se refere ao cálculo dos benefícios e à carência. É importante estar atento às alterações mais recentes.\n*   **Regras de Direito Adquirido:** A legislação previdenciária brasileira garante o direito adquirido aos servidores públicos, ou seja, os direitos já conquistados antes de uma mudança na lei não podem ser suprimidos.\n\n**Recomendação:**\n\nDiante da complexidade das regras da LC 142 e das alterações legislativas, é fundamental buscar orientação jurídica especializada para analisar o caso individualmente e determinar a melhor estratégia para a aposentadoria. Um advogado especializado em direito previdenciário poderá auxiliar na escolha da modalidade de transição mais vantajosa, no cálculo do benefício e na defesa dos direitos do servidor público.\n\n**Observação:** As informações acima são um resumo geral das regras da LC 142. É importante consultar a legislação atualizada e as normas específicas do regime previdenciário do servidor para obter informações precisas sobre o seu caso.",
+   "answer_chars": 3620,
+   "grounded": false,
+   "supported": 23,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "aposentadoria",
+     "carência"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2383
+  },
+  {
+   "iter": 1,
+   "qid": "q5",
+   "time_s": 22.53,
+   "error": null,
+   "answer": "O texto fornecido não contém informações sobre o prazo de prescrição para a ação de usucapião extraordinária. Ele aborda temas como direito de petição, deveres do servidor público, extinção de processos de execução e prazos relacionados à prescrição em outros contextos (como no caso de precatórios ou crimes).\n\nPara saber o prazo de prescrição para a ação de usucapião extraordinária, você precisará consultar outras fontes, como:\n\n*   **O Código Civil Brasileiro:** É a principal fonte de lei que trata da usucapião.\n*   **Jurisprudência do Supremo Tribunal Federal (STF) e Superior Tribunal de Justiça (STJ):** Decisões judiciais podem esclarecer ou modificar o entendimento sobre prazos e requisitos para a usucapião.\n*   **Manuais e obras doutrinárias:** Livros e artigos especializados em direito civil fornecem informações detalhadas sobre a matéria.\n\nEm geral, a prescrição para a usucapião extraordinária é de **15 anos**, conforme o artigo 1.237 do Código Civil Brasileiro. No entanto, é fundamental verificar se há alguma alteração jurisprudencial ou legislação específica que possa influenciar esse prazo.",
+   "answer_chars": 1117,
+   "grounded": false,
+   "supported": 5,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 0
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2574
+  },
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 20.4,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago até que o filho ou equiparado maior de quatorze anos de idade tenha uma fonte de renda formal.  No entanto, há uma ressalva importante: no caso do Regime Geral de Previdência Social (RGPS), o benefício mantém um piso de um salário mínimo, mesmo que o dependente possua outra renda.\n\nA informação sobre a idade máxima para pagamento do salário-família está presente em diversos documentos, incluindo:\n\n*   **[DOC 9]**: Menciona a diretiva da atividade legislativa futura para o tratamento diferenciado de servidores policiais, agentes penitenciários e socioeducativos, dependendo de lei para se concretizar.\n*   **[DOC 10]**: Detalha as condições para suspensão do benefício devido à falta de comprovação da freqüência escolar, com a retomada apenas se provada a regularidade da matrícula e freqüência.\n*   **[DOC 11]**:  Especifica que o aumento dos salários-de-contribuição que exceder o limite legal não será considerado para o cálculo do salário-de-benefício.\n\nEmbora os documentos não forneçam uma idade exata, a lógica é que o pagamento do salário-família cessa quando o dependente atinge a capacidade de gerar sua própria renda formal.  A legislação previdenciária busca garantir que o benefício seja concedido apenas aos que realmente necessitam, evitando o pagamento indevido em situações onde o dependente já possui meios de subsistência.",
+   "answer_chars": 1412,
+   "grounded": true,
+   "supported": 7,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2347
+  }
+ ],
+ "wall_time_s": 182.4,
+ "finished_at": "2026-09-12T07:34:51.597043"
+}

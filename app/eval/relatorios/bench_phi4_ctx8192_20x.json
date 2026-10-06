@@ -1,0 +1,432 @@
+{
+ "model": "phi4-mini:3.8b",
+ "num_ctx": 8192,
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T15:49:09.767245",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 27.93,
+   "error": null,
+   "answer": "De acordo com as normas recuperadas na base jurídica, o salário familiar é pago até a idade de 21 (vinte e um) anos para filhos ou equiparados. Além disso, se for estudante, ele recebe o benefício até aos 24 (vinte e quatro) anos. Esse direito também está disponível para indivíduos menores de 21 (vinte e um) anos que, com autorização judicial, vivem na companhia do servidor e às suas despesas, ou para a mãe sem economia própria. Esses direitos são estabelecidos nas Leis nº 9.032, de 1995, e nº 12.470, de 2011, conforme recuperado no contexto da Lei 8213 (decreto-laws n.º 13 de maio de 1967).",
+   "answer_chars": 598,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2277
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 16.38,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 197, disponível no Vade-Mecum do Senado Federal (versão 3ª ed.), o salário familiar é devido ao servidor ativo ou inativo por dependentes econômicos até os 21 anos de idade (vinte e um). Além disso, se o menor for estudante, a obrigação continua até aos 24 anos (vinte e quatro), ou se estiver inválido. Essas regras são aplicáveis tanto para filhos quanto equiparados, incluindo enteados até os 21 anos de idade, estudantes até 24 anos, ou indivíduos com deficiência intelectual ou mental que sejam considerados incapazes judicialmente.\n\nAlém disso, o Decreto 3048, art. 83, especifica a cota do salário familiar por filho ou equiparado de qualquer condição, até quatorze anos de idade ou inválido, sendo R$ 20,00 (vinte reais) desde maio de 2004, para os segurados com remuneração mensal não superior a R$ 390,00 (trezentos e noventa reais). Essas informações são consistentes com o Decreto 5.545, de 2005, que mantém o piso do salário mínimo para o benefício deste regime, substituindo o salário de contribuição ou rendimento.\n\nPortanto, o salário familiar é pago até os 21 anos de idade (ou 24 se estudante) e até quatorze anos de idade ou invalidez dos dependentes.",
+   "answer_chars": 1201,
+   "grounded": false,
+   "supported": 2,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 14.38,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 16, revisado pela Lei nº 12.470, de 2011, os beneficiários do Regime Geral de Previdência Social como dependentes são:\n\nI - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\n\nPortanto, o salário família é pago até os 20 (vinte) anos. Para o filho não emancipado, também se aplica até aos 21 (vinte e um) anos, conforme a redação dada pela Lei nº 12.470, de 2011. Se houver uma declaração judicial da incapacidade do filho, ele pode receber o salário família além dos 21 (vinte e um) anos.",
+   "answer_chars": 844,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 12.25,
+   "error": null,
+   "answer": "De acordo com as informações fornecidas na base jurídica, o salário familiar é pago até os 14 anos de idade ou até que o dependente seja inválido. Esta regra está especificada no artigo 197 da Seção III do Vade-Mecum do Regime Jurídico dos Servidores Públicos Civis, conforme recuperado da fonte [DOC 6: Vade_mecum_Senado_Federal_3ed.pdf]. Além disso, para os casos de dependentes com deficiência (invalidez), o salário familiar continua sendo pago até que a condição seja reconhecida como inválida. No entanto, as informações específicas sobre a duração do invalidez não foram fornecidas na base jurídica recuperada.",
+   "answer_chars": 617,
+   "grounded": false,
+   "supported": 3,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2284
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 9.86,
+   "error": null,
+   "answer": "De acordo com a Lei nº 8213, de 1995, redigida pela Lei nº 9.032, de 1995, e conforme especificado no § 2º da mesma lei, o salário familiar é pago até os 21 (vinte e um) anos de idade do dependente. Esta regra se aplica a filhos ou equiparados, incluindo enteados, estudantes ou inválidos, desde que eles atingam essa faixa etária.",
+   "answer_chars": 331,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2252
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 11.36,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 16, disponível no documento [DOC 2], os beneficiários do Regime Geral de Previdência Social incluem:\n\n- O cônjuge, companheiro e filho (de qualquer condição), menor de 21 anos (vinte e um) ou inválido.\n- O cônjuge, companheiro e filho não emancipado (de qualquer condição), menor de 21 anos (vinte e um) ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\n\nPortanto, o salário família é pago até a idade de 21 anos para filhos. Para cônjuges, companheiros e filhotes não emancipados, também se aplica até os 21 anos, com exceção daqueles com deficiência intelectual ou mental que sejam declarados judicialmente incapazes.",
+   "answer_chars": 737,
+   "grounded": false,
+   "supported": 0,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2283
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 11.62,
+   "error": null,
+   "answer": "Com base no contexto fornecido, especificamente na Lei 8213 e nos documentos anexos, o salário familiar (salário de família) é pago até a idade de 14 anos. Esta regra se aplica tanto aos filhos quanto às filhas, incluindo aqueles que ainda são estudantes ou inválidos. No entanto, há uma menção adicional em um dos documentos indicando que para o segurado com remuneração mensal não superior a R$390,00 (decreto nº 5.545, de 2005), o valor do salário familiar por filho ou equiparado até os 14 anos de idade é aumentado para R$20,00 (vinte reais).",
+   "answer_chars": 547,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2262
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 10.0,
+   "error": null,
+   "answer": "Com base no contexto fornecido, especialmente nos artigos 197 e 199 da Lei nº 8213/95 (consolida por Decreto Complementar nº 123/06), o salário familiar é pago até a idade de 21 anos (vinte e um). Para os filhos enteados ou estudantes, ele continua até aos 24 anos (vinte e quatro) se ainda estiverem em educação formal. Se for inválido, o pagamento do salário familiar não tem limite de idade estabelecido no contexto fornecido.",
+   "answer_chars": 429,
+   "grounded": false,
+   "supported": 1,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2259
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 15.8,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 16, recuperado da base jurídica em [DOC 1], os beneficiários do Regime Geral de Previdência Social como dependentes são:\n\nI - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente; [DOC 1]\n\nAlém disso, conforme o Decreto 3048, art. 16, recuperado da base jurídica em [DOC 2], os dependentes são:\n\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;  \nII - os pais; ou  \nIII - o irmão não emancipado, de qualquer condição, menor de vinte e um anos ou inválido. [DOC 2]\n\nAssim, com base nas normas recuperadas do contexto fornecido, o salário família é pago até a idade de 21 (vinte e um) anos para filhos, cônjuges, companheiros e filhotes não emancipados, além daqueles menores de 21 anos que são inválidos ou declarados judicialmente incapazes. Para os pais e irmãos não emancipados, o período pode estender-se até aos 22 (vinte e dois) anos, conforme as disposições das diferentes fontes recuperadas. Não se encontra uma única idade máxima para todos os casos, pois varia com base na condição do dependente (emancipado ou não), sendo também diferente para pais e irmãos no caso de incapacidades declaradas judicialmente.",
+   "answer_chars": 1550,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2306
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 14.08,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 197 e Decreto 3048, art. 83 (redação dada pelo Decreto nº 5.545, de 2005), o salário familiar é pago até que o filho ou equiparado tenha 14 anos de idade ou seja inválido. O valor da cota do salário familiar para filhos ou equipararados com qualquer condição, até esse limite de idade, é de R$ 20,00 (vinte reais) a partir de 1º maio de 2004.",
+   "answer_chars": 373,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2267
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 10.08,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 197 e Decreto 3048, art. 83 (redação dada pelo Decreto nº 5.545, de 2005), o salário familiar é pago até os 14 anos de idade ou até que o dependente seja inválido. Para filhos ou equiparados com deficiência intelectual ou mental que tornem absoluta ou relativamente incapazes, o pagamento continua até a declaração judicial da incapacidade.",
+   "answer_chars": 371,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 10.53,
+   "error": null,
+   "answer": "De acordo com a base jurídica fornecida, o salário familiar é pago até os 21 (vinte e um) anos de idade para filhos ou equiparados. Esta regra se aplica tanto aos filhos que são menores de 21 anos quanto aos estudantes que têm pelo menos 18 (dezasseis) anos, mas não mais de 24 (vinte e quatro) anos, ou aqueles que sejam inválidos. A informação é encontrada na Lei nº 9.032, de 1995, conforme especificado no § 2º da Lei 8213 (Arquivo: L8213consol.pdf). Além disso, para estudantes, o período se estende até os 24 (vinte e quatro) anos, como mencionado na mesma lei.",
+   "answer_chars": 567,
+   "grounded": false,
+   "supported": 3,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2289
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 11.85,
+   "error": null,
+   "answer": "De acordo com a Lei nº 8213, de 1995, que estabelece as regras para os Dependentes do Seguro Social Geral, o salário familiar é devido ao servidor ativo ou inativo por dependent econômico até os 21 (vinte e um) anos de idade. Além disso, se o dependente for inevolutório, como um filho não emancipado menor de 21 (vinte e um) anos, inválido ou que tenha deficiência intelectual ou mental que o torne incapaz judicialmente, também é considerado para a percepção do salário familiar.\n\nPortanto, o salário familiar continua sendo pago até os 21 (vinte e um) anos de idade. Se houver uma necessidade de autorização judicial, o dependente pode ser considerado até 24 (vinte e quatro) anos se for estudante ou inválido, conforme mencionado na Lei Complementar nº 123, de 2006.",
+   "answer_chars": 770,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2281
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 13.55,
+   "error": null,
+   "answer": "De acordo com as normas recuperadas na base jurídica, o salário familiar é pago até os 14 anos de idade ou até que o dependente seja inválido. Esta regra está estabelecida no Decreto 3048, artigo 83, conforme recuperado da fonte. Além disso, para segurados com remuneração mensal não superior a R$390,00, o valor do salário familiar por filho ou equiparado é de R$20,00, desde que seja pago até os 14 anos de idade ou invalidez.",
+   "answer_chars": 428,
+   "grounded": false,
+   "supported": 2,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2284
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 17.16,
+   "error": null,
+   "answer": "De acordo com a Lei nº 8213 de 19 de julho de 1994 (Lei Nacional de Previdência Social) e conforme especificado no Vade-Mecum do Senado Federal, Artigo 197, o salário familiar é devido ao servidor ativo ou inativo por dependentes econômicos. Os dependentes econômicos incluem:\n\nI - o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 (vinte e um) anos de idade ou, se estudante, até 24 (vinte e quatro) anos ou, se inválido, de qualquer idade;\nII - o menor de 21 (vinte e um) anos que, mediante autorização judicial, viverá na companhia e às expensas do servidor, ou do inativo;\nIII - a mãe e o pai sem economia própria.\n\nPortanto, o salário familiar é pago até os 21 anos de idade dos filhos. Para estudantes, ele continua até aos 24 anos (vinte e quatro) ou para inválidos, independentemente da idade.",
+   "answer_chars": 818,
+   "grounded": false,
+   "supported": 1,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2327
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 12.14,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 16, recuperado da base jurídica em [DOC 1] (Lei nº 9.032, de 1995), os beneficiários do Regime Geral de Previdência Social como dependentes são:\n\nI - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 anos ou inválido;\nI - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.\n\nPortanto, o salário família é pago até os 20 (vinte) anos de idade. Para o caso do filho não emancipado, ele também pode receber o salário familiar até completar 24 (vinte e quatro) anos se estiver estudando, conforme a redação dada pela Lei nº 12.470, de 2011.\n\nNo contexto da pergunta, é importante notar que as regras podem ter sido modificadas por leis posteriores ou interpretações específicas do caso, mas com base na informação fornecida, o salário familiar é pago até os 20 (vinte) anos para um filho, e até os 24 (vinte e quatro) anos se for estudante.",
+   "answer_chars": 1092,
+   "grounded": false,
+   "supported": 3,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 8.13,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, art. 197 e Decreto 3048, art. 83 (redação dada pelo Decreto nº 5.545, de 2005), o salário familiar é pago até os 14 anos de idade ou até que o dependente seja inválido. Para filhos ou equiparados com deficiência intelectual ou mental que tornem absoluta ou relativamente incapazes, o pagamento continua até a declaração judicial da incapacidade.",
+   "answer_chars": 371,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "14",
+     "inválido"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.226
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 16.27,
+   "error": null,
+   "answer": "De acordo com a Lei nº 8213, de 1995, redigida pela Lei nº 9.032, de 1995, e conforme especificado no § 2º da mesma lei, o aposentado pelo Regime Geral de Previdência Social (RGPS) que permanecer em atividade sujeita a esse regime ou retornar ao mesmo não fará jus à prestação alguma da Previdência Social em decorrência do exercício dessa atividade, exceto ao salário-família e à reabilitação profissional quando empregado. Isso implica que o aposentado tem direito ao salário-família até atingir 21 anos de idade.\n\nNo entanto, no § 1º do Artigo 197 da Lei do Regime Jurídico dos Servidores Públicos Civis (Vade-Mecum do Senado Federal, 3ª edição), é estabelecido que os dependentes econômicos para efeitos de percepção do salário-família são: I - o cônjuge ou companheiro e os filhos, inclusive os enteados até 21 anos de idade; II - o menor de 21 (vinte e um) anos que, mediante autorização judicial, viver na companhia e às expensas do servidor, ou do inativo; III - a mãe e o pai sem economia própria. Portanto, além dos casos específicos mencionados no contexto da Previdência Social, para servidores públicos civis, o salário-família pode ser pago até os 21 anos de idade.\n\nNo entanto, com base na Emenda Constitucional nº 20, de 1998 (incorpora-se em Constituição.pdf), a proteção do salário na forma da lei constitui crime sua retenção dolosa. Isso significa que não há uma limitação específica da idade para o pagamento do salário-família no âmbito geral da legislação trabalhista.\n\nEm resumo, até os 21 anos de idade são considerados dependentes econômicos e, portanto, têm direito ao salário-família nos diferentes regimes previdenciários mencionados (RGPS, Previdência Social, Servidores Públicos Civis). No entanto, é importante considerar as regras específicas aplicáveis a cada regime.",
+   "answer_chars": 1801,
+   "grounded": false,
+   "supported": 4,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2252
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 16.93,
+   "error": null,
+   "answer": "De acordo com a Lei 8213, artigo 16, recuperado da base jurídica fornecida na DOC 7 – Vade_mecum_Senado_Federal_3ed.pdf, os dependentes que são elegíveis para receber o salário familiar até ter 21 (vinte e um) anos de idade. Além disso, se for estudante, ele ou ela recebe o benefício até completar 24 (vinte e quatro) anos de idade, ou em caso de invalidez.\n\nPortanto, o salário familiar é pago aos dependentes até eles atingirem a idade de 21 anos, sendo que os estudantes recebem o benefício até terminar seus estudos universitários ou até ter 24 anos, ou se forem considerados inválidos.",
+   "answer_chars": 591,
+   "grounded": false,
+   "supported": 1,
+   "partial": 2,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2277
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 10.29,
+   "error": null,
+   "answer": "Com base no contexto fornecido, o salário familiar é pago até os 21 (vinte e um) anos de idade para filhos ou equiparados. Além disso, se for estudante, ele pode ser pago até aos 24 (vinte e quatro) anos de idade ou, em caso de invalidez, independentemente da idade (Decreto nº 3.048-99, art. 84; Decreto nº 6.122, de 2007).",
+   "answer_chars": 324,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.229
+  }
+ ],
+ "wall_time_s": 270.6,
+ "finished_at": "2026-09-12T15:53:40.383500"
+}

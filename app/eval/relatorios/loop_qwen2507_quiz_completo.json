@@ -1,0 +1,454 @@
+{
+  "generated_at": "2026-09-12T06:32:54.085046",
+  "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Os **requisitos da aposentadoria por invalidez** no Brasil, conforme a legislação previdenciária vigente (principalmente a **Lei nº 8.213/1991**, com as alterações introduzidas pela **Lei Complementar nº 123/2006** e pela **Emenda Constitucional nº 103/2019**), são os seguintes:\n\n---\n\n### ✅ **Requisitos Básicos para a Aposentadoria por Invalidez**\n\n1. **Invalidez Permanente e Total (ou Parcial, com limitação de atividade)**\n   - O segurado deve estar **invalidado por doença ou acidente do trabalho**, com **perda total ou parcial de capacidade de trabalho**.\n   - A invalidez deve ser **permanente**, ou seja, **não reversível** e **não temporária**.\n   - A avaliação é feita por **exame médico-pericial** realizado pelo Instituto Nacional do Seguro Social (INSS).\n\n2. **Requisito de Tempo de Contribuição**\n   - O segurado deve ter **cumprido o tempo mínimo de contribuição** exigido para a concessão da aposentadoria por invalidez.\n   - O tempo de contribuição é calculado com base no **período de contribuição efetivo** (salário-de-contribuição).\n   - A **regra geral** é que o tempo mínimo seja de **15 anos** (para o regime geral), **mas pode variar conforme o tipo de aposentadoria** (por exemplo, por tempo de contribuição, por idade, por tempo de serviço, etc.).\n\n3. **Requisito de Idade (em alguns casos)**\n   - Embora a aposentadoria por invalidez **não dependa da idade**, **há uma idade mínima** para a concessão, especialmente em casos de **invalidez parcial**.\n   - A **idade mínima** é de **60 anos** para homens e **55 anos** para mulheres (para aposentadoria por invalidez total), **mas pode ser reduzida** em casos específicos (como em aposentadoria por invalidez por acidente do trabalho ou doença ocupacional).\n\n4. **Requisito de Qualidade de Segurado**\n   - O segurado deve **ter a qualidade de segurado** no momento da concessão da aposentadoria.\n   - Caso o segurado **perca a qualidade de segurado** (por exemplo, por aposentadoria por tempo de serviço ou por demissão), **o direito à aposentadoria por invalidez não é prejudicado**, desde que os requisitos tenham sido atendidos na época da concessão (art. 181 do Decreto 3.048/1999).\n\n5. **Requisito de Cálculo do Salário-de-Benefício**\n   - O valor da aposentadoria é calculado com base no **salário-de-benefício**, que é o salário de contribuição do período de contribuição mais recente (art. 28 da Lei 8.213/1991).\n   - O cálculo pode ser feito com base em **metade dos períodos** previstos nos incisos I, III e IV do art. 25 da Lei 8.213/1991, **se o segurado tiver sido filiado novamente após a data da invalidez** (regra aplicável após a Lei nº 13.846/2019).\n\n6. **Requisito de Exame Médico-Pericial e Reabilitação Profissional**\n   - O segurado **deve ser submetido a exames médicos-periciais** a cada **2 anos** (parágrafo único do art. 46 do Decreto 3.048/1999).\n   - O segurado também está obrigado a participar de **processo de reabilitação profissional**, custeado pelo INSS, com o objetivo de **reavaliar sua capacidade de trabalho**.\n   - O **tratamento médico** é gratuito, exceto cirurgias e transfusões de sangue (facultativas).\n\n7. **Requisito de Invalidez Decorrente de Acidente do Trabalho ou Doença Ocupacional**\n   - A aposentadoria por invalidez pode ser concedida por **doença ou acidente do trabalho**, desde que comprovada a **relação de causalidade** entre a doença/lesão e o trabalho.\n   - A **invalidez decorrente de acidente do trabalho** é considerada **mais favorável** para a concessão da aposentadoria.\n\n---\n\n### 📌 Observações Importantes (de acordo com a legislação vigente):\n\n- **Aposentadoria por invalidez não depende da idade**, mas **pode exigir idade mínima** em casos específicos (ex: aposentadoria por invalidez por tempo de contribuição).\n- A **invalidez parcial** pode ser reconhecida se o segurado **não puder exercer sua atividade profissional habitual**.\n- O **tempo de contribuição** pode ser **aproveitado** em outros regimes (como o regime estatutário), mas isso **implica a vacância do cargo público** (segundo a Orientação Normativa nº 2/2009 e Nota Técnica nº 3/2013).\n- A **perda da qualidade de segurado** (por exemplo, por aposentadoria por tempo de serviço) **não prejudica o direito à aposentadoria por invalidez**, desde que os requisitos tenham sido atendidos na época da concessão (art. 181 do Decreto 3.048/1999).\n- O **auxílio-reclusão** pode ser concedido aos dependentes de segurados recolhidos à prisão, desde que o último salário-de-contribuição seja ≤ R$ 360,00 (art. 116 do Decreto 3.048/1999).\n\n---\n\n### ✅ Resumo dos Requisitos:\n\n| Requisito | Descrição |\n|---------|----------|\n| **Invalidez Permanente** | Total ou parcial, comprovada por exame médico-pericial |\n| **Tempo de Contribuição** | Mínimo de 15 anos (ou conforme o regime) |\n| **Idade Mínima** | 60 anos (homens), 55 anos (mulheres) – depende do caso |\n| **Qualidade de Segurado** | O direito não é prejudicado se a qualidade for perdida após a concessão |\n| **Exame Médico-Pericial** | Obrigatório a cada 2 anos (art. 46 do Decreto 3.048/1999) |\n| **Reabilitação Profissional** | Obrigatória, custeada pelo INSS |\n| **Causalidade** | A doença ou acidente deve estar ligada ao trabalho (para acidente do trabalho) |\n\n---\n\n### 📚 Fontes Legais:\n- **Lei nº 8.213/1991** – Lei Geral da Previdência Social  \n- **Decreto nº 3.048/1999** – Normas sobre aposentadoria por invalidez  \n- **Lei Complementar nº 123/2006** – Redação da aposentadoria por tempo de contribuição  \n- **Emenda Constitucional nº 103/2019** – Reforma da previdência, com alterações no cálculo e direitos de aposentadoria  \n- **Lei nº 13.846/2019** – Alterações no cálculo de períodos para aposentadoria por invalidez  \n\n---\n\nSe desejar, posso também fornecer um **modelo de análise de caso** ou **exemplo prático** de como se aplica esse requisito em uma situação real.",
+      "num_sources": 15,
+      "avg_distance": 0.2232,
+      "min_distance": 0.1729,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez",
+          "período de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 30,
+        "supported": 26,
+        "partial": 4,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 8,
+            "text": "- A **regra geral** é que o tempo mínimo seja de **15 anos** (para o regime geral), **mas pode variar conforme o tipo de aposentadoria** (por exemplo, por tempo de contribuição, por idade, por tempo de serviço, etc.).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 11,
+            "text": "- A **idade mínima** é de **60 anos** para homens e **55 anos** para mulheres (para aposentadoria por invalidez total), **mas pode ser reduzida** em casos específicos (como em aposentadoria por invalidez por acidente do trabalho ou doença ocupacional).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 19,
+            "text": "**Requisito de Exame Médico-Pericial e Reabilitação Profissional**\n   - O segurado **deve ser submetido a exames médicos-periciais** a cada **2 anos** (parágrafo único do art. 46 do Decreto 3.048/1999).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 30,
+            "text": "---\n\n### ✅ Resumo dos Requisitos:\n\n| Requisito | Descrição |\n|---------|----------|\n| **Invalidez Permanente** | Total ou parcial, comprovada por exame médico-pericial |\n| **Tempo de Contribuição** | Mínimo de 15 anos (ou conforme o regime) |\n| **Idade Mínima** | 60 anos (homens), 55 anos (mulheres) – depende do caso |\n| **Qualidade de Segurado** | O direito não é prejudicado se a qualidade for perdida após a concessão |\n| **Exame Médico-Pericial** | Obrigatório a cada 2 anos (art. 46 do Decreto 3.048/1999) |\n| **Reabilitação Profissional** | Obrigatória, custeada pelo INSS |\n| **Causalidade** | A doença ou acidente deve estar ligada ao trabalho (para acidente do trabalho) |\n\n---\n\n### 📚 Fontes Legais:\n- **Lei nº 8.213/1991** – Lei Geral da Previdência Social  \n- **Decreto nº 3.048/1999** – Normas sobre aposentadoria por invalidez  \n- **Lei Complementar nº 123/2006** – Redação da aposentadoria por tempo de contribuição  \n- **Emenda Constitucional nº 103/2019** – Reforma da previdência, com alterações no cálculo e direitos de aposentadoria  \n- **Lei nº 13.846/2019** – Alterações no cálculo de períodos para aposentadoria por invalidez  \n\n---\n\nSe desejar, posso também fornecer um **modelo de análise de caso** ou **exemplo prático** de como se aplica esse requisito em uma situação real.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "A **carência mínima para aposentadoria por tempo de contribuição** no **Regime Geral de Previdência Social (RGPS)**, conforme a legislação vigente e os documentos apresentados, é a seguinte:\n\n---\n\n### ✅ **15 anos de tempo de contribuição para mulheres**  \n### ✅ **20 anos de tempo de contribuição para homens**\n\n---\n\n### Fonte direta:\n> **[DOC 8] — Emenda Constitucional 103/2019, art. 19**  \n> *\"Até que lei disponha sobre o tempo de contribuição a que se refere o inciso I do § 7º do art. 201 da Constituição Federal, o segurado filiado ao Regime Geral de Previdência Social após a data de entrada em vigor desta Emenda Constitucional será aposentado aos 62 (sessenta e dois) anos de idade, se mulher, 65 (sessenta e cinco) anos de idade, se homem, com 15 (quinze) anos de tempo de contribuição, se mulher, e 20 (vinte) anos de tempo de contribuição, se homem.\"*\n\n---\n\n### Observações importantes:\n\n- Essa norma **não é uma regra geral de carência** (como a de 15 anos para mulheres e 20 para homens), mas sim **um limite mínimo** estabelecido **por lei complementar** ou **em vigência por emenda constitucional**, **até que uma nova lei** (como lei complementar) defina uma redução ou alteração.\n- O texto do art. 19 da EC 103/2019 **estabelece os requisitos mínimos de idade e tempo de contribuição** para aposentadoria por tempo de contribuição **até que uma nova lei** (complementar) modifique esses parâmetros.\n- O **tempo de contribuição** é contado de forma específica, conforme o **Decreto 3.048/99**, art. 59, que define que o tempo é contado **de data a data**, descontando períodos de suspensão, interrupção ou desligamento legalmente estabelecidos.\n\n---\n\n### Resumo final:\n\n> **Carência mínima para aposentadoria por tempo de contribuição:**\n> - **Mulheres:** **15 anos**\n> - **Homens:** **20 anos**\n\n✅ Essa é a **resposta direta e correta** à pergunta do advogado, com base nos documentos fornecidos, especialmente no **art. 19 da EC 103/2019**.\n\n> ⚠️ Importante: Essa carência é **mínima** e pode ser **superada** para obtenção de aposentadoria com **maior valor**, como em casos de aposentadoria por tempo de contribuição com **tempo superior ao mínimo**. Mas a **carência mínima exigida** para a concessão do benefício é claramente definida como 15 anos (mulheres) e 20 anos (homens).",
+      "num_sources": 15,
+      "avg_distance": 0.2228,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 3,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "A **carência mínima para aposentadoria por tempo de contribuição** no **Regime Geral de Previdência Social (RGPS)**, conforme a legislação vigente e os documentos apresentados, é a seguinte:\n\n---\n\n### ✅ **15 anos de tempo de contribuição para mulheres**  \n### ✅ **20 anos de tempo de contribuição para homens**\n\n---\n\n### Fonte direta:\n> **[DOC 8] — Emenda Constitucional 103/2019, art. 19**  \n> *\"Até que lei disponha sobre o tempo de contribuição a que se refere o inciso I do § 7º do art. 201 da Constituição Federal, o segurado filiado ao Regime Geral de Previdência Social após a data de entrada em vigor desta Emenda Constitucional será aposentado aos 62 (sessenta e dois) anos de idade, se mulher, 65 (sessenta e cinco) anos de idade, se homem, com 15 (quinze) anos de tempo de contribuição, se mulher, e 20 (vinte) anos de tempo de contribuição, se homem.\"*\n\n---\n\n### Observações importantes:\n\n- Essa norma **não é uma regra geral de carência** (como a de 15 anos para mulheres e 20 para homens), mas sim **um limite mínimo** estabelecido **por lei complementar** ou **em vigência por emenda constitucional**, **até que uma nova lei** (como lei complementar) defina uma redução ou alteração.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "---\n\n### Resumo final:\n\n> **Carência mínima para aposentadoria por tempo de contribuição:**\n> - **Mulheres:** **15 anos**\n> - **Homens:** **20 anos**\n\n✅ Essa é a **resposta direta e correta** à pergunta do advogado, com base nos documentos fornecidos, especialmente no **art. 19 da EC 103/2019**.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 6,
+            "text": "Mas a **carência mínima exigida** para a concessão do benefício é claramente definida como 15 anos (mulheres) e 20 anos (homens).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "O que configura **acidente de trabalho** e quais as **obrigações do empregador**?\n\n---\n\n### ✅ **O que configura acidente de trabalho?**\n\nDe acordo com a **Consolidação das Leis do Trabalho (CLT)**, especialmente nos artigos **190 a 194**, **art. 190** define o que constitui acidente de trabalho:\n\n> **Art. 190.** Considera-se acidente de trabalho o evento que ocorre no exercício da atividade do empregado, **durante o tempo de serviço**, **no local de trabalho**, **por causa da atividade econômica**, **por força de risco inerente à atividade**, ou **por causa de fato que não dependa da vontade do empregado**, **quando este estiver em serviço**.\n\n#### **Principais elementos que configuram um acidente de trabalho:**\n\n1. **Ocorrência durante o tempo de serviço**  \n   → O acidente deve acontecer enquanto o trabalhador está atuando no trabalho, seja em horário normal, em turnos, ou mesmo fora do horário, desde que esteja em atividade.\n\n2. **No local de trabalho**  \n   → O acidente deve ocorrer no local onde o empregado realiza suas atividades (fábrica, escritório, campo, etc.).\n\n3. **Por causa da atividade econômica**  \n   → O acidente deve ser decorrente da atividade que o empregado realiza no exercício de seu cargo ou função.\n\n4. **Por força de risco inerente à atividade**  \n   → O risco deve ser previsto e existente na natureza da atividade (ex: operação de máquinas, construção, transporte, etc.).\n\n5. **Não dependente da vontade do empregado**  \n   → O acidente não pode ser causado por ato voluntário, negligência ou dolo do empregado (ex: acidente por erro de operação, mas não por ato intencional).\n\n6. **Ocorrido no exercício da função**  \n   → O acidente deve estar ligado à atividade profissional, não a uma atividade pessoal ou fora do trabalho.\n\n> ⚠️ **Exemplos de acidentes de trabalho:**  \n> - Queimadura por contato com máquina em funcionamento  \n> - Quebra de braço por queda de material durante transporte  \n> - Doença profissional (ex: asma por exposição a poeira)  \n> - Acidente em obra de construção\n\n> ❌ **Não são acidentes de trabalho:**  \n> - Acidente ocorrido durante lazer ou viagem de férias  \n> - Acidente por ato voluntário (ex: empregado se atirar em máquina)  \n> - Doença não ligada à atividade (ex: gripe comum, se não houver exposição ao risco)\n\n---\n\n### ✅ **Quais as obrigações do empregador?**\n\nO empregador tem **obrigações legais e éticas** em relação ao acidente de trabalho, conforme a CLT e o **Decreto 3.048/99** (que regulamenta o auxílio-acidente).\n\n#### **1. Obrigação de prevenir acidentes (art. 191 e 192)**\n\n- O empregador deve **identificar e prevenir riscos** inerentes à atividade.\n- Deve **elaborar e manter o Plano de Prevenção de Acidentes (PPA)**.\n- Deve **oferecer treinamentos** e **informações sobre segurança** aos empregados.\n\n> ⚠️ O empregador é responsável por garantir o **ambiente de trabalho seguro**.\n\n#### **2. Obrigação de registrar acidentes (art. 41)**\n\n- O empregador deve **registrar todos os acidentes de trabalho** no **Livro de Registro de Empregados**.\n- Deve anotar:  \n  - Data e hora  \n  - Local  \n  - Causa  \n  - Consequências  \n  - Nome do empregado  \n  - Ações tomadas\n\n> ⚠️ O registro é obrigatório e deve ser mantido por **5 anos**.\n\n#### **3. Obrigação de notificar a Previdência Social (art. 193)**\n\n- O empregador deve **notificar imediatamente** a **Previdência Social** sobre o acidente de trabalho.\n- A notificação deve ser feita **no prazo de 24 horas** após o evento.\n\n#### **4. Obrigação de fornecer auxílio-acidente (art. 194)**\n\n- O empregador é responsável por **pagar o auxílio-acidente** ao empregado, **em até 2 dias antes do início do período** (art. 145).\n- O valor do auxílio-acidente é **considerado como salário-de-contribuição** para fins de aposentadoria (art. 194, II do Decreto 3.048/99).\n- O auxílio é pago **durante o período de incapacidade** (até 180 dias, com possibilidade de prorrogação).\n\n> ⚠️ O auxílio-acidente é **devido mesmo que o empregado não tenha trabalhado** durante o período, desde que o acidente tenha ocorrido no exercício da atividade.\n\n#### **5. Obrigação de garantir o direito à indenização (art. 195)**\n\n- O empregador é responsável por **garantir o direito do empregado à indenização** por acidente de trabalho, conforme a legislação.\n- A indenização pode ser **em dobro** (em caso de morte ou invalidez permanente) e é de responsabilidade do empregador.\n\n#### **6. Obrigação de cumprir a legislação de segurança e saúde no trabalho (art. 196)**\n\n- O empregador deve **respeitar as normas de segurança e saúde do trabalho** (como as do **Decreto 3.048/99** e do **Ministério do Trabalho**).\n- Deve **investir em equipamentos de proteção individual (EPIs)** e **equipamentos de proteção coletiva (EPC)**.\n\n---\n\n### ✅ Resumo final:\n\n| Elemento | Descrição |\n|--------|----------|\n| **Acidente de trabalho** | Ocorrência durante o tempo de serviço, no local de trabalho, por causa da atividade, por risco inerente, sem culpa do empregado |\n| **Obrigação do empregador** | Prevenir riscos, registrar acidentes, notificar a Previdência, pagar auxílio-acidente, garantir indenização, cumprir normas de segurança |\n\n---\n\n> 📚 **Fontes legais:**  \n> - **CLT – Art. 190 a 195**  \n> - **Decreto 3.048/99 – art. 2º e § 2º**  \n> - **Vademécum do Senado Federal – art. 41, 145, 190**  \n> - **Art. 146 – Cessação do contrato e direito às férias**\n\n---\n\n✅ **Conclusão:**  \nUm **acidente de trabalho** é definido como um evento decorrente da atividade profissional, durante o tempo de serviço, e o **empregador é obrigado a prevenir, registrar, notificar e indenizar** o empregado, conforme a legislação trabalhista brasileira.",
+      "num_sources": 15,
+      "avg_distance": 0.2215,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador",
+          "obrigação"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 41,
+        "supported": 33,
+        "partial": 8,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "---\n\n### ✅ **O que configura acidente de trabalho?**\n\nDe acordo com a **Consolidação das Leis do Trabalho (CLT)**, especialmente nos artigos **190 a 194**, **art. 190** define o que constitui acidente de trabalho:\n\n> **Art.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 18,
+            "text": "Obrigação de prevenir acidentes (art. 191 e 192)**\n\n- O empregador deve **identificar e prevenir riscos** inerentes à atividade.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 26,
+            "text": "Obrigação de notificar a Previdência Social (art. 193)**\n\n- O empregador deve **notificar imediatamente** a **Previdência Social** sobre o acidente de trabalho.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 29,
+            "text": "Obrigação de fornecer auxílio-acidente (art. 194)**\n\n- O empregador é responsável por **pagar o auxílio-acidente** ao empregado, **em até 2 dias antes do início do período** (art. 145).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 30,
+            "text": "- O valor do auxílio-acidente é **considerado como salário-de-contribuição** para fins de aposentadoria (art. 194, II do Decreto 3.048/99).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 31,
+            "text": "- O auxílio é pago **durante o período de incapacidade** (até 180 dias, com possibilidade de prorrogação).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 34,
+            "text": "Obrigação de garantir o direito à indenização (art. 195)**\n\n- O empregador é responsável por **garantir o direito do empregado à indenização** por acidente de trabalho, conforme a legislação.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 37,
+            "text": "Obrigação de cumprir a legislação de segurança e saúde no trabalho (art. 196)**\n\n- O empregador deve **respeitar as normas de segurança e saúde do trabalho** (como as do **Decreto 3.048/99** e do **Ministério do Trabalho**).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "A pergunta do advogado — *\"O que precisa para se aposentar com as regras da LC 142?\"* — **contém um erro de referência**.\n\n### 🔍 Análise:\n\n- A **Lei Complementar nº 142** **não existe** no contexto da previdência social brasileira ou no sistema jurídico nacional.\n- O documento que você apresentou (e que está sendo usado como base) é a **Lei Complementar nº 144, de 2014**, e posteriormente a **Emenda Constitucional nº 103, de 2019**, que reformulou o regime de previdência para servidores públicos federais e outros grupos.\n\nAlém disso, o conteúdo dos arquivos que você compartilhou está focado na **reforma previdenciária** (EC 103/2019), especialmente no que diz respeito à **aposentadoria especial**, **requisitos de idade e contribuição**, **regras de transição**, e **exclusão de alguns grupos** (como policiais civis do DF).\n\n---\n\n### ✅ Resposta correta à pergunta:\n\n> **O que precisa para se aposentar com as regras da EC 103/2019 (reforma previdenciária)?**\n\nPara se aposentar com as regras da **Emenda Constitucional nº 103, de 2019**, **para servidores públicos federais**, é necessário cumprir os seguintes **requisitos**:\n\n---\n\n#### ✅ 1. **Idade mínima**\n- Aposentadoria **especial** (por idade) é permitida **após atingir a idade máxima** prevista no art. 40, § 1º, II da Constituição, **observado o tempo mínimo de contribuição**.\n- A idade máxima é **de 60 anos** para homens e **55 anos** para mulheres (em geral), **mas pode variar conforme a função e o cargo**.\n\n> ⚠️ **Importante**: A EC 103/2019 **não estabelece uma idade mínima fixa universal**, mas **reduziu a idade mínima para aposentadoria especial** em alguns casos (como para policiais civis e militares), com base em critérios específicos.\n\n---\n\n#### ✅ 2. **Tempo de contribuição mínimo**\n- O tempo mínimo de contribuição é **de 30 anos** para aposentadoria por idade.\n- Para **policiais civis do Distrito Federal**, a regra é diferente: **25 anos de contribuição**, **com pelo menos 15 anos de exercício em cargo de natureza estritamente policial** (disposição da LC 144/2014).\n\n> ⚠️ A **EC 103/2019** **não aplica** os critérios de aposentadoria especial para **servidores públicos estaduais, municipais ou do DF**, exceto para policiais civis do DF.\n\n---\n\n#### ✅ 3. **Requisitos específicos por cargo**\n- **Policiais civis do DF**:  \n  - 25 anos de contribuição  \n  - Pelo menos 15 anos de exercício em cargo de natureza estritamente policial  \n  - Aposentadoria concedida com base na **LC 144/2014**, que foi incorporada pela EC 103/2019\n\n- **Outros servidores públicos federais**:  \n  - Aposentadoria por idade com base na **reforma previdenciária (EC 103/2019)**  \n  - O cálculo do benefício é feito com base na **média dos 30 anos de contribuição**, conforme o art. 202 da Constituição\n\n---\n\n#### ✅ 4. **Cálculo do benefício**\n- O valor da aposentadoria é calculado com base na **média dos 30 anos de contribuição**, conforme o art. 202 da Constituição.\n\n---\n\n#### ✅ 5. **Regra de transição**\n- A **EC 103/2019** **não altera** a aposentadoria concedida pelo **RGPS até a data de entrada em vigor da reforma** (1º de janeiro de 2019).\n- Apenas **novas aposentadorias** após essa data são regidas pelas novas regras.\n\n---\n\n### ❌ O que é falso:\n- **\"LC 142\" não existe** no contexto da previdência brasileira.\n- A **LC 144/2014** é a que trata da **aposentadoria especial dos policiais civis do DF**.\n- A **EC 103/2019** é a **reforma previdenciária** que **redefiniu** os critérios de aposentadoria para servidores públicos federais.\n\n---\n\n### ✅ Resumo final:\n\n> Para se aposentar com as regras da **EC 103/2019**, é necessário:\n> \n> 1. **Atingir a idade mínima** (60 anos para homens, 55 para mulheres, com variações por cargo);\n> 2. **Ter contribuído por pelo menos 30 anos** (ou 25 anos com 15 anos de exercício policial para policiais civis do DF);\n> 3. **Ter o cargo de natureza estritamente policial** (para policiais civis do DF);\n> 4. **Aposentadoria concedida após 1º de janeiro de 2019** (não se aplica à aposentadoria já concedida antes);\n> 5. **Cálculo do benefício com base na média dos 30 anos de contribuição**.\n\n---\n\n### 📌 Dica para o advogado:\nSe a pergunta foi feita por erro, recomenda-se corrigir:\n> ❌ \"LC 142\" → ✅ \"EC 103/2019\" ou \"LC 144/2014\"\n\nSe o cliente é **policial civil do DF**, então a resposta deve focar na **LC 144/2014**, com base na **EC 103/2019**.\n\nSe o cliente é **servidor público federal**, então a resposta deve seguir as regras da **EC 103/2019**.\n\n---\n\nSe quiser, posso elaborar um **modelo de resposta jurídica** para um cliente com base nisso. Deseja?",
+      "num_sources": 15,
+      "avg_distance": 0.2391,
+      "min_distance": 0.231,
+      "source_files": [
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 31,
+        "supported": 22,
+        "partial": 9,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "A pergunta do advogado — *\"O que precisa para se aposentar com as regras da LC 142?\"* — **contém um erro de referência**.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 7,
+            "text": "- A idade máxima é **de 60 anos** para homens e **55 anos** para mulheres (em geral), **mas pode variar conforme a função e o cargo**.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 10,
+            "text": "**Tempo de contribuição mínimo**\n- O tempo mínimo de contribuição é **de 30 anos** para aposentadoria por idade.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 11,
+            "text": "- Para **policiais civis do Distrito Federal**, a regra é diferente: **25 anos de contribuição**, **com pelo menos 15 anos de exercício em cargo de natureza estritamente policial** (disposição da LC 144/2014).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 14,
+            "text": "**Requisitos específicos por cargo**\n- **Policiais civis do DF**:  \n  - 25 anos de contribuição  \n  - Pelo menos 15 anos de exercício em cargo de natureza estritamente policial  \n  - Aposentadoria concedida com base na **LC 144/2014**, que foi incorporada pela EC 103/2019\n\n- **Outros servidores públicos federais**:  \n  - Aposentadoria por idade com base na **reforma previdenciária (EC 103/2019)**  \n  - O cálculo do benefício é feito com base na **média dos 30 anos de contribuição**, conforme o art. 202 da Constituição\n\n---\n\n#### ✅ 4.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 15,
+            "text": "**Cálculo do benefício**\n- O valor da aposentadoria é calculado com base na **média dos 30 anos de contribuição**, conforme o art. 202 da Constituição.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 23,
+            "text": "**Atingir a idade mínima** (60 anos para homens, 55 para mulheres, com variações por cargo);\n> 2.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 24,
+            "text": "**Ter contribuído por pelo menos 30 anos** (ou 25 anos com 15 anos de exercício policial para policiais civis do DF);\n> 3.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 27,
+            "text": "**Cálculo do benefício com base na média dos 30 anos de contribuição**.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "A pergunta do advogado — **\"Qual o prazo de prescrição para a ação de usucapião extraordinária?\"** — **não é respondida diretamente** nos documentos fornecidos.\n\nVamos analisar por que:\n\n---\n\n### 1. **Os documentos fornecidos tratam de prescrição geral e de execução processual**, mas **não mencionam o prazo específico para a usucapião extraordinária**.\n\n- O conteúdo dos arquivos (como o CPC, o *Vade Mecum*, a Lei 9263) aborda:\n  - Prescrição intercorrente (Art. 924, § 4º e Art. 192);\n  - Suspensão da execução (Art. 923, 922);\n  - Extinção do processo (Art. 924);\n  - Prazos de prescrição em geral (Art. 192, 193, 197);\n  - Prazos processuais (Art. 222, 223);\n  - Prescrição em ações de usucapião (indiretamente, em artigos como 192, 193, 197).\n\n**Mas não há menção ao prazo de prescrição para a usucapião extraordinária.**\n\n---\n\n### 2. **O prazo de prescrição para a usucapião extraordinária é definido por lei específica**\n\nNa **legislação brasileira**, o prazo de prescrição para a **usucapião extraordinária** é **de 5 (cinco) anos**, conforme o **art. 1.322 do Código Civil** (não presente nos documentos fornecidos).\n\n> **Art. 1.322.** A usucapião extraordinária é a que se realiza por **fato de uso e de posse**, e **não por uso de posse**, e **tem prazo de cinco anos**.\n\n> **Art. 1.323.** O prazo de cinco anos para a usucapião extraordinária **inicia-se com a data do fato de posse**.\n\n> **Art. 1.324.** A prescrição não se aplica se o uso for feito com **intenção de adquirir** e **com a finalidade de posse**.\n\n---\n\n### 3. **Conclusão**\n\n👉 **Os documentos fornecidos não contêm a informação sobre o prazo de prescrição para a usucapião extraordinária.**\n\nPortanto, **não é possível responder com base apenas nos arquivos apresentados**.\n\n---\n\n### ✅ Resposta correta (com base na legislação brasileira, não nos documentos):\n\n> **O prazo de prescrição para a ação de usucapião extraordinária é de cinco anos, conforme o art. 1.322 do Código Civil.**\n\n> ⚠️ **Observação**: Esse conteúdo **não está presente nos arquivos fornecidos**, o que significa que a pergunta **não pode ser respondida com base apenas nos documentos apresentados**.\n\n---\n\nSe o objetivo é **aplicar a legislação brasileira**, a resposta é clara.\n\nSe o objetivo é **responder apenas com base nos documentos fornecidos**, então:\n\n> **Não há informação sobre o prazo de prescrição para a usucapião extraordinária nos documentos apresentados.**\n\n---\n\n✅ **Resposta final (com base na legislação brasileira):**\n\n**O prazo de prescrição para a ação de usucapião extraordinária é de cinco anos, conforme o art. 1.322 do Código Civil.**",
+      "num_sources": 15,
+      "avg_distance": 0.2562,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 23,
+        "supported": 23,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "ambiguous",
+        "refusal_markers_hit": [
+          "não há"
+        ],
+        "numeric_claims": [],
+        "dispositivo_claims": [
+          "Art. 924",
+          "Art. 192",
+          "Art. 923",
+          "Art. 924",
+          "Art. 192",
+          "Art. 222",
+          "art. 1",
+          "Art. 1",
+          "Art. 1",
+          "Art. 1",
+          "art. 1",
+          "art. 1"
+        ]
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos, especialmente o **Art. 16 da Lei 8.213/1994**, que trata dos beneficiários do Regime Geral de Previdência Social (RGPS), com foco nos dependentes.\n\n---\n\n### Análise do conteúdo relevante:\n\nNo **DOC 12 – Lei 8213, art. 16**, no trecho sobre os dependentes:\n\n> **I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;**  \n> *(Redação dada pela Lei nº 9.032, de 1995)*  \n>  \n> **I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente;**  \n> *(Redação dada pela Lei nº 12.470, de 2011)*\n\n---\n\n### Observações importantes:\n\n- A **condição de \"menor de 21 anos\"** é claramente estabelecida como critério para o direito ao benefício de **salário-família**.\n- A **idade de 21 anos** é o limite máximo para o filho ser considerado dependente e, portanto, elegível ao salário-família.\n- Após os 21 anos, o filho **passa a ser considerado emancipado**, e **não é mais beneficiário do salário-família**, a menos que tenha deficiência intelectual ou mental que o torne incapaz (o que é tratado como exceção).\n\n---\n\n### Resposta direta:\n\n✅ **O salário-família é pago até a idade de 21 anos para filhos.**\n\nApós os 21 anos, o filho perde o direito ao salário-família, **a menos que tenha deficiência intelectual ou mental que o torne incapaz**, conforme previsto na Lei 12.470/2011.\n\n---\n\n### Conclusão:\n\n> **O salário-família é pago até a idade de 21 anos para dependentes (filhos). Após essa idade, o filho não é mais considerado dependente para fins de direito ao salário-família, salvo se tiver deficiência intelectual ou mental que o torne incapaz.**\n\n---\n\n✅ **Resposta final: Até a idade de 21 anos.**",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.1885,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 8,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

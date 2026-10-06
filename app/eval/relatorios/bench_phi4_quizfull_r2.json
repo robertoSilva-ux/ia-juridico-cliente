@@ -1,0 +1,137 @@
+{
+ "model": "phi4-mini:3.8b",
+ "num_ctx": "default",
+ "iters": 1,
+ "quiz": "/app/eval/relatorios/quiz_completo_v2.json",
+ "started_at": "2026-09-12T16:06:49.153671",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q1",
+   "time_s": 15.52,
+   "error": null,
+   "answer": "Os requisitos da aposentadoria por invalidez, conforme estabelecido no Decreto 3048, art. 43, incluem:\n\n1. A aposentada deve estar ou não em gozo de auxílio-doença.\n2. Deve ser considerado incapaz para o trabalho e insuscetível de reabilitação para o exercício de atividade que lhe garanta a subsistência.\n3. O caso deve ter sido verificado pela previdência social, podendo a aposentada fazer-se acompanhar por um médico de confiança.\n\nAlém disso, conforme o Decreto 3048, art. 44, os requisitos incluem:\n\n1. A aposentada deve estar ou não em gozo de auxílio-doença.\n2. Deve ser considerado incapaz para o trabalho e insuscetível de reabilitação para o exercício de atividade que lhe garanta a subsistência.\n\nOs benefícios da aposentadoria por invalidez são calculados com base no salário do segurado, conforme estabelecido nos artigos 43 e 44 do Decreto 3048. A aposentada também está obrigada, sob pena de suspensão do benefício, a submeter-se a exames médicos periódicos para verificação da continuidade das condições que encearam a concessão da aposentadoria (Decreto 3048, art. 46).",
+   "answer_chars": 1087,
+   "grounded": true,
+   "supported": 12,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "invalidez"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2225
+  },
+  {
+   "iter": 1,
+   "qid": "q2",
+   "time_s": 16.97,
+   "error": null,
+   "answer": "A carência mínima para aposentadoria por tempo de contribuição é 15 anos de contribuições mensais indispensáveis, conforme estabelecido no Decreto nº 3048, art. 188. No entanto, este requisito pode variar dependendo do regime específico da Previdência Social ao qual o segurado está afiliado (Regime Geral ou Regimes Especiais). Para os aposentadorias especiais, como a de invalidez e especial, tempo de contribuição é exigido conforme especificado no Decreto nº 3048, art. 64.\n\n**RESPOSTA DO CLÓVIS:**\n\nPara aposentadoria por tempo de contribuição na forma do Regime Geral de Previdência Social (RGPS), o segurado deve cumprir com um mínimo de 15 anos de contribuições mensais indispensáveis. No caso das aposentadorias especiais, como a de invalidez e especial, o requisito é de 20 anos de contribuições para homens e 25 anos para mulheres.\n\n**PROPOSÃO DE DOCUMENTOS LEGISLATIVOS:**\n\n1. **Lei Complementar nº 104/2000 (LC no 104/00)** - Estabelece as regras gerais da Previdência Social.\n2. **Lei Federal n° 8.212, de 13 de maio de 1999** - Modifica o Decreto Federal nº 3.048, de 19 de dezembro de 1998, que estabelece a Consolidação das Leis do Trabalho (CLT).\n3. **Decreto Federal n° 5.399, de 15 de dezembro de 2000** - Modifica o Decreto Federal nº 3048, de 19 de dezembro de 1998.\n4. **Lei Complementar federal no 51/1985 (LC no 51/85)** - Estabelece as regras gerais da Previdência Social para os servidores públicos.\n\nEsses documentos legislativos fornecem a base legal para entender e aplicar os requisitos de carência mínima para aposentadoria por tempo de contribuição na Previdência Social.",
+   "answer_chars": 1604,
+   "grounded": false,
+   "supported": 10,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "carência",
+     "tempo de contribuição"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.215
+  },
+  {
+   "iter": 1,
+   "qid": "q3",
+   "time_s": 13.85,
+   "error": null,
+   "answer": "No contexto fornecido, o conceito de \"acidente de trabalho\" não é explicitamente definido. No entanto, com base nos documentos disponíveis (DOC 3), um acidente de trabalho pode ser entendido como uma situação em que o empregado sofre lesões ou danos devido ao exercício das funções atribuídas à empresa, seja por causa do próprio trabalho, dos equipamentos fornecidos pela empresa, ou pelas condições da empresa.\n\nAs obrigações do empregador no caso de um acidente de trabalho incluem:\n\n1. **Registro**: O empregador deve registrar os respectivos trabalhadores (DOC 3).\n2. **Medicina-hospitalar e medicina especial**: A empresa é obrigada a fornecer gratuitamente ao empregado o equipamento de proteção individual adequado aos riscos, bem como a assistência médica hospitalar e especial quando necessário (DOC 7).\n\nEssas obrigações visam garantir que o trabalhador seja devidamente protegido contra os riscos associados à sua função no ambiente de trabalho. No caso do acidente de trabalho, essas obrigações se estendem para cobrir as necessidades médicas resultantes da ocorrência.\n\nNo entanto, é importante notar que a base fornecida não inclui uma definição abrangente ou detalhada sobre \"acidente de trabalho\" nem todas as possíveis obrigações do empregador podem estar listadas. Para obter informações completas e atualizadas, seria necessário consultar o Código do Trabalho vigente no Brasil (Consolidação das Leis do Trabalho - CLT) ou buscar orientação jurídica especializada em direito trabalhista.",
+   "answer_chars": 1507,
+   "grounded": true,
+   "supported": 10,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "acidente de trabalho",
+     "empregador"
+    ],
+    "hit_count": 2,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2226
+  },
+  {
+   "iter": 1,
+   "qid": "q4",
+   "time_s": 22.66,
+   "error": null,
+   "answer": "Para se aposentar sob o regime legal anterior à Promulgação da Emenda Constitucional nº 103 de 2019, conforme a Lei Complementar (LC) nº 142/2005, é necessário cumprir os seguintes requisitos:\n\n1. **Idade Mínima**: O servidor deve ter atingido pelo menos 35 anos de idade.\n\n2. **Tempo de Contribuição no Cargo Público ou Empleo/Função Pública**: Deve haver um mínimo de 15 anos de contribuição para o Regime Geral de Previdência Social (RGPS) na função pública, cargo público ou emprego/função pública.\n\n3. **Remuneração Média dos Trinta Anos**: O benefício da aposentadoria será calculado com base na média das contribuições feitas nos últimos trinta anos do serviço no regime de previdência complementar ao RGPS.\n\n4. **Tempo Prescrito para Contribuição (Três Años)**: Deve haver um período mínimo de três anos de contribuição contínua, observando o cumprimento dos tempos mínimos de contribuição exigidos pelo art. 7º da Emenda Constitucional nº 103/2019.\n\n5. **Não Veda Complementação**: De acordo com a LC nº 142/2005 e complementada pela EC nº 103/2019 (art. 37, §15), as complementações de aposentadorias por morte aos dependentes não estão vedadas após o início da vigência da Emenda Constitucional.\n\n6. **Aposentadoria do RGPS**: A aposentadoria deve ser concedida pelo Regime Geral de Previdência Social até a data de entrada em vigor da reforma decorrente da EC nº 103, de 2019 (art. 7º).\n\nPara mais informações detalhadas e atualizações sobre os requisitos para se aposentar sob o regime legal anterior à Promulgação da Emenda Constitucional nº 103 de 2019, consulte as disposições específicas do LC nº 142/2005 em conjunto com a legislação vigente.\n\n**Documentos Referenciados:**\n- Constituição Federal (CF) - Art. 40\n- Lei Complementar nº 142/2005 (LC)\n- Emenda Constitucional nº 103 de 2019\n\nObserve que, desde o início da vigência da EC nº 103 em 1º de janeiro de 2020, as regras foram modificadas e complementadas conforme mencionado na LC. Certifique-se de consultar os documentos legais mais recentes para obter informações precisas.\n\n---\n\n**Nota:** A informação fornecida é baseada nas disposições do período anterior à Promulgação da Emenda Constitucional nº 103 de 2019. As mudanças legislativas posteriores podem ter introduzido novos requisitos ou modificações, portanto, consulte um profissional jurídico para orientação personalizada e atualizada.",
+   "answer_chars": 2372,
+   "grounded": false,
+   "supported": 14,
+   "partial": 4,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "aposentadoria"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2392
+  },
+  {
+   "iter": 1,
+   "qid": "q5",
+   "time_s": 11.49,
+   "error": null,
+   "answer": "Com base nos documentos fornecidos, parece que você está se referindo à Lei nº 10406, também conhecida como Consolidação dos Decretos do Trabalho (CLT), especificamente ao artigo 1. No entanto, este artigo não especifica o prazo para a ação de usucapião extraordinária.\n\nPara encontrar informações sobre os prazos de prescrição para ações de usucapião extraordinária, você precisaria consultar outros artigos da CLT ou outras legislações relevantes que tratem do assunto. A Lei nº 9.305/1996, conhecida como Consolidação dos Decretos do Trabalho (CLT), também aborda o tema do uso e ocupação, mas não fornece prazos específicos de prescrição para a ação de usucapião extraordinária.\n\nPara obter as informações mais precisas, é recomendável consultar um advogado especializado em direito trabalhista ou buscar atualizações legais recentes que possam ter introduzido mudanças no código legal.",
+   "answer_chars": 890,
+   "grounded": false,
+   "supported": 4,
+   "partial": 1,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 0
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2544
+  },
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 8.55,
+   "error": null,
+   "answer": "O salário familiar é pago até a idade de 21 (vinte e um anos) de idade. No entanto, se for estudante, ele pode receber até os 24 (vinte e quatro anos). Se estiver inválido ou com deficiência, o benefício continua sendo pago sem limite de idade.",
+   "answer_chars": 244,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2326
+  }
+ ],
+ "wall_time_s": 89.0,
+ "finished_at": "2026-09-12T16:08:18.202539"
+}

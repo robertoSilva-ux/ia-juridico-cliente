@@ -1,0 +1,241 @@
+{
+  "generated_at": "2026-09-12T05:17:08.820981",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso dizer que a aposentadoria por invalidez é um benefício previsto no Regime Geral de Previdência Social (RGPS) e regulamentado pelo Decreto nº 3.048/99.\n\nDe acordo com o art. 46 do Decreto nº 3.048/99, para que seja concedida a aposentadoria por invalidez, é necessário que o segurado apresente uma incapacidade permanente para o trabalho, demonstrada por exame médico-pericial.\n\nAlém disso, é importante ressaltar que a EC nº 103/2019 modificou a denominação da aposentadoria \"por invalidez permanente\" para \"aposentadoria 'por incapacidade permanente para o trabalho'\", e estabeleceu que o servidor público federal que se tenha filiado ao Regime Geral de Previdência Social ou ingressado no serviço público em cargo efetivo até a data de entrada em vigor da Emenda Constitucional poderá aposentar-se voluntariamente quando preencher, cumulativamente, os seguintes requisitos:\n\nI - 57 anos de idade, se mulher, e 60 anos de idade, se homem;\nII - 30 anos de contribuição, se mulher, e 35 anos de contribuição, se homem;\nIII - para os servidores públicos, 20 anos de efetivo exercício no serviço público e 5 anos no cargo efetivo em que se der a aposentadoria;\nIV - período adicional de contribuição correspondente ao tempo que, na data de entrada em vigor da Emenda Constitucional, faltaria para atingir o tempo mínimo de contribuição referido no inciso II.\n\nPortanto, os requisitos para a aposentadoria por incapacidade permanente para o trabalho são:\n\n* Incapacidade permanente para o trabalho, demonstrada por exame médico-pericial;\n* Preenchimento dos requisitos estabelecidos pela EC nº 103/2019.\n\nEspero que isso tenha ajudado a esclarecer sua pergunta!",
+      "num_sources": 15,
+      "avg_distance": 0.2234,
+      "min_distance": 0.1728,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 6,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nDe acordo com o art. 188 do Regime Geral de Previdência Social, até 16 de dezembro de 1998, a carência mínima para aposentadoria por tempo de contribuição é:\n\nI - contar cinqüenta e três anos ou mais de idade, se homem, e quarenta e oito anos ou mais de idade, se mulher;\n\nII - contar tempo de contribuição igual, no mínimo, à soma de:\na) trinta e cinco anos, se homem, e trinta anos, se mulher.\n\nLembre-se de que essas regras são aplicáveis apenas ao regime geral de previdência social até 16 de dezembro de 1998.",
+      "num_sources": 15,
+      "avg_distance": 0.2176,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Excelente pergunta!\n\nDe acordo com o Decreto 3048/99 (art. 339), considera-se acidente de trabalho qualquer lesão ou doença contraída em decorrência da atividade profissional, mesmo que não tenha ocorrido no local de trabalho.\n\nJá as obrigações do empregador são estabelecidas nos arts. 338 e 343 do Decreto 3048/99:\n\n* Art. 338: O empregador é responsável por fornecer ao empregado um ambiente seguro e saudável para o exercício da atividade profissional.\n* Art. 343: O empregador deve promover a segurança e a saúde dos trabalhadores, mediante a adoção de medidas preventivas e corretivas, e garantir que os empregados recebam treinamento e orientação sobre as normas de segurança e saúde no trabalho.\n\nAlém disso, o Decreto 3048/99 estabelece outras obrigações do empregador, como a necessidade de:\n\n* Manter registros de acidentes de trabalho (art. 340);\n* Fornecer ao empregado informações sobre os riscos e perigos do trabalho (art. 341);\n* Realizar inspeções periódicas no local de trabalho para verificar as condições de segurança e saúde (art. 342).\n\nÉ importante ressaltar que essas obrigações são fundamentais para garantir a segurança e a saúde dos trabalhadores, e o empregador é responsável por cumprir com elas.",
+      "num_sources": 15,
+      "avg_distance": 0.2226,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 8,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 8,
+            "text": "Além disso, o Decreto 3048/99 estabelece outras obrigações do empregador, como a necessidade de:\n\n* Manter registros de acidentes de trabalho (art. 340);\n* Fornecer ao empregado informações sobre os riscos e perigos do trabalho (art. 341);\n* Realizar inspeções periódicas no local de trabalho para verificar as condições de segurança e saúde (art. 342).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Olá!\n\nComo assistente jurídico oficial da plataforma Legaliz.ai, posso ajudar a esclarecer essa dúvida.\n\nPara se aposentar com as regras da Lei Complementar nº 144/2014 (LC 144), é necessário atender aos seguintes requisitos:\n\n1. Ter pelo menos 25 anos de contribuição;\n2. Ter, no mínimo, 15 anos de exercício em cargo de natureza estritamente policial, se mulher.\n\nEssas são as regras estabelecidas pela LC 144 para a concessão da aposentadoria especial aos policiais civis do Distrito Federal.\n\nLembre-se de que essas regras podem ter sido alteradas ou complementadas por outras leis ou emendas constitucionais posteriores. Se você tiver alguma dúvida específica sobre sua situação, é sempre recomendável consultar um profissional jurídico especializado na área de direito previdenciário.\n\nEspero que isso tenha ajudado a esclarecer sua dúvida!",
+      "num_sources": 15,
+      "avg_distance": 0.2393,
+      "min_distance": 0.2311,
+      "source_files": [
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "refuse",
+      "answer": "Olá!\n\nA pergunta do advogado refere-se ao prazo de prescrição para a ação de usucapião extraordinária. Para responder essa pergunta, precisamos analisar as disposições legais pertinentes.\n\nNo Brasil, a Lei nº 8.038/90 estabelece o prazo de prescrição para a ação de usucapião ordinária em 10 anos (art. 1.000). No entanto, a Lei nº 11.232/05 introduziu a figura da usucapião extraordinária, que tem um prazo de prescrição mais curto.\n\nDe acordo com o art. 189 do Código Civil Brasileiro, o prazo de prescrição para a pretensão é de 10 anos (art. 205 e 206). No entanto, o art. 191 do mesmo código estabelece que a renúncia da prescrição pode ser expressa ou tácita, e só valerá após a consumação da prescrição.\n\nJá o Código de Processo Civil (CPC) não estabelece um prazo específico para a usucapião extraordinária. No entanto, o art. 924 do CPC estabelece que a execução será suspensa por 1 ano, durante o qual se suspenderá a prescrição.\n\nConsiderando essas disposições legais, podemos concluir que o prazo de prescrição para a ação de usucapião extraordinária é de 10 anos, como previsto no Código Civil Brasileiro.",
+      "num_sources": 15,
+      "avg_distance": 0.2571,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 10,
+        "supported": 10,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      },
+      "refusal_eval": {
+        "verdict": "hallucination",
+        "refusal_markers_hit": [],
+        "numeric_claims": [
+          "10 anos",
+          "10 anos",
+          "1 ano",
+          "10 anos"
+        ],
+        "dispositivo_claims": [
+          "art. 1",
+          "art. 189",
+          "art. 205",
+          "art. 191",
+          "art. 924"
+        ]
+      }
+    }
+  ]
+}

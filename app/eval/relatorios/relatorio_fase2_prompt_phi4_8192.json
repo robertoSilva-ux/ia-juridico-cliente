@@ -1,0 +1,555 @@
+{
+  "generated_at": "2026-09-13T14:34:32.905451",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Para determinar os requisitos da aposentadoria por invalidez, precisamos considerar o contexto do Decreto de Previdência Social (DEP) nº 3.048/99, que é mencionado repetidamente na base jurídica fornecida.\n\nCom base nos documentos [DOC 1], [DOC 2] e [DOC 6]:\n\n- A aposentadoria por invalidez requer a incapacidade total e definitiva para o trabalho, comprovada pela perícia médica inicial (artigo 43 do Decreto de Previdência Social).\n- O segurado deve estar em afastamento da atividade ou ter se retirado, com trinta dias de afastamento antes da entrada do requerimento de aposentadoria por invalidez (artigo 44 do mesmo decreto).\n- A incapacidade não pode ser devido a uma doença ou lesão que o segurado já possuía ao ingressar no sistema de previdência social, exceto se a incapacidade sobrevirra pelo progressamento ou agravamento dessa condição (artigo 2º do Decreto de Previdência Social).\n- O aposentado por invalidez está obrigado, sem prejuízo da idade, a submeter-se a exame médico e possivelmente a reabilitação profissional, conforme o artigo 46 do mesmo decreto.\n\nO regime jurídico específico para os servidores públicos é diferente (Lei nº 8.112/1990) e não foi solicitado pelo advogado. Portanto, só aplico as normas do DEP nº 3.048/99.\n\nA resposta final, extraída diretamente da base jurídica sem qualquer inventação ou suposição:\n\nPara se candidatar à aposentadoria por invalidez, o segurado deve cumprir os seguintes requisitos:\n1. Estar em incapacidade total e definitiva para o trabalho, comprovada pela perícia médica inicial.\n2. Estar em afastamento da atividade ou ter se retirado com trinta dias de afastamento antes da entrada do requerimento de aposentadoria por invalidez.\n3. A incapacidade não deve ser devido a uma doença ou lesão pré-existente, exceto caso o incapacidade sobrevirra pelo progressamento ou agravamento dessa condição.\n\nAlém disso, é necessário observar que o segurado aposentado por invalidez está obrigado, sem prejuízo da idade, a submeter-se a exame médico e possivelmente a reabilitação profissional (artigo 46 do Decreto de Previdência Social).",
+      "num_sources": 15,
+      "avg_distance": 0.2207,
+      "min_distance": 0.1729,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 14,
+        "supported": 9,
+        "partial": 5,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "Com base nos documentos [DOC 1], [DOC 2] e [DOC 6]:\n\n- A aposentadoria por invalidez requer a incapacidade total e definitiva para o trabalho, comprovada pela perícia médica inicial (artigo 43 do Decreto de Previdência Social).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "- O segurado deve estar em afastamento da atividade ou ter se retirado, com trinta dias de afastamento antes da entrada do requerimento de aposentadoria por invalidez (artigo 44 do mesmo decreto).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "- A incapacidade não pode ser devido a uma doença ou lesão que o segurado já possuía ao ingressar no sistema de previdência social, exceto se a incapacidade sobrevirra pelo progressamento ou agravamento dessa condição (artigo 2º do Decreto de Previdência Social).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "- O aposentado por invalidez está obrigado, sem prejuízo da idade, a submeter-se a exame médico e possivelmente a reabilitação profissional, conforme o artigo 46 do mesmo decreto.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 14,
+            "text": "Além disso, é necessário observar que o segurado aposentado por invalidez está obrigado, sem prejuízo da idade, a submeter-se a exame médico e possivelmente a reabilitação profissional (artigo 46 do Decreto de Previdência Social).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta do advogado, identificaremos o regime jurídico aplicável e extrairemos as informações relevantes da base jurídica fornecida.\n\nO contexto mencionado refere-se ao \"Regime Geral de Previdência Social\" (RGPS), conforme indicado pelos termos usados como \"segurado especial\", \"tempo de contribuição\" e a menção explícita do \"Regime Geral de Previdência Social\".\n\nA pergunta se concentra na carência mínima para aposentadoria por tempo de contribuição, que é um requisito no RGPS.\n\nO documento relevante encontrado na base jurídica é o Decreto 3048, art. 26, que afirma: \"Período de carência é o número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício, consideradas a partir do transcurso do primeiro dia dos meses de suas competências.\"\n\nPortanto, com base na base jurídica fornecida:\n\nA **carência mínima** para aposentadoria por tempo de contribuição no RGPS é o número mínimo de contribuições mensais exigidas. No entanto, o documento específico não fornece o número exato de contribuições necessárias; ele se refere apenas a um \"período de carência\" como o número mínimo necessário.\n\nO advogado deve consultar as normas mais recentes para obter o número atual de contribuições mensais indispensáveis (carência) no RGPS.",
+      "num_sources": 15,
+      "avg_distance": 0.2233,
+      "min_distance": 0.1818,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 6,
+        "supported": 5,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para responder à pergunta do advogado, identificaremos o regime jurídico aplicável e extrairemos as informações relevantes da base jurídica fornecida.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "Para determinar se um evento constitui um \"acidente de trabalho\", é necessário referenciar o Decreto 3048, de 3 de agosto de 1999 (Medico-Hospitalar dos Seguros Vítmados em Acidentes de Trânsito), especificamente no Capítulo VII - Do Salário-De-Contribuição. No entanto, a base recuperada não fornece diretamente uma definição para \"acidente de trabalho\".\n\nNo entanto, o Decreto 3048, art. 202, menciona que a contribuição da empresa destinada ao financiamento da aposentadoria especial, nos termos dos arts. 64 a 70 (que não são incluídos na base recuperada), corresponde à aplicação de percentuais sobre o total da remuneração paga, devido ou creditado, aos segurados empregado e trabalhador avulso, com base no risco do trabalho.\n\nQuanto às obrigações do empregador em relação ao acidente de trabalho, o Decreto 3048, art. 339, estabelece que os médicos peritos da previdência social devem comunicar formalmente quaisquer descumprimentos para o disposto neste artigo aos órgãos interesses, inclusive para aplicação e cobrança da multa devido. Além disso, o Ministério do Trabalho e Emprego fiscalizará o cumprimento das obrigações relativas ao acidente de trabalho.\n\nA base recuperada não fornece detalhes específicos sobre as obrigações completas do empregador em relação a acidentes de trabalho, mas destaca a responsabilidade do empregador com relação à contribuição para aposentadoria especial relacionada aos riscos do trabalho. Para obter informações mais detalhadas, seria necessário consultar os artigos 64 a 70 do Decreto 3048, que não estão incluídos na base recuperada.\n\n**Regime Jurídico Aplicável:** O contexto fornecido se refere ao regime jurídico dos servidores públicos (Lei nº 8.129/1990), já que menciona termos como \"segurado\", \"benefício\" e \"RGPS\". No entanto, as obrigações específicas do empregador em relação a acidentes de trabalho não são totalmente esclarecidas na base recuperada.\n\nPara obter uma compreensão mais completa das obrigações do empregador em caso de acidente de trabalho, seria necessário consultar outras legislações relevantes ou buscar informações adicionais no Decreto 3048, especialmente nos artigos mencionados anteriormente (arts. 64 a 70).",
+      "num_sources": 15,
+      "avg_distance": 0.227,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 12,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Para fornecer uma resposta precisa, é necessário esclarecer o contexto do termo \"LC 142\". No documento fornecido, não há referência direta a um \"LC 142\", o que sugere que pode ser um código específico ou sigla relevante ao local ou à área de atuação particular do advogado. Sem informações adicionais sobre o que representa o LC 142 no contexto da aposentadoria dos servidores públicos, é impossível fornecer uma resposta precisa.\n\nPor favor, forneça mais detalhes ou esclareça a qual legislação ou regulamento \"LC 142\" se refere para poder dar uma orientação adequada com base nas normas vigentes.",
+      "num_sources": 15,
+      "avg_distance": 0.2384,
+      "min_distance": 0.231,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "CPC_normas_correlatas_14ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 2,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para fornecer uma resposta precisa, é necessário esclarecer o contexto do termo \"LC 142\".",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          },
+          {
+            "n": 2,
+            "text": "No documento fornecido, não há referência direta a um \"LC 142\", o que sugere que pode ser um código específico ou sigla relevante ao local ou à área de atuação particular do advogado.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Para determinar o prazo de prescrição para uma ação de usucapião extraordinária, é necessário identificar qual regime jurídico se aplica à questão. No contexto fornecido, não há menção específica ao regime jurídico do servidor público (RGPS) ou outro regime que possa regir diretamente a ação de usucapião.\n\nCom base no DOC 1 — Lei nº 10406/2002, artigo 189, referenciado na base jurídica recuperada, o prazo de prescrição para ações decorrentes de atos contrários à administração pública é de dez anos. No entanto, este artigo se refere ao direito da prescrição em geral e não especificamente a um tipo particular de ação como a usucapião extraordinária.\n\nComo o contexto fornecido não especifica qual regime jurídico se aplica à ação de usucapião extraordinária, só pode ser afirmado que, com base na Lei nº 10406/2002 (artigo 189), o prazo geral de prescrição para ações contrárias à administração pública é de dez anos. No entanto, sem informações adicionais sobre a natureza específica da ação de usucapião extraordinária, não se pode determinar com precisão qual período específico se aplica ao caso em questão.\n\nPortanto, no contexto fornecido, só se pode afirmar que o prazo geral de prescrição para ações contrárias à administração pública é de dez anos. Para uma determinação precisa do prazo de prescrição da ação de usucapião extraordinária, seria necessário informações adicionais sobre a natureza específica da propriedade e os regimes jurídicos aplicáveis.",
+      "num_sources": 15,
+      "avg_distance": 0.2544,
+      "min_distance": 0.2172,
+      "source_files": [
+        "L10406compilada.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L9263.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 6,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Com base no DOC 1 — Lei nº 10406/2002, artigo 189, referenciado na base jurídica recuperada, o prazo de prescrição para ações decorrentes de atos contrários à administração pública é de dez anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 5,
+            "text": "Como o contexto fornecido não especifica qual regime jurídico se aplica à ação de usucapião extraordinária, só pode ser afirmado que, com base na Lei nº 10406/2002 (artigo 189), o prazo geral de prescrição para ações contrárias à administração pública é de dez anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta sobre até qual idade do dependente o salário familiar é pago, precisamos considerar as normas aplicáveis ao Regime Geral de Previdência Social (RGPS) conforme a Lei nº 8213/93 e os ajustes posteriores.\n\nCom base na Lei nº 9.032/95, nos §§ 2º e 16 da Lei nº 8213/93, o dependente é até 21 (vinte e um) anos de idade ou inválido. No entanto, a Lei Complementar nº 123/06 modificou esse limite para inferioridade intelectual ou mental que torna absoluta ou relativa incapacidade judicialmente declarado.\n\nAssim, com base na legislação atualizada, o salário familiar é pago até que o dependente seja menor de 21 (vinte e um) anos de idade ou inválido. Se houver deficiência intelectual ou mental declarada judicialmente, a situação pode variar conforme a declaração judicial específica.",
+      "num_sources": 15,
+      "avg_distance": 0.2266,
+      "min_distance": 0.1856,
+      "source_files": [
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 5,
+        "supported": 5,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, identificaremos a norma relevante dentro da base jurídica fornecida.\n\nO contexto pertinente está na [DOC 9] — ec-103-2019.pdf, art. 16:\n\n\"São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:  \nII - os pais; ou  \nIII - o irmão não emancipado, de qualquer condição, menor de vinte e um anos ou inválido.\"\n\nCom base nesta norma, no RGPS (Previdência Geral de Previdência Social), o filho não emancipado é considerado dependente até a idade de 21 anos. Esta regra se aplica para fins de pensão por morte.\n\nAssim, o filho não emancipado é considerado dependente do segurado no RGPS até atingir os 21 anos.",
+      "num_sources": 15,
+      "avg_distance": 0.2279,
+      "min_distance": 0.1776,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "Lcp 142.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "vinte e um",
+          "21",
+          "inválido"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 3,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 1,
+            "text": "Para responder à pergunta, identificaremos a norma relevante dentro da base jurídica fornecida.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "Para responder à pergunta, identificaremos o regime jurídico relevante. O contexto refere-se ao \"serviço público federal\", que se enquadra dentro do \"regime próprio dos servidores\" conforme mencionado na Constituição Federal (CF) e nos Decretos Legislativos Complementares (DLC).\n\nO documento pertinente é a EC 103/2019, especificamente o art. 40 da CF, em seu § 3º, que aborda os requisitos de idade para aposentadoria voluntária no serviço público federal.\n\nCom base na EC 103/2019 e no seu artigo correspondente na CF:\n\nA idade mínima para aposentadoria voluntária no serviço público federal é de **55 (cinquenta e cinco) anos**.",
+      "num_sources": 15,
+      "avg_distance": 0.207,
+      "min_distance": 0.1726,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 4,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "O prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário, conforme estabelecido no Decreto 3048, art. 347, é de dez anos a partir do primeiro mês após o recebimento da primeira prestação ou, quando for o caso, do dia em que tomar conhecimento da decisão indeferitória definitiva no âmbito administrativo.\n\nEsta informação está diretamente extraída do documento [DOC 1] — Decreto 3.048/99.pdf, onde se especifica explicitamente o prazo de decadência para revisão dos atos de concessão de benefício previdenciário. Não há necessidade de recorrer a outros dispositivos legais ou regimes jurídicos neste contexto específico, pois a pergunta não menciona condições que poderiam alterar esse prazo.",
+      "num_sources": 15,
+      "avg_distance": 0.2019,
+      "min_distance": 0.1373,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Teoria-Geral-dos-Contratos.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L8213consol.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "dez anos",
+          "decadência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

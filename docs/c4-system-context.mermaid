@@ -1,0 +1,34 @@
+---
+title: "Legaliz.ai — C4 System Context"
+---
+C4SystemContext {
+    title Legaliz.ai — System Context
+    direction TB
+
+    Person(advogado, "Advogado / Usuário", "Pessoa física que acessa o sistema via navegador para fazer perguntas jurídicas")
+    Person(admin, "Administrador", "Usuário com role admin — gerencia usuários, documentos globais e configurações")
+
+    System(legaliz, "Legaliz.ai", "Assistente jurídico local com RAG — 100% offline") {
+        System_Inside(streamlit, "Streamlit UI", "Chat Jurídico, Gerenciar Documentos, Painel Admin, Auditoria")
+        System_Inside(rag, "Agent RAG", "Retrieval, HyDE, MMR Rerank, Fact-check, Citations")
+        System_Inside(auth, "Auth", "streamlit-authenticator com roles admin/user")
+    }
+
+    SystemDb(postgres, "PostgreSQL + pgvector", "Banco de dados vetorial (ankane/pgvector Docker)")
+    SystemDb(ollama, "Ollama", "Servidor de modelos LLM locais (llama3.2:3b, gemma4)")
+    SystemDb(gpu, "GPU NVIDIA", "Aceleração CUDA — 3-5x speedup vs CPU")
+
+    Rel(advogado, streamlit, "Acessa via navegador HTTPS", "HTTP")
+    Rel(admin, streamlit, "Acessa via navegador HTTPS", "HTTP")
+    Rel(streamlit, rag, "Envia pergunta, recebe resposta", "Python API")
+    Rel(streamlit, auth, "Autentica login/logout", "Sessão")
+    Rel(rag, ollama, "Embeddings + LLM inference", "Ollama API")
+    Rel(rag, postgres, "Busca semântica vetorial", "pgvector/SQL")
+    Rel(rag, postgres, "Armazena/recupera chunks", "pgvector/SQL")
+    Rel(ollama, gpu, "Usa GPU para inferência", "CUDA")
+    Rel(postgres, ollama, "N/A", "")
+
+    Boundary(boundary_ext, "Rede Externa") {
+        Rel_Back(advogado, legaliz, "Acesso via browser")
+    }
+}

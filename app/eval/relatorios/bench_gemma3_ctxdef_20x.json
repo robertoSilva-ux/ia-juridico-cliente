@@ -1,0 +1,429 @@
+{
+ "model": "gemma3:4b-it-qat",
+ "num_ctx": "default",
+ "iters": 20,
+ "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+ "started_at": "2026-09-12T07:16:47.467542",
+ "runs": [
+  {
+   "iter": 1,
+   "qid": "q6",
+   "time_s": 28.41,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago para filhos menores de 21 anos ou inválidos. A redação da Lei 8213 (art. 16, I) foi alterada pela Lei nº 9.032, de 1995, especificando que o filho não emancipado pode ser beneficiário até a idade de 21 anos ou ser inválido.\n\nPortanto, o salário-família é pago para dependentes até a idade de **21 anos** ou em caso de **inválidez**.",
+   "answer_chars": 397,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2344
+  },
+  {
+   "iter": 2,
+   "qid": "q6",
+   "time_s": 9.83,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário família é pago aos dependentes de qualquer condição, menor de vinte e um anos ou inválido. Portanto, o pagamento do salário família se estende até a idade de **vinte e um anos** para esses dependentes.",
+   "answer_chars": 251,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2397
+  },
+  {
+   "iter": 3,
+   "qid": "q6",
+   "time_s": 13.16,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a idade de **21 anos**.  No entanto, há uma exceção:\n\n*   **Dependente inválido:** O salário-família também pode ser pago a um filho menor de 21 anos que seja considerado inválido (com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente).\n\nAlém disso, a Lei 8213/94 menciona que o salário família é pago ao cônjuge, companheira, companheiro e filho não emancipado, de qualquer condição, menor de 21 anos ou inválido. A Lei 12.470/2011 adiciona que também pode ser pago a filhos com deficiência intelectual ou mental que o tornem absoluta ou relativamente incapaz, assim declarado judicialmente.",
+   "answer_chars": 745,
+   "grounded": false,
+   "supported": 1,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2342
+  },
+  {
+   "iter": 4,
+   "qid": "q6",
+   "time_s": 11.34,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário família é pago para o filho não emancipado até a idade de **vinte e um anos**. Além disso, também é pago para:\n\n*   Cônjuge\n*   Companheira\n*   Companheiro\n*   Filho não emancipado que seja inválido ou com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz.\n\nA informação está detalhada no documento [DOC 7], item I, e reforçada no documento [DOC 11].",
+   "answer_chars": 430,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2382
+  },
+  {
+   "iter": 5,
+   "qid": "q6",
+   "time_s": 13.5,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos seguintes dependentes:\n\n*   Filhos não emancipados de qualquer condição, menor de vinte e um anos ou inválido.\n*   Pais.\n*   Irmãos não emancipados, de qualquer condição, menor de vinte e um anos ou inválido.\n\nPortanto, o salário-família é pago até a idade de **vinte e um anos** do dependente, ou até que este se torne inválido.",
+   "answer_chars": 398,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2391
+  },
+  {
+   "iter": 6,
+   "qid": "q6",
+   "time_s": 13.42,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos dependentes até a idade de **vinte e um anos (21)** ou inválidos.  A informação está presente no [DOC 13], especificamente no inciso I do Art. 16: \"o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido\".\n",
+   "answer_chars": 343,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2396
+  },
+  {
+   "iter": 7,
+   "qid": "q6",
+   "time_s": 17.32,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a idade de **21 anos**.\n\nEspecificamente:\n\n*   **Art. 16 da Lei 8213:** Menciona que são beneficiários do Regime Geral de Previdência Social (RGPS) na condição de dependentes: o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 anos ou inválido.\n*   **Art. 16 da Lei 8213 (Redação dada pela Lei nº 9.032):** Acrescenta que também pode ser pago a filhos menores de 21 anos ou inválidos que tenham deficiência intelectual ou mental que os torne absoluta ou relativamente incapazes, assim declarados judicialmente.\n*   **Art. 16 da Lei 8213 (Redação dada pela Lei nº 12.470):** Reforça a possibilidade de pagamento aos filhos menores de 21 anos ou inválidos com deficiência intelectual ou mental que os torne absoluta ou relativamente incapazes, declarados judicialmente.\n\nPortanto, a idade limite para o recebimento do salário-família como dependente é **21 anos**.",
+   "answer_chars": 1003,
+   "grounded": false,
+   "supported": 3,
+   "partial": 5,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2342
+  },
+  {
+   "iter": 8,
+   "qid": "q6",
+   "time_s": 14.06,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a idade de **21 anos** ou até serem considerados inválidos.\n\nEspecificamente:\n\n*   **Art. 16 (Lei 8213):** Menciona que são beneficiários do Regime Geral de Previdência Social os dependentes menores de 21 anos ou inválidos.\n*   **Art. 199 (Vade Mecum Senado Federal):**  Estende essa regra, equiparando pai e mãe a padrasto/madrasta, caso estes não existam, e mencionando que o benefício é pago até a idade de 21 anos ou invalidez.\n\nÉ importante notar que, em uma versão mais recente da Lei 8213 (Lei nº 12.470), há uma adição: dependentes com deficiência intelectual ou mental que sejam judicialmente declarados incapazes também são elegíveis para o salário-família.",
+   "answer_chars": 759,
+   "grounded": false,
+   "supported": 3,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2342
+  },
+  {
+   "iter": 9,
+   "qid": "q6",
+   "time_s": 15.6,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário família é pago aos dependentes até a idade de **vinte e um anos (21)** ou inválidos.  A redação da Lei 8213, especificamente no Art. 16, § 1º, define que os dependentes são:\n\n*   O cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;\n*   Os pais; ou\n*   O irmão não emancipado, de qualquer condição, menor de vinte e um anos ou inválido.\n\nÉ importante notar que a redação da Lei 8213 foi alterada pela Lei nº 9.032 em 1995, e posteriormente pela Lei nº 12.470 em 2011, para incluir a condição de dependência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.",
+   "answer_chars": 727,
+   "grounded": true,
+   "supported": 4,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2399
+  },
+  {
+   "iter": 10,
+   "qid": "q6",
+   "time_s": 17.98,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago até a **idade de 21 anos** para filhos menores de idade ou inválidos. Além disso, também pode ser pago para filhos não emancipados que sejam **inválidos** ou que tenham **deficiência intelectual ou mental** que os torne absoluta ou relativamente incapazes, desde que tal condição seja declarada judicialmente.\n\nOs documentos citam as seguintes idades:\n\n*   **Menores de 21 anos:** Cônjuge, companheira, companheiro e filho (qualquer condição), menor de 21 anos ou inválido.\n*   **Filhos não emancipados com deficiência:** Menor de 21 anos ou inválido com deficiência intelectual ou mental declarada judicialmente.\n\nÉ importante notar que a legislação pode ter sido atualizada desde a data dos documentos, então é sempre recomendável consultar as fontes oficiais para obter informações mais recentes e precisas.",
+   "answer_chars": 882,
+   "grounded": false,
+   "supported": 2,
+   "partial": 3,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2405
+  },
+  {
+   "iter": 11,
+   "qid": "q6",
+   "time_s": 13.78,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a idade de **21 anos (vinte e um)** ou inválidos.  A legislação também menciona que podem ser considerados dependentes os filhos menores de 21 anos que possuam deficiência intelectual ou mental que os torne absoluta ou relativamente incapazes, assim declarados judicialmente.\n",
+   "answer_chars": 368,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2362
+  },
+  {
+   "iter": 12,
+   "qid": "q6",
+   "time_s": 16.7,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos dependentes até a idade de **21 anos**, ou em caso de inválido, até a data do falecimento. A redação da Lei 8213 (art. 16) especifica:\n\n*   **Menores de 21 anos:** cônjuge, companheira, companheiro e filho, de qualquer condição.\n*   **Inválidos:** cônjuge, companheira, companheiro e filho, de qualquer condição.\n*   **Filhos com deficiência intelectual ou mental:** até a data do falecimento.\n\nÉ importante notar que o Decreto 3048 também menciona a pensão por morte como um benefício especial, mas não estabelece uma idade limite específica para o recebimento da pensão em si.",
+   "answer_chars": 647,
+   "grounded": true,
+   "supported": 5,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2378
+  },
+  {
+   "iter": 13,
+   "qid": "q6",
+   "time_s": 14.33,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos filhos não emancipados de qualquer condição, menor de vinte e um anos ou inválido.  Além disso, é pago aos pais e ao irmão não emancipado, menor de vinte e um anos ou inválido.\n\nPortanto, o salário-família pode ser pago até a idade de **vinte e um anos** para filhos e irmãos, e até a morte do pai ou mãe (ou ambos) se forem inválidos.",
+   "answer_chars": 404,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.234
+  },
+  {
+   "iter": 14,
+   "qid": "q6",
+   "time_s": 14.74,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos dependentes de qualquer das classes (I, II ou III) até o limite de vinte e um anos de idade ou inválidos.  A informação está detalhada no Decreto 3048, art. 16, inciso I:\n\n\"I - o cônjuge, a companheira, o companheiro e o filho não emancipado de qualquer condição, menor de vinte e um anos ou inválido;\"\n\nPortanto, o salário-família é pago até os 21 anos ou em caso de invalidez.",
+   "answer_chars": 447,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2345
+  },
+  {
+   "iter": 15,
+   "qid": "q6",
+   "time_s": 16.6,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família pode ser pago aos dependentes até a **idade de 21 anos**. Especificamente:\n\n*   **I - o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;**\n*   **I - o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente;**\n\nAlém disso, também pode ser pago aos pais e irmãos não emancipados menores de 21 anos ou inválidos.",
+   "answer_chars": 629,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2403
+  },
+  {
+   "iter": 16,
+   "qid": "q6",
+   "time_s": 15.45,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos filhos não emancipados de qualquer condição, menor de **vinte e um anos**.  A legislação também inclui no benefício o filho inválido ou com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz.\n",
+   "answer_chars": 290,
+   "grounded": true,
+   "supported": 2,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2404
+  },
+  {
+   "iter": 17,
+   "qid": "q6",
+   "time_s": 15.15,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos e a legislação pertinente, o salário-família pode ser pago aos dependentes até a idade de **21 anos**.\n\nNo entanto, há uma exceção importante:\n\n*   **Filhos inválidos ou com deficiência intelectual ou mental:** O salário-família também é pago a filhos menores de 21 anos que sejam considerados inválidos (com incapacidade para o trabalho) ou que tenham deficiência intelectual ou mental que os torne absoluta ou relativamente incapazes, desde que declarados judicialmente.\n\nPortanto, a idade limite pode ser estendida em casos específicos de dependência.",
+   "answer_chars": 593,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2407
+  },
+  {
+   "iter": 18,
+   "qid": "q6",
+   "time_s": 14.39,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago aos dependentes até a idade de **21 anos**. No entanto, há uma exceção: se o dependente for inválido (com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz), o benefício pode ser concedido até a sua incapacidade.\n\n**Resumo:**\n\n*   **Até 21 anos:** Cônjuge, companheiro, companheira, filho (de qualquer condição)\n*   **Até 21 anos com deficiência:** Filho com deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz.",
+   "answer_chars": 534,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "inválido"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2395
+  },
+  {
+   "iter": 19,
+   "qid": "q6",
+   "time_s": 17.07,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o salário-família é pago em razão do dependente do trabalhador de baixa renda nos termos da lei. A Constituição Federal (DOC 11), artigo XII, item XII, trata especificamente do salário-família para os seus dependentes. No entanto, não há uma idade máxima definida para o recebimento do benefício. O foco principal é a condição de dependência e a baixa renda do trabalhador.\n\nÉ importante notar que a legislação previdenciária (DOCs 7, 8, 9, 10, 11, 12 e 13) detalha o cálculo do salário-de-benefício, mas não estabelece um limite de idade para o pagamento do benefício em si. A definição da idade máxima para o recebimento do salário-família é regulamentada por outras normas específicas, como a Lei nº 8.213/91 e suas alterações.\n\n**Em resumo:** O salário-família é pago enquanto o dependente preencher os requisitos de dependência e baixa renda, sem uma idade máxima definida.\n",
+   "answer_chars": 919,
+   "grounded": true,
+   "supported": 7,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [],
+    "hit_count": 0,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2377
+  },
+  {
+   "iter": 20,
+   "qid": "q6",
+   "time_s": 13.46,
+   "error": null,
+   "answer": "De acordo com os documentos fornecidos, o pagamento do salário-família se estende aos dependentes até a idade de **quatorze anos**.\n\nNo entanto, há uma exceção importante: para dependentes maiores de quatorze anos, a invalidez deve ser verificada por meio de exame médico-pericial realizado pela previdência social (Decreto 3048, art. 85).\n\nÉ crucial notar que os documentos fornecidos não detalham as condições específicas para a concessão do salário-família a dependentes maiores de quatorze anos, mas sim o processo de verificação da invalidez em caso de dependente com deficiência.",
+   "answer_chars": 585,
+   "grounded": true,
+   "supported": 3,
+   "partial": 0,
+   "no_support": 0,
+   "keyword_recall": {
+    "hits": [
+     "quatorze"
+    ],
+    "hit_count": 1,
+    "total": 3
+   },
+   "num_sources": 15,
+   "avg_distance": 0.2358
+  }
+ ],
+ "wall_time_s": 306.3,
+ "finished_at": "2026-09-12T07:21:53.791222"
+}

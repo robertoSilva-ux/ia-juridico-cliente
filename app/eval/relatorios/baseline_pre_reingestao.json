@@ -1,0 +1,550 @@
+{
+  "generated_at": "2026-09-21T01:57:32.028901",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Os requisitos para a aposentadoria por invalidez, com base nos documentos recuperados, incluem:\n\n1. A carência exigida deve ter sido cumprida pelo segurado (Decreto 3048, art. 43).\n2. O segurado deve estar ou não em gozo de auxílio-doença e ser considerado incapaz para o trabalho devido à invalidez insuscetível de reabilitação (Decreto 3048, art. 43, §1º).\n3. A invalidez pode provenir da progressão ou agravamento de uma doença já existente no momento do ingresso no RGPS, exceto quando a incapacidade não é resultado dessa progressão ou agravamento (Decreto 3048, art. 43, §2º).\n\nAlém disso, o seguro social deve verificar a condição de incapacidade por meio de exame médico-pericial, que pode ser acompanhado de um médico da confiança do segurado às suas expensas (Decreto 3048, art. 43, §1º). A invalidez não confere direito à aposentadoria apenas devido ao RGPS se o segurado já estava portador de uma doença ou lesão no momento do ingresso (Decreto 3048, art. 43, §2º).\n\nOs documentos recuperados não fornecem informações sobre idades específicas ou carências quantitativas para a aposentadoria por invalidez, portanto, esses detalhes estão ausentes da resposta.",
+      "num_sources": 15,
+      "avg_distance": 0.2047,
+      "min_distance": 0.1533,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez",
+          "carência"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece informações sobre o valor específico da carência mínima para aposentadoria por tempo de contribuição no Regime Geral de Previdência Social (RGPS). A vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.0,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 2,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "A consulta refere-se ao regime jurídico do Trabalho (RGPS), conforme estabelecido na Constituição Federal, em especial nos artigos relacionados à previdência social.\n\n**Acidente de Trabalho:** O RGPS, no artigo 11, definiu o \"acidente de trabalho\" como uma condição de incapacidade física ou mental que se verifica após um acidente e resulta em perda de função corporal ou intelectual permanente. No entanto, a consulta recuperou-se do Vade-Mecum da Constituição Federal (artigo 41), que fornece uma definição mais ampla: Acidente de Trabalho é qualquer situação decorrente de um evento externo ao empregado, relacionado com o exercício das funções trabalhistas, que resulta em incapacidade temporal ou permanente.\n\n**Obrigações do Empregador:** Com base no Vade-Mecum da Constituição Federal (artigo 41), as obrigações do empregador incluem:\n\n1. Registre todos os dados relativos à admissão no emprego, duração e efetividade do trabalho, férias, acidentes, entre outros aspectos que interessam à proteção do trabalhador.\n\n2. Fornecer gratuitamente ao empregado equipamentos de proteção individual adequados aos riscos, sempre que as medidas gerais não ofereçam completa proteção contra os perigos de acidentes e danos à saúde.\n\n3. Estabelecer disposições complementares para precauções específicas em atividades ou setores de trabalho, como obras de construção, demolição ou reparos (artigo 200 do Vade-Mecum da Constituição Federal).\n\n4. Garantir que o empregado tenha acesso a assentos adequados ao trabalho, evitando posições incômodas ou forçadas.\n\n5. Atribuir igual salário para trabalhos de igual valor, sem distinções desleais (artigo 461 do Vade-Mecum da Constituição Federal).",
+      "num_sources": 15,
+      "avg_distance": 0.2238,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 13,
+        "supported": 8,
+        "partial": 5,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "**Acidente de Trabalho:** O RGPS, no artigo 11, definiu o \"acidente de trabalho\" como uma condição de incapacidade física ou mental que se verifica após um acidente e resulta em perda de função corporal ou intelectual permanente.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "No entanto, a consulta recuperou-se do Vade-Mecum da Constituição Federal (artigo 41), que fornece uma definição mais ampla: Acidente de Trabalho é qualquer situação decorrente de um evento externo ao empregado, relacionado com o exercício das funções trabalhistas, que resulta em incapacidade temporal ou permanente.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "**Obrigações do Empregador:** Com base no Vade-Mecum da Constituição Federal (artigo 41), as obrigações do empregador incluem:\n\n1.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 9,
+            "text": "Estabelecer disposições complementares para precauções específicas em atividades ou setores de trabalho, como obras de construção, demolição ou reparos (artigo 200 do Vade-Mecum da Constituição Federal).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 13,
+            "text": "Atribuir igual salário para trabalhos de igual valor, sem distinções desleais (artigo 461 do Vade-Mecum da Constituição Federal).",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "Para se aposentar sob as regras da Lei Complementar nº 142/2003 (LC 142), é necessário cumprir os seguintes requisitos:\n\n1. **Contribuições Cumulativas**:\n   - Para mulheres, no mínimo 30 anos de contribuição.\n   - Para homens, no mínimo 35 anos de contribuição.\n\n2. **Idades Requeridas para Aposentadoria por Idade**:\n   - Mulheres: 56 (cinquenta e seis) anos.\n   - Homens: 61 (sessenta e um) anos.\n\n3. **Ajustes Futuros**:\n   - A idade a que se refere o inciso II do caput da Emenda Constitucional nº 96/2019, de 29 de abril, será acrescida de 6 meses por ano, até atingir os respectivos limites de idades para aposentadoria por idade.\n\n4. **Redução no Tempo de Contribuição**:\n   - Para professores que atuam exclusivamente em educação infantil e ensino fundamental e médio, o tempo de contribuição e a idade requeridas são reduzidos em 5 anos (a partir do 1º de janeiro de 2020).\n\nA vigência da LC 142 é aplicável às pessoas físicas classificadas como segurados sob o Regime Geral de Previdência Social. Os requisitos mencionados acima devem ser cumpridos para se obter a aposentadoria conforme esta lei complementar.",
+      "num_sources": 15,
+      "avg_distance": 0.1128,
+      "min_distance": 0.0,
+      "source_files": [
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "Lcp 142.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [
+          "Lcp 142.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 9,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "**Contribuições Cumulativas**:\n   - Para mulheres, no mínimo 30 anos de contribuição.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "- Para homens, no mínimo 35 anos de contribuição.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 8,
+            "text": "**Ajustes Futuros**:\n   - A idade a que se refere o inciso II do caput da Emenda Constitucional nº 96/2019, de 29 de abril, será acrescida de 6 meses por ano, até atingir os respectivos limites de idades para aposentadoria por idade.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "Para determinar o prazo de prescrição da ação de usucapião extraordinário, devemos nos referir as normas fornecidas na base jurídica recuperada.\n\nA Seção II \"Das Causas que Impedem ou Suspendem a Prescrição\" do Vade-Mecum do Senado Federal (Vade_mecum_Senado_Federal_3ed.pdf) contém informações relevantes sobre os prazos de prescrição para o caso em questão. De acordo com o Artigo 197, no parágrafo único, \"Não corre a prescrição: II – entre ascendentes e descendentes, durante o poder familiar.\"\n\nAssim, com base nas normas recuperadas, o prazo de prescrição da ação de usucapião extraordinário é indefinido (\"não corre\") enquanto houver uma relação de parentesco ascendente ou descendente dentro do contexto familiar. A vigência não está indicada nos documentos recuperados sobre a duração exata desse período.",
+      "num_sources": 15,
+      "avg_distance": 0.2481,
+      "min_distance": 0.2317,
+      "source_files": [
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 2,
+        "partial": 2,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "De acordo com o Artigo 197, no parágrafo único, \"Não corre a prescrição: II – entre ascendentes e descendentes, durante o poder familiar.\"\n\nAssim, com base nas normas recuperadas, o prazo de prescrição da ação de usucapião extraordinário é indefinido (\"não corre\") enquanto houver uma relação de parentesco ascendente ou descendente dentro do contexto familiar.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "A vigência não está indicada nos documentos recuperados sobre a duração exata desse período.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece explicitamente o limite de idades para pagamento do salário familiar. Portanto, a vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.1614,
+      "min_distance": 0.1114,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 2,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece explicitamente a informação sobre a idade em que um filho não emancipado mais tarde se torna independente para fins de pensão por morte no Regime Geral de Previdência Social (RGPS). Portanto, Nao posso fornecer essa informação com base na base recuperada. É recomendável consultar uma fonte atualizada ou um profissional jurídico para obter as informações mais recentes sobre esse assunto.",
+      "num_sources": 15,
+      "avg_distance": 0.0091,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "A base reúne normas de regimes jurídicos diferentes (ex.: Lei nº 8.213/1991 - RGPS e Lei nº 8.112/1990 - regime próprio dos servidores; Constituição Federal; EC nº 103/2019; legislação civil e processual). A mesma pergunta pode ter respostas diferentes em regimes distintos.\n\nA questão se refere à idade mínima para aposentadoria voluntária no serviço público federal, conforme a Emenda Constitucional nº 103 de 2019 (EC 103/2019).\n\nCom base na base recuperada:\n\nNo contexto da EC 103/2019, o servidor público federal é aposentado com as idades mínimas previstas para os servidores vinculados ao Regime Próprio de Previdência Social da União, conforme a Emenda Constitucional nº 103 de 2019 (EC 103/2019). Art. 2º da EC 103/2019 especifica que o servidor será aposentado com as idagens mínimas previstas.\n\nNo inciso I do art. 4º da EC 103/2019, é estabelecido que os servidores públicos federais serão aposentados voluntariamente observados, cumulativamente, aos seguintes requisitos: a) 62 (sessenta e dois) anos de idade, se mulher; b) 65 (sessenta e cinco) anos de idade, se homem.\n\nPortanto, segundo a Emenda Constitucional nº 103/2019 (EC 103/2019), as idagens mínimas para aposentadoria voluntária no serviço público federal são: 62 anos para mulheres e 65 anos para homens.",
+      "num_sources": 15,
+      "avg_distance": 0.2074,
+      "min_distance": 0.178,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "62",
+          "65",
+          "mulher",
+          "homem"
+        ],
+        "hit_count": 4,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 8,
+        "supported": 7,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 8,
+            "text": "Portanto, segundo a Emenda Constitucional nº 103/2019 (EC 103/2019), as idagens mínimas para aposentadoria voluntária no serviço público federal são: 62 anos para mulheres e 65 anos para homens.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "A base recuperada não contém informações sobre o prazo de decadência para o segurado ou beneficiário revisar um ato de concessão de benefício previdenciário. A vigência da informação solicitada está ausente nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.0,
+      "min_distance": 0.0,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "decadência"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 2,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

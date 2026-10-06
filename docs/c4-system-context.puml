@@ -1,0 +1,24 @@
+@startuml C4-SystemContext-LegalizAI
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Legaliz.ai — System Context Diagram
+
+LAYOUT_WITH_LEGEND
+
+Person(advogado, "Advogado / Usuário", "Pessoa física que acessa o sistema via navegador para fazer perguntas jurídicas")
+Person(admin, "Administrador", "Usuário com role admin — gerencia usuários, documentos globais e configurações do sistema")
+
+System(legaliz, "Legaliz.ai", "Assistente jurídico com RAG — 100% offline e local")
+
+SystemDb(postgres, "PostgreSQL + pgvector", "Banco de dados vetorial para documentos e embeddings (ankane/pgvector)")
+SystemDb(ollama, "Ollama Server", "Servidor de modelos LLM locais (llama3.2:3b, gemma4)")
+SystemDb(gpu, "GPU NVIDIA", "Aceleração CUDA para inferência — 3-5x speedup vs CPU")
+
+Rel(advogado, legaliz, "Acessa via navegador HTTPS", "HTTP")
+Rel(admin, legaliz, "Acessa via navegador HTTPS", "HTTP")
+Rel(legaliz, ollama, "Embeddings + LLM inference", "Ollama API")
+Rel(legaliz, postgres, "Busca semântica vetorial + armazenamento", "pgvector / SQL")
+Rel(ollama, gpu, "Inferência no GPU", "CUDA")
+
+@enduml

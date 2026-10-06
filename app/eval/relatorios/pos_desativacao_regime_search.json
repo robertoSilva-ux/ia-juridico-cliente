@@ -1,0 +1,535 @@
+{
+  "generated_at": "2026-09-21T03:04:25.458166",
+  "quiz": "/app/eval/quiz.json",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quais são os requisitos da aposentadoria por invalidez?",
+      "expectation": "answer",
+      "answer": "Os requisitos para a aposentadoria por invalidez conforme o Decreto nº 3048 de 3.048-99 incluem:\n\n1. A incapacidade total e definitiva do segurado para o trabalho, comprovada pela perícia médica inicial pelo Instituto Nacional do Seguro Social (INSS).\n2. O afastamento do segurado da atividade profissional ou a data da entrada do requerimento, se entre o afastamento e a entrada do requerimento houver mais de trinta dias.\n3. A aposentadoria deve ser devido ao seguroado empregado ou empresário no décimo sexto dia do afastamento da atividade ou à partir da data da entrada do requerimento, se entre o afastamento e a entrada do requerimento decorrerem mais de trinta dias; para segurados empregados, é desde o décimo sexto dia do afastamento ou após trinta dias.\n4. Para segurados empregados domésticos, trabalhadores autônomos ou equivalentes, a aposentadoria deve ser devido no décimo sétimo dia do afastamento da atividade.\n\nAtransformação de outras formas de benefícios em invalidez também está sujeita aos requisitos mencionados na subseção III \"Da Aposentadoria por Tempo de Contribuição\" e nos artigos 46º e 47º, que exigem o exame médico pelo INSS.",
+      "num_sources": 15,
+      "avg_distance": 0.2108,
+      "min_distance": 0.1533,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "invalidez"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 9,
+        "supported": 9,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q2",
+      "question": "Qual a carência mínima para aposentadoria por tempo de contribuição?",
+      "expectation": "answer",
+      "answer": "O contexto fornecido não especifica uma carência mínima única para aposentadoria por tempo de contribuição, pois menciona diferentes regras dependendo do caso (por exemplo, contribuições mensais indispensáveis ou o número mínimo de contribuições). No entanto, com base no DOC 8 — Decreto 3048, art. 26, a carência mínima é definida como o número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício.\n\nPortanto, a resposta é: A carência mínima para aposentadoria por tempo de contribuição é o número mínimo de contribuições mensais indispensáveis para que o beneficiário faça jus ao benefício.",
+      "num_sources": 15,
+      "avg_distance": 0.1912,
+      "min_distance": 0.1144,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "carência",
+          "tempo de contribuição",
+          "benefício"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 3,
+        "supported": 3,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q3",
+      "question": "O que configura acidente de trabalho e quais as obrigações do empregador?",
+      "expectation": "answer",
+      "answer": "A consulta se refere ao regime jurídico do Trabalho (RGPS), conforme estabelecido na Consolidação das Leis do Trabalho, Lei nº 8.013, de 21-De Janeiro-de-1967.\n\n**Acidente de Trabalho:**\n\nDe acordo com o RGPS, um \"acidente de trabalho\" é qualquer incidente que ocorre no âmbito da atividade ocupacional e resulta em lesão corporal ou morte do trabalhador. A Consolidação das Leis do Trabalho, Lei nº 8.046, de 11-De Fevereiro-de-1967, especifica que o acidente de trabalho inclui:\n\n1. Lesões decorrentes de um acidente;\n2. Doença profissional causada pelo exercício da atividade ocupacional; e\n3. Morte no âmbito da atividade.\n\n**Obrigações do Empregador:**\n\nNo caso de acidente de trabalho, as obrigações do empregador são delineadas na Consolidação das Leis do Trabalho, Lei nº 8.046, de 11-De Fevereiro-de-1967, Artigo 19, Capítulo I - Do Precupo ao Acordo Comum:\n\n1. **Assistência Médica:** O empregador é obrigado a fornecer assistência médica imediata e posterior à vítima.\n2. **Indenização:** Deve compensar as perdas e danos decorrentes do acidente de trabalho, incluindo indenizações por lesão corporal (acidente) e moradia, alimentação, cuidados médicos, entre outros benefícios previstos na legislação.\n3. **Assistência Social:** O empregador deve fornecer assistência social para o ferido em caso de necessidade.\n4. **Indenização Extraordinária:** Em casos de lesões graves ou prejudiciais à saúde, o empregador é obrigado a pagar indenizações extraordinárias conforme estabelecido pela lei.\n5. **Período de Incapacidade:** O empregador deve fornecer uma pensão por incapacidade decorrente do acidente de trabalho, até que se recupere totalmente.\n\nEssas obrigações são fundamentais para garantir aos trabalhadores os direitos e proteções necessários em caso de acidentes no âmbito da atividade ocupacional.",
+      "num_sources": 15,
+      "avg_distance": 0.2211,
+      "min_distance": 0.1979,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "acidente de trabalho",
+          "empregador"
+        ],
+        "hit_count": 2,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [],
+        "hits": [],
+        "hit_count": 0,
+        "total": 0,
+        "recall": null
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 17,
+        "supported": 16,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 7,
+            "text": "**Obrigações do Empregador:**\n\nNo caso de acidente de trabalho, as obrigações do empregador são delineadas na Consolidação das Leis do Trabalho, Lei nº 8.046, de 11-De Fevereiro-de-1967, Artigo 19, Capítulo I - Do Precupo ao Acordo Comum:\n\n1.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q4",
+      "question": "O que precisa para se aposentar com as regras da LC 142?",
+      "expectation": "answer",
+      "answer": "A base recuperada contém normas de diferentes regimes jurídicos, como o Regime Geral de Previdência Social (RGPS) — Lei nº 8.213/1991, Decreto nº 3.048/99; regime jurídico próprio dos servidores — Lei nº 8.112/90; Constituição Federal; EC nº 103/2019; além da legislação civil e processual.\n\nA pergunta do advogado se refere ao \"LC 142\", o que não é explicitamente mencionado nos documentos recuperados, portanto a vigência ou os requisitos para se aposentar com base na LC 142 não estão indicados. Seria necessário consultar diretamente a Lei Complementar n.º 137/2001 (Lei de Consolidação dos Regimes Jurídicos do Trabalho), especificamente em relação à aposentadoria por invalidez, conforme o artigo 142.\n\nA vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.1791,
+      "min_distance": 0.1193,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf",
+        "Decreto 3.048-99.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "aposentadoria"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Lcp 142.pdf"
+        ],
+        "hits": [],
+        "hit_count": 0,
+        "total": 1,
+        "recall": 0.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 3,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Seria necessário consultar diretamente a Lei Complementar n.º 137/2001 (Lei de Consolidação dos Regimes Jurídicos do Trabalho), especificamente em relação à aposentadoria por invalidez, conforme o artigo 142.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q5",
+      "question": "Qual o prazo de prescrição para a ação de usucapião extraordinária?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece explicitamente o prazo de prescrição para a ação de usucapião extraordinária. A vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.2481,
+      "min_distance": 0.2317,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf",
+        "L10406compilada.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "CPC_normas_correlatas_14ed.pdf",
+        "L10406compilada.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "usucapi"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "L10406compilada.pdf"
+        ],
+        "hits": [
+          "L10406compilada.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 1,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "A vigência não está indicada nos documentos recuperados.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A base recuperada não fornece explicitamente a informação sobre a idade máxima para que seja paga o salário da família ao dependente. Portanto, A vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.1785,
+      "min_distance": 0.1437,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [],
+        "hit_count": 0,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 2,
+        "supported": 2,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    },
+    {
+      "id": "q7",
+      "question": "Até qual idade o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte?",
+      "expectation": "answer",
+      "answer": "A base recuperada contém informações sobre a dependência dos filhos no contexto do Regime Geral de Previdência Social (RGPS), mas não especifica diretamente uma idade limite para que um filho seja considerado dependente. No entanto, o Decreto 3048, art. 16, § 10, menciona que \"o dependente menor de vinte e um anos deverá apresentar declaração de não emancipação\", o que sugere que até os 20 anos, o filho pode ser considerado dependente se ainda estiver em estado de não emancipação.\n\nPortanto, com base na informação recuperada, o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte, até a idade de 20 anos. A vigência deste dispositivo legal não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.1787,
+      "min_distance": 0.1231,
+      "source_files": [
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "vinte e um"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 1,
+        "partial": 3,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 2,
+            "text": "No entanto, o Decreto 3048, art. 16, § 10, menciona que \"o dependente menor de vinte e um anos deverá apresentar declaração de não emancipação\", o que sugere que até os 20 anos, o filho pode ser considerado dependente se ainda estiver em estado de não emancipação.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 3,
+            "text": "Portanto, com base na informação recuperada, o filho não emancipado é considerado dependente do segurado no RGPS, para fins de pensão por morte, até a idade de 20 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          },
+          {
+            "n": 4,
+            "text": "A vigência deste dispositivo legal não está indicada nos documentos recuperados.",
+            "status": "partial",
+            "reason": "cobertura_baixa",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q8",
+      "question": "Segundo a EC 103/2019, qual a idade mínima para aposentadoria voluntária no serviço público federal?",
+      "expectation": "answer",
+      "answer": "A base reúne normas de regimes jurídicos diferentes (ex.: RGPS — Lei nº 8.213/91; regime jurídico próprio dos servidores — Lei nº 8.112/90; Constituição Federal; EC nº 103/2019). A pergunta se aplica ao \"serviço público federal\".\n\nCom base no documento [DOC 5] — ec-103-2019.pdf, art. 20 da Emenda Constitucional (EC) nº 103 de 2019, a idade mínima para aposentadoria voluntária no serviço público federal é:\n\nI - mulher, 57 anos;\nII - homem, 60 anos.\n\nA vigência não está indicada nos documentos recuperados.",
+      "num_sources": 15,
+      "avg_distance": 0.2126,
+      "min_distance": 0.1798,
+      "source_files": [
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "ec-103-2019.pdf",
+        "Constituição.pdf",
+        "ec-103-2019.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "mulher",
+          "homem"
+        ],
+        "hit_count": 2,
+        "total": 4
+      },
+      "source_hit": {
+        "expected": [
+          "ec-103-2019.pdf"
+        ],
+        "hits": [
+          "ec-103-2019.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 4,
+        "supported": 3,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "Com base no documento [DOC 5] — ec-103-2019.pdf, art. 20 da Emenda Constitucional (EC) nº 103 de 2019, a idade mínima para aposentadoria voluntária no serviço público federal é:\n\nI - mulher, 57 anos;\nII - homem, 60 anos.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    },
+    {
+      "id": "q9",
+      "question": "Qual é o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário?",
+      "expectation": "answer",
+      "answer": "O contexto fornece informações sobre prazos de decadência em diferentes disposições, mas não oferece uma resposta direta ao pedido do advogado. Os prazos variam entre 5 e 10 anos dependendo da disposição específica.\n\nAs disposições relevantes são:\n\n- Artigo 347 (redação original e atualizada) estabelece um prazo de decadência de dez anos para o segurado ou beneficiário revisar o ato de concessão de benefício.\n  \n- A redação dada pelo Decreto nº 5.545, de 2005, altera esse prazo em cinco anos, a contar da data em que deveriam ter sido pagas todas as prestações vencidas ou quaisquer restituições ou diferenças devidas pela previdência social.\n\nComo o pedido do advogado requer especificamente o prazo para revisar o ato de concessão de benefício, devemos considerar ambas as disposições. No entanto, como o Decreto nº 5.545 foi redigido após a redação original, deve-se priorizar a redação atualizada que estabelece um prazo de decadência em cinco anos.\n\nPortanto, o prazo de decadência para o segurado ou beneficiário revisar o ato de concessão de benefício previdenciário é de cinco anos, conforme a redação do Decreto nº 5.545, de 2005.",
+      "num_sources": 15,
+      "avg_distance": 0.1856,
+      "min_distance": 0.102,
+      "source_files": [
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "dez anos",
+          "10 anos",
+          "decadência"
+        ],
+        "hit_count": 3,
+        "total": 3
+      },
+      "source_hit": {
+        "expected": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hits": [
+          "Decreto 3.048-99.pdf"
+        ],
+        "hit_count": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 7,
+        "supported": 6,
+        "partial": 1,
+        "no_support": 0,
+        "flagged_sentences": [
+          {
+            "n": 3,
+            "text": "As disposições relevantes são:\n\n- Artigo 347 (redação original e atualizada) estabelece um prazo de decadência de dez anos para o segurado ou beneficiário revisar o ato de concessão de benefício.",
+            "status": "partial",
+            "reason": "",
+            "invalid_citations": []
+          }
+        ],
+        "all_grounded": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-12T06:29:48.395855",
+  "quiz": "/app/eval/relatorios/quiz_loop_q6.json",
+  "questions": [
+    {
+      "id": "q6",
+      "question": "Até qual idade do dependente é pago o salário família?",
+      "expectation": "answer",
+      "answer": "A pergunta do advogado é:\n\n**\"Até qual idade do dependente é pago o salário família?\"**\n\nVamos analisar os documentos fornecidos para responder com precisão.\n\n---\n\n### Análise dos documentos:\n\nO **art. 16 da Lei 8.213/1992** (Lei de Previdência Social) trata dos **benefícios para dependentes** no Regime Geral de Previdência Social (RGPS).\n\nO texto relevante é:\n\n> **Art. 16. São beneficiários do Regime Geral de Previdência Social, na condição de dependentes do segurado:**\n> \n> I – o cônjuge, a companheira, o companheiro e o filho, de qualquer condição, menor de 21 (vinte e um) anos ou inválido;\n> \n> I – o cônjuge, a companheira, o companheiro e o filho não emancipado, de qualquer condição, menor de 21 (vinte e um) anos ou inválido ou que tenha deficiência intelectual ou mental que o torne absoluta ou relativamente incapaz, assim declarado judicialmente.  \n> *(Redação dada pela Lei nº 12.470, de 2011)*\n\nOu seja, o **filho** é considerado dependente **até os 21 anos de idade**, **exceto se for inválido**.\n\nAlém disso, o **art. 16** não menciona a idade máxima para o **salário-família**, mas é importante lembrar que:\n\n- O **salário-família** é um benefício concedido aos **dependentes**, como o cônjuge ou filhos.\n- O **prazo de concessão** do salário-família é **até a emancipação do filho** ou **até os 21 anos**, conforme previsto no art. 16.\n- Após os 21 anos, o filho **não é mais considerado dependente**, e portanto **não tem direito ao salário-família**.\n\n---\n\n### Conclusão:\n\nO **salário-família** é pago **para dependentes menores de 21 anos** ou **inválidos**.\n\nPortanto, **a idade máxima para o pagamento do salário-família é de 21 anos**.\n\n---\n\n### ✅ Resposta final:\n\n**O salário-família é pago até a idade de 21 anos, ou até a condição de invalidez.**",
+      "num_sources": 15,
+      "avg_distance": 0.2341,
+      "min_distance": 0.1856,
+      "source_files": [
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "L8213consol.pdf",
+        "L8213consol.pdf",
+        "ec-103-2019.pdf",
+        "L8213consol.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Decreto 3.048-99.pdf",
+        "Vade_mecum_Senado_Federal_3ed.pdf"
+      ],
+      "keyword_recall": {
+        "hits": [
+          "inválido"
+        ],
+        "hit_count": 1,
+        "total": 3
+      },
+      "fact_check": {
+        "enabled": true,
+        "total_sentences": 12,
+        "supported": 12,
+        "partial": 0,
+        "no_support": 0,
+        "flagged_sentences": [],
+        "all_grounded": true
+      }
+    }
+  ]
+}

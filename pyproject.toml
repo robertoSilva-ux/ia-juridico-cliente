@@ -1,0 +1,31 @@
+[tool.ruff]
+# Projeto roda em Python 3.11 (ver app/Dockerfile: FROM python:3.11-slim)
+target-version = "py311"
+line-length = 110
+extend-exclude = [
+    "get-docker.sh",
+]
+
+[tool.ruff.lint]
+# Regras habilitadas (além das defaults E4/E7/E9/F):
+#   I  -> ordenação/validação de imports
+#   F  -> pyflakes (nomes não usados, imports duplicados)
+#   E/W -> pycodestyle (estilo)
+#   UP -> sintaxe de Python moderno
+#   B  -> bugbear (bugs prováveis)
+#   C4 -> comprehensions desnecessárias
+select = ["E", "W", "F", "I", "UP", "B", "C4"]
+ignore = [
+    # E501 linha longa: line-length já controla; evita ruído com docstrings/SQL inline
+    "E501",
+    # B008: chamadas em defaults de função (ex.: EMBEDDINGS=EMBEDDINGS) — padrão
+    #       intencional de injeção de dependência com default
+    "B008",
+]
+
+
+# Os testes mockam sys.modules ANTES de importar o módulo sob teste (padrão
+# documentado no TESTING.md). Isso exige import "fora do topo" (E402) e causa
+# redefinições entre testes (F811). Ambos são intencionais nos testes.
+[tool.ruff.lint.per-file-ignores]
+ "**/tests/*" = ["E402", "F811", "I001", "F401", "F841", "UP006", "UP045", "UP035"]
