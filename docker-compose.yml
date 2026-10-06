@@ -25,6 +25,8 @@ services:
     mem_limit: 6g
     environment:
       OLLAMA_KEEP_ALIVE: 5m
+      NVIDIA_VISIBLE_DEVICES: all
+    runtime: nvidia
     volumes:
       - /srv/ia-juridico/modelos:/root/.ollama
     healthcheck:
@@ -34,10 +36,6 @@ services:
       retries: 10
       start_period: 30s
     restart: unless-stopped
-    deploy:
-      resources:
-        reservations:
-          memory: 2G
 
   app:
     build: ./app
