@@ -54,11 +54,11 @@ services:
       TEMPERATURE: ${TEMPERATURE}
       SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD}
       TOP_K: ${TOP_K}
+      GPU_NAME: ${GPU_NAME}
     volumes:
       - /srv/ia-juridico/documentos:/srv/documentos
       - /var/log/ia-juridico:/var/log/app
       - ./app/eval/relatorios:/app/eval/relatorios
-      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       db:
         condition: service_healthy

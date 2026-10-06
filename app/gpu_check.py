@@ -1,62 +1,14 @@
 """
 Detecção de GPU NVIDIA.
 
-Tenta detectar GPU via nvidia-smi (se o container tiver acesso).
-Caso contrário, reporta que a GPU está disponível no container Ollama.
+Tenta detectar GPU via nvidia-smi (se o container tiver acesso direto).
+Caso contrário, usa a variável de ambiente GPU_NAME (opcional) ou reporta
+acesso via container Ollama com nome genérico.
 """
 import logging
+import os
 import shutil
 import subprocess
-
-# ──────────────────────────────────────────────
-# Tenta detectar a GPU real consultando o container do Ollama
-# via docker exec (fallback quando nvidia-smi não está neste container).
-# ──────────────────────────────────────────────
-_OLLAMA_CONTAINER_NAME: str | None = None  # cache
-
-
-def _find_ollama_container() -> str | None:
-    """Descobre o nome do container Ollama (legal-ollama | ollama)."""
-    global _OLLAMA_CONTAINER_NAME
-    if _OLLAMA_CONTAINER_NAME is not None:
-        return _OLLAMA_CONTAINER_NAME
-    for candidate in ("legal-ollama", "ollama"):
-        try:
-            subprocess.run(
-                ["docker", "exec", candidate, "sh", "-c", "exit 0"],
-                capture_output=True, timeout=3, check=True
-            )
-            _OLLAMA_CONTAINER_NAME = candidate
-            return candidate
-        except Exception:
-            continue
-    return None
-
-
-def _gpu_info_via_ollama() -> dict | None:
-    """Tenta rodar nvidia-smi dentro do container Ollama."""
-    container = _find_ollama_container()
-    if not container:
-        return None
-    try:
-        out = subprocess.check_output(
-            ["docker", "exec", container, "nvidia-smi",
-             "--query-gpu=name,driver_version,memory.total",
-             "--format=csv,noheader"],
-            stderr=subprocess.DEVNULL, timeout=10, text=True
-        ).strip()
-        if not out:
-            return None
-        parts = out.split(", ")
-        if len(parts) >= 1:
-            return {
-                "gpu_name": parts[0],
-                "driver_version": parts[1] if len(parts) >= 2 else None,
-                "vram_total_mb": int(parts[2].split()[0]) if len(parts) >= 3 else None,
-            }
-    except Exception:
-        pass
-    return None
 
 logger = logging.getLogger(__name__)
 
@@ -83,6 +35,7 @@ def check_gpu() -> dict:
         "error": None,
     }
 
+    # 1. Tenta nvidia-smi direto (se o container tiver acesso à GPU)
     if shutil.which("nvidia-smi"):
         try:
             output = subprocess.check_output(
@@ -108,7 +61,7 @@ def check_gpu() -> dict:
         except Exception as e:
             logger.debug(f"nvidia-smi falhou: {e}")
 
-    # GPU não detectada neste container — mas o Ollama pode ter GPU
+    # 2. Fallback: verifica se Ollama está respondendo (GPU disponível via container)
     try:
         import urllib.request
 
@@ -119,21 +72,19 @@ def check_gpu() -> dict:
         with urllib.request.urlopen(req, timeout=5):
             pass  # Ollama está respondendo
 
-        # Ollama está rodando — tenta detectar GPU real dentro do container dele
-        gpu_info = _gpu_info_via_ollama()
-        if gpu_info:
-            result["available"] = True
-            result["via_ollama"] = True
-            result["gpu_name"] = gpu_info["gpu_name"]
-            result["driver_version"] = gpu_info["driver_version"]
-            result["vram_total_mb"] = gpu_info["vram_total_mb"]
+        result["available"] = True
+        result["via_ollama"] = True
+
+        # 2a. Se o usuário definiu GPU_NAME no .env, usa ele
+        env_gpu = os.environ.get("GPU_NAME", "").strip()
+        if env_gpu:
+            result["gpu_name"] = env_gpu
         else:
-            result["available"] = True
-            result["via_ollama"] = True
             result["gpu_name"] = "NVIDIA (via container Ollama)"
+
         result["error"] = None
     except Exception:
-        result["error"] = "GPU não detectada neste container. A GPU está disponível no container do Ollama."
+        result["error"] = "GPU não detectada. A GPU está disponível no container do Ollama."
 
     return result
 
@@ -142,10 +93,10 @@ def format_gpu_status(result: dict) -> str:
     """Retorna string formatada com o status da GPU."""
     if result.get("available") and result.get("via_ollama"):
         gpu = result.get("gpu_name", "NVIDIA (via container Ollama)")
-        driver = result.get("driver_version")
-        vram = result.get("vram_total_mb")
         lines = [f"🎮 **GPU disponível**: {gpu}",
                  "   • Acesso via container Ollama"]
+        driver = result.get("driver_version")
+        vram = result.get("vram_total_mb")
         if driver:
             lines.append(f"   • Driver: {driver}")
         if vram:
