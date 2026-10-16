@@ -73,6 +73,8 @@ Legenda de status: ✅ feito · 🔄 em andamento · ⏳ aberto · 🅿️ decis
 | P2-18 | `ENCRYPTION_KEY` documentada e sem uso — implementar ou remover da doc/`.env.example` | `config`, README | ⏳ |
 | P2-19 | Extração de texto com OCR para PDFs digitalizados (P1-6 é o alerta; isto é a solução) | `app/ingest.py` | 🅿️ |
 | P2-20 | `LLM_NUM_CTX` × `MAX_CONTEXT_CHARS` × histórico: hoje nada conta tokens (o Ollama trunca em silêncio) | `app/agent.py`, `app/ranking.py` | ⏳ |
+| P2-25 | `st.components.v1.html` (usado em `main.py` para forçar `lang=pt-br`) está **além da data de remoção** anunciada pela própria lib ("will be removed after 2026-06-01"); com o Streamlit pinado (1.66.0) funciona, mas o próximo bump pode quebrar a página | `app/main.py` | ⏳ |
+| P2-26 | Rótulos da resposta com erro de escrita pelo modelo pequeno (`"OBRJETO"` em vez de `OBJETO`, reproduzido no smoke) junto com os 3 "parcial" do P1-9 — o formato vem do prompt e o `phi4-mini:3.8b` não o cumpre de forma confiável: decidir entre modelo maior, validação de formato na saída ou pós-processamento dos rótulos | `app/agent.py`, `app/prompts/`, `app/config.py` | ⏳ |
 
 ### Documentação (divergências encontradas)
 | ID | Item | Status |

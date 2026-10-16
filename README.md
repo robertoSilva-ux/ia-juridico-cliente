@@ -14,6 +14,28 @@ O **Legaliz.ai** é um MVP de uma plataforma jurídica que utiliza Inteligência
 
 ---
 
+## 📌 Estado do projeto e documentação
+
+Documentação de trabalho, para quem for retomar ou auditar o produto:
+
+| Documento | O que responde |
+|:---|:---|
+| **[`docs/EVOLUCAO.md`](docs/EVOLUCAO.md)** | Onde paramos: diário de bordo por bloco de trabalho, o que foi verificado por execução e como retomar (inclusive depois de reiniciar a máquina) |
+| [`docs/REVISAO_SEGURANCA.md`](docs/REVISAO_SEGURANCA.md) | Revisão de segurança e isolamento entre clientes: achados com gravidade, evidência e o que já foi corrigido |
+| [`docs/BACKLOG.md`](docs/BACKLOG.md) | O que falta, priorizado, com arquivo afetado e critério de aceite |
+| [`docs/AMBIENTE_DEV.md`](docs/AMBIENTE_DEV.md) | Como rodar em desenvolvimento (sem Docker) e o checklist de ensaio de paridade antes de release |
+| [`docs/adr/`](docs/adr/README.md) | Decisões de arquitetura: contexto, alternativas descartadas e consequências |
+
+**Pendências que dependem do cliente** (detalhe no backlog): **P0-5** — TLS na frente do
+Streamlit e fechar a porta do banco publicada no host; **P0-6** — rotacionar as credenciais
+que já circularam em texto claro. O restante é evolução incremental.
+
+> ⚠️ **Atualizando uma instalação que já tem dados:** aplicar
+> `database/migrate_sources_owner.sql` antes de subir o container novo — ver
+> [Desenvolvimento local](#-desenvolvimento-local).
+
+---
+
 ## ✨ Funcionalidades
 
 - **🔐 Autenticação Segura:** Sistema de login por email e senha com senhas criptografadas (bcrypt).
@@ -277,11 +299,25 @@ pelo painel (Gestão de Usuários → Resetar Senha).
 │   │   └── reindex_embeddings.py  # Reindexa a base após mudança de embeddings
 │   ├── tests/                # Testes unitários
 │   └── requirements.txt      # Dependências Python
+├── scripts/                  # Automação de DESENVOLVIMENTO (fora da imagem)
+│   ├── db-dev.sh             # banco de dev em podman rootless (start/stop/rm/psql)
+│   ├── dev.sh                # app nativa lendo o .env.dev (make dev)
+│   ├── smoke_dev.py          # o ambiente está de pé? (RAG ponta a ponta)
+│   └── run_tests.sh          # wrapper de compatibilidade -> app/run_tests.sh
 ├── database/
-│   └── init.sql              # Schema do banco (apenas tabelas)
+│   ├── init.sql              # Schema do banco (tabelas + migrações idempotentes)
+│   └── migrate_sources_owner.sql  # migração para bases existentes (sources por dono)
 ├── docs/                     # Documentação complementar
+│   ├── EVOLUCAO.md           # diário de bordo: o que foi feito, verificado e o que falta
+│   ├── REVISAO_SEGURANCA.md  # achados de segurança/isolamento, com evidência
+│   ├── BACKLOG.md            # itens priorizados com critério de aceite
+│   ├── AMBIENTE_DEV.md       # ambiente de desenvolvimento + ensaio de paridade
+│   ├── adr/                  # decisões de arquitetura (ADR-0001..0005)
+│   ├── TESTING.md            # estratégia de testes
+│   ├── AGENTS.md             # arquitetura do agente RAG
+│   └── ...                   # C4 (dsl/puml/mermaid), planos e schema de teste
 └── .github/workflows/
-    └── ci.yml                # CI com flake8 linter
+    └── ci.yml                # CI: lint (ruff) · testes · integração · verificação de schema
 ```
 
 ---
@@ -363,6 +399,17 @@ dependências instaladas).
   funcional, CI com lint + testes + integração + verificação do schema
 - ✅ **`setup.sh` valida** `POSTGRES_PASSWORD`, `ADMIN_PASSWORD` e `COOKIE_KEY` **antes**
   de subir os containers
+
+### 📚 Documentação de trabalho
+- ✅ **[`docs/EVOLUCAO.md`](docs/EVOLUCAO.md)** — diário de bordo por bloco, com o que foi
+  verificado por execução e como retomar depois de uma pausa
+- ✅ **[`docs/REVISAO_SEGURANCA.md`](docs/REVISAO_SEGURANCA.md)** e
+  **[`docs/BACKLOG.md`](docs/BACKLOG.md)** — achados com evidência e plano priorizado
+- ✅ **[`docs/adr/`](docs/adr/README.md)** — decisões de arquitetura (ADR-0001 a 0005:
+  segredo do cookie, isolamento por dono, admin inicial, ambiente de desenvolvimento,
+  dependências e verificação)
+- ✅ **[`docs/AMBIENTE_DEV.md`](docs/AMBIENTE_DEV.md)** — ambiente de desenvolvimento sem
+  Docker + checklist de ensaio de paridade
 
 ### 🔒 Segurança (Item 1)
 - ✅ Credenciais externalizadas para `app/config.py`

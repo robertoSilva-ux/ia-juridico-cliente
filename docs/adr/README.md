@@ -1,0 +1,32 @@
+# Decisões de arquitetura (ADR) — Legaliz.ai
+
+Registro das decisões que moldam o produto, do mais recente para o mais antigo, para
+consulta posterior: **por que** algo é como é, o que foi descartado e o que a decisão
+custa. Cada arquivo é imutável depois de aceito — mudar de ideia significa um ADR novo
+que substitui o anterior (o antigo passa a `substituído por ADR-XXXX`).
+
+| ADR | Assunto | Status |
+|:---|:---|:---|
+| [0001](0001-segredo-do-cookie-vem-do-ambiente.md) | Segredo de assinatura do cookie de sessão vem do ambiente, com validação de força | aceito |
+| [0002](0002-isolamento-por-dono.md) | Isolamento entre clientes por dono do documento (escopo, exclusão, dedup, `sources`) | aceito |
+| [0003](0003-admin-inicial-sem-semeadura.md) | O schema não semeia credencial; o admin inicial exige `ADMIN_PASSWORD` | aceito |
+| [0004](0004-ambiente-de-desenvolvimento-hibrido.md) | Ambiente de desenvolvimento híbrido (banco em container, Ollama e app nativos) | aceito |
+| [0005](0005-dependencias-pinadas-e-verificacao.md) | Dependências pinadas com lock e verificação automatizada obrigatória | aceito |
+
+## Formato
+
+```markdown
+# ADR-XXXX — Título no imperativo
+
+- **Status:** proposto | aceito | substituído por ADR-YYYY
+- **Data:** AAAA-MM-DD
+
+## Contexto      — o problema e as forças em jogo (inclui o que foi medido)
+## Decisão       — o que passa a valer
+## Consequências — o que ganhamos e o que aceitamos perder
+## Alternativas  — o que foi descartado e por quê
+```
+
+Decisões de **produto e de cliente** (TLS, retenção de dados, OCR) não entram aqui como
+aceitas: ficam em [`../BACKLOG.md`](../BACKLOG.md) com status `🅿️` até haver decisão de
+quem responde por elas.

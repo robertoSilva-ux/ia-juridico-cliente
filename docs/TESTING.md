@@ -53,6 +53,13 @@ make test                      # dentro do container (ambiente real)
 make test-local                # no host, via Makefile
 ```
 
+> **Interpretador:** o runner usa o Python do **projeto** (`VIRTUAL_ENV`, depois
+> `.venv/bin/python`, e só então o `python3` do PATH — que é o caminho do container) e
+> imprime qual usou. Sem isso ele pegava o primeiro `python3` do PATH: nesta máquina é um
+> 3.14 auxiliar sem as dependências do app, e `test_regime_db` quebrava com
+> `ModuleNotFoundError: No module named 'langchain_ollama'` — o veredito da suíte variava
+> com o ambiente de quem rodava. (`scripts/dev.sh` já usava o venv do projeto.)
+
 > A lista de módulos **não** é fixa: adicionar `tests/test_novo.py` já o inclui na
 > execução local e no CI. (A versão anterior do runner tinha 4 módulos fixos, então 5
 > arquivos — incluindo o `test_agent.py` — nunca eram executados.)

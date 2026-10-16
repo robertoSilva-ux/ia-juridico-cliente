@@ -208,6 +208,19 @@ a senha é a constante `SENHA_DEV` em `scripts/smoke_dev.py`; troque pelo painel
 uma senha sua. Em máquina limpa, sem esse usuário, crie o admin com
 `ADMIN_PASSWORD=... python app/init_admin.py` (a partir de `app/`).
 
+> ⚠️ **No banco de dev, `dev@legaliz.local` é a única credencial utilizável.** Os e-mails
+> `alice@tenant-a…`, `bruno@tenant-b…`, `admin@legaliz.ai` e `test@legaliz.ai` podem
+> aparecer na tabela `users`: são **fixtures dos testes de integração**, gravadas com
+> `password_hash = 'x'` (hash inválido de propósito) e **não fazem login** — `admin@legaliz.ai`
+> é ainda o e-mail que o README cita para o admin, o que confunde. Os testes de integração
+> só rodam em banco com `test` no nome justamente para não sujar o banco de dev.
+>
+> O smoke test **verifica o login** pelo mesmo caminho do formulário e, se a senha gravada
+> estiver defasada, redefine para a do script — a última linha dele imprime o par
+> usuário/senha para entrar. Se a interface recusar um login que o smoke aprovou, o
+> problema está no que foi digitado, não no banco (copiar a senha **com as aspas** e
+> variação de maiúsculas são as causas comuns).
+
 **Primeira pergunta é lenta de propósito:** depois do reboot o modelo não está na VRAM, e
 a primeira resposta paga a carga (~80 s nesta máquina). Do segundo prompt em diante a
 latência fica em ~6-8 s. Se quiser evitar a espera durante o desenvolvimento, aqueça antes:
