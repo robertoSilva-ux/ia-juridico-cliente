@@ -256,12 +256,19 @@ def _embed_with_retry(embeddings_model, texts, max_retries=3, base_delay=2.0):
 def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
     """Garante a linha de `sources` do arquivo DE UM DONO e devolve o id.
 
-    O conflito é resolvido por (file_name, owner_id), nunca só pelo nome: dois
+    O conflito é resolvido por (file_name, dono), nunca só pelo nome: dois
     usuários podem ter arquivos com o mesmo nome, e a versão anterior (UNIQUE só
     em file_name) fazia o upload do segundo usuário sobrescrever owner/scope da
     fonte do primeiro — metadado de um tenant apontando para outro
-    (docs/REVISAO_SEGURANCA.md, P0-4). Requer o índice único
-    `sources_file_name_owner_uidx` (database/init.sql).
+    (docs/REVISAO_SEGURANCA.md, P0-4).
+
+    O dono entra como `COALESCE(owner_id, -1)` porque em índice único NULL é
+    distinto de NULL: com a coluna crua o conflito NUNCA casaria para os
+    documentos sem dono — o caso das cargas em lote/legado
+    (`scripts/indexar_lote.py` roda com --owner-id None, e é assim que o corpus
+    global entra), o que fazia cada carga inserir uma linha nova de fonte.
+    O alvo do ON CONFLICT precisa ser escrito exatamente como o índice
+    `sources_file_owner_uidx` (database/init.sql).
     """
     from legal_parser import build_title, parse_file_name
     meta = parse_file_name(file_name)
@@ -270,7 +277,7 @@ def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
         cur.execute(
             "INSERT INTO sources (file_name, title, tipo_doc, numero_doc, ano_doc, owner_id, scope) "
             "VALUES (%s, %s, %s, %s, %s, %s, %s) "
-            "ON CONFLICT (file_name, owner_id) DO UPDATE SET "
+            "ON CONFLICT (file_name, (COALESCE(owner_id, -1))) DO UPDATE SET "
             "    title = COALESCE(EXCLUDED.title, sources.title), "
             "    tipo_doc = COALESCE(EXCLUDED.tipo_doc, sources.tipo_doc), "
             "    numero_doc = COALESCE(EXCLUDED.numero_doc, sources.numero_doc), "

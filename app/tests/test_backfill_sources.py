@@ -59,7 +59,7 @@ class TestGetOrCreateSource(unittest.TestCase):
         sql, params = cur.execute.call_args[0]
         # conflito resolvido por (arquivo, DONO): só o nome do arquivo fazia a
         # fonte de um usuário ser sobrescrita pela de outro (P0-4)
-        self.assertIn("ON CONFLICT (file_name, owner_id)", sql)
+        self.assertIn("ON CONFLICT (file_name, (COALESCE(owner_id, -1)))", sql)
         self.assertIn("RETURNING id", sql)
         # params = (file_name, title, tipo, numero, ano, owner_id, scope)
         self.assertEqual(params[0], "Decreto 3.048-99.pdf")
@@ -76,6 +76,21 @@ class TestGetOrCreateSource(unittest.TestCase):
         bs._get_or_create_source(cur, "doc.pdf", owner_id=2, scope='private')
         sql = cur.execute.call_args[0][0]
         self.assertNotIn("owner_id = COALESCE(EXCLUDED.owner_id", sql)
+
+    def test_alvo_do_conflito_usa_coalesce_para_dono_nulo(self):
+        """Sem COALESCE(owner_id, -1) o conflito não casa p/ cargas sem dono.
+
+        Em índice único NULL é distinto de NULL: o caminho das cargas em lote
+        (`--owner-id None`, usado para o corpus global) inseria uma fonte nova a
+        cada execução em vez de atualizar a existente. O alvo do ON CONFLICT tem
+        de ser escrito igual ao índice `sources_file_owner_uidx`.
+        """
+        bs = self._load()
+        cur = self._fake_cursor(7)
+        bs._get_or_create_source(cur, "lei.pdf", owner_id=None, scope='global')
+        sql = cur.execute.call_args[0][0]
+        self.assertIn("(COALESCE(owner_id, -1))", sql)
+        self.assertNotIn("ON CONFLICT (file_name, owner_id)", sql)
 
     def test_retorna_none_quando_fetchone_vazio(self):
         bs = self._load()

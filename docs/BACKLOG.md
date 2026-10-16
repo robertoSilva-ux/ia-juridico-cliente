@@ -15,7 +15,7 @@ Legenda de status: ✅ feito · 🔄 em andamento · ⏳ aberto · 🅿️ decis
 | P0-1 | Chave de assinatura do cookie vinda do ambiente, com validação de força | `app/config.py`, `app/main.py` | ✅ | App não sobe sem `COOKIE_KEY` de ≥32 bytes e não-pública; forja de cookie deixa de funcionar |
 | P0-2 | Remover o admin semeado pelo schema e exigir `ADMIN_PASSWORD` | `database/init.sql`, `app/init_admin.py`, `setup.sh` | ✅ | Banco novo não tem usuário; `init_admin.py` falha com senha ausente/previsível |
 | P0-3 | Escopo e exclusão de documento por dono (nunca por nome de arquivo) | `app/manage.py`, `app/main.py` | ✅ | Promover/excluir o arquivo de um dono não altera o homônimo de outro |
-| P0-4 | Dedup e `sources` por `(file_name, owner_id)` | `app/ingest.py`, `app/scripts/backfill_sources.py`, `database/init.sql` | ✅ | Upload do 2º dono com mesmo nome é indexado; fontes homônimas coexistem |
+| P0-4 | Dedup e `sources` por `(file_name, owner_id)` | `app/ingest.py`, `app/scripts/backfill_sources.py`, `database/init.sql`, `database/migrate_sources_owner.sql` | ✅ | Upload do 2º dono com mesmo nome é indexado; fontes homônimas coexistem; **cargas sem dono (lote/legado) atualizam a fonte em vez de acumular linhas**; em banco existente, rodar `database/migrate_sources_owner.sql` (consolida duplicatas, reaponta os chunks e cria o índice `sources_file_owner_uidx`) |
 | **P0-5** | **TLS e fechamento da rede** | `docker-compose.yml`, infra do cliente | ⏳ | HTTPS na frente do 8501 (certificado válido, redirect 80→443); `5439:5432` removido do host; firewall/security group restringindo às portas 443 (e 80) |
 | **P0-6** | **Rotacionar as credenciais da instalação atual** | operação | ⏳ | `COOKIE_KEY` nova gerada; senha do admin do cliente trocada; `POSTGRES_PASSWORD` real (não o placeholder) — trocar exige recriar o volume do banco ou `ALTER USER` |
 
@@ -36,6 +36,7 @@ Legenda de status: ✅ feito · 🔄 em andamento · ⏳ aberto · 🅿️ decis
 | **P1-6** | Falha explícita em PDF sem texto extraível | `app/ingest.py`, `app/main.py` | ⏳ | Ingestão sem chunks válidos retorna erro/aviso ao usuário ("PDF sem texto — pode ser digitalizado"), nunca "indexado com sucesso" |
 | **P1-7** | Gate de ACL no compose: confirmar que só o app alcança o banco | `docker-compose.yml` | ⏳ | Banco sem `ports:`; comunicação só pela rede interna do compose |
 | **P1-8** | Prompt injection indireta via documento indexado | `app/prompts/system-role.md`, `app/agent.py` | ⏳ | O system prompt instrui explicitamente que o conteúdo dos `[DOC n]` é **dado**, não instrução, e que pedidos vindos dele devem ser ignorados/relatados; teste com um chunk contendo "ignore as instruções acima" não altera o comportamento |
+| **P1-9** | Fact-check marca resposta **correta** como "parcial" (falso positivo) | `app/factcheck.py` | ⏳ | Dispositivo comparado com `_normalize_dispositivo` dos dois lados ("artigo 25" casa com "Art. 25.") e frase sem afirmação factual não vira `partial`; testes de regressão com o caso reproduzido no `scripts/smoke_dev.py` |
 
 ---
 

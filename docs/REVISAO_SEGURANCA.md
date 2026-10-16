@@ -178,12 +178,31 @@ Reproduzido também em SQL isolado.
 
 * dedup por `(file_name, owner_id IS NOT DISTINCT FROM %s)` — preservando o comportamento
   para chunks legados com dono nulo;
-* `sources` passa a ter índice único em **`(file_name, owner_id)`** (`database/init.sql`
-  migra bases existentes de forma idempotente);
-* upsert com `ON CONFLICT (file_name, owner_id)` e sem reescrever o dono;
+* `sources` passa a ter índice único em **`(file_name, COALESCE(owner_id, -1))`**;
+* upsert com `ON CONFLICT (file_name, (COALESCE(owner_id, -1)))` e sem reescrever o dono;
 * o mesmo tratamento no script de backfill (`app/scripts/backfill_sources.py`) e no schema
   de teste (`docs/legal_test_schema.sql`) — a correção foi feita na classe do problema,
   não em um só ponto.
+
+> **Addendum (encontrado na verificação, depois do primeiro commit).** A primeira versão
+> da correção usava o índice em `(file_name, owner_id)` cru e **não** funcionava para
+> documentos sem dono: em índice único NULL é distinto de NULL, então o `ON CONFLICT`
+> nunca casava para as cargas em lote/legado (`scripts/indexar_lote.py` roda com
+> `--owner-id None` e é por aí que o corpus global entra) e **cada carga inseria uma nova
+> linha de `sources`**. Verificado no Postgres real: dois upserts idênticos sem dono
+> geraram 2 linhas. Por isso o dono entra como `COALESCE(owner_id, -1)` (sentinela segura:
+> `owner_id` tem FK para `users(id)` e SERIAL começa em 1) e o mesmo vale para o alvo do
+> `ON CONFLICT` — que precisa ser escrito igual ao índice.
+>
+> Duas consequências operacionais:
+> 1. **Banco existente precisa de migração**: `database/migrate_sources_owner.sql`
+>    (consolida duplicatas → reaponta `documents.source_id` → remove as excedentes →
+>    cria o índice). A ordem importa: `documents.source_id` tem `ON DELETE CASCADE`, então
+>    apagar a fonte duplicada antes de reapontar os chunks **levaria os chunks junto**.
+>    Verificado com o cenário real: 2 fontes / 2 chunks → 1 fonte / **2 chunks preservados**.
+> 2. **`CREATE UNIQUE INDEX` falha** se a base já tem duplicatas — por isso o `init.sql`
+>    (que roda em banco novo) e o arquivo de migração trazem o mesmo bloco de consolidação;
+>    a migração é idempotente (rodar duas vezes não altera nada).
 
 Cobertura: 5 casos unitários + 3 de integração (chunks do 2º dono indexados, fontes
 homônimas coexistindo, reindexação do mesmo dono continuando deduplicada).
@@ -258,6 +277,35 @@ duas vezes e confere as invariantes de segurança do schema.
 Não há OCR. Quando o `PyPDFLoader` não extrai texto, `store_in_postgres` retorna sem
 gravar nada e a interface ainda exibe "indexado com sucesso". Em fluxo jurídico, PDF
 escaneado é o caso comum.
+
+### P1-9 · Fact-check marca resposta correta como "parcial" (falsos positivos) ⏳
+
+Achado **rodando o pipeline**, não lendo código (`scripts/smoke_dev.py`, ambiente de
+desenvolvimento). Pergunta sobre carência; a resposta foi correta e citou a fonte certa:
+
+```
+A base recuperada da Lei nº 8.213/1991, artigo 25, especifica que a carência exigida
+para a concessão do benefício é de 180 contribuições mensais. Esta informação é direta
+e não requer nenhum contexto adicional para sua compreensão.
+  [1] Lei 8213, art. 25   distância=0.100
+fact-check: {'total_sentences': 2, 'supported': 0, 'partial': 2, 'no_support': 0, 'all_grounded': False}
+```
+
+Duas causas distintas, ambas falso positivo:
+
+1. **Formato do dispositivo.** O modelo escreveu "artigo 25" e o documento diz
+   "Art. 25."; o `_factual_claim_grounded` compara as formas *cruas* (`artigo25` vs
+   `art.25.`) em vez de usar o `_normalize_dispositivo` que já existe — então considera a
+   afirmação desancorada. Bastaria o modelo ter escrito "art. 25" para passar.
+2. **Cobertura lexical de frase meta.** A segunda sentença ("Esta informação é direta…")
+   não é afirmação de conteúdo, mas a checagem de cobertura (`ratio < 0.15`) a classifica
+   como `weak` e o `_is_boilerplate` não a reconhece como cortesia/transição.
+
+Efeito prático: a interface exibe aviso de "sentenças sem lastro" em respostas **corretas**
+— e um aviso que aparece sempre é um aviso que o advogado aprende a ignorar (o custo real
+é não perceber quando ele estiver certo). Correção sugerida: normalizar dispositivos dos
+dois lados (`_normalize_dispositivo`) e tratar frase sem afirmação factual como
+`supported`, com testes de regressão tirados deste exemplo.
 
 ---
 

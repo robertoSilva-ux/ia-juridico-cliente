@@ -18,7 +18,7 @@ jobs:
       - name: Install ruff
         run: pip install "ruff==0.17.1"
       - name: Lint (ruff)
-        run: ruff check app/
+        run: ruff check .
 
   # A suíte de testes nunca rodava no CI (só o lint). Agora roda TODOS os módulos
   # de tests/, cada um em processo separado (ver app/run_tests.sh).
@@ -99,6 +99,13 @@ jobs:
             echo "--- init.sql, rodada $rodada ---"
             docker exec -i ci-db psql -U user -d legal_test -v ON_ERROR_STOP=1 < database/init.sql
           done
+      - name: Aplicar a migração de sources (idempotente, roda 2x)
+        run: |
+          for rodada in 1 2; do
+            echo "--- migrate_sources_owner.sql, rodada $rodada ---"
+            docker exec -i ci-db psql -U user -d legal_test -v ON_ERROR_STOP=1 \
+              < database/migrate_sources_owner.sql
+          done
       - name: Invariantes de segurança do schema
         run: |
           set -euo pipefail
@@ -108,7 +115,18 @@ jobs:
           test "$admin" = "0" || { echo "::error::init.sql semeou admin padrão ($admin linha)"; exit 1; }
           echo "ok: nenhum admin semeado pelo schema"
 
-          idx=$(q "SELECT indexdef FROM pg_indexes WHERE indexname = 'sources_file_name_owner_uidx'")
-          echo "$idx" | grep -q "(file_name, owner_id)" \
-            || { echo "::error::falta o índice único (file_name, owner_id) em sources"; exit 1; }
+          # unicidade da fonte: (arquivo, dono) com dono nulo como um único bucket
+          idx=$(q "SELECT indexdef FROM pg_indexes WHERE indexname = 'sources_file_owner_uidx'")
+          echo "$idx" | grep -q "(file_name, COALESCE(owner_id" \
+            || { echo "::error::falta o índice único sources_file_owner_uidx em (file_name, COALESCE(owner_id, -1))"; exit 1; }
           echo "ok: unicidade de sources é por (arquivo, dono)"
+
+          # o upsert da ingestão tem de casar com esse índice (senão a ingestão quebra)
+          docker exec -i ci-db psql -U user -d legal_test -v ON_ERROR_STOP=1 -c "
+            INSERT INTO sources (file_name, owner_id, scope) VALUES ('ci-upsert.pdf', NULL, 'global')
+              ON CONFLICT (file_name, (COALESCE(owner_id, -1))) DO UPDATE SET scope = EXCLUDED.scope;
+            INSERT INTO sources (file_name, owner_id, scope) VALUES ('ci-upsert.pdf', NULL, 'global')
+              ON CONFLICT (file_name, (COALESCE(owner_id, -1))) DO UPDATE SET scope = EXCLUDED.scope;" >/dev/null
+          linhas=$(q "SELECT count(*) FROM sources WHERE file_name = 'ci-upsert.pdf'")
+          test "$linhas" = "1" || { echo "::error::ON CONFLICT não casou com o índice ($linhas linhas)"; exit 1; }
+          echo "ok: ON CONFLICT da ingestão casa com o índice"

@@ -187,6 +187,32 @@ class TestIsolamentoPorDono(unittest.TestCase):
                 "SELECT source_id FROM documents WHERE owner_id = %s", (dono,))}
             self.assertEqual(source_ids, {fontes[dono]})
 
+    def test_carga_sem_dono_atualiza_a_fonte_em_vez_de_duplicar(self):
+        """Cargas em lote/legado (owner_id NULL) não podem acumular fontes.
+
+        Em índice único NULL é distinto de NULL: com o índice em (file_name,
+        owner_id), o `ON CONFLICT` nunca casava para documentos sem dono e cada
+        carga inseria uma linha nova de `sources`. É o caminho do
+        `scripts/indexar_lote.py` (--owner-id None), usado para o corpus global —
+        e é por isso que o índice é em (file_name, COALESCE(owner_id, -1)).
+        """
+        self._store([FakeChunk("Art. 25. Carencia de 180 contribuicoes.")], owner_id=None, scope='global')
+        # segunda carga com um chunk novo (senão o dedup nem chega ao upsert)
+        self._store([
+            FakeChunk("Art. 25. Carencia de 180 contribuicoes."),
+            FakeChunk("Art. 54. Aposentadoria por tempo de contribuicao."),
+        ], owner_id=None, scope='global')
+
+        fontes = self._query(
+            "SELECT id FROM sources WHERE file_name = %s AND owner_id IS NULL", (MESMO_ARQUIVO,))
+        self.assertEqual(len(fontes), 1, "a segunda carga criou uma fonte duplicada")
+
+        # e os dois chunks apontam para essa única fonte
+        referenciadas = {r[0] for r in self._query(
+            "SELECT source_id FROM documents WHERE file_name = %s", (MESMO_ARQUIVO,))}
+        self.assertEqual(referenciadas, {fontes[0][0]})
+        self.assertEqual(len(self._query("SELECT id FROM documents")), 2)
+
     # ---------- P0-3: escopo por dono ----------
 
     def test_tornar_global_um_documento_nao_promove_o_homonimo_de_outro_dono(self):

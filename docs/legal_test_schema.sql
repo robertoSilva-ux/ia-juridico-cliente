@@ -40,11 +40,14 @@ CREATE TABLE IF NOT EXISTS sources (
     scope VARCHAR(10) DEFAULT 'private'
 );
 
--- Mesma unicidade do database/init.sql: (file_name, owner_id), nunca só o nome.
--- Sem isso o upsert de ingest.py (ON CONFLICT (file_name, owner_id)) não tem
--- índice para inferir e a ingestão quebra neste banco de teste.
+-- Mesma unicidade do database/init.sql: (file_name, dono), com dono nulo como um
+-- único "sem dono" (COALESCE(owner_id, -1)) — em índice único NULL é distinto de
+-- NULL, então sem a expressão o `ON CONFLICT` da ingestão não casaria para as
+-- cargas sem dono. Sem este índice, a ingestão quebra neste banco de teste.
 ALTER TABLE sources DROP CONSTRAINT IF EXISTS sources_file_name_key;
-CREATE UNIQUE INDEX IF NOT EXISTS sources_file_name_owner_uidx ON sources (file_name, owner_id);
+DROP INDEX IF EXISTS sources_file_name_owner_uidx;
+CREATE UNIQUE INDEX IF NOT EXISTS sources_file_owner_uidx
+    ON sources (file_name, COALESCE(owner_id, -1));
 
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
 

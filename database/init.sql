@@ -64,16 +64,53 @@ CREATE TABLE IF NOT EXISTS sources (
     scope VARCHAR(10) DEFAULT 'private'
 );
 
+-- Chunks passam a referenciar a fonte (coluna adicionada de forma idempotente).
+-- Precisa vir ANTES do bloco de consolidação abaixo, que reaponta `source_id`.
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
+
 -- Unicidade da fonte é por (arquivo, DONO) — nunca só pelo nome do arquivo.
 -- Dois usuários podem subir "peticao.pdf" cada um, e a versão anterior
 -- (UNIQUE só em file_name) fazia o upsert do segundo sobrescrever owner/scope
 -- da fonte do primeiro: metadado de um tenant apontando para outro.
--- Idempotente: derruba a constraint antiga se existir e garante o índice novo.
+--
+-- O dono entra como COALESCE(owner_id, -1) porque, em índice único, NULL é
+-- distinto de NULL: com a coluna crua o `ON CONFLICT (file_name, owner_id)` não
+-- casaria para os documentos sem dono (cargas em lote/legado — é assim que o
+-- corpus global entra via scripts/indexar_lote.py) e cada carga criaria uma
+-- linha nova. -1 como sentinela é seguro: owner_id tem FK para users(id) e
+-- SERIAL começa em 1.
+--
+-- Em banco EXISTENTE, use database/migrate_sources_owner.sql (que consolida
+-- duplicatas antes de criar o índice — num banco com duplicatas o CREATE UNIQUE
+-- INDEX falha). Os blocos abaixo são os mesmos, para o init.sql ser idempotente.
 ALTER TABLE sources DROP CONSTRAINT IF EXISTS sources_file_name_key;
-CREATE UNIQUE INDEX IF NOT EXISTS sources_file_name_owner_uidx ON sources (file_name, owner_id);
+DROP INDEX IF EXISTS sources_file_name_owner_uidx;
 
--- Chunks passam a referenciar a fonte (coluna adicionada de forma idempotente).
-ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
+WITH duplicatas AS (
+    SELECT id,
+           MIN(id) OVER (PARTITION BY file_name, COALESCE(owner_id, -1)) AS manter
+    FROM sources
+    WHERE owner_id IS NULL
+)
+UPDATE documents d
+   SET source_id = duplicatas.manter
+  FROM duplicatas
+ WHERE d.source_id = duplicatas.id
+   AND duplicatas.id <> duplicatas.manter;
+
+WITH duplicatas AS (
+    SELECT id,
+           MIN(id) OVER (PARTITION BY file_name, COALESCE(owner_id, -1)) AS manter
+    FROM sources
+    WHERE owner_id IS NULL
+)
+DELETE FROM sources s
+ USING duplicatas
+ WHERE s.id = duplicatas.id
+   AND duplicatas.id <> duplicatas.manter;
+
+CREATE UNIQUE INDEX IF NOT EXISTS sources_file_owner_uidx
+    ON sources (file_name, COALESCE(owner_id, -1));
 
 CREATE TABLE IF NOT EXISTS audit_log (
     id SERIAL PRIMARY KEY,

@@ -19,19 +19,24 @@ from database import get_db_connection  # noqa: E402
 
 
 def _get_or_create_source(cur, file_name, owner_id=None, scope='global'):
-    """Upsert da fonte por (file_name, owner_id) — nunca só pelo nome do arquivo.
+    """Upsert da fonte por (file_name, dono) — nunca só pelo nome do arquivo.
 
     O backfill antigo resolvia o conflito por `file_name`, com
     `owner_id = COALESCE(EXCLUDED.owner_id, sources.owner_id)`: ao encontrar um
     arquivo homônimo de outro dono, ele reescrevia o dono da fonte existente —
     fonte de um tenant passando a pertencer a outro (docs/REVISAO_SEGURANCA.md, P0-4).
+
+    O dono entra como `COALESCE(owner_id, -1)` porque NULL é distinto de NULL em
+    índice único; sem isso o conflito não casaria para as cargas sem dono
+    (--owner-id None) e cada execução criaria uma linha nova de fonte. O alvo tem
+    de ser escrito igual ao índice `sources_file_owner_uidx` (database/init.sql).
     """
     meta = parse_file_name(file_name)
     title = build_title(meta)
     cur.execute(
         "INSERT INTO sources (file_name, title, tipo_doc, numero_doc, ano_doc, owner_id, scope) "
         "VALUES (%s, %s, %s, %s, %s, %s, %s) "
-        "ON CONFLICT (file_name, owner_id) DO UPDATE SET "
+        "ON CONFLICT (file_name, (COALESCE(owner_id, -1))) DO UPDATE SET "
         "    title = COALESCE(EXCLUDED.title, sources.title), "
         "    tipo_doc = COALESCE(EXCLUDED.tipo_doc, sources.tipo_doc), "
         "    numero_doc = COALESCE(EXCLUDED.numero_doc, sources.numero_doc), "
