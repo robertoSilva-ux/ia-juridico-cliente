@@ -3,10 +3,6 @@ import os
 from typing import Any
 
 import psycopg2
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama import ChatOllama
-from psycopg2.extras import RealDictCursor
-
 from config import (
     EMBEDDING_MODEL,
     HYDE_ENABLED,
@@ -20,7 +16,6 @@ from config import (
     TEMPERATURE,
     TOP_K,
 )
-from database import get_db_connection
 from embeddings import NomicOllamaEmbeddings
 from factcheck import (  # noqa: F401  (re-export da API pública)
     _BOILERPLATE_PATTERNS,
@@ -41,6 +36,9 @@ from factcheck import (  # noqa: F401  (re-export da API pública)
     _split_sentences,
     invalidate_dispositivos_cache,
 )
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import ChatOllama
+from psycopg2.extras import RealDictCursor
 from ranking import (  # noqa: F401  (re-export da API pública)
     _TIPO_LABEL,
     _cosine_sim,
@@ -61,6 +59,8 @@ from regime import (  # noqa: F401  (re-export da API pública)
     _metadata_search,
     _parse_article_reference,
 )
+
+from database import get_db_connection
 
 # =========================================================
 # LOGGING

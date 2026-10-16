@@ -266,10 +266,27 @@ class TestFilterExisting(unittest.TestCase):
         self.assertIn("texto 3", contents)
         self.assertNotIn("texto 0", contents)
         self.assertNotIn("texto 2", contents)
-        # Consulta foi feita para o file_name correto
+        # Consulta foi feita para o file_name correto E para o dono (P0-4)
         cur.execute.assert_called_once_with(
-            "SELECT content FROM documents WHERE file_name = %s", ("doc.pdf",)
+            "SELECT content FROM documents "
+            "WHERE file_name = %s AND owner_id IS NOT DISTINCT FROM %s",
+            ("doc.pdf", None),
         )
+
+    @patch('ingest.get_db_connection')
+    def test_dedup_e_escopado_por_dono(self, mock_conn):
+        """O dedup de um dono não pode descartar/ingerir arquivo de outro dono."""
+        cur = MagicMock()
+        cur.fetchall.return_value = []
+        conn_cm = MagicMock()
+        conn_cm.__enter__.return_value = conn_cm
+        conn_cm.cursor.return_value.__enter__.return_value = cur
+        mock_conn.return_value = conn_cm
+
+        chunks = [_make_chunk("texto 0")]
+        self.ingest._filter_existing(chunks, "peticao.pdf", owner_id=2)
+
+        self.assertEqual(cur.execute.call_args[0][1], ("peticao.pdf", 2))
 
     @patch('ingest.get_db_connection', side_effect=Exception("db down"))
     def test_falha_no_dedup_nao_bloqueia_ingestao(self, mock_conn):
@@ -291,6 +308,31 @@ class TestFilterExisting(unittest.TestCase):
         chunks = [_make_chunk(f"texto {i}") for i in range(3)]
         result = self.ingest._filter_existing(chunks, "doc.pdf")
         self.assertEqual(len(result), 3)
+
+
+class TestDedupRecebeODono(unittest.TestCase):
+    """O dono precisa atravessar store_in_postgres -> _filter_existing (P0-4)."""
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    @patch('ingest._filter_existing')
+    @patch('ingest.psycopg2.connect')
+    def test_owner_id_chega_ao_dedup(self, mock_connect, mock_filtro):
+        # Tudo já existente -> store_in_postgres para antes de conectar no banco.
+        mock_filtro.return_value = []
+
+        list(self.ingest.store_in_postgres(
+            [_make_chunk("texto")], FakeEmbedder(), "peticao.pdf",
+            owner_id=5, scope='private',
+        ))
+
+        self.assertEqual(mock_filtro.call_args[0][1], "peticao.pdf")
+        self.assertEqual(mock_filtro.call_args[1].get("owner_id"), 5)
+        mock_connect.assert_not_called()
 
 
 def tearDownModule():

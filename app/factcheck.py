@@ -11,6 +11,7 @@ import re
 from typing import Any
 
 from config import FACT_CHECK_ENABLED
+
 from database import get_db_connection
 
 logger = logging.getLogger(__name__)

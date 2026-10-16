@@ -54,7 +54,7 @@ ALTER TABLE documents ADD COLUMN IF NOT EXISTS scope VARCHAR(10) DEFAULT 'privat
 
 CREATE TABLE IF NOT EXISTS sources (
     id SERIAL PRIMARY KEY,
-    file_name TEXT NOT NULL UNIQUE,
+    file_name TEXT NOT NULL,
     title TEXT,
     tipo_doc VARCHAR(50),
     numero_doc VARCHAR(20),
@@ -63,6 +63,14 @@ CREATE TABLE IF NOT EXISTS sources (
     owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     scope VARCHAR(10) DEFAULT 'private'
 );
+
+-- Unicidade da fonte é por (arquivo, DONO) — nunca só pelo nome do arquivo.
+-- Dois usuários podem subir "peticao.pdf" cada um, e a versão anterior
+-- (UNIQUE só em file_name) fazia o upsert do segundo sobrescrever owner/scope
+-- da fonte do primeiro: metadado de um tenant apontando para outro.
+-- Idempotente: derruba a constraint antiga se existir e garante o índice novo.
+ALTER TABLE sources DROP CONSTRAINT IF EXISTS sources_file_name_key;
+CREATE UNIQUE INDEX IF NOT EXISTS sources_file_name_owner_uidx ON sources (file_name, owner_id);
 
 -- Chunks passam a referenciar a fonte (coluna adicionada de forma idempotente).
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
@@ -84,7 +92,13 @@ CREATE TABLE IF NOT EXISTS audit_log (
 -- Inserir limite padrão de usuários se não existir
 INSERT INTO system_settings (key, value) VALUES ('max_users', '10') ON CONFLICT DO NOTHING;
 
--- Inserir usuário administrador padrão (Senha: admin123)
-INSERT INTO users (email, name, password_hash, role)
-VALUES ('admin@legaliz.ai', 'Administrador', '$2b$12$tTamqrN04JqcD616achOFOZOglw.gbwhrC0gxeh1JFnzEtHzsdBMe', 'admin')
-ON CONFLICT (email) DO NOTHING;
+-- ============================================================
+-- NOTA: o usuário administrador NÃO é criado aqui.
+-- ============================================================
+-- O schema não deve semear credencial nenhuma: a versão anterior inseria
+-- 'admin@legaliz.ai' com o hash de 'admin123' fixo no SQL, então todo banco novo
+-- nascia com credencial de admin conhecida (docs/REVISAO_SEGURANCA.md, P0-2).
+-- O admin inicial é criado por `init_admin.py`, que EXIGE ADMIN_PASSWORD no .env.
+-- Para migrar um banco que ainda tenha a credencial padrão, troque a senha pelo
+-- painel (Gestão de Usuários → Resetar Senha) ou rode:
+--   UPDATE users SET password_hash = <novo hash bcrypt> WHERE email = 'admin@legaliz.ai';

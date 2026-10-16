@@ -36,8 +36,9 @@ APP_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(APP_DIR))
 
 from config import EMBED_BATCH_SIZE, EMBEDDING_MODEL, OLLAMA_BASE_URL  # noqa: E402
-from database import get_db_connection  # noqa: E402
 from embeddings import NomicOllamaEmbeddings  # noqa: E402
+
+from database import get_db_connection  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("reindex")

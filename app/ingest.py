@@ -5,13 +5,13 @@ import time
 
 import psycopg2
 import psycopg2.extras
+from config import DATABASE_URL, EMBED_BATCH_SIZE
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from legal_parser import enrich_chunk_metadata, parse_chunk
 from pgvector.psycopg2 import register_vector
 
-from config import DATABASE_URL, EMBED_BATCH_SIZE
 from database import get_db_connection
-from legal_parser import enrich_chunk_metadata, parse_chunk
 
 logger = logging.getLogger(__name__)
 
@@ -254,6 +254,15 @@ def _embed_with_retry(embeddings_model, texts, max_retries=3, base_delay=2.0):
 
 
 def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
+    """Garante a linha de `sources` do arquivo DE UM DONO e devolve o id.
+
+    O conflito é resolvido por (file_name, owner_id), nunca só pelo nome: dois
+    usuários podem ter arquivos com o mesmo nome, e a versão anterior (UNIQUE só
+    em file_name) fazia o upload do segundo usuário sobrescrever owner/scope da
+    fonte do primeiro — metadado de um tenant apontando para outro
+    (docs/REVISAO_SEGURANCA.md, P0-4). Requer o índice único
+    `sources_file_name_owner_uidx` (database/init.sql).
+    """
     from legal_parser import build_title, parse_file_name
     meta = parse_file_name(file_name)
     title = build_title(meta)
@@ -261,13 +270,12 @@ def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
         cur.execute(
             "INSERT INTO sources (file_name, title, tipo_doc, numero_doc, ano_doc, owner_id, scope) "
             "VALUES (%s, %s, %s, %s, %s, %s, %s) "
-            "ON CONFLICT (file_name) DO UPDATE SET "
+            "ON CONFLICT (file_name, owner_id) DO UPDATE SET "
             "    title = COALESCE(EXCLUDED.title, sources.title), "
             "    tipo_doc = COALESCE(EXCLUDED.tipo_doc, sources.tipo_doc), "
             "    numero_doc = COALESCE(EXCLUDED.numero_doc, sources.numero_doc), "
             "    ano_doc = COALESCE(EXCLUDED.ano_doc, sources.ano_doc), "
-            "    owner_id = COALESCE(EXCLUDED.owner_id, sources.owner_id), "
-            "    scope = COALESCE(EXCLUDED.scope, sources.scope) "
+            "    scope = EXCLUDED.scope "
             "RETURNING id",
             (file_name, title, meta['tipo'], meta['numero'], meta['ano'], owner_id, scope),
         )
@@ -289,10 +297,13 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
     if total_chunks == 0:
         return
 
-    # --- Dedup: remove chunks cujo conteúdo já existe no banco p/ o mesmo arquivo ---
+    # --- Dedup: remove chunks cujo conteúdo já existe no banco p/ o MESMO arquivo DO MESMO dono ---
     # Evita reindexar um documento que já foi ingerido (ex.: upload duplicado),
-    # poupando calls de embedding e mantendo o TOP_K livre de cópias.
-    deduped = _filter_existing(valid, file_name)
+    # poupando calls de embedding e mantendo o TOP_K livre de cópias. O filtro é
+    # por (file_name, owner_id): comparar só o nome do arquivo fazia o upload do
+    # segundo usuário ser 100% descartado (os chunks existentes eram de outro
+    # dono) e a UI ainda dizia "indexado com sucesso" (docs/REVISAO_SEGURANCA.md, P0-4).
+    deduped = _filter_existing(valid, file_name, owner_id=owner_id)
     skipped = total_chunks - len(deduped)
     if skipped:
         logger.info(f"{skipped} chunks já existentes no banco — pulados (dedup).")
@@ -353,11 +364,13 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                 yield progress
 
 
-def _filter_existing(chunks, file_name):
-    """Filtra chunks cujo conteúdo já está no banco para o mesmo file_name.
+def _filter_existing(chunks, file_name, owner_id=None):
+    """Filtra chunks cujo conteúdo já está no banco para o mesmo arquivo e dono.
 
-    Consulta os conteúdos já indexados uma única vez (IN) e remove duplicatas.
-    Isso evita reindexar documentos ingeridos mais de uma vez.
+    Consulta os conteúdos já indexados uma única vez e remove duplicatas. O dono
+    faz parte do critério (`IS NOT DISTINCT FROM`, que também casa `owner_id`
+    nulo dos chunks legados): sem ele, o arquivo de um usuário era descartado por
+    já "existir" na base de outro.
     """
     if not chunks:
         return []
@@ -365,8 +378,9 @@ def _filter_existing(chunks, file_name):
         with get_db_connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
-                    "SELECT content FROM documents WHERE file_name = %s",
-                    (file_name,),
+                    "SELECT content FROM documents "
+                    "WHERE file_name = %s AND owner_id IS NOT DISTINCT FROM %s",
+                    (file_name, owner_id),
                 )
                 existing = {row[0] for row in cur.fetchall()}
         if not existing:

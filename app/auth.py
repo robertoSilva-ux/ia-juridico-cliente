@@ -2,9 +2,9 @@ import re
 
 import bcrypt
 import psycopg2
+from config import DATABASE_URL
 from psycopg2.extras import RealDictCursor
 
-from config import DATABASE_URL
 from database import get_db_connection
 
 # =========================================================

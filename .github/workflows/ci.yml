@@ -3,6 +3,10 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  # Lint com o linter que o projeto realmente configura (pyproject.toml → ruff).
+  # Antes o CI instalava flake8 e rodava com select E9,F63,F7,F82 — que não cobre
+  # nada do que o pyproject.toml define (imports não usados, ordem de imports,
+  # pycodestyle, bugbear...). Silenciosamente verde não é verde.
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -11,9 +15,100 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install ruff
+        run: pip install "ruff==0.17.1"
+      - name: Lint (ruff)
+        run: ruff check app/
+
+  # A suíte de testes nunca rodava no CI (só o lint). Agora roda TODOS os módulos
+  # de tests/, cada um em processo separado (ver app/run_tests.sh).
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: app/requirements.lock.txt
       - name: Install dependencies
         run: |
-          pip install flake8
-          cd app && pip install -r requirements.txt
-      - name: Lint with flake8
-        run: flake8 app/ --count --select=E9,F63,F7,F82 --show-source --statistics
+          python -m pip install --upgrade pip
+          pip install -r app/requirements.txt
+      - name: Unit tests (um módulo por processo)
+        run: bash app/run_tests.sh
+
+  # Integração: Postgres com pgvector de verdade, schema aplicado e os testes de
+  # ingestão/isolamento por dono rodando contra o banco (sem eles, a única coisa
+  # que valida o SQL da app é a leitura de código).
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: app/requirements.lock.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r app/requirements.txt
+      - name: Subir Postgres pgvector
+        run: |
+          docker run -d --name legal-test-db \
+            -e POSTGRES_USER=user -e POSTGRES_PASSWORD=ci_password -e POSTGRES_DB=legal_test \
+            -p 5440:5432 pgvector/pgvector:pg16
+          for i in $(seq 1 30); do
+            docker exec legal-test-db pg_isready -U user -d legal_test && break
+            sleep 2
+          done
+      - name: Aplicar o schema de teste
+        run: |
+          docker exec -i legal-test-db psql -U user -d legal_test -v ON_ERROR_STOP=1 \
+            < docs/legal_test_schema.sql
+      - name: Testes de integração
+        working-directory: app
+        env:
+          TEST_DATABASE_URL: postgresql://user:ci_password@localhost:5440/legal_test
+        run: |
+          python -m unittest tests.test_integration_ingest -v
+          python -m unittest tests.test_integration_tenancy -v
+
+  # O schema do banco nunca era verificado. Aqui o database/init.sql é aplicado
+  # num Postgres com pgvector DUAS vezes (as migrações precisam ser idempotentes)
+  # e as invariantes de segurança do próprio schema são conferidas.
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Subir Postgres pgvector
+        run: |
+          docker run -d --name ci-db \
+            -e POSTGRES_USER=user -e POSTGRES_PASSWORD=ci_password -e POSTGRES_DB=legal_test \
+            -p 5432:5432 pgvector/pgvector:pg16
+          for i in $(seq 1 30); do
+            docker exec ci-db pg_isready -U user -d legal_test && break
+            sleep 2
+          done
+      - name: Aplicar database/init.sql duas vezes (idempotência)
+        run: |
+          for rodada in 1 2; do
+            echo "--- init.sql, rodada $rodada ---"
+            docker exec -i ci-db psql -U user -d legal_test -v ON_ERROR_STOP=1 < database/init.sql
+          done
+      - name: Invariantes de segurança do schema
+        run: |
+          set -euo pipefail
+          q() { docker exec ci-db psql -U user -d legal_test -tAc "$1"; }
+
+          admin=$(q "SELECT count(*) FROM users WHERE email = 'admin@legaliz.ai'")
+          test "$admin" = "0" || { echo "::error::init.sql semeou admin padrão ($admin linha)"; exit 1; }
+          echo "ok: nenhum admin semeado pelo schema"
+
+          idx=$(q "SELECT indexdef FROM pg_indexes WHERE indexname = 'sources_file_name_owner_uidx'")
+          echo "$idx" | grep -q "(file_name, owner_id)" \
+            || { echo "::error::falta o índice único (file_name, owner_id) em sources"; exit 1; }
+          echo "ok: unicidade de sources é por (arquivo, dono)"

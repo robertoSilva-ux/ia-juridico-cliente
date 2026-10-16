@@ -2,10 +2,9 @@
 import logging
 from contextlib import contextmanager
 
+from config import DATABASE_URL, DB_CONNECT_TIMEOUT, DB_POOL_MAX, DB_POOL_MIN, IVFFLAT_PROBES
 from pgvector.psycopg2 import register_vector
 from psycopg2.pool import SimpleConnectionPool
-
-from config import DATABASE_URL, DB_CONNECT_TIMEOUT, DB_POOL_MAX, DB_POOL_MIN, IVFFLAT_PROBES
 
 logger = logging.getLogger(__name__)
 

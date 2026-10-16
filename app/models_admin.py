@@ -8,9 +8,8 @@ Cobre o CRUD sobre a coleção de modelos instalados no servidor Ollama:
   - Carregar (warmup) e descarregar (unload) para controlar memória/GPU
   - Remover (delete) um modelo instalado
 """
-import streamlit as st
-
 import ollama_utils as ou
+import streamlit as st
 
 
 def _render_running(models_installed, running_details):

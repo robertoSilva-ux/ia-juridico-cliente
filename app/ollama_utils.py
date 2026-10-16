@@ -2,7 +2,6 @@ import json
 import logging
 
 import requests
-
 from config import OLLAMA_BASE_URL
 
 # =========================================================

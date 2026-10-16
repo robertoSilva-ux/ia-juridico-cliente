@@ -60,6 +60,61 @@ HYDE_ENABLED = os.getenv("HYDE_ENABLED", "true").lower() in ("true", "1", "yes",
 # Quantos docs trazer de CADA ranking (query original + HyDE) antes da fusão.
 HYDE_TOP_K = int(os.getenv("HYDE_TOP_K", "8"))
 # Peso da query original na fusão RRF (>= 1.0). Kimothi alerta que overexpansion
-# dilui o foco da query original; por isso a busca pela query conta mais que a HyDE,
-# que apenas COMPLEMENTA com docs que passam no threshold. 1.0 = peso igual.
+# dilui o foco da query original; por isso a busca pela query conta mais que a
+# HyDE, que apenas COMPLEMENTA com docs que passam no threshold. 1.0 = peso igual.
 HYDE_QUERY_WEIGHT = float(os.getenv("HYDE_QUERY_WEIGHT", "1.4"))
+
+# =========================================================
+# SEGREDO DO COOKIE DE SESSÃO (autenticação)
+# =========================================================
+# O streamlit-authenticator assina o cookie de sessão com JWT/HS256 usando esta
+# chave (models/cookie_model.py: jwt.encode(..., self.cookie_key, 'HS256') no
+# set e jwt.decode(token, self.cookie_key, ['HS256']) no check). Ela é, portanto,
+# um SEGREDO DE AUTENTICAÇÃO: quem conhece a chave forja um cookie válido para
+# qualquer usuário — inclusive admin — e entra sem senha.
+#
+# Por isso NÃO existe valor padrão aqui: sem COOKIE_KEY forte, a aplicação se
+# recusa a subir (ver `cookie_key_problem()` e o guard em main.py). Um literal
+# "legal_ai_key" chegou a ir para o repositório público, o que permitia forjar
+# o cookie de admin com o pyjwt (ver docs/REVISAO_SEGURANCA.md, P0-1).
+#
+# ATENÇÃO: a chave precisa ser ESTÁVEL entre reinícios/deploys — trocá-la
+# invalida as sessões ativas (todo mundo faz login de novo).
+COOKIE_KEY = os.getenv("COOKIE_KEY", "")
+
+# Mínimo em bytes para HMAC-SHA256. 32 bytes = 256 bits (RFC 7518 §3.2); abaixo
+# disso o pyjwt emite InsecureKeyLengthWarning.
+COOKIE_KEY_MIN_BYTES = 32
+
+# Valores conhecidos por estarem em documentação/tutoriais/repositório: nunca
+# aceitar, porque são exatamente o que um atacante tenta primeiro.
+COOKIE_KEY_BLOCKLIST = frozenset({"legal_ai_key", "some_key", "changeme", "secret", "admin123"})
+
+
+def cookie_key_problem(key: str | None = None) -> str | None:
+    """Valida a chave de assinatura do cookie de sessão.
+
+    Retorna a mensagem do problema (para a UI/CLI exibir) ou None quando a chave
+    está adequada. Função pura, sem I/O, para ser testável isoladamente e para o
+    chamador decidir abortar a inicialização.
+    """
+    value = COOKIE_KEY if key is None else key
+    gerar = 'python3 -c "import secrets; print(secrets.token_urlsafe(48))"'
+    if not value:
+        return (
+            "COOKIE_KEY não definida no .env — sem ela o cookie de sessão não pode "
+            f"ser assinado com segurança. Gere uma com:\n  {gerar}"
+        )
+    if value in COOKIE_KEY_BLOCKLIST:
+        return (
+            f"COOKIE_KEY usa um valor conhecido/público ({value!r}). Com ele qualquer "
+            "pessoa forja um cookie de admin e entra sem senha. Gere uma nova com:\n"
+            f"  {gerar}"
+        )
+    if len(value.encode("utf-8")) < COOKIE_KEY_MIN_BYTES:
+        return (
+            f"COOKIE_KEY tem {len(value.encode('utf-8'))} bytes; o mínimo é "
+            f"{COOKIE_KEY_MIN_BYTES} bytes (256 bits, RFC 7518 §3.2). Gere uma com:\n"
+            f"  {gerar}"
+        )
+    return None

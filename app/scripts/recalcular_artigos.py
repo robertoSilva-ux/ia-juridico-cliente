@@ -29,8 +29,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 APP_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(APP_DIR))
 
-from database import get_db_connection  # noqa: E402
 from legal_parser import parse_chunk  # noqa: E402
+
+from database import get_db_connection  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("recalcular_artigos")

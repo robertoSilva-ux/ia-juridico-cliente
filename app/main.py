@@ -1,11 +1,9 @@
 import os
 import tempfile
 
+import ollama_utils
 import streamlit as st
 import streamlit_authenticator as stauth
-from langchain_core.messages import AIMessage, HumanMessage
-
-import ollama_utils
 from agent import get_response, set_llm_model
 from audit import count_audit_logs, get_audit_logs, get_unique_users_from_audit
 from auth import (
@@ -16,10 +14,11 @@ from auth import (
     set_system_setting,
     update_password,
 )
-from config import OLLAMA_BASE_URL
+from config import COOKIE_KEY, OLLAMA_BASE_URL, cookie_key_problem
 from embeddings import NomicOllamaEmbeddings
 from gpu_check import check_gpu, format_gpu_status
 from ingest import process_pdf, store_in_postgres
+from langchain_core.messages import AIMessage, HumanMessage
 from manage import delete_document, list_documents, update_document_scope
 
 # Configuração da página deve ser a primeira chamada Streamlit
@@ -77,12 +76,23 @@ st.components.v1.html(
 )
 
 # --- AUTENTICAÇÃO ---
+# Guard de configuração: o cookie de sessão é assinado (HS256) com COOKIE_KEY.
+# Se a chave estiver ausente, curta ou for um valor público/conhecido, um
+# atacante forja o cookie de admin e entra sem senha — então a aplicação não
+# sobe. Roda ANTES de qualquer acesso ao banco para falhar cedo e barato.
+_cookie_problem = cookie_key_problem()
+if _cookie_problem:
+    st.error("🔒 Configuração de segurança inválida — a aplicação não pode iniciar.")
+    st.markdown(_cookie_problem)
+    st.caption("Defina COOKIE_KEY no .env e reinicie o container `app`.")
+    st.stop()
+
 credentials = get_all_users_for_auth()
 
 authenticator = stauth.Authenticate(
     credentials,
     "legal_ai_cookie",
-    "legal_ai_key",
+    COOKIE_KEY,
     cookie_expiry_days=30
 )
 
@@ -267,9 +277,10 @@ elif st.session_state["authentication_status"]:
         if not docs:
             st.info("Nenhum documento encontrado na base de dados.")
         else:
-            for file_name, uploaded_at, chunks, scope in docs:
+            for file_name, uploaded_at, chunks, scope, owner_id, owner_email in docs:
                 display_name = file_name if file_name != 'SEM_NOME' else "Documentos Legados (Sem Nome)"
                 scope_icon = "🌐 Global" if scope == 'global' else "🔒 Privado"
+                proprio = (owner_id == user_id)
                 with st.expander(f"{scope_icon} — {display_name}"):
                     col1, col2 = st.columns([3, 1])
                     with col1:
@@ -278,11 +289,23 @@ elif st.session_state["authentication_status"]:
                         else:
                             st.write("**Data de inclusão:** Indisponível")
                         st.write(f"**Fragmentos (chunks):** {chunks}")
+                        if not proprio:
+                            st.caption(f"Documento global compartilhado por {owner_email or 'outro usuário'}.")
                     with col2:
-                        if st.button("Excluir", key=f"del_{file_name}"):
-                            delete_document(file_name, user_id=user_id, is_admin=is_admin)
-                            st.success("Removido!")
-                            st.rerun()
+                        # Só quem é dono (ou o admin) pode excluir. A chave do widget
+                        # inclui o dono: o mesmo nome de arquivo pode existir para
+                        # donos diferentes, e chave duplicada quebra a página.
+                        if proprio or is_admin:
+                            if st.button("Excluir", key=f"del_{owner_id}_{file_name}"):
+                                removidos = delete_document(
+                                    file_name, user_id=user_id, is_admin=is_admin, owner_id=owner_id,
+                                )
+                                if removidos:
+                                    st.success(f"{removidos} fragmento(s) removido(s).")
+                                    st.rerun()
+                                else:
+                                    st.warning("Nada foi removido — documentos globais só podem ser "
+                                               "excluídos pelo administrador.")
 
     elif page == "Painel Admin" and user_role == 'admin':
         st.title("⚙️ Painel Administrativo")
@@ -394,30 +417,50 @@ elif st.session_state["authentication_status"]:
             if not all_docs:
                 st.info("Nenhum documento cadastrado.")
             else:
-                for file_name, uploaded_at, chunks, scope in all_docs:
+                for file_name, uploaded_at, chunks, scope, owner_id, owner_email in all_docs:
                     display_name = file_name if file_name != 'SEM_NOME' else "Documentos Legados (Sem Nome)"
                     scope_icon = "🌐 Global" if scope == 'global' else "🔒 Privado"
-                    with st.expander(f"{scope_icon} — {display_name}"):
+                    dono = owner_email or (f"usuário #{owner_id}" if owner_id else "legado (sem dono)")
+                    with st.expander(f"{scope_icon} — {display_name} — {dono}"):
                         col1, col2, col3 = st.columns([3, 1, 1])
                         with col1:
                             if uploaded_at:
                                 st.write(f"**Data de inclusão:** {uploaded_at.strftime('%d/%m/%Y %H:%M')}")
                             st.write(f"**Fragmentos (chunks):** {chunks}")
                             st.write(f"**Escopo:** {scope}")
+                            st.caption(f"**Dono:** {dono}")
                         with col2:
+                            # As ações agem sobre UM dono por vez (`owner_id` da linha).
+                            # Antes, o UPDATE era por nome de arquivo e promovia junto
+                            # o documento privado homônimo de todos os outros usuários.
                             if scope == 'private':
-                                if st.button("🌐 Tornar Global", key=f"global_{file_name}"):
-                                    update_document_scope(file_name, 'global', user_id)
-                                    st.rerun()
+                                if st.button("🌐 Tornar Global", key=f"global_{owner_id}_{file_name}"):
+                                    alterados = update_document_scope(
+                                        file_name, 'global', user_id, is_admin=True, owner_id=owner_id,
+                                    )
+                                    if alterados:
+                                        st.rerun()
+                                    else:
+                                        st.warning("Nenhum documento alterado para esse dono.")
                             else:
-                                if st.button("🔒 Tornar Privado", key=f"private_{file_name}"):
-                                    update_document_scope(file_name, 'private', user_id)
-                                    st.rerun()
+                                if st.button("🔒 Tornar Privado", key=f"private_{owner_id}_{file_name}"):
+                                    alterados = update_document_scope(
+                                        file_name, 'private', user_id, is_admin=True, owner_id=owner_id,
+                                    )
+                                    if alterados:
+                                        st.rerun()
+                                    else:
+                                        st.warning("Nenhum documento alterado para esse dono.")
                         with col3:
-                            if st.button("Excluir", key=f"del_admin_{file_name}"):
-                                delete_document(file_name, is_admin=True)
-                                st.success("Removido!")
-                                st.rerun()
+                            if st.button("Excluir", key=f"del_admin_{owner_id}_{file_name}"):
+                                removidos = delete_document(
+                                    file_name, user_id=user_id, is_admin=True, owner_id=owner_id,
+                                )
+                                if removidos:
+                                    st.success(f"{removidos} fragmento(s) removido(s).")
+                                    st.rerun()
+                                else:
+                                    st.warning("Nada foi removido para esse dono.")
 
         with tab4:
             st.header("📋 Auditoria de Perguntas")

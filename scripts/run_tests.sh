@@ -1,31 +1,9 @@
 #!/usr/bin/env bash
-# Executa os testes unitários do Legaliz.ai — cada arquivo em processo separado.
+# Wrapper de compatibilidade.
 #
-# Por que por arquivo? Os testes mockam psycopg2/pgvector em sys.modules no import.
-# Rodar vários arquivos no mesmo processo causa colisão dos mocks.
-set -uo pipefail
-
-cd "$(dirname "$0")/../app"
-
-UNIT_TESTS=(
-  tests.test_legal_parser
-  tests.test_ingest
-  tests.test_management
-  tests.test_auth
-)
-
-fails=0
-for t in "${UNIT_TESTS[@]}"; do
-  echo "=== ${t} ==="
-  if ! python3 -m unittest "${t}" 2>&1 | tail -n 6; then
-    echo ">>> FALHA em ${t}"
-    fails=$((fails + 1))
-  fi
-  echo
-done
-
-if [ "$fails" -gt 0 ]; then
-  echo ">>> ${fails} módulo(s) com falha."
-  exit 1
-fi
-echo ">>> Todos os testes unitários passaram."
+# O runner passou a viver em `app/run_tests.sh`: ele precisa estar DENTRO da
+# imagem, cujo build context é `app/` (o Dockerfile faz `COPY . .` a partir de
+# app/), para poder ser executado no container — que é o ambiente real. Este
+# caminho continua funcionando para quem já o chamava.
+set -euo pipefail
+exec bash "$(dirname "$0")/../app/run_tests.sh" "$@"

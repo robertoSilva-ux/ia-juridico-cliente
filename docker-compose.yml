@@ -41,18 +41,15 @@ services:
     build: ./app
     container_name: legal-app
     mem_limit: 512m
+    # env_file: TODAS as variáveis do .env chegam ao container. Antes havia só
+    # uma lista explícita de ~9 nomes, então ajustes do cliente em
+    # MAX_CONTEXT_CHARS, RERANK_*, HYDE_*, FACT_CHECK_*, DB_POOL_*, IVFFLAT_PROBES,
+    # EMBED_BATCH_SIZE, COOKIE_KEY e ADMIN_* eram silenciosamente ignorados
+    # (ver docs/REVISAO_SEGURANCA.md, P1).
+    env_file:
+      - .env
     ports:
       - "8501:8501"
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
-      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL}
-      EMBEDDING_MODEL: ${EMBEDDING_MODEL}
-      LLM_MODEL: ${LLM_MODEL}
-      LLM_NUM_CTX: ${LLM_NUM_CTX}
-      TEMPERATURE: ${TEMPERATURE}
-      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD}
-      TOP_K: ${TOP_K}
-      GPU_NAME: ${GPU_NAME}
     volumes:
       - /srv/ia-juridico/documentos:/srv/documentos
       - /var/log/ia-juridico:/var/log/app

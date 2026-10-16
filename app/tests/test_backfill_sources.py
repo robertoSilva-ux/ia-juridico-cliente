@@ -57,7 +57,9 @@ class TestGetOrCreateSource(unittest.TestCase):
         cur = self._fake_cursor(7)
         bs._get_or_create_source(cur, "Decreto 3.048-99.pdf", owner_id=1, scope='global')
         sql, params = cur.execute.call_args[0]
-        self.assertIn("ON CONFLICT (file_name)", sql)
+        # conflito resolvido por (arquivo, DONO): só o nome do arquivo fazia a
+        # fonte de um usuário ser sobrescrita pela de outro (P0-4)
+        self.assertIn("ON CONFLICT (file_name, owner_id)", sql)
         self.assertIn("RETURNING id", sql)
         # params = (file_name, title, tipo, numero, ano, owner_id, scope)
         self.assertEqual(params[0], "Decreto 3.048-99.pdf")
@@ -67,6 +69,13 @@ class TestGetOrCreateSource(unittest.TestCase):
         self.assertEqual(params[4], "1999")
         self.assertEqual(params[5], 1)
         self.assertEqual(params[6], 'global')
+
+    def test_upsert_nao_reescreve_o_dono_da_fonte_existente(self):
+        bs = self._load()
+        cur = self._fake_cursor(7)
+        bs._get_or_create_source(cur, "doc.pdf", owner_id=2, scope='private')
+        sql = cur.execute.call_args[0][0]
+        self.assertNotIn("owner_id = COALESCE(EXCLUDED.owner_id", sql)
 
     def test_retorna_none_quando_fetchone_vazio(self):
         bs = self._load()

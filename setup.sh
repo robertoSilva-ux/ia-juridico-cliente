@@ -88,11 +88,59 @@ if [ ! -f "$ENV_FILE" ]; then
     cp .env.example "$ENV_FILE"
   fi
   warn ".env criado a partir do template."
-  warn "  EDITE $ENV_FILE com a senha real do banco antes de continuar!"
+  warn "  EDITE $ENV_FILE antes de continuar. Os templates trazem PLACEHOLDER (***),"
+  warn "  e o sistema não sobe com eles: POSTGRES_PASSWORD, DATABASE_URL,"
+  warn "  ADMIN_PASSWORD e COOKIE_KEY precisam de valores REAIS."
+  warn "  Gere a COOKIE_KEY com: python3 -c \"import secrets; print(secrets.token_urlsafe(48))\""
   echo "  Pressione ENTER após revisar, ou Ctrl+C para cancelar."
   read -r
 else
   ok ".env já existe"
+fi
+
+# 5b. Validação de configuração de segurança — falha ANTES de subir os containers.
+# O sistema não deve iniciar com senha de banco placeholder (o app não conectaria
+# de forma confusa), nem sem ADMIN_PASSWORD (admin adivinhável) nem sem COOKIE_KEY
+# (cookie de sessão forjável: ver docs/REVISAO_SEGURANCA.md, P0-1 e P0-2).
+echo ""
+echo "--- Validação de segurança ---"
+
+ler_env() {  # ler_env NOME -> valor da última ocorrência no .env (vazio se ausente)
+  grep -E "^[[:space:]]*$1=" "$ENV_FILE" 2>/dev/null | tail -n1 | cut -d= -f2- \
+    | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+}
+
+verifica_var() {  # verifica_var NOME "orientação"
+  local nome="$1" dica="$2" valor
+  valor="$(ler_env "$nome")"
+  if [ -z "$valor" ]; then
+    fail "$nome não definida no .env — $dica"
+  fi
+  case "$valor" in
+    *"***"*|*changeme*|*troque*)
+      fail "$nome ainda está com o PLACEHOLDER do template ('$valor') — $dica" ;;
+  esac
+  ok "$nome definida"
+}
+
+verifica_var POSTGRES_PASSWORD "defina a senha real do banco"
+verifica_var DATABASE_URL "ajuste usuário/senha/banco na URL de conexão"
+verifica_var ADMIN_PASSWORD "defina a senha do admin inicial (mín. 8 caracteres, sem 'admin123')"
+verifica_var COOKIE_KEY "gere com: python3 -c \"import secrets; print(secrets.token_urlsafe(48))\""
+
+# Consistência: o container do banco é criado com POSTGRES_PASSWORD e o app
+# conecta com a senha embutida em DATABASE_URL. Se as duas discordarem, o setup
+# “passa” e o app morre ao conectar ("password authentication failed") — era
+# exatamente o caso do .env.cliente antigo, que trazia senhas diferentes nas
+# duas variáveis.
+senha_url="$(ler_env DATABASE_URL | sed -n 's|^[a-zA-Z]*://[^:]*:\([^@]*\)@.*|\1|p')"
+senha_db="$(ler_env POSTGRES_PASSWORD)"
+if [ -z "$senha_url" ]; then
+  warn "Não consegui extrair a senha de DATABASE_URL — confira o formato postgresql://usuario:senha@host:porta/banco"
+elif [ "$senha_url" != "$senha_db" ]; then
+  fail "DATABASE_URL e POSTGRES_PASSWORD discordam sobre a senha do banco (o app não conseguiria conectar)"
+else
+  ok "DATABASE_URL coerente com POSTGRES_PASSWORD"
 fi
 
 # 6. Subir containers
@@ -138,11 +186,17 @@ done
 # 9. Admin inicial
 echo ""
 echo "--- Admin inicial ---"
-docker exec legal-app python init_admin.py 2>/dev/null && ok "Admin criado" || warn "Admin pode já existir (ignore se for repetição)"
+# Sem `2>/dev/null`: se ADMIN_PASSWORD estiver ausente/fraca, init_admin.py falha
+# de propósito e a mensagem precisa aparecer (o banco não nasce com admin padrão).
+if docker exec legal-app python init_admin.py; then
+  ok "Admin inicial verificado"
+else
+  fail "Não foi possível criar o admin inicial — veja a mensagem acima e ajuste o .env"
+fi
 
 echo ""
 echo "========================================================"
 echo "  🎉 Setup concluído!"
 echo "  👉 Acesse: http://localhost:8501"
-echo "  👤 Login: admin@legaliz.ai / admin123"
+echo "  👤 Login: use o ADMIN_EMAIL/ADMIN_PASSWORD do seu .env"
 echo "========================================================"

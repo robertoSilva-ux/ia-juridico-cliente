@@ -80,6 +80,20 @@ class TestListDocuments(unittest.TestCase):
         args = cur.execute.call_args[0][1]
         self.assertEqual(args, (7,))
 
+    def test_list_documents_inclui_o_dono_e_agrupa_por_dono(self):
+        """Dois donos com arquivos homônimos precisam aparecer separados."""
+        from manage import list_documents
+        cur = _mock_cursor(fetchall=[("peticao.pdf", None, 2, "private", 1, "a@x.com")])
+        rows = list_documents(user_id=1, is_admin=True)
+        sql = cur.execute.call_args[0][0]
+        self.assertIn("d.owner_id", sql)
+        self.assertIn("LEFT JOIN users", sql)
+        self.assertIn("GROUP BY d.file_name, d.scope, d.owner_id, u.email", sql)
+        # a tupla alimenta o unpack de main.py: (nome, data, chunks, escopo, dono, email)
+        nome, _data, chunks, escopo, owner_id, owner_email = rows[0]
+        self.assertEqual((nome, chunks, escopo, owner_id, owner_email),
+                         ("peticao.pdf", 2, "private", 1, "a@x.com"))
+
 
 class TestDeleteDocument(unittest.TestCase):
     """Testa delete_document() com mock de psycopg2.connect."""
@@ -87,22 +101,32 @@ class TestDeleteDocument(unittest.TestCase):
     def setUp(self):
         psycopg2_mock.reset_mock()
 
-    def test_admin_delete_named(self):
+    def test_admin_delete_named_is_scoped_by_owner(self):
+        """Antes: `WHERE file_name = %s` apagava o arquivo homônimo de todo mundo."""
         from manage import delete_document
         cur = _mock_cursor()
-        delete_document("test.pdf", is_admin=True)
-        call_args = cur.execute.call_args[0]
-        self.assertIn("DELETE", call_args[0].upper())
-        self.assertEqual(call_args[1], ("test.pdf",))
+        cur.rowcount = 3
+        removidos = delete_document("test.pdf", user_id=1, is_admin=True)
+        sql, params = cur.execute.call_args[0]
+        self.assertIn("DELETE", sql.upper())
+        self.assertIn("owner_id = %s", sql)
+        self.assertEqual(params, ("test.pdf", 1))
+        self.assertEqual(removidos, 3)
         psycopg2_mock.connect.return_value.__enter__.return_value.commit.assert_called()
 
-    def test_admin_delete_sem_nome(self):
+    def test_admin_delete_sem_nome_so_toca_orfaos_sem_dono(self):
         from manage import delete_document
         cur = _mock_cursor()
-        delete_document('SEM_NOME', is_admin=True)
-        call_args = cur.execute.call_args[0]
-        self.assertIn("DELETE", call_args[0].upper())
-        self.assertIn("FILE_NAME IS NULL", call_args[0].upper())
+        delete_document('SEM_NOME', user_id=1, is_admin=True)
+        sql = cur.execute.call_args[0][0].upper()
+        self.assertIn("FILE_NAME IS NULL", sql)
+        self.assertIn("OWNER_ID IS NULL", sql)
+
+    def test_delete_de_admin_sem_user_id_falha_alto(self):
+        """Sem saber quem age não há como escopar: melhor falhar que varrer a base."""
+        from manage import delete_document
+        with self.assertRaises(ValueError):
+            delete_document("test.pdf", is_admin=True)
 
     def test_user_delete_own_private_only(self):
         from manage import delete_document
@@ -112,6 +136,57 @@ class TestDeleteDocument(unittest.TestCase):
         self.assertIn("owner_id = %s", sql)
         self.assertIn("scope = 'private'", sql)
         self.assertIn("test.pdf", params)
+
+
+class TestUpdateDocumentScope(unittest.TestCase):
+    """Escopo é atributo do arquivo de UM dono (ver P0-3 na revisão de segurança)."""
+
+    def setUp(self):
+        psycopg2_mock.reset_mock()
+
+    def test_sql_escopado_por_owner(self):
+        from manage import update_document_scope
+        cur = _mock_cursor()
+        cur.rowcount = 2
+        alterados = update_document_scope("peticao.pdf", "global", user_id=7)
+        sql, params = cur.execute.call_args_list[0][0]
+        self.assertIn("UPDATE documents SET scope = %s", sql)
+        self.assertIn("owner_id = %s", sql)
+        self.assertEqual(params, ("global", "peticao.pdf", 7))
+        self.assertEqual(alterados, 2)
+
+    def test_sincroniza_sources_na_mesma_transacao(self):
+        """documents e sources não podem divergir sobre o que é público."""
+        from manage import update_document_scope
+        cur = _mock_cursor()
+        update_document_scope("peticao.pdf", "global", user_id=7)
+        sqls = [c[0][0] for c in cur.execute.call_args_list]
+        self.assertEqual(len(sqls), 2)
+        self.assertIn("UPDATE documents", sqls[0])
+        self.assertIn("UPDATE sources", sqls[1])
+        psycopg2_mock.connect.return_value.__enter__.return_value.commit.assert_called()
+
+    def test_admin_pode_agir_sobre_o_dono_informado(self):
+        from manage import update_document_scope
+        cur = _mock_cursor()
+        update_document_scope("peticao.pdf", "private", user_id=1, is_admin=True, owner_id=2)
+        self.assertEqual(cur.execute.call_args_list[0][0][1], ("private", "peticao.pdf", 2))
+
+    def test_usuario_comum_nao_pode_agir_sobre_outro_dono(self):
+        from manage import update_document_scope
+        with self.assertRaises(PermissionError):
+            update_document_scope("peticao.pdf", "global", user_id=7, is_admin=False, owner_id=8)
+
+    def test_escopo_invalido_recusado_antes_de_tocar_o_banco(self):
+        from manage import update_document_scope
+        with self.assertRaises(ValueError):
+            update_document_scope("peticao.pdf", "public", user_id=7)
+        psycopg2_mock.connect.assert_not_called()
+
+    def test_sem_user_id_falha(self):
+        from manage import update_document_scope
+        with self.assertRaises(ValueError):
+            update_document_scope("peticao.pdf", "global")
 
 
 class TestIntegrationMockedFlow(unittest.TestCase):

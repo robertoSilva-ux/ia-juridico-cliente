@@ -13,23 +13,30 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 APP_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(APP_DIR))
 
-from database import get_db_connection  # noqa: E402
 from legal_parser import build_title, parse_file_name  # noqa: E402
+
+from database import get_db_connection  # noqa: E402
 
 
 def _get_or_create_source(cur, file_name, owner_id=None, scope='global'):
+    """Upsert da fonte por (file_name, owner_id) — nunca só pelo nome do arquivo.
+
+    O backfill antigo resolvia o conflito por `file_name`, com
+    `owner_id = COALESCE(EXCLUDED.owner_id, sources.owner_id)`: ao encontrar um
+    arquivo homônimo de outro dono, ele reescrevia o dono da fonte existente —
+    fonte de um tenant passando a pertencer a outro (docs/REVISAO_SEGURANCA.md, P0-4).
+    """
     meta = parse_file_name(file_name)
     title = build_title(meta)
     cur.execute(
         "INSERT INTO sources (file_name, title, tipo_doc, numero_doc, ano_doc, owner_id, scope) "
         "VALUES (%s, %s, %s, %s, %s, %s, %s) "
-        "ON CONFLICT (file_name) DO UPDATE SET "
+        "ON CONFLICT (file_name, owner_id) DO UPDATE SET "
         "    title = COALESCE(EXCLUDED.title, sources.title), "
         "    tipo_doc = COALESCE(EXCLUDED.tipo_doc, sources.tipo_doc), "
         "    numero_doc = COALESCE(EXCLUDED.numero_doc, sources.numero_doc), "
         "    ano_doc = COALESCE(EXCLUDED.ano_doc, sources.ano_doc), "
-        "    owner_id = COALESCE(EXCLUDED.owner_id, sources.owner_id), "
-        "    scope = COALESCE(EXCLUDED.scope, sources.scope) "
+        "    scope = EXCLUDED.scope "
         "RETURNING id",
         (file_name, title, meta['tipo'], meta['numero'], meta['ano'], owner_id, scope),
     )
@@ -44,13 +51,16 @@ def main():
 
     with get_db_connection() as conn:
         with conn.cursor() as cur:
+            # Agrupa por (arquivo, DONO): a fonte é por dono, então o backfill e o
+            # vínculo dos chunks precisam ser resolvidos dentro de cada dono.
             cur.execute(
-                "SELECT file_name, MAX(owner_id), COALESCE(MAX(scope), 'global') "
-                "FROM documents WHERE file_name IS NOT NULL GROUP BY file_name "
-                "ORDER BY file_name"
+                "SELECT file_name, owner_id, COALESCE(MAX(scope), 'global') "
+                "FROM documents WHERE file_name IS NOT NULL "
+                "GROUP BY file_name, owner_id "
+                "ORDER BY file_name, owner_id"
             )
             rows = cur.fetchall()
-            print('file_names distintos: ' + str(len(rows)))
+            print('pares (arquivo, dono) distintos: ' + str(len(rows)))
             created = 0
             for fn, owner_id, scope in rows:
                 sid = _get_or_create_source(cur, fn, owner_id=owner_id, scope=scope)
@@ -59,8 +69,9 @@ def main():
                     if not args.dry_run:
                         cur.execute(
                             "UPDATE documents SET source_id = %s "
-                            "WHERE file_name = %s AND source_id IS NULL",
-                            (sid, fn),
+                            "WHERE file_name = %s AND owner_id IS NOT DISTINCT FROM %s "
+                            "AND source_id IS NULL",
+                            (sid, fn, owner_id),
                         )
             if args.dry_run:
                 print('DRY-RUN: nada escrito.')
