@@ -325,7 +325,8 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 artigo,
                 tipo_doc,
                 numero_doc,
-                source_id
+                source_id,
+                tipo_trecho
             FROM documents
             WHERE embedding <=> %s::vector < %s
               AND (scope = 'global' OR owner_id = %s)
@@ -345,7 +346,8 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 artigo,
                 tipo_doc,
                 numero_doc,
-                source_id
+                source_id,
+                tipo_trecho
             FROM documents
             WHERE embedding <=> %s::vector < %s
             ORDER BY distance ASC
@@ -555,6 +557,9 @@ def _montar_sources(retrieved_docs: list[dict[str, Any]], citadas=()) -> list[di
             "distance": float(distancia) if distancia is not None else None,
             "origem": doc.get("origem") or "semantico",
             "citada": index in citadas,
+            # R-24: a interface precisa saber se o trecho é lei ou comentário/apresentação
+            # antes de apresentá-lo como fonte de uma afirmação jurídica.
+            "tipo_trecho": doc.get("tipo_trecho") or "dispositivo",
         })
     return fontes
 

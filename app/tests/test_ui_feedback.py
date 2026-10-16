@@ -226,6 +226,18 @@ class TestRespostaNaInterface(unittest.TestCase):
         self.assertIn("citada na resposta", linhas[0])
         self.assertIn("não citada", linhas[1])
 
+    def test_fonte_de_preambulo_avisa_que_nao_e_dispositivo(self):
+        """R-24: comentário/apresentação não pode ser apresentado como texto de lei."""
+        fontes = [
+            {'ref': 1, 'source_label': 'Lei 8080', 'distance': 0.3, 'origem': 'semantico',
+             'citada': False, 'tipo_trecho': 'preambulo'},
+            {'ref': 2, 'source_label': 'Lei 8080, art. 10', 'distance': 0.3, 'origem': 'semantico',
+             'citada': True, 'tipo_trecho': 'dispositivo'},
+        ]
+        linhas = ui_feedback._linhas_de_fontes(fontes)
+        self.assertIn("trecho de comentário, não é dispositivo", linhas[0])
+        self.assertNotIn("comentário", linhas[1])
+
     def test_render_desenha_os_blocos(self):
         _fake_st.reset_mock()
         ui_feedback.render_resposta(self._resultado())

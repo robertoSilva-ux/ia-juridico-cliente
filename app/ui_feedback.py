@@ -73,7 +73,12 @@ def _linhas_de_fontes(sources) -> list[str]:
         else:
             medida = f"similaridade {1 - float(distancia):.0%}"
         marca = "citada na resposta" if fonte.get('citada') else "recuperada, não citada"
-        linhas.append(f"**{prefixo}{rotulo}** — {medida} · {marca}")
+        # R-24: o trecho pode vir do PREÂMBULO do documento (capa, apresentação, lista das
+        # leis que alteraram a norma, comentário). Sem dizer isso, a interface apresentaria
+        # comentário de apostila como se fosse texto de lei.
+        papel = " · trecho de comentário, não é dispositivo" \
+            if (fonte.get('tipo_trecho') or 'dispositivo') == 'preambulo' else ""
+        linhas.append(f"**{prefixo}{rotulo}** — {medida} · {marca}{papel}")
     return linhas
 
 
