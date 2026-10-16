@@ -406,6 +406,24 @@ Distribuído sob a licença MIT. Veja `LICENSE.md` para mais informações.
 
 ---
 
+## 💻 Desenvolvimento local
+
+O ambiente de desenvolvimento (sem Docker: banco em podman, Ollama no host, app em venv)
+está documentado em **[`docs/AMBIENTE_DEV.md`](docs/AMBIENTE_DEV.md)** — inclui os
+comandos (`make db-dev`, `make dev`, `make test-local`), o smoke test do ambiente
+(`scripts/smoke_dev.py`) e o **checklist de ensaio de paridade** antes de release.
+
+**Atualizando uma instalação existente:** se o banco do cliente já tem dados, aplique a
+migração de schema antes de subir o container novo — ela consolida fontes duplicadas,
+reaponta os chunks e cria o índice único por dono:
+
+```bash
+docker exec -i legal-db psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" \
+  -v ON_ERROR_STOP=1 < database/migrate_sources_owner.sql
+```
+
+---
+
 ## 🗺️ Roadmap de Evolução
 
 - [x] **Sistema de Login:** Autenticação e Roles (Admin/User)

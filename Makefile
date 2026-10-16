@@ -1,4 +1,4 @@
-.PHONY: up down restart logs test test-local lint lint-fix clean setup
+.PHONY: up down restart logs test test-local lint lint-fix clean setup dev db-dev db-dev-stop
 
 up:
 	docker compose up -d --build
@@ -10,6 +10,17 @@ restart: down up
 
 logs:
 	docker compose logs -f
+
+# --- Desenvolvimento nativo (sem Docker) — ver docs/AMBIENTE_DEV.md ---
+# Banco em podman rootless + Ollama no host + app em venv local.
+db-dev:
+	bash scripts/db-dev.sh start
+
+db-dev-stop:
+	bash scripts/db-dev.sh stop
+
+dev:
+	bash scripts/dev.sh
 
 # Testes no container (ambiente real: mesmas dependências da imagem).
 # O runner roda cada módulo em processo separado — ver app/run_tests.sh.

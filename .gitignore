@@ -1,4 +1,8 @@
 .env
+.env.dev
+.env.local
+.venv/
+venv/
 *.zip
 *.dump
 __pycache__/
