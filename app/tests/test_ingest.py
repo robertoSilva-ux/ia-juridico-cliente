@@ -46,6 +46,17 @@ def _make_chunk(content, metadata=None):
     })()
 
 
+def _colunas(sql):
+    """Mapa nome-da-coluna -> posição na linha, lido do próprio INSERT.
+
+    Evita índice mágico: acrescentar uma coluna no fim da lista não pode fazer um teste
+    de posição passar a medir outra coisa (foi o que aconteceu quando `tipo_trecho`
+    entrou — três testes apontavam para `-1`/`-2`/`-3`).
+    """
+    lista = sql.split("(", 1)[1].split(")", 1)[0]
+    return {nome.strip(): i for i, nome in enumerate(lista.split(","))}
+
+
 class FakeEmbedder:
     """Embedder fake que registra os textos recebidos e devolve vetores determinísticos."""
 
@@ -575,7 +586,9 @@ class TestDedupEGrafoNoBanco(unittest.TestCase):
         conteudo = "Art. 9º A direção do SUS é única."
         sql, linhas, _ = self._executar([_make_chunk(conteudo)])
         self.assertIn("content_hash", sql)
-        self.assertEqual(linhas[0][-3], hashlib.md5(conteudo.encode("utf-8")).hexdigest())
+        col = _colunas(sql)
+        self.assertEqual(linhas[0][col["content_hash"]],
+                         hashlib.md5(conteudo.encode("utf-8")).hexdigest())
 
     def test_on_conflict_escrito_igual_ao_indice(self):
         from pathlib import Path
@@ -591,10 +604,12 @@ class TestDedupEGrafoNoBanco(unittest.TestCase):
     def test_pagina_e_ordem_rastreaveis(self):
         chunks = [_make_chunk("Art. 1. Um.", {"page": 4}), _make_chunk("Art. 2. Dois."),
                   _make_chunk("Art. 3. Três.", {"page": 9})]
-        _, linhas, _ = self._executar(chunks)
-        self.assertEqual([linha[-2] for linha in linhas], [5, None, 10],
+        sql, linhas, _ = self._executar(chunks)
+        col = _colunas(sql)
+        self.assertEqual([linha[col["pagina"]] for linha in linhas], [5, None, 10],
                          "página 1-based, ausente = None")
-        self.assertEqual([linha[-1] for linha in linhas], [1, 2, 3], "ordem do fragmento no documento")
+        self.assertEqual([linha[col["ordem"]] for linha in linhas], [1, 2, 3],
+                         "ordem do fragmento no documento")
 
     def test_ordem_sobrevive_ao_dedup(self):
         """A posição é a do documento original, não a da lista já filtrada."""
@@ -611,13 +626,179 @@ class TestDedupEGrafoNoBanco(unittest.TestCase):
                 mock_connect.return_value.__enter__.return_value = conn
                 list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei.pdf",
                                                    batch_size=10, stats=stats))
-        self.assertEqual([linha[-1] for linha in mock_ev.call_args[0][2]], [2, 3])
+        sql = mock_ev.call_args[0][1]
+        col = _colunas(sql)
+        self.assertEqual([linha[col["ordem"]] for linha in mock_ev.call_args[0][2]], [2, 3])
 
     def test_contagem_reflete_o_que_o_banco_inseriu(self):
         """`ON CONFLICT DO NOTHING` pode descartar linha: o contador não pode mentir."""
         _, _, stats = self._executar([_make_chunk("Art. 1. Um."), _make_chunk("Art. 1. Um.")],
                                      rowcount=1)
         self.assertEqual(stats['indexados'], 1)
+
+    def test_lote_insertado_numa_pagina_so(self):
+        """O `page_size` do psycopg2 (100) deixa o `rowcount` sendo o da ÚLTIMA página.
+
+        Medido na reingestão da apostila: 157 fragmentos gravados foram contados como 57
+        (100 + 57) — quem opera leria que 100 fragmentos se perderam.
+        """
+        chunks = [_make_chunk(f"Art. {i}. Conteúdo.") for i in range(1, 4)]
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: list(c)), \
+             patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+             patch('ingest.psycopg2.connect') as mock_connect:
+            conn, cur = MagicMock(), MagicMock()
+            conn.cursor.return_value.__enter__.return_value = cur
+            mock_connect.return_value.__enter__.return_value = conn
+            list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei.pdf",
+                                               batch_size=10, stats={}))
+        self.assertEqual(mock_ev.call_args.kwargs.get('page_size'), len(chunks))
+
+
+class TestPreambuloR24(unittest.TestCase):
+    """R-24: o texto anterior ao primeiro dispositivo não pode sair do índice.
+
+    Medido no PDF da apostila de dev (65 páginas): 25 páginas sem nenhum dispositivo —
+    36,2 % dos caracteres — não entravam em fragmento nenhum: capa, apresentação, lista
+    das leis que alteraram a norma e comentários. A pergunta cuja resposta estava ali era
+    irrecuperável (o produto recusava onde havia resposta).
+    """
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    def _fragmentar(self, paginas):
+        """Fragmenta com um splitter pass-through, para ler o conteúdo das seções."""
+        splitter = MagicMock()
+        splitter.split_documents.side_effect = lambda docs: docs
+        with patch.object(self.ingest, 'RecursiveCharacterTextSplitter', return_value=splitter):
+            return self.ingest.split_legal_documents(paginas)
+
+    def _executar_store(self, chunks):
+        """Roda `store_in_postgres` com banco duplo e devolve (mapa de colunas, linhas)."""
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: list(c)), \
+             patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+             patch('ingest.psycopg2.connect') as mock_connect:
+            conn, cur = MagicMock(), MagicMock()
+            conn.cursor.return_value.__enter__.return_value = cur
+            mock_connect.return_value.__enter__.return_value = conn
+            list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei-8080.pdf",
+                                               owner_id=9, batch_size=10, stats={}))
+        return _colunas(mock_ev.call_args[0][1]), mock_ev.call_args[0][2]
+
+    def test_texto_antes_do_primeiro_dispositivo_vira_fragmento_marcado(self):
+        paginas = [
+            _make_chunk("Estratégia CONCURSOS NA SAÚDE — LEI 8.080 ESQUEMATIZADA", {"page": 0}),
+            _make_chunk("Lista das leis: Lei nº 10.424, de 15 de abril de 2002.", {"page": 1}),
+            _make_chunk("Art. 10. Os municípios poderão constituir consórcios.", {"page": 2}),
+        ]
+        chunks = self._fragmentar(paginas)
+
+        self.assertEqual(len(chunks), 3, "as duas páginas de preâmbulo têm de virar fragmento")
+        preambulos = [c for c in chunks if c.metadata.get('tipo_trecho') == 'preambulo']
+        self.assertEqual(len(preambulos), 2)
+        self.assertIn("Estratégia CONCURSOS", preambulos[0].page_content)
+        self.assertIn("Lei nº 10.424", preambulos[1].page_content)
+        # a página de origem sobrevive ao split (R-13)
+        self.assertEqual([c.metadata.get('page') for c in preambulos], [0, 1])
+        dispositivos = [c for c in chunks if c.metadata.get('tipo_trecho') == 'dispositivo']
+        self.assertEqual(len(dispositivos), 1)
+        self.assertIn("Art. 10.", dispositivos[0].page_content)
+
+    def test_documento_que_abre_com_dispositivo_nao_tem_preambulo(self):
+        chunks = self._fragmentar([_make_chunk("Art. 10. Os municípios poderão constituir consórcios.")])
+        self.assertEqual([c.metadata.get('tipo_trecho') for c in chunks], ['dispositivo'])
+
+    def test_documento_sem_dispositivo_nenhum_segue_no_splitter(self):
+        """Sem 'Art. N' no documento, o caminho antigo (splitter puro) continua valendo."""
+        splitter = MagicMock()
+        splitter.split_documents.return_value = ['generico']
+        with patch.object(self.ingest, 'RecursiveCharacterTextSplitter', return_value=splitter):
+            chunks = self.ingest.split_legal_documents([_make_chunk("Texto sem dispositivo algum.")])
+        self.assertEqual(chunks, ['generico'])
+
+    def test_continuacao_de_pagina_depois_do_dispositivo_nao_vira_preambulo(self):
+        paginas = [
+            _make_chunk("Art. 82. O benefício será devido conforme a regra"),
+            _make_chunk("do parágrafo anterior, que continua na página seguinte."),
+        ]
+        chunks = self._fragmentar(paginas)
+        self.assertEqual([c.metadata.get('tipo_trecho') for c in chunks], ['dispositivo'])
+        self.assertIn("do parágrafo anterior", chunks[0].page_content)
+
+    def test_grafia_ordinal_sem_ponto_no_inicio_da_linha_e_dispositivo(self):
+        """R-25: 'Art. 9º A direção…' é cabeçalho; referência inline não é."""
+        from ingest import _ARTICLE_START
+
+        self.assertIsNotNone(
+            _ARTICLE_START.search("Art. 9º A direção do Sistema Único de Saúde é única."))
+        self.assertIsNotNone(
+            _ARTICLE_START.search("Texto qualquer.\nArt. 2º Esta Lei regula os serviços."))
+        # referências no meio da frase continuam fora (era o motivo de exigir pontuação)
+        self.assertIsNone(
+            _ARTICLE_START.search("na forma do art. 2º desta Lei, aplica-se o previsto"))
+        self.assertIsNone(
+            _ARTICLE_START.search("conforme o inciso I do art. 198 da Constituição"))
+
+        chunks = self._fragmentar([_make_chunk("Art. 9º A direção do SUS é única.")])
+        self.assertEqual([c.metadata.get('tipo_trecho') for c in chunks], ['dispositivo'])
+
+    def test_identidade_e_lida_das_paginas_e_nao_dos_fragmentos(self):
+        """R-9 depende do texto do DOCUMENTO: o que o chunker separa não decide a norma.
+
+        O título da lei vive no preâmbulo — justamente o texto que o R-24 descartava. Se a
+        identidade é lida da concatenação dos fragmentos, ela some junto.
+        """
+        from ingest import ingest_document
+
+        pagina = _make_chunk("LEI Nº 10.424, DE 15 DE ABRIL DE 2002\n"
+                             "Acrescenta capítulo à Lei 8.080, de 19 de setembro de 1990.")
+        capturado = {}
+
+        def fake_store(chunks, embedder, file_name, **kwargs):
+            capturado.update(kwargs)
+            return iter([1.0])
+
+        with patch.object(self.ingest, "extrair_paginas", return_value=[pagina]), \
+             patch.object(self.ingest, "split_legal_documents",
+                          return_value=[_make_chunk("Art. 1º Esta Lei acrescenta dispositivo.")]), \
+             patch.object(self.ingest, "store_in_postgres", side_effect=fake_store):
+            ingest_document("/tmp/x.pdf", FakeEmbedder(), "documento-sem-identidade-no-nome.pdf")
+
+        identidade = capturado["identidade"]
+        self.assertEqual(identidade["tipo"], "lei")
+        self.assertEqual(identidade["numero"], "10424")
+        self.assertEqual(identidade["ano"], "2002")
+
+    def test_fragmento_de_preambulo_nao_grava_artigo(self):
+        """O 'artigo' encontrado em comentário não pode virar cabeçalho no banco."""
+        chunk = _make_chunk("Comentário: nesse artigo, o art. 10 trata dos consórcios.",
+                            {"page": 3, "tipo_trecho": "preambulo"})
+        col, linhas = self._executar_store([chunk])
+        self.assertEqual(linhas[0][col["tipo_trecho"]], "preambulo")
+        self.assertIsNone(linhas[0][col["artigo"]])
+        self.assertEqual(linhas[0][col["pagina"]], 4)      # page (0-based) + 1
+
+    def test_fragmento_de_dispositivo_grava_artigo_e_marca(self):
+        chunk = _make_chunk("Art. 10. Os municípios poderão constituir consórcios.",
+                            {"page": 25, "tipo_trecho": "dispositivo"})
+        col, linhas = self._executar_store([chunk])
+        self.assertEqual(linhas[0][col["tipo_trecho"]], "dispositivo")
+        self.assertEqual(linhas[0][col["artigo"]], 10)
+        self.assertEqual(linhas[0][col["pagina"]], 26)
+
+    def test_prosa_que_comeca_com_numero_de_artigo_sem_ponto_nao_e_cabecalho(self):
+        """Sem indicador ordinal e sem pontuação, o início de linha NÃO é dispositivo.
+
+        Foi o que a primeira versão da regra nova passou a aceitar por engano —
+        'Art. 42 A aposentadoria será devida' virava cabeçalho.
+        """
+        from ingest import _ARTICLE_START
+
+        self.assertIsNone(_ARTICLE_START.search("Art. 42 A aposentadoria será devida"))
+        self.assertIsNotNone(_ARTICLE_START.search("Art. 42. A aposentadoria será devida"))
 
 
 if __name__ == "__main__":

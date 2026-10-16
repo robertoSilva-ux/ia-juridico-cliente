@@ -23,13 +23,26 @@ from database import get_db_connection
 logger = logging.getLogger(__name__)
 
 
-# Cabeçalho de dispositivo legal. O lookahead preserva o marcador no chunk
-# seguinte; a âncora de linha evita separar referências como "art. 83" no meio
-# de uma frase.
+# Cabeçalho de dispositivo legal — duas formas, ambas medidas no PDF real da apostila:
+#   "Art. 10. Os municípios poderão…"  -> número com pontuação: casa em qualquer posição;
+#   "Art. 9º A direção do Sistema…"    -> ordinal (artigos 1º a 9º, que a lei escreve SEM
+#      ponto): casa SÓ no início de linha E com o indicador ordinal.
+# As duas âncoras — linha e ordinal — são o que permite aceitar a segunda forma sem
+# capturar referências inline ("na forma do art. 2º", "o inciso I do art. 198 da
+# Constituição") nem prosa que por acaso começa com número de artigo sem pontuação
+# ("Art. 42 A aposentadoria será devida"): era por isso que a pontuação era exigida.
 _ARTICLE_START = re.compile(
-    r"(?<!\w)Art\.?\s*\d+[º°]?\s*[.\-–—]",
+    r"(?:(?<!\w)Art\.?\s*\d+[º°]?\s*[.\-–—]|(?m:^[ \t]*Art\.?\s*\d+[º°][ \t]))",
     re.IGNORECASE,
 )
+
+
+#: Papel do trecho no documento. `dispositivo` é texto de artigo — o que o fact-check
+#: confere contra a lei; `preambulo` é capa, apresentação, lista de leis alteradoras e
+#: comentário de apostila: texto do documento que NÃO é dispositivo e que até o R-24 era
+#: descartado em silêncio (medido: 25 de 65 páginas da apostila, 36,2 % dos caracteres).
+TIPO_TRECHO_DISPOSITIVO = "dispositivo"
+TIPO_TRECHO_PREAMBULO = "preambulo"
 
 
 # Marcadores de dispositivo cujo espaçamento interno NÃO deve ser colapsado.
@@ -94,10 +107,17 @@ def normalize_whitespace(text):
     return text.strip()
 
 
-def _copy_document(document, content):
-    """Copia um Document mantendo metadata e substituindo page_content."""
+def _copy_document(document, content, **metadados):
+    """Copia um Document mantendo a metadata e substituindo page_content.
+
+    ``metadados`` sobrescreve chaves na cópia (é assim que o preâmbulo recebe
+    ``tipo_trecho='preambulo'``). A metadata da cópia é um dict NOVO: mutar a da
+    página de origem contaminaria as seções seguintes.
+    """
     chunk = copy.copy(document)
     chunk.page_content = content.strip()
+    if metadados:
+        chunk.metadata = {**(document.metadata or {}), **metadados}
     return chunk
 
 
@@ -164,18 +184,20 @@ def limpar_ruido_de_pagina(paginas, ruido: set[str] | None = None):
     return limpas
 
 
-def process_pdf(file_path, progress_cb=None):
-    """Carrega e fragmenta um PDF aplicando normalização de whitespace e limpeza de ruído.
+def extrair_paginas(file_path, progress_cb=None):
+    """Carrega as PÁGINAS do PDF já limpas: ruído repetido removido e whitespace normalizado.
 
-    A normalização roda por página, ANTES do split jurídico, para que o chunking veja texto
-    limpo e a detecção de "Art. N" opere sobre o formato canônico. Se normalizássemos depois
-    do split, o texto armazenado e o texto embedado divergiriam do que o parser jurídico
-    analisou.
+    Separada de `process_pdf` porque a identidade da norma (R-9) precisa do texto do
+    DOCUMENTO, e não do texto já fragmentado: enquanto ela era lida da concatenação dos
+    fragmentos, tudo o que o R-24 descartava ficava invisível — inclusive o título da lei,
+    que é justamente o cabeçalho.
 
-    A limpeza de cabeçalho/rodapé repetido (R-10) roda antes da normalização: é ela que tira
-    o rodapé de apostila que, senão, entra no embedding e no contexto de todo fragmento.
+    A limpeza de cabeçalho/rodapé repetido (R-10) roda antes da normalização: é ela que
+    tira o rodapé de apostila que, senão, entra no embedding e no contexto de todo
+    fragmento. A normalização roda por página, ANTES do split jurídico, para que o
+    chunking veja texto limpo e a detecção de "Art. N" opere sobre o formato canônico.
 
-    ``progress_cb`` (opcional) recebe floats 0.0->1.0 para a fase de extração.
+    ``progress_cb`` (opcional) recebe floats 0.0->0.5 para a fase de extração.
     """
     loader = PyPDFLoader(file_path)
     documents = loader.load()
@@ -192,7 +214,15 @@ def process_pdf(file_path, progress_cb=None):
         if progress_cb is not None:
             progress_cb((index + 1) / total * 0.5)  # extração = 50% do trabalho
 
-    return split_legal_documents(documents)
+    return documents
+
+
+def process_pdf(file_path, progress_cb=None):
+    """Extrai as páginas limpas do PDF e devolve os FRAGMENTOS (extração + split).
+
+    ``progress_cb`` (opcional) recebe floats 0.0->0.5 para a fase de extração, como antes.
+    """
+    return split_legal_documents(extrair_paginas(file_path, progress_cb=progress_cb))
 
 
 def split_legal_documents(documents, chunk_size=1000, chunk_overlap=100):
@@ -202,6 +232,13 @@ def split_legal_documents(documents, chunk_size=1000, chunk_overlap=100):
     mantido entre páginas: uma página sem novo ``Art. N`` continua o artigo
     anterior, e só um novo cabeçalho encerra a seção anterior. Artigos longos
     são subdivididos depois, sempre dentro da própria seção.
+
+    O texto ANTERIOR ao primeiro dispositivo — capa, apresentação, lista das leis
+    que alteraram a norma, comentários de apostila — vira **seção própria, uma por
+    página**, marcada com ``tipo_trecho='preambulo'`` (R-24). Antes ele era
+    descartado em silêncio: medido no PDF da apostila de dev, 25 das 65 páginas
+    (36,2 % dos caracteres) não entravam em fragmento nenhum, e pergunta cuja
+    resposta estivesse ali era irrecuperável — o produto recusava onde havia resposta.
     """
     bounded_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
@@ -220,14 +257,22 @@ def split_legal_documents(documents, chunk_size=1000, chunk_overlap=100):
         if current_document is not None and current_text:
             content = "\n".join(current_text).strip()
             if content:
-                sections.append(_copy_document(current_document, content))
+                sections.append(_copy_document(current_document, content,
+                                               tipo_trecho=TIPO_TRECHO_DISPOSITIVO))
 
     for document, text in zip(documents, texts, strict=True):
         matches = list(_ARTICLE_START.finditer(text or ""))
         if not matches:
-            # Cabeçalho, rodapé ou continuação de artigo na página seguinte.
-            if current_document is not None and text.strip():
-                current_text.append(text)
+            if current_document is not None:
+                # Continuação do artigo em andamento numa página sem cabeçalho novo.
+                if text.strip():
+                    current_text.append(text)
+            elif text.strip():
+                # R-24: antes do primeiro dispositivo o texto é PREÂMBULO do documento,
+                # não lixo. Uma seção por página preserva a página de origem (R-13) e o
+                # texto deixa de desaparecer do índice.
+                sections.append(_copy_document(document, text,
+                                               tipo_trecho=TIPO_TRECHO_PREAMBULO))
             continue
 
         prefix_end = matches[0].start()
@@ -290,24 +335,32 @@ def ingest_document(
         if progress_cb is not None:
             progress_cb(max(0.0, min(1.0, fraction)))
 
+    paginas = None
     if chunks is None:
-        # Extração = metade do trabalho. process_pdf já reporta 0.0->0.5 via
-        # callback; o wrapper abaixo reescala para manter a proporção.
-        chunks = process_pdf(
+        # Extração = metade do trabalho. extrair_paginas reporta 0.0->0.5 via callback;
+        # o wrapper abaixo reescala para manter a proporção.
+        paginas = extrair_paginas(
             file_path,
             progress_cb=(lambda f: _report(f)) if progress_cb else None,
         )
+        chunks = split_legal_documents(paginas)
     elif progress_cb is not None:
         _report(0.5)
 
     if identidade is None:
-        identidade = identidade_do_documento(
-            "\n".join(str(getattr(chunk, "page_content", "") or "") for chunk in chunks or []),
-            file_name,
+        # R-9 lê o texto do DOCUMENTO (as páginas), não o dos fragmentos: o que o chunker
+        # separa ou rotula não pode decidir se a norma é identificável — e o título da lei
+        # vive justamente no texto que o R-24 descartava. Sem as páginas (retomada com
+        # `chunks` já pronto) cai na concatenação dos fragmentos, como antes.
+        texto_identidade = (
+            "\n".join(str(getattr(pagina, "page_content", "") or "") for pagina in paginas)
+            if paginas
+            else "\n".join(str(getattr(chunk, "page_content", "") or "") for chunk in chunks or [])
         )
-        logger.info("Identidade do documento %s: tipo=%s numero=%s ano=%s",
+        identidade = identidade_do_documento(texto_identidade, file_name)
+        logger.info("Identidade do documento %s: tipo=%s numero=%s ano=%s (texto: %s)",
                     file_name, identidade.get('tipo'), identidade.get('numero'),
-                    identidade.get('ano'))
+                    identidade.get('ano'), "páginas" if paginas else "fragmentos")
 
     stats: dict = {}
     for fraction in store_in_postgres(
@@ -490,6 +543,16 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                     pagina = int(pagina) + 1 if isinstance(pagina, int) else None
                     ordem = posicoes.get(id(chunk), 0) + 1
 
+                    # R-24: papel do trecho no documento. `preambulo` é capa/apresentação/
+                    # lista de leis alteradoras/comentário — texto do documento que não é
+                    # lei. Sem dispositivo, o "artigo" que o parser achou ali é citação
+                    # dentro de prosa, e gravar isso como cabeçalho faria o fact-check
+                    # conferir dispositivo contra texto que não é dispositivo.
+                    tipo_trecho = metadados.get("tipo_trecho") or TIPO_TRECHO_DISPOSITIVO
+                    if tipo_trecho == TIPO_TRECHO_PREAMBULO:
+                        legal_meta = {**legal_meta, "artigo": None,
+                                      "paragrafo": None, "inciso": None}
+
                     data_list.append((
                         file_name,
                         chunk.page_content,
@@ -507,6 +570,7 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                         hashlib.md5(chunk.page_content.encode("utf-8")).hexdigest(),
                         pagina,
                         ordem,
+                        tipo_trecho,
                     ))
 
                 # Inserção do lote com colunas jurídicas. O alvo do ON CONFLICT precisa
@@ -519,11 +583,16 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                     """INSERT INTO documents
                        (file_name, content, metadata, embedding, owner_id, scope,
                         artigo, paragrafo, inciso, tipo_doc, numero_doc, ano_doc, source_id,
-                        content_hash, pagina, ordem)
+                        content_hash, pagina, ordem, tipo_trecho)
                        VALUES %s
                        ON CONFLICT (file_name, (COALESCE(owner_id, -1)), content_hash)
                        DO NOTHING""",
-                    data_list
+                    data_list,
+                    # `page_size` do psycopg2 é 100: com ele, o lote vira VÁRIOS INSERTs e o
+                    # `rowcount` final reflete só a última página — medido: 157 fragmentos
+                    # inseridos foram contados como 57 (100 + 57). Uma página só = uma
+                    # contagem que corresponde ao que o banco recebeu.
+                    page_size=len(data_list) or 1,
                 )
                 conn.commit()
 

@@ -55,6 +55,13 @@ ALTER TABLE documents ADD COLUMN IF NOT EXISTS scope VARCHAR(10) DEFAULT 'privat
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS pagina INTEGER;
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS ordem INTEGER;
 
+-- Papel do trecho no documento (R-24): `dispositivo` é texto de artigo — o que o fact-check
+-- confere contra a lei — e `preambulo` é capa, apresentação, lista de leis alteradoras e
+-- comentário de apostila, isto é, texto do documento que NÃO é dispositivo. Existe para a
+-- interface não apresentar comentário como se fosse texto de lei. O default preenche as
+-- linhas de uma base já existente (o comando é idempotente).
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS tipo_trecho VARCHAR(20) DEFAULT 'dispositivo';
+
 CREATE TABLE IF NOT EXISTS sources (
     id SERIAL PRIMARY KEY,
     file_name TEXT NOT NULL,
