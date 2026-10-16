@@ -82,6 +82,11 @@ HYDE_QUERY_WEIGHT = float(os.getenv("HYDE_QUERY_WEIGHT", "1.4"))
 # invalida as sessões ativas (todo mundo faz login de novo).
 COOKIE_KEY = os.getenv("COOKIE_KEY", "")
 
+# Nome do cookie de sessão. Não é segredo (aparece no navegador), mas fica aqui
+# para que o nome usado pela aplicação e pelas ferramentas de verificação seja
+# um só — o smoke test monta o autenticador exatamente como o app o monta.
+COOKIE_NAME = os.getenv("COOKIE_NAME", "legal_ai_cookie")
+
 # Mínimo em bytes para HMAC-SHA256. 32 bytes = 256 bits (RFC 7518 §3.2); abaixo
 # disso o pyjwt emite InsecureKeyLengthWarning.
 COOKIE_KEY_MIN_BYTES = 32

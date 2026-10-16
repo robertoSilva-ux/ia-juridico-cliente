@@ -43,7 +43,24 @@ os.environ["DATABASE_URL"] = TEST_DATABASE_URL
 os.environ.setdefault("OLLAMA_BASE_URL", "http://localhost:11434")
 
 
+def _parece_banco_de_teste(url: str) -> bool:
+    """Estes testes APAGAM `documents`/`sources`: só valem em banco de teste.
+
+    Ver a nota em test_integration_tenancy.py — a trava existe porque apontar
+    `TEST_DATABASE_URL` para o banco de dev apaga dados reais.
+    """
+    nome = url.rsplit("/", 1)[-1].split("?")[0]
+    return "test" in nome.lower()
+
+
 def _db_available():
+    if not _parece_banco_de_teste(TEST_DATABASE_URL):
+        print(
+            f"\n[AVISO] TEST_DATABASE_URL aponta para '{TEST_DATABASE_URL.rsplit('/', 1)[-1]}', "
+            "que não parece um banco de TESTE — este módulo foi PULADO por segurança.",
+            file=sys.stderr,
+        )
+        return False
     try:
         import psycopg2
         conn = psycopg2.connect(TEST_DATABASE_URL, connect_timeout=2)

@@ -14,7 +14,7 @@ from auth import (
     set_system_setting,
     update_password,
 )
-from config import COOKIE_KEY, OLLAMA_BASE_URL, cookie_key_problem
+from config import COOKIE_KEY, COOKIE_NAME, OLLAMA_BASE_URL, cookie_key_problem
 from embeddings import NomicOllamaEmbeddings
 from gpu_check import check_gpu, format_gpu_status
 from ingest import process_pdf, store_in_postgres
@@ -91,7 +91,7 @@ credentials = get_all_users_for_auth()
 
 authenticator = stauth.Authenticate(
     credentials,
-    "legal_ai_cookie",
+    COOKIE_NAME,
     COOKIE_KEY,
     cookie_expiry_days=30
 )

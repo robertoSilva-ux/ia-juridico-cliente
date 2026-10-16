@@ -24,8 +24,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "app"))
 
 import requests  # noqa: E402
+import streamlit_authenticator as stauth  # noqa: E402
 from agent import get_response  # noqa: E402
-from auth import add_user, get_user_id  # noqa: E402
+from auth import add_user, get_all_users_for_auth, get_user_id, update_password  # noqa: E402
+from config import COOKIE_KEY, COOKIE_NAME  # noqa: E402
 from embeddings import NomicOllamaEmbeddings  # noqa: E402
 from ingest import store_in_postgres  # noqa: E402
 
@@ -87,14 +89,36 @@ def main() -> int:
         print(f"✘ banco inacessível ({_mascarar(db_url)}): {e}")
         return 1
     ok, msg = add_user(EMAIL_DEV, "Desenvolvimento Local", SENHA_DEV, "admin")
-    if not ok:
-        print(f"✘ não foi possível criar/validar o usuário de dev: {msg.strip()}")
-        return 1
-    print(f"[ok] usuário de dev: {msg.strip()}")
     user_id = get_user_id(EMAIL_DEV)
     if user_id is None:
-        print("✘ usuário de dev não encontrado — o teste precisa de user_id para exercitar o filtro de escopo")
+        # Só é fatal se o usuário NÃO existir ao final: rodar duas vezes não pode
+        # falhar (o add_user devolve erro de chave duplicada quando ele já existe).
+        print(f"✘ não foi possível garantir o usuário de dev: {msg.strip()}")
         return 1
+    if ok:
+        print(f"[ok] usuário de dev criado (id={user_id}): {msg.strip()}")
+    else:
+        print(f"[ok] usuário de dev já existia (id={user_id})")
+
+    # 2b. A credencial loga? Este é o caminho EXATO do formulário (o controlador
+    # do streamlit-authenticator), que o resto deste script não exercita: ele fala
+    # com o banco direto. Sem esta checagem, o smoke fica verde com um login que a
+    # interface recusa — foi o que aconteceu quando a senha do dev ficou defasada.
+    if COOKIE_KEY is None or not COOKIE_KEY:
+        print("✘ COOKIE_KEY não definida — carregue o .env.dev (set -a; . ./.env.dev; set +a)")
+        return 1
+    autenticador = stauth.Authenticate(
+        get_all_users_for_auth(), COOKIE_NAME, COOKIE_KEY, cookie_expiry_days=30
+    )
+    if autenticador.authentication_controller.login(EMAIL_DEV, SENHA_DEV) is not True:
+        # Senha gravada ≠ senha do script (o usuário pode ter sido criado antes de
+        # SENHA_DEV mudar). Redefinir deixa o arquivo como fonte da verdade.
+        update_password(EMAIL_DEV, SENHA_DEV)
+        if autenticador.authentication_controller.login(EMAIL_DEV, SENHA_DEV) is not True:
+            print(f"✘ {EMAIL_DEV} não autentica nem depois de redefinir a senha — a interface recusaria este login")
+            return 1
+        print("[ok] senha de dev estava defasada — redefinida para a do script")
+    print(f"[ok] login de dev autentica: {EMAIL_DEV} (mesmo caminho do formulário)")
 
     # 3. Ingestão com embeddings reais
     embedder = NomicOllamaEmbeddings(
@@ -145,6 +169,7 @@ def main() -> int:
               "(use app/eval/run_eval.py para medir)")
 
     print("\n>>> AMBIENTE DE DESENVOLVIMENTO OK: banco, embeddings, recuperação e LLM funcionando")
+    print(f">>> entre no app (make dev) em http://localhost:8501 com {EMAIL_DEV} / {SENHA_DEV}")
     return 0
 
 

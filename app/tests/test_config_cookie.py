@@ -10,6 +10,7 @@ Sem mocks: `config` só lê variáveis de ambiente.
 import os
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -24,10 +25,19 @@ CHAVE_FORTE = "kJ2mQ0vT8sPzR1xY4nL7bC3dF6gH9wZ5aE2uI8oKpQ0rS4tU7vX1yB3nM6"
 class TestCookieKeyValidation(unittest.TestCase):
 
     def test_chave_ausente_e_recusada(self):
-        for vazio in ("", None):
-            msg = cookie_key_problem(vazio)
-            self.assertIsNotNone(msg)
-            self.assertIn("COOKIE_KEY", msg)
+        """`None` significa "usar config.COOKIE_KEY".
+
+        Sem controlar o valor do MÓDULO, este teste mede o ambiente de quem roda:
+        depois de `set -a; . ./.env.dev`, a variável existe e o fallback traria a
+        chave real (verde por acidente); num ambiente limpo, mediria o código. Com
+        o patch, o teste vale nos dois casos.
+        """
+        import config
+        with patch.object(config, "COOKIE_KEY", ""):
+            for vazio in ("", None):
+                msg = cookie_key_problem(vazio)
+                self.assertIsNotNone(msg)
+                self.assertIn("COOKIE_KEY", msg)
 
     def test_valor_publico_do_repositorio_e_recusado(self):
         """'legal_ai_key' era o literal que estava em main.py (e no repo público)."""

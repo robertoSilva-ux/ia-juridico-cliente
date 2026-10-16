@@ -16,12 +16,24 @@ set -uo pipefail
 cd "$(dirname "$0")" || exit 1     # app/
 VERBOSE="${1:-}"
 
-if ! command -v python3 >/dev/null 2>&1; then
-  echo "python3 não encontrado no PATH." >&2
+# O interpretador PRECISA ser o do projeto. Sem isso o runner pega o primeiro
+# `python3` do PATH, que não é necessariamente o do venv: nesta máquina é um 3.14
+# auxiliar, sem as dependências do app (`langchain_ollama` faltava, e só o
+# test_regime_db quebrava) e com versão diferente da do container (3.11). O
+# veredito da suíte não pode depender do PATH de quem roda.
+if [ -n "${VIRTUAL_ENV:-}" ] && [ -x "$VIRTUAL_ENV/bin/python" ]; then
+  PY="$VIRTUAL_ENV/bin/python"          # venv ativado tem precedência
+elif [ -x "../.venv/bin/python" ]; then
+  PY="../.venv/bin/python"              # venv do projeto (cwd é app/)
+elif command -v python3 >/dev/null 2>&1; then
+  PY="python3"                          # container: dependências no python do sistema
+else
+  echo "Nenhum interpretador Python encontrado (procurei VIRTUAL_ENV, .venv/ e python3)." >&2
   exit 1
 fi
+echo "interpretador: $PY ($("$PY" -V 2>&1))"
 
-mapfile -t MODULES < <(python3 -c "
+mapfile -t MODULES < <("$PY" -c "
 import pathlib
 print('\n'.join(sorted(p.stem for p in pathlib.Path('tests').glob('test_*.py'))))
 ")
@@ -35,7 +47,7 @@ fails=()
 total_tests=0
 for m in "${MODULES[@]}"; do
   echo "=== tests.${m} ==="
-  if out=$(python3 -m unittest "tests.${m}" ${VERBOSE:+-v} 2>&1); then
+  if out=$("$PY" -m unittest "tests.${m}" ${VERBOSE:+-v} 2>&1); then
     echo "$out" | tail -n 3
   else
     # Falhou: mostra o suficiente para diagnosticar, não a saída inteira.

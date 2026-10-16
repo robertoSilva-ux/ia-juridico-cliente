@@ -48,7 +48,29 @@ os.environ["DATABASE_URL"] = TEST_DATABASE_URL
 os.environ.setdefault("OLLAMA_BASE_URL", "http://localhost:11434")
 
 
+def _parece_banco_de_teste(url: str) -> bool:
+    """O `setUp` destes módulos APAGA `documents` e `sources`.
+
+    Por isso eles só podem rodar contra um banco cujo nome se identifique como de
+    teste (`legal_test`, `test_*`…). Sem esta trava, apontar `TEST_DATABASE_URL`
+    para o banco de desenvolvimento (ou, pior, o de um cliente) apagaria dados
+    reais e ainda deixaria os usuários-fixture para trás — foi assim que o banco
+    de dev ganhou `admin@legaliz.ai` com hash inutilizável.
+    """
+    nome = url.rsplit("/", 1)[-1].split("?")[0]
+    return "test" in nome.lower()
+
+
 def _db_available():
+    if not _parece_banco_de_teste(TEST_DATABASE_URL):
+        nome = TEST_DATABASE_URL.rsplit("/", 1)[-1]
+        print(
+            f"\n[AVISO] TEST_DATABASE_URL aponta para '{nome}', que não parece um banco de "
+            "TESTE. Estes testes apagam `documents` e `sources` — foram PULADOS por segurança. "
+            "Use um banco com 'test' no nome (ex.: legal_test, porta 5440).",
+            file=sys.stderr,
+        )
+        return False
     try:
         import psycopg2
         conn = psycopg2.connect(TEST_DATABASE_URL, connect_timeout=2)
