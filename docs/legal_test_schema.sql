@@ -51,6 +51,22 @@ CREATE UNIQUE INDEX IF NOT EXISTS sources_file_owner_uidx
 
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
 
+-- Colunas acrescentadas no bloco 7 (R-12/R-13) e no R-24 — espelham `database/init.sql`.
+-- Este arquivo é o schema do banco de INTEGRAÇÃO do CI, e ele ficou para trás quando as
+-- colunas entraram: o job de integração só quebrou quando o código que as grava subiu
+-- (`column "content_hash" of relation "documents" does not exist` na hora de GRAVAR, não
+-- antes). Quem mexer no schema: atualize os dois arquivos.
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS content_hash TEXT;
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS pagina INTEGER;
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS ordem INTEGER;
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS tipo_trecho VARCHAR(20) DEFAULT 'dispositivo';
+
+-- O `ON CONFLICT (file_name, COALESCE(owner_id, -1), content_hash)` da ingestão exige um
+-- índice único equivalente, senão o INSERT falha com "no unique or exclusion constraint
+-- matching the ON CONFLICT specification". Definição idêntica à do `init.sql`.
+CREATE UNIQUE INDEX IF NOT EXISTS documents_file_owner_hash_uidx
+    ON documents (file_name, COALESCE(owner_id, -1), content_hash);
+
 CREATE INDEX IF NOT EXISTS idx_documents_artigo ON documents (artigo);
 CREATE INDEX IF NOT EXISTS idx_documents_file_name ON documents (file_name);
 
