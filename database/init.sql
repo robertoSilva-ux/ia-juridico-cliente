@@ -51,6 +51,9 @@ CREATE INDEX IF NOT EXISTS idx_documents_embedding ON documents USING ivfflat (e
 -- Migração segura para tabelas existentes sem as colunas
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE;
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS scope VARCHAR(10) DEFAULT 'private' CHECK (scope IN ('private', 'global'));
+-- Rastreabilidade do fragmento (R-13): página do PDF e ordem no documento.
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS pagina INTEGER;
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS ordem INTEGER;
 
 CREATE TABLE IF NOT EXISTS sources (
     id SERIAL PRIMARY KEY,
@@ -111,6 +114,36 @@ DELETE FROM sources s
 
 CREATE UNIQUE INDEX IF NOT EXISTS sources_file_owner_uidx
     ON sources (file_name, COALESCE(owner_id, -1));
+
+-- ============================================================
+-- Dedup de fragmento garantido pelo BANCO (P2-16 / R-12)
+-- ============================================================
+-- O dedup era só de aplicação (`ingest._filter_existing`), que evita reembeddar mas não
+-- impede duplicata por concorrência — e fragmento duplicado enche o TOP_K de cópias.
+-- `content_hash` (md5 do conteúdo) entra na chave com arquivo e dono, como em `sources`.
+ALTER TABLE documents ADD COLUMN IF NOT EXISTS content_hash TEXT;
+
+-- Backfill das linhas que já existem (idempotente: só preenche o que está nulo).
+UPDATE documents SET content_hash = md5(content)
+ WHERE content_hash IS NULL AND content IS NOT NULL;
+
+-- Consolida duplicatas antes de criar o índice único: num banco que já tem duplicatas o
+-- CREATE UNIQUE INDEX falha (mesma ordem do bloco de `sources` acima).
+WITH duplicatas AS (
+    SELECT id,
+           MIN(id) OVER (PARTITION BY file_name, COALESCE(owner_id, -1), content_hash) AS manter
+    FROM documents
+    WHERE content_hash IS NOT NULL
+)
+DELETE FROM documents d
+ USING duplicatas
+ WHERE d.id = duplicatas.id
+   AND duplicatas.id <> duplicatas.manter;
+
+-- O alvo do ON CONFLICT da ingestão precisa ser escrito IGUAL a este índice
+-- (`file_name, (COALESCE(owner_id, -1)), content_hash`) — ver app/ingest.py.
+CREATE UNIQUE INDEX IF NOT EXISTS documents_file_owner_hash_uidx
+    ON documents (file_name, COALESCE(owner_id, -1), content_hash);
 
 CREATE TABLE IF NOT EXISTS audit_log (
     id SERIAL PRIMARY KEY,

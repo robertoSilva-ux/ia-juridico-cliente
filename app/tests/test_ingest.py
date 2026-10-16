@@ -86,7 +86,7 @@ class TestBatchLoop(unittest.TestCase):
         chunks = [_make_chunk(f"texto {i}") for i in range(10)]
         mock_parse.return_value = {'artigo': None, 'paragrafo': None, 'inciso': None,
                                    'tipo_doc': 'lei', 'numero_doc': None, 'ano_doc': None}
-        mock_enrich.side_effect = lambda c, f, m: dict(m)
+        mock_enrich.side_effect = lambda c, f, m, *a, **k: dict(m)
 
         embedder = FakeEmbedder()
 
@@ -122,7 +122,7 @@ class TestBatchLoop(unittest.TestCase):
         from ingest import parse_chunk, enrich_chunk_metadata
         with patch('ingest.parse_chunk', return_value={'artigo': None, 'paragrafo': None,
                    'inciso': None, 'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}), \
-             patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m: dict(m)), \
+             patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m, *a, **k: dict(m)), \
              patch('ingest.psycopg2.extras.execute_values') as mock_ev:
             list(self.ingest.store_in_postgres(chunks, embedder, "doc.pdf", batch_size=10))
             # apenas 2 chunks válidos inseridos
@@ -335,6 +335,90 @@ class TestDedupRecebeODono(unittest.TestCase):
         mock_connect.assert_not_called()
 
 
+class TestIngestDocumentDevolveFragmentos(unittest.TestCase):
+    """`ingest_document` promete "número de chunks indexados" — e precisa entregar.
+
+    A versão anterior somava os YIELDS de `store_in_postgres`, que emite **um por
+    lote**: devolvia 1 para um PDF de 128 fragmentos e 3 para um de 300. Quem
+    consome (o script de carga em lote e, agora, a interface) exibia esse número
+    como se fosse o total indexado.
+    """
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    @patch('ingest._filter_existing', side_effect=lambda chunks, *a, **k: list(chunks))
+    @patch('ingest.psycopg2.extras.execute_values')
+    @patch('ingest.psycopg2.connect')
+    @patch('ingest.parse_chunk')
+    @patch('ingest.enrich_chunk_metadata')
+    def test_conta_fragmentos_e_nao_lotes(self, mock_enrich, mock_parse, mock_connect,
+                                          mock_ev, mock_dedup):
+        chunks = [_make_chunk(f"texto {i}") for i in range(5)]   # 5 fragmentos, lote de 2
+        mock_parse.return_value = {'artigo': None, 'paragrafo': None, 'inciso': None,
+                                   'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}
+        mock_enrich.side_effect = lambda c, f, m, *a, **k: dict(m)
+        conn, cur = MagicMock(), MagicMock()
+        conn.cursor.return_value.__enter__.return_value = cur
+        mock_connect.return_value.__enter__.return_value = conn
+
+        progressos = []
+        total = self.ingest.ingest_document(
+            "/nao-usado.pdf", FakeEmbedder(), "lei.pdf",
+            owner_id=1, batch_size=2, progress_cb=progressos.append, chunks=chunks,
+        )
+
+        self.assertEqual(total, 5, "o retorno é fragmentos, não o número de lotes (3)")
+        self.assertEqual(mock_ev.call_count, 3, "3 lotes de 2/2/1")
+        self.assertAlmostEqual(progressos[-1], 1.0)
+        self.assertAlmostEqual(progressos[0], 0.5,
+                              msg="extração já feita => começa na metade da barra")
+
+    @patch('ingest._filter_existing', side_effect=lambda chunks, *a, **k: list(chunks))
+    @patch('ingest.psycopg2.extras.execute_values')
+    @patch('ingest.psycopg2.connect')
+    @patch('ingest.parse_chunk')
+    @patch('ingest.enrich_chunk_metadata')
+    def test_stats_descrevem_o_que_aconteceu(self, mock_enrich, mock_parse, mock_connect,
+                                             mock_ev, mock_dedup):
+        chunks = [_make_chunk(f"texto {i}") for i in range(3)]
+        mock_parse.return_value = {'artigo': None, 'paragrafo': None, 'inciso': None,
+                                   'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}
+        mock_enrich.side_effect = lambda c, f, m, *a, **k: dict(m)
+        conn, cur = MagicMock(), MagicMock()
+        conn.cursor.return_value.__enter__.return_value = cur
+        mock_connect.return_value.__enter__.return_value = conn
+
+        stats = {}
+        list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "doc.pdf",
+                                           owner_id=1, batch_size=10, stats=stats))
+
+        self.assertEqual(stats["enviados"], 3)
+        self.assertEqual(stats["indexados"], 3)
+        self.assertEqual(stats["pulados"], 0)
+        self.assertEqual(stats["descartados_nul"], 0)
+
+    @patch('ingest._filter_existing')
+    @patch('ingest.psycopg2.connect')
+    def test_stats_marcam_dedup_e_nul(self, mock_connect, mock_dedup):
+        """Chunk com NUL é descartado e o que já existia entra em `pulados`."""
+        chunks = [_make_chunk("normal"), _make_chunk("com \x00 nulo"), _make_chunk("repetido")]
+        mock_dedup.return_value = []      # tudo o que sobrou já estava na base
+
+        stats = {}
+        list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "doc.pdf",
+                                           owner_id=1, stats=stats))
+
+        self.assertEqual(stats["enviados"], 3)
+        self.assertEqual(stats["descartados_nul"], 1)
+        self.assertEqual(stats["pulados"], 2, "o NUL sai antes; sobram 2, e os dois já existiam")
+        self.assertEqual(stats["indexados"], 0, "nada gravado => nada a anunciar como indexado")
+        mock_connect.assert_not_called()
+
+
 def tearDownModule():
     # Restore original modules to prevent test pollution
     for m, val in _original_modules.items():
@@ -342,6 +426,198 @@ def tearDownModule():
             sys.modules.pop(m, None)
         else:
             sys.modules[m] = val
+
+
+class TestRuidoDePagina(unittest.TestCase):
+    """R-10/R-11: cabeçalho/rodapé repetido sai; identidade da norma e dispositivo ficam.
+
+    Medido na base de dev: o rodapé `Prof. Adriano de Oliveira www.estrategiaconcursos.com.br
+    48 de 64` entrava em TODOS os fragmentos da Lei 8.080 (o número muda por página, então a
+    comparação precisa normalizar números).
+    """
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    def _paginas_apostila(self, n=6):
+        return [
+            f"LEI-8080 ESQUEMATIZADA\n\nArt. {i}. Texto do artigo {i}.\n\n"
+            f"Prof. Adriano de Oliveira www.estrategiaconcursos.com.br {i} de 64"
+            for i in range(1, n + 1)
+        ]
+
+    def test_rodape_repetido_sai_e_artigo_fica(self):
+        paginas = self._paginas_apostila()
+        limpas = self.ingest.limpar_ruido_de_pagina(paginas)
+        for i, texto in enumerate(limpas, start=1):
+            self.assertNotIn("estrategiaconcursos", texto, "rodapé repetido tem de sair")
+            self.assertNotIn(f"{i} de 64", texto)
+            self.assertIn(f"Art. {i}. Texto do artigo {i}.", texto, "conteúdo de lei fica")
+
+    def test_identidade_da_norma_repetida_em_toda_pagina_e_preservada(self):
+        """Texto oficial do Planalto repete o cabeçalho em toda página (P2-30): é ele que dá
+        o par número+ano em cada fragmento e não pode ser tratado como rodapé."""
+        paginas = [
+            f"LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990.\n\nArt. {i}. Conteúdo do artigo {i}."
+            for i in range(1, 6)
+        ]
+        limpas = self.ingest.limpar_ruido_de_pagina(paginas)
+        for texto in limpas:
+            self.assertIn("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990", texto)
+
+    def test_linha_so_de_numero_de_pagina_sai_mesmo_em_documento_curto(self):
+        paginas = ["Art. 1. Conteúdo.\n\n48", "Art. 2. Outro conteúdo.\n\n49 de 120"]
+        limpas = self.ingest.limpar_ruido_de_pagina(paginas)
+        self.assertNotIn("48", limpas[0].splitlines())
+        self.assertNotIn("49 de 120", limpas[1].splitlines())
+        self.assertIn("Art. 1. Conteúdo.", limpas[0])
+
+    def test_rodape_com_tabs_e_com_espacos_sao_o_mesmo_ruido(self):
+        """Medido no PDF real: o rodapé do cursinho aparece com tabs em quase todas as
+        páginas e com espaços em 3 delas — sem colapsar espaços na chave, as 3 escapavam."""
+        paginas = [f"Art. {i}. Conteúdo.\nProf.\tAdriano\tde\tOliveira\twww.estrategiaconcursos.com.br\t{i}\tde\t64"
+                   for i in range(1, 5)]
+        paginas.append("Art. 5. Conteúdo.\nProf. Adriano de Oliveira www.estrategiaconcursos.com.br 5 de 64")
+        limpas = self.ingest.limpar_ruido_de_pagina(paginas)
+        for texto in limpas:
+            self.assertNotIn("estrategiaconcursos", texto)
+
+    def test_frase_que_carrega_identidade_da_norma_fica(self):
+        paginas = [f"LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990.\nArt. {i}. Conteúdo." for i in range(1, 5)]
+        limpas = self.ingest.limpar_ruido_de_pagina(paginas)
+        for texto in limpas:
+            self.assertIn("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990", texto)
+
+    def test_documento_curto_nao_tem_ruido_por_repeticao(self):
+        """Com menos de 3 páginas, repetição pode ser coincidência: não se remove nada."""
+        paginas = ["Art. 1. Conteúdo.", "Art. 1. Conteúdo."]
+        self.assertEqual(self.ingest._linhas_de_ruido(paginas), set())
+        self.assertEqual(self.ingest.limpar_ruido_de_pagina(paginas), paginas)
+
+    def test_linha_de_dispositivo_nao_e_removida_como_rodape(self):
+        self.assertTrue(self.ingest.linha_carrega_identidade_de_norma("Art. 9º A direção do SUS é única."))
+        self.assertFalse(self.ingest.linha_carrega_identidade_de_norma("48 de 64"))
+
+    def test_fragmento_vazio_e_descartado_na_gravacao(self):
+        """R-11: fragmento que ficou só rodapé (vazio após limpeza) não vai ao banco."""
+        chunks = [_make_chunk("Art. 1. Conteúdo real."), _make_chunk("   "), _make_chunk("")]
+        stats = {}
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: list(c)), \
+             patch('ingest.parse_chunk', return_value={'artigo': None, 'paragrafo': None,
+                    'inciso': None, 'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}), \
+             patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m, *a, **k: dict(m)), \
+             patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+             patch('ingest.psycopg2.connect') as mock_connect:
+            conn, cur = MagicMock(), MagicMock()
+            conn.cursor.return_value.__enter__.return_value = cur
+            mock_connect.return_value.__enter__.return_value = conn
+            list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "doc.pdf",
+                                               batch_size=10, stats=stats))
+        inseridos = mock_ev.call_args[0][2]
+        self.assertEqual(len(inseridos), 1)
+        self.assertEqual(inseridos[0][1], "Art. 1. Conteúdo real.")
+        self.assertEqual(stats['descartados_vazio'], 2)
+        self.assertEqual(stats['indexados'], 1)
+
+    def test_nada_por_tamanho(self):
+        """O descarte NÃO pode ser por tamanho: 'Art. 51. (Vetado).' é lei de verdade."""
+        chunks = [_make_chunk("Art. 51. (Vetado)."), _make_chunk("Art. 42. (Vetado).")]
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: list(c)), \
+             patch('ingest.parse_chunk', return_value={'artigo': None, 'paragrafo': None,
+                    'inciso': None, 'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}), \
+             patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m, *a, **k: dict(m)), \
+             patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+             patch('ingest.psycopg2.connect') as mock_connect:
+            conn, cur = MagicMock(), MagicMock()
+            conn.cursor.return_value.__enter__.return_value = cur
+            mock_connect.return_value.__enter__.return_value = conn
+            list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei.pdf", batch_size=10))
+        self.assertEqual(len(mock_ev.call_args[0][2]), 2, "artigo curto é conteúdo de lei")
+
+
+class TestDedupEGrafoNoBanco(unittest.TestCase):
+    """R-12/R-13: hash de conteúdo na chave única e rastreabilidade do fragmento.
+
+    O alvo do `ON CONFLICT` tem de ser escrito IGUAL ao índice
+    `documents_file_owner_hash_uidx` — é a armadilha já documentada no bloco de `sources`
+    (índice com `COALESCE(owner_id, -1)`), e aqui ela é conferida lendo os DOIS arquivos.
+    """
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    def _executar(self, chunks, rowcount=None):
+        stats = {}
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: list(c)), \
+             patch('ingest.parse_chunk', return_value={'artigo': None, 'paragrafo': None,
+                    'inciso': None, 'tipo_doc': 'lei', 'numero_doc': '8080', 'ano_doc': '1990'}), \
+             patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m, *a, **k: dict(m)), \
+             patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+             patch('ingest.psycopg2.connect') as mock_connect:
+            conn, cur = MagicMock(), MagicMock()
+            if rowcount is not None:
+                cur.rowcount = rowcount
+            conn.cursor.return_value.__enter__.return_value = cur
+            mock_connect.return_value.__enter__.return_value = conn
+            list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei-8080.pdf",
+                                               owner_id=9, batch_size=10, stats=stats))
+        sql, linhas = mock_ev.call_args[0][1], mock_ev.call_args[0][2]
+        return sql, linhas, stats
+
+    def test_hash_md5_do_conteudo_vai_na_linha(self):
+        import hashlib
+        conteudo = "Art. 9º A direção do SUS é única."
+        sql, linhas, _ = self._executar([_make_chunk(conteudo)])
+        self.assertIn("content_hash", sql)
+        self.assertEqual(linhas[0][-3], hashlib.md5(conteudo.encode("utf-8")).hexdigest())
+
+    def test_on_conflict_escrito_igual_ao_indice(self):
+        from pathlib import Path
+        sql, _, _ = self._executar([_make_chunk("Art. 1. Conteúdo.")])
+        alvo = "ON CONFLICT (file_name, (COALESCE(owner_id, -1)), content_hash)"
+        self.assertIn(alvo, sql)
+        self.assertIn("DO NOTHING", sql)
+        init_sql = Path(__file__).resolve().parents[2] / "database" / "init.sql"
+        fonte = init_sql.read_text(encoding="utf-8")
+        self.assertIn("ON documents (file_name, COALESCE(owner_id, -1), content_hash)", fonte,
+                      "o índice do banco precisa casar com o alvo do ON CONFLICT")
+
+    def test_pagina_e_ordem_rastreaveis(self):
+        chunks = [_make_chunk("Art. 1. Um.", {"page": 4}), _make_chunk("Art. 2. Dois."),
+                  _make_chunk("Art. 3. Três.", {"page": 9})]
+        _, linhas, _ = self._executar(chunks)
+        self.assertEqual([linha[-2] for linha in linhas], [5, None, 10],
+                         "página 1-based, ausente = None")
+        self.assertEqual([linha[-1] for linha in linhas], [1, 2, 3], "ordem do fragmento no documento")
+
+    def test_ordem_sobrevive_ao_dedup(self):
+        """A posição é a do documento original, não a da lista já filtrada."""
+        chunks = [_make_chunk("Art. 1. Um."), _make_chunk("Art. 2. Dois."), _make_chunk("Art. 3. Três.")]
+        with patch('ingest._filter_existing', side_effect=lambda c, *a, **k: [c[1], c[2]]):
+            stats = {}
+            with patch('ingest.parse_chunk', return_value={'artigo': None, 'paragrafo': None,
+                        'inciso': None, 'tipo_doc': None, 'numero_doc': None, 'ano_doc': None}), \
+                 patch('ingest.enrich_chunk_metadata', side_effect=lambda c, f, m, *a, **k: dict(m)), \
+                 patch('ingest.psycopg2.extras.execute_values') as mock_ev, \
+                 patch('ingest.psycopg2.connect') as mock_connect:
+                conn, cur = MagicMock(), MagicMock()
+                conn.cursor.return_value.__enter__.return_value = cur
+                mock_connect.return_value.__enter__.return_value = conn
+                list(self.ingest.store_in_postgres(chunks, FakeEmbedder(), "lei.pdf",
+                                                   batch_size=10, stats=stats))
+        self.assertEqual([linha[-1] for linha in mock_ev.call_args[0][2]], [2, 3])
+
+    def test_contagem_reflete_o_que_o_banco_inseriu(self):
+        """`ON CONFLICT DO NOTHING` pode descartar linha: o contador não pode mentir."""
+        _, _, stats = self._executar([_make_chunk("Art. 1. Um."), _make_chunk("Art. 1. Um.")],
+                                     rowcount=1)
+        self.assertEqual(stats['indexados'], 1)
 
 
 if __name__ == "__main__":

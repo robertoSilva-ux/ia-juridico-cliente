@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import logging
 import re
 import time
@@ -6,9 +7,15 @@ import time
 import psycopg2
 import psycopg2.extras
 from config import DATABASE_URL, EMBED_BATCH_SIZE
+from factcheck import invalidate_dispositivos_cache
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from legal_parser import enrich_chunk_metadata, parse_chunk
+from legal_parser import (
+    enrich_chunk_metadata,
+    identidade_do_documento,
+    linha_carrega_identidade_de_norma,
+    parse_chunk,
+)
 from pgvector.psycopg2 import register_vector
 
 from database import get_db_connection
@@ -94,6 +101,100 @@ def _copy_document(document, content):
     return chunk
 
 
+#: Linha que é SÓ número de página ("48", "48 de 64", "48/64"): não é conteúdo de lei.
+_SO_NUMERO_DE_PAGINA = re.compile(r"^\s*\d{1,4}\s*(?:de|/)\s*\d{1,4}\s*\.?\s*$|^\s*\d{1,4}\s*\.?\s*$")
+#: Números viram "#" para comparar linhas: "… 25 de 64" e "… 26 de 64" são o MESMO rodapé.
+_NUMEROS = re.compile(r"\d+")
+
+
+def _chave_de_linha(linha: str) -> str:
+    """Chave de comparação da linha: espaços colapsados e números normalizados.
+
+    Os dois passos são medidos no mesmo PDF: o rodapé do cursinho aparece em duas grafias
+    (`Prof.\\tAdriano\\tde\\tOliveira …` com tabs e `Prof. Adriano de Oliveira …` com
+    espaços), e o número da página muda a cada página. Sem colapsar espaços e sem trocar os
+    dígitos por "#", o mesmo rodapé virava três chaves diferentes e escapava da limpeza.
+    """
+    return _NUMEROS.sub("#", re.sub(r"\s+", " ", linha.strip()))
+
+
+def _linhas_de_ruido(paginas, minimo_paginas: int = 3, fracao: float = 0.5) -> set[str]:
+    """Chaves de linha que se repetem entre páginas (cabeçalho/rodapé de apostila).
+
+    Medido na base de dev: o rodapé `Prof. Adriano de Oliveira
+    www.estrategiaconcursos.com.br 48 de 64` aparece dentro de TODOS os fragmentos da Lei
+    8.080 — e o número da página muda a cada página, por isso a comparação é feita com os
+    números normalizados. Ficam de fora as linhas que carregam identidade de norma ou
+    dispositivo (`linha_carrega_identidade_de_norma`).
+    """
+    paginas = [p for p in (paginas or []) if p]
+    if len(paginas) < minimo_paginas:
+        return set()
+    contagem: dict[str, int] = {}
+    for texto in paginas:
+        for linha in {_chave_de_linha(bruta) for bruta in texto.splitlines() if bruta.strip()}:
+            contagem[linha] = contagem.get(linha, 0) + 1
+    limite = max(minimo_paginas, len(paginas) * fracao)
+    return {chave for chave, n in contagem.items() if n >= limite}
+
+
+def limpar_ruido_de_pagina(paginas, ruido: set[str] | None = None):
+    """Remove cabeçalho/rodapé repetido e linha de número de página. Devolve as páginas limpas.
+
+    ``paginas`` é uma lista de textos (as páginas do PDF). Quando ``ruido`` não vem, ele é
+    detectado com `_linhas_de_ruido`. A função é pura para poder ser testada sem PDF.
+    """
+    paginas = list(paginas or [])
+    if ruido is None:
+        ruido = _linhas_de_ruido(paginas)
+    limpas = []
+    for texto in paginas:
+        mantidas = []
+        for linha in (texto or "").splitlines():
+            crua = linha.strip()
+            if not crua:
+                mantidas.append("")
+                continue
+            if _SO_NUMERO_DE_PAGINA.match(crua):
+                continue
+            if _chave_de_linha(crua) in ruido and not linha_carrega_identidade_de_norma(crua):
+                continue
+            mantidas.append(linha)
+        limpas.append("\n".join(mantidas))
+    return limpas
+
+
+def process_pdf(file_path, progress_cb=None):
+    """Carrega e fragmenta um PDF aplicando normalização de whitespace e limpeza de ruído.
+
+    A normalização roda por página, ANTES do split jurídico, para que o chunking veja texto
+    limpo e a detecção de "Art. N" opere sobre o formato canônico. Se normalizássemos depois
+    do split, o texto armazenado e o texto embedado divergiriam do que o parser jurídico
+    analisou.
+
+    A limpeza de cabeçalho/rodapé repetido (R-10) roda antes da normalização: é ela que tira
+    o rodapé de apostila que, senão, entra no embedding e no contexto de todo fragmento.
+
+    ``progress_cb`` (opcional) recebe floats 0.0->1.0 para a fase de extração.
+    """
+    loader = PyPDFLoader(file_path)
+    documents = loader.load()
+
+    total = len(documents) or 1
+    textos = [(document.page_content or "") for document in documents]
+    ruido = _linhas_de_ruido(textos)
+    if ruido:
+        logger.info("%d padrão(ões) de cabeçalho/rodapé repetido removidos da extração", len(ruido))
+
+    limpos = limpar_ruido_de_pagina(textos, ruido=ruido)
+    for index, document in enumerate(documents):
+        document.page_content = normalize_whitespace(limpos[index])
+        if progress_cb is not None:
+            progress_cb((index + 1) / total * 0.5)  # extração = 50% do trabalho
+
+    return split_legal_documents(documents)
+
+
 def split_legal_documents(documents, chunk_size=1000, chunk_overlap=100):
     """Divide PDFs jurídicos sem misturar dispositivos consecutivos.
 
@@ -155,28 +256,6 @@ def split_legal_documents(documents, chunk_size=1000, chunk_overlap=100):
             for chunk in bounded_splitter.split_documents([section])]
 
 
-def process_pdf(file_path, progress_cb=None):
-    """Carrega e fragmenta um PDF aplicando normalização de whitespace.
-
-    A normalização roda por página, ANTES do split jurídico, para que o
-    chunking veja texto limpo e a detecção de "Art. N" opere sobre o formato
-    canônico. Se normalizássemos depois do split, o texto armazenado e o texto
-    embedado divergiriam do que o parser jurídico analisou.
-
-    ``progress_cb`` (opcional) recebe floats 0.0->1.0 para a fase de extração.
-    """
-    loader = PyPDFLoader(file_path)
-    documents = loader.load()
-
-    total = len(documents) or 1
-    for index, document in enumerate(documents):
-        document.page_content = normalize_whitespace(document.page_content)
-        if progress_cb is not None:
-            progress_cb((index + 1) / total * 0.5)  # extração = 50% do trabalho
-
-    return split_legal_documents(documents)
-
-
 def ingest_document(
     file_path,
     embeddings_model,
@@ -186,6 +265,7 @@ def ingest_document(
     batch_size=EMBED_BATCH_SIZE,
     progress_cb=None,
     chunks=None,
+    identidade=None,
 ):
     """Ingere UM documento do início ao fim, reportando progresso global.
 
@@ -198,6 +278,11 @@ def ingest_document(
 
     ``progress_cb`` recebe floats 0.0->1.0. ``chunks`` permite reutilizar uma
     fragmentação já feita (ex.: retomada), evitando reparsear o PDF.
+
+    ``identidade`` é a identidade da norma (R-9). Quando não vem, é lida do
+    CONTEÚDO do documento — o cabeçalho do texto oficial traz número e ano juntos,
+    e é isso que faz o rótulo do contexto e o fact-check pararem de depender do
+    nome do arquivo.
 
     Devolve o número de chunks efetivamente indexados.
     """
@@ -215,7 +300,16 @@ def ingest_document(
     elif progress_cb is not None:
         _report(0.5)
 
-    total = 0
+    if identidade is None:
+        identidade = identidade_do_documento(
+            "\n".join(str(getattr(chunk, "page_content", "") or "") for chunk in chunks or []),
+            file_name,
+        )
+        logger.info("Identidade do documento %s: tipo=%s numero=%s ano=%s",
+                    file_name, identidade.get('tipo'), identidade.get('numero'),
+                    identidade.get('ano'))
+
+    stats: dict = {}
     for fraction in store_in_postgres(
         chunks,
         embeddings_model,
@@ -223,14 +317,19 @@ def ingest_document(
         owner_id=owner_id,
         scope=scope,
         batch_size=batch_size,
+        stats=stats,
+        identidade=identidade,
     ):
         # store_in_postgres reporta 0.0->1.0 da fase de armazenamento; remapeia
         # para a metade final da barra global.
         _report(0.5 + 0.5 * fraction)
-        total += 1
 
     _report(1.0)
-    return total
+
+    # Fragmentos gravados, não lotes: o gerador emite só a fração de progresso,
+    # então contar yields aqui devolvia 1 para um PDF de 128 fragmentos e 3 para
+    # um de 300 — enquanto o docstring promete fragmentos indexados.
+    return stats.get("indexados", 0)
 
 
 def _embed_with_retry(embeddings_model, texts, max_retries=3, base_delay=2.0):
@@ -253,7 +352,7 @@ def _embed_with_retry(embeddings_model, texts, max_retries=3, base_delay=2.0):
     raise last_exc
 
 
-def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
+def _get_or_create_source(conn, file_name, owner_id=None, scope='private', identidade=None):
     """Garante a linha de `sources` do arquivo DE UM DONO e devolve o id.
 
     O conflito é resolvido por (file_name, dono), nunca só pelo nome: dois
@@ -269,9 +368,12 @@ def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
     global entra), o que fazia cada carga inserir uma linha nova de fonte.
     O alvo do ON CONFLICT precisa ser escrito exatamente como o índice
     `sources_file_owner_uidx` (database/init.sql).
+
+    ``identidade`` (de `legal_parser.identidade_do_documento`) é a identidade da
+    norma lida do CONTEÚDO; sem ela a fonte fica com o que o nome do arquivo diz.
     """
     from legal_parser import build_title, parse_file_name
-    meta = parse_file_name(file_name)
+    meta = identidade or parse_file_name(file_name)
     title = build_title(meta)
     with conn.cursor() as cur:
         cur.execute(
@@ -290,7 +392,22 @@ def _get_or_create_source(conn, file_name, owner_id=None, scope='private'):
         return row[0] if row else None
 
 
-def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope='private', batch_size=EMBED_BATCH_SIZE):
+def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope='private',
+                      batch_size=EMBED_BATCH_SIZE, stats=None, *, identidade=None):
+    """Grava os chunks (com embeddings) no Postgres, emitindo progresso 0.0->1.0.
+
+    Emite **um valor por lote** — é fração de progresso, não contagem: com o
+    `batch_size` padrão (128), dez fragmentos emitem um único 1.0.
+
+    ``stats`` (opcional): dicionário preenchido com o que de fato aconteceu —
+    ``enviados``, ``descartados_nul``, ``pulados`` (dedup) e ``indexados``
+    (gravados). Existe porque o yield traz só a fração: sem isso quem chama
+    precisaria contar yields para deduzir o total, e foi assim que
+    ``ingest_document`` passou a devolver 3 para um PDF de 300 fragmentos.
+    """
+    if stats is not None:
+        stats.update(enviados=len(chunks or []), descartados_nul=0, descartados_vazio=0,
+                     pulados=0, indexados=0)
     if not chunks:
         return
 
@@ -300,6 +417,23 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
     valid = [c for c in chunks if '\x00' not in c.page_content]
     if len(valid) != total_chunks:
         logger.warning(f"{total_chunks - len(valid)} chunks descartados por NUL (0x00).")
+    if stats is not None:
+        stats['descartados_nul'] = total_chunks - len(valid)
+    total_chunks = len(valid)
+    if total_chunks == 0:
+        return
+
+    # Fragmento que ficou VAZIO depois da limpeza de cabeçalho/rodapé repetido (R-11): era
+    # só rodapé. Não se descarta por TAMANHO — medido na base de dev, os artigos
+    # "Art. 51. (Vetado)." têm 17 caracteres e são lei de verdade: um corte por tamanho
+    # apagaria dispositivo vigente do corpus.
+    sem_vazio = [c for c in valid if (c.page_content or '').strip()]
+    if len(sem_vazio) != total_chunks:
+        logger.info("%d fragmentos sem conteúdo após a limpeza de ruído — descartados.",
+                    total_chunks - len(sem_vazio))
+    if stats is not None:
+        stats['descartados_vazio'] = total_chunks - len(sem_vazio)
+    valid = sem_vazio
     total_chunks = len(valid)
     if total_chunks == 0:
         return
@@ -314,6 +448,8 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
     skipped = total_chunks - len(deduped)
     if skipped:
         logger.info(f"{skipped} chunks já existentes no banco — pulados (dedup).")
+    if stats is not None:
+        stats['pulados'] = skipped
     total_chunks = len(deduped)
     if total_chunks == 0:
         logger.info("Nenhum chunk novo a indexar (tudo já existia).")
@@ -321,9 +457,14 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
     valid = deduped
 
     # Conectar ao postgres usando gerenciador de contexto
+    #: Ordem original de cada fragmento no documento (R-13: rastreabilidade). Calculada
+    #: sobre a lista que chegou, porque o dedup e o descarte de vazio reindexam `valid`.
+    posicoes = {id(chunk): i for i, chunk in enumerate(chunks)}
+
     with psycopg2.connect(DATABASE_URL) as conn:
         register_vector(conn)
-        source_id = _get_or_create_source(conn, file_name, owner_id=owner_id, scope=scope)
+        source_id = _get_or_create_source(conn, file_name, owner_id=owner_id, scope=scope,
+                                          identidade=identidade)
         with conn.cursor() as cur:
             for i in range(0, total_chunks, batch_size):
                 batch = valid[i:i + batch_size]
@@ -335,9 +476,19 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                 # Preparar os dados para inserção com metadados jurídicos
                 data_list = []
                 for chunk, embedding in zip(batch, embeddings, strict=True):
-                    # Extrair metadados jurídicos do chunk
-                    legal_meta = parse_chunk(chunk.page_content, file_name)
-                    enriched_metadata = enrich_chunk_metadata(chunk.page_content, file_name, chunk.metadata)
+                    # Extrair metadados jurídicos do chunk. A identidade da norma vem do
+                    # DOCUMENTO (R-9) e vale para todos os fragmentos; o que é do
+                    # fragmento (artigo, parágrafo, inciso) sai do próprio texto.
+                    legal_meta = parse_chunk(chunk.page_content, file_name, identidade)
+                    enriched_metadata = enrich_chunk_metadata(chunk.page_content, file_name,
+                                                              chunk.metadata, identidade)
+
+                    # R-13: página (a do início do fragmento — um recorte pode atravessar
+                    # páginas) e ordem no documento, para a origem ser rastreável.
+                    metadados = chunk.metadata if isinstance(chunk.metadata, dict) else {}
+                    pagina = metadados.get("page")
+                    pagina = int(pagina) + 1 if isinstance(pagina, int) else None
+                    ordem = posicoes.get(id(chunk), 0) + 1
 
                     data_list.append((
                         file_name,
@@ -353,20 +504,43 @@ def store_in_postgres(chunks, embeddings_model, file_name, owner_id=None, scope=
                         legal_meta['numero_doc'],
                         legal_meta['ano_doc'],
                         source_id,
+                        hashlib.md5(chunk.page_content.encode("utf-8")).hexdigest(),
+                        pagina,
+                        ordem,
                     ))
 
-                # Inserção do lote com colunas jurídicas
+                # Inserção do lote com colunas jurídicas. O alvo do ON CONFLICT precisa
+                # ser escrito IGUAL ao índice `documents_file_owner_hash_uidx`
+                # (database/init.sql): `file_name, (COALESCE(owner_id, -1)), content_hash`.
+                # DO NOTHING (e não DO UPDATE): fragmento idêntico do mesmo arquivo do
+                # mesmo dono é cópia, e a cópia não deve reescrever a linha existente.
                 psycopg2.extras.execute_values(
                     cur,
                     """INSERT INTO documents
                        (file_name, content, metadata, embedding, owner_id, scope,
-                        artigo, paragrafo, inciso, tipo_doc, numero_doc, ano_doc, source_id)
-                       VALUES %s""",
+                        artigo, paragrafo, inciso, tipo_doc, numero_doc, ano_doc, source_id,
+                        content_hash, pagina, ordem)
+                       VALUES %s
+                       ON CONFLICT (file_name, (COALESCE(owner_id, -1)), content_hash)
+                       DO NOTHING""",
                     data_list
                 )
                 conn.commit()
 
-                # Reportar progresso
+                # `rowcount` é o que o banco REALMENTE inseriu (o ON CONFLICT pode ter
+                # descartado linha); cursor sem contagem (duplo de teste) cai no tamanho
+                # do lote.
+                inseridos = getattr(cur, "rowcount", None)
+                if not isinstance(inseridos, int) or inseridos < 0:
+                    inseridos = len(data_list)
+                if stats is not None:
+                    stats['indexados'] += inseridos
+
+                # A base mudou: o índice de dispositivos do fact-check (P1-1) precisa
+                # ser reconstruído, senão a validação roda com o retrato anterior.
+                invalidate_dispositivos_cache()
+
+                # Reportar progresso (fração do lote, não contagem — ver docstring)
                 progress = min((i + batch_size) / total_chunks, 1.0)
                 yield progress
 
