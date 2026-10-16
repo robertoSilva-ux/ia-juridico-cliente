@@ -6,6 +6,7 @@ mockados ANTES do import para isolar a função pura build_context.
 import os
 import sys
 import unittest
+import unittest.mock
 from unittest.mock import MagicMock
 
 # Backup original modules before mocking to prevent test pollution
@@ -348,9 +349,17 @@ class TestFactCheck(unittest.TestCase):
         self.assertEqual(_classify_sentence_grounded("Fontes:\n[1] Decreto 3048", {1}), "supported")
 
     def test_fact_check_answer_monta_resultado(self):
-        """_fact_check_answer monta o resumo e flag de sentenças não suportadas."""
+        """_fact_check_answer monta o resumo e flag de sentenças não suportadas.
+
+        O conteúdo dos documentos traz os fatos que as frases afirmam porque a
+        checagem passou a conferir o dado contra o FRAGMENTO CITADO (R-4): uma
+        frase que afirma "40% [1]" num [DOC 1] sem 40% não é lastreada.
+        """
         from agent import _fact_check_answer
-        docs = [_doc(id=1), _doc(id=2)]
+        docs = [
+            _doc(id=1, content="Art. 54. O adicional é de 40% sobre o salário de contribuição."),
+            _doc(id=2, content="Art. 2. Aplica-se o disposto neste artigo aos casos indicados."),
+        ]
         answer = "O adicional é 40% [1]. A aposentadoria exige 25 anos [9]. Aplica-se o art. 2 [2]."
         res = _fact_check_answer(answer, docs)
         self.assertEqual(res["total_sentences"], 3)
@@ -367,6 +376,14 @@ class TestFactCheck(unittest.TestCase):
         from agent import _FACTUAL_NUM_PATTERN
         hits = _FACTUAL_NUM_PATTERN.findall("o salário família é pago até a idade de 18 anos")
         self.assertEqual(hits, ["18 anos"])
+
+    def test_citacao_aceita_as_duas_grafias(self):
+        """`[3]` e `[DOC 3]` são a mesma citação — o prompt manda usar `[DOC n]`."""
+        from agent import _extract_citations
+        self.assertEqual(_extract_citations("o prazo é de 180 dias [3]."), [3])
+        self.assertEqual(_extract_citations("o prazo é de 180 dias [DOC 3]."), [3])
+        self.assertEqual(_extract_citations("[doc 12] e [2] sustentam."), [12, 2])
+        self.assertEqual(_extract_citations("sem citação [DOC] aqui."), [])
 
     def test_factual_grounded_extenso_vs_digitos(self):
         """Lei diz 'quatorze', modelo responde '14' — canonicalização considera lastreado."""
@@ -387,6 +404,91 @@ class TestFactCheck(unittest.TestCase):
         from agent import _factual_claim_grounded
         ctx = "aposentadoria especial aos cinquenta e cinco anos de idade, se do sexo feminino"
         self.assertTrue(_factual_claim_grounded("A aposentadoria especial exige 55 anos de contribuição.", ctx))
+
+
+class TestFactCheckNormas(unittest.TestCase):
+    """Citação de norma (lei/decreto/EC) na resposta x o que a base sustenta.
+
+    Regressão medida em 2026-10-16, com a base real: o modelo respondeu
+    *"A Lei nº 8080/2011 regula o Sistema Único de Saúde"*. O **8080** vinha do
+    NOME DO ARQUIVO (`LEI-8080-ESQUEMATIZADA1.pdf`, que aparece no cabeçalho de
+    cada [DOC] do contexto) e o **2011**, de um trecho de OUTRA lei —
+    *"(Incluído pela Lei nº 12.401, de 2011)"*. Cada pedaço existia em algum lugar
+    do contexto, então os checks por token aprovavam: `all_grounded: True` numa
+    resposta errada (a Lei 8.080 é de 19/09/1990).
+
+    A severidade é graduada: número inexistente é invenção (no_support); número
+    que existe mas com OUTRO ano no material é composição de normas (no_support);
+    número certo com ano que o material não registra é não verificável (partial).
+    """
+
+    def _arquivo_sem_metadado(self, conteudo_extra=""):
+        """Reproduz o registro real: `numero_doc` NULL no banco e o número só no
+        nome do arquivo; o conteúdo traz a lei 12.401/2011 (a fonte do ano)."""
+        return [
+            _doc(id=1, file_name="LEI-8080-ESQUEMATIZADA1.pdf", numero_doc=None,
+                 content=("Art. 19-Q. (Incluído pela Lei nº 12.401, de 2011) "
+                          "A incorporação de tecnologia em saúde no SUS." + conteudo_extra)),
+        ]
+
+    def test_ano_roubado_de_outra_lei_e_sinalizado(self):
+        """O caso relatado: número do arquivo + ano de outra lei."""
+        from agent import _fact_check_answer
+        res = _fact_check_answer(
+            "A Lei nº 8080/2011 regula o Sistema Único de Saúde (SUS).",
+            self._arquivo_sem_metadado(),
+        )
+        self.assertFalse(res["all_grounded"])
+        # O material não registra o ano da Lei 8.080, então o ano é
+        # *inverificável* (partial), não uma contradição provada.
+        self.assertEqual(res["partial"], 1)
+        self.assertEqual(res["flagged_sentences"][0]["reason"], "ano_nao_consta")
+
+    def test_ano_conflitante_com_a_base_e_invencao(self):
+        """Se a base diz 1990 e a resposta diz 2011, o par é incompatível."""
+        from agent import _fact_check_answer
+        docs = [_doc(id=1, file_name="lei-8080.pdf", numero_doc=None,
+                     content="LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990. Dispõe sobre o SUS.")]
+        res = _fact_check_answer("A Lei nº 8.080/2011 dispõe sobre o SUS.", docs)
+        self.assertFalse(res["all_grounded"])
+        self.assertEqual(res["no_support"], 1)
+        self.assertEqual(res["flagged_sentences"][0]["reason"], "ano_incompativel")
+
+    def test_numero_inventado_e_invencao(self):
+        """Número que não existe em lugar nenhum do material."""
+        from agent import _fact_check_answer
+        res = _fact_check_answer(
+            "A Lei nº 8.830, de 1993, organiza o SUS.",
+            self._arquivo_sem_metadado(),
+        )
+        self.assertFalse(res["all_grounded"])
+        self.assertEqual(res["flagged_sentences"][0]["reason"], "norma_sem_lastro")
+
+    def test_citacao_correta_nao_e_reprovada(self):
+        """Guarda contra falso positivo: a resposta certa continua limpa."""
+        from agent import _fact_check_answer
+        docs = [_doc(id=1, file_name="lei-8080.pdf", numero_doc="8080", ano_doc="1990",
+                     content=("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990. Dispõe sobre as "
+                              "condições para a promoção, proteção e recuperação da saúde."))]
+        res = _fact_check_answer(
+            "A Lei nº 8.080/1990 dispõe sobre a promoção, proteção e recuperação da saúde [1].", docs)
+        self.assertTrue(res["all_grounded"], res["flagged_sentences"])
+
+    def test_identidade_do_metadado_sustenta_a_citacao(self):
+        """O rótulo que o pipeline fornece ('Arquivo X é a Lei 8.213/1991') pode
+        ser citado mesmo quando o conteúdo recuperado não repete o ano."""
+        from agent import _fact_check_answer
+        docs = [_doc(id=1, file_name="Lei 8.213-91.pdf", numero_doc=None,
+                     content="Art. 25. A carência exigida é de 180 contribuições mensais.")]
+        res = _fact_check_answer(
+            "A carência é de 180 contribuições mensais (Lei nº 8.213/1991) [1].", docs)
+        self.assertTrue(res["all_grounded"], res["flagged_sentences"])
+
+    def test_norma_citada_conta_como_afirmacao_factual(self):
+        """Sem isso, sentença que só cita lei (sem [n] e sem prazo) escapava do check."""
+        from agent import _has_factual_claim
+        self.assertTrue(_has_factual_claim("A Lei nº 8.080/1990 é a Lei Orgânica da Saúde."))
+        self.assertFalse(_has_factual_claim("O sistema de saúde é importante para o país."))
 
 
 class TestHyDE(unittest.TestCase):
@@ -521,6 +623,323 @@ class TestPromptContract(unittest.TestCase):
         self.assertIn("não mencione data de corte", prompt)
         self.assertIn("março de 2023", prompt)
         self.assertIn("vigência não está indicada nos documentos recuperados", prompt)
+
+    def test_prompt_tem_contrato_de_saida_e_recusa(self):
+        """R-7: o prompt precisa exigir a citação do trecho e a forma da recusa.
+
+        Sem isso o verificador descarta a resposta por falta de citação — e o
+        produto passaria a recusar perguntas que a base responde.
+        """
+        prompt_path = os.path.join(os.path.dirname(__file__), "..", "prompts", "system-role.md")
+        with open(prompt_path, encoding="utf-8") as handle:
+            prompt = handle.read()
+        self.assertIn("CONTRATO DE SAÍDA", prompt)
+        self.assertIn("[DOC 1]", prompt)
+        self.assertIn("NÃO ENCONTRADO NA BASE", prompt)
+        self.assertNotIn("ARBITRAGEM DE REGIME JURÍDICO (obrigatória", prompt)
+
+
+class TestLastroNoFragmentoCitado(unittest.TestCase):
+    """R-4: o dado afirmado tem de estar no trecho que a frase CITA.
+
+    Citar [1] e afirmar o dado que está no [3] não fundamenta nada: o advogado
+    clica em [1] e não encontra o número.
+    """
+
+    def _res(self, answer, docs):
+        from agent import _fact_check_answer
+        return _fact_check_answer(answer, docs)
+
+    def test_dado_em_outro_fragmento_reprova(self):
+        docs = [
+            _doc(id=1, content="Art. 1º Esta lei dispõe sobre o registro de dados de saúde."),
+            _doc(id=2, content="Art. 54. A aposentadoria é devida ao segurado com 35 anos de contribuição."),
+        ]
+        res = self._res("A aposentadoria exige 35 anos de contribuição [1].", docs)
+        self.assertEqual(res["partial"], 1)
+        self.assertEqual(res["flagged_sentences"][0]["reason"], "lastro_fora_do_citado")
+        self.assertEqual(res["veredito"], "parcial")
+
+    def test_dado_no_fragmento_citado_passa(self):
+        docs = [
+            _doc(id=1, content="Art. 1º Esta lei dispõe sobre o registro de dados de saúde."),
+            _doc(id=2, content="Art. 54. A aposentadoria é devida ao segurado com 35 anos de contribuição."),
+        ]
+        res = self._res("A aposentadoria exige 35 anos de contribuição [2].", docs)
+        self.assertEqual(res["partial"], 0)
+        self.assertEqual(res["veredito"], "fundamentada")
+
+    def test_citar_varios_trechos_aceita_o_que_tem_o_dado(self):
+        """O dado pode vir de qualquer um dos trechos citados."""
+        docs = [
+            _doc(id=1, content="Art. 1º Esta lei dispõe sobre o registro de dados de saúde."),
+            _doc(id=2, content="Art. 54. A aposentadoria é devida ao segurado com 35 anos de contribuição."),
+        ]
+        res = self._res("A aposentadoria consta do art. 54 [1][2].", docs)
+        self.assertEqual([f["reason"] for f in res["flagged_sentences"]
+                          if f["reason"] == "lastro_fora_do_citado"], [])
+
+    def test_grafia_do_dispositivo_nao_gera_falso_positivo(self):
+        """'artigo 9' e 'Art. 9º' são o mesmo dispositivo."""
+        docs = [_doc(id=1, content="Art. 9º A direção do Sistema Único de Saúde é exercida pelo Ministério da Saúde.")]
+        res = self._res("A direção cabe ao Ministério da Saúde, conforme o artigo 9 [1].", docs)
+        self.assertEqual(res["partial"], 0)
+
+
+class TestVereditoDaResposta(unittest.TestCase):
+    """O veredito é o que o `agent` usa para decidir o que EXIBIR."""
+
+    def _res(self, answer, docs):
+        from agent import _fact_check_answer
+        return _fact_check_answer(answer, docs)
+
+    def test_norma_inventada_da_sem_lastro(self):
+        docs = [_doc(id=1, content="Art. 9º A direção do SUS é exercida pelo Ministério da Saúde.")]
+        res = self._res("A Lei nº 8.080/2011 regula o SUS [1].", docs)
+        self.assertEqual(res["veredito"], "sem_lastro")
+        self.assertEqual(res["motivo"], "norma_sem_lastro")
+
+    def test_resposta_sem_unidade_verificavel_vira_ressalva(self):
+        """Resposta sem nada a conferir NÃO é recusa nem invenção: vira aviso.
+
+        Medido: descartá-la trocava uma resposta CORRETA por uma recusa (d2 do
+        mini-quiz — "os municípios podem constituir consórcios", sem citação).
+        """
+        docs = [_doc(id=1, content="O contrato se forma com o acordo de vontades entre as partes.")]
+        res = self._res("O tema envolve princípios gerais de direito administrativo e a organização do sistema.", docs)
+        self.assertEqual(res["veredito"], "parcial")
+        self.assertEqual(res["motivo"], "sem_fonte")
+
+    def test_recusa_do_modelo_e_reconhecida_como_recusa(self):
+        docs = [_doc(id=1)]
+        res = self._res("A base recuperada não contém o dispositivo que responde à pergunta.", docs)
+        self.assertEqual(res["veredito"], "recusou")
+
+    def test_recusa_com_dispositivo_citado_continua_sendo_recusa(self):
+        """Caso medido: a recusa mencionava o art. 55 e era exibida como FUNDAMENTADA.
+
+        O [DOC] carrega a identidade da lei (metadado/nome do arquivo, como na base
+        real): sem ela, a norma citada na recusa seria lida como invenção — e o
+        veredito `sem_lastro` (que prevalece) dispararia uma reescrita inútil.
+        """
+        docs = [_doc(id=1, content="Art. 55. Revogam-se as disposições em contrário.",
+                     numero_doc="8080", tipo_doc="lei", file_name="LEI-8080-ESQUEMATIZADA1.pdf")]
+        res = self._res("A base não contém informações sobre quais leis foram revogadas pelo art. 55 da Lei 8.080.", docs)
+        self.assertEqual(res["veredito"], "recusou")
+
+    def test_marcador_do_prompt_e_reconhecido(self):
+        docs = [_doc(id=1)]
+        res = self._res("NÃO ENCONTRADO NA BASE A RESPONDER A PERGUNTA DO ADVOGADO.", docs)
+        self.assertEqual(res["veredito"], "recusou")
+
+    def test_recusa_com_palavra_deformada_pelo_modelo_e_reconhecida(self):
+        """Caso medido (f4): o modelo escreveu "NÃO ENCONTRAR NA BASE" — e a recusa
+        deformada passava como resposta sem citação."""
+        docs = [_doc(id=1, content="Art. 22. A licitação será dispensada em razão do valor.")]
+        res = self._res("NÃO ENCONTRAR NA BASE A REGIME JURÍDICO (norma revogada/alterada).", docs)
+        self.assertEqual(res["veredito"], "recusou")
+
+    def test_nao_ha_no_meio_de_uma_resposta_nao_e_recusa(self):
+        """'Não há dúvida de que…' no meio de resposta concreta continua sendo resposta."""
+        docs = [_doc(id=1, content="Art. 54. A aposentadoria é devida com 35 anos de contribuição.")]
+        res = self._res("Não há dúvida de que o prazo é de 35 anos de contribuição [1].", docs)
+        self.assertIn(res["veredito"], ("fundamentada", "parcial"))
+
+    def test_resposta_ancorada_e_fundamentada(self):
+        docs = [_doc(id=1, content="Art. 54. A aposentadoria é devida ao segurado com 35 anos de contribuição.")]
+        res = self._res("O homem precisa de 35 anos de contribuição [1].", docs)
+        self.assertEqual(res["veredito"], "fundamentada")
+        self.assertEqual(res["citadas"], [1])
+
+    def test_resposta_vazia_nao_e_recusa(self):
+        res = self._res("   ", [_doc(id=1)])
+        self.assertEqual(res["veredito"], "sem_lastro")
+        self.assertEqual(res["motivo"], "resposta_vazia")
+
+    def test_citacao_fabricada_da_sem_lastro(self):
+        res = self._res("O prazo é de 180 dias [9].", [_doc(id=1)])
+        self.assertEqual(res["veredito"], "sem_lastro")
+
+
+class TestFluxoDeResposta(unittest.TestCase):
+    """R-2/R-5/R-6: o caminho completo — o que o chat exibe em cada caso.
+
+    `retrieve_context`, `_gerar`, `_contexto_suficiente` e `ensure_llm` são
+    substituídos: o alvo aqui é a DECISÃO (recusar, regenerar, exibir), não o modelo.
+    """
+
+    DOCS = [_doc(id=1, content="Art. 9º A direção do Sistema Único de Saúde é exercida pelo Ministério da Saúde.")]
+    INVENTADA = "A Lei nº 8.080/2011 regula o SUS e a direção cabe ao Ministério da Saúde [1]."
+    ANCORADA = "A direção do SUS no âmbito da União cabe ao Ministério da Saúde [1]."
+
+    def _executar(self, respostas, docs=None, suficiente=None):
+        import agent
+        with unittest.mock.patch.object(agent, "ensure_llm", return_value=True), \
+             unittest.mock.patch.object(agent, "retrieve_context", return_value=self.DOCS if docs is None else docs), \
+             unittest.mock.patch.object(agent, "_contexto_suficiente", return_value=suficiente), \
+             unittest.mock.patch.object(agent, "_auditar") as auditoria, \
+             unittest.mock.patch.object(agent, "_gerar", side_effect=respostas) as gerar:
+            resultado = agent.get_response("quem dirige o SUS?", [], user_id=9, user_email="dev@legaliz.local")
+        return resultado, gerar, auditoria
+
+    def test_contexto_insuficiente_recusa_sem_gerar(self):
+        """Pergunta fora da base: recusa canônica, sem chamar o modelo que responde."""
+        resultado, gerar, _ = self._executar([], suficiente=False)
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["motivo"], "contexto_insuficiente")
+        self.assertEqual(gerar.call_count, 0, "não se gera resposta quando a base não responde")
+        self.assertIn("Não encontrei a resposta", resultado["answer"])
+
+    def test_sem_recuperacao_recusa_sem_gerar(self):
+        resultado, gerar, _ = self._executar([], docs=[])
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["motivo"], "sem_recuperacao")
+        self.assertEqual(gerar.call_count, 0)
+
+    def test_norma_inventada_regenera_uma_vez_e_recusa(self):
+        resultado, gerar, _ = self._executar([self.INVENTADA, self.INVENTADA], suficiente=True)
+        self.assertEqual(gerar.call_count, 2, "uma regeneração, não um laço")
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["motivo"], "norma_sem_lastro")
+        self.assertEqual(resultado["descartada"], self.INVENTADA)
+        self.assertNotIn("8.080/2011", resultado["answer"], "texto sem lastro não vai para a tela")
+
+    def test_reescrita_ancorada_e_exibida(self):
+        resultado, gerar, _ = self._executar([self.INVENTADA, self.ANCORADA], suficiente=True)
+        self.assertEqual(gerar.call_count, 2)
+        self.assertEqual(resultado["status"], "ok")
+        self.assertEqual(resultado["answer"], self.ANCORADA)
+        self.assertEqual(resultado["descartada"], self.INVENTADA)
+
+    def test_recusa_do_modelo_vira_recusa_canonica(self):
+        resultado, gerar, _ = self._executar(
+            ["A base recuperada não contém o dispositivo que responde."] * 2, suficiente=None)
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["motivo"], "modelo_recusou")
+        self.assertIn("Não encontrei a resposta", resultado["answer"])
+
+    def test_veredito_parcial_exibe_com_ressalva(self):
+        resultado, _, _ = self._executar([self.ANCORADA + " O restante da doutrina diverge."],
+                                         suficiente=True)
+        self.assertIn(resultado["status"], ("ok", "parcial"))
+        self.assertEqual(resultado["sources"][0]["citada"], True)
+
+    def test_recusa_com_material_suficiente_tem_segunda_leitura(self):
+        """Recusar o que a base responde é tão grave quanto inventar: uma 2ª leitura."""
+        resultado, gerar, _ = self._executar(
+            ["A base recuperada não contém o dispositivo que responde.", self.ANCORADA],
+            suficiente=True,
+        )
+        self.assertEqual(gerar.call_count, 2)
+        self.assertEqual(resultado["status"], "ok")
+        self.assertEqual(resultado["answer"], self.ANCORADA)
+        self.assertEqual(gerar.call_args.kwargs["feedback_motivo"], "modelo_recusou")
+
+    def test_recusa_repetida_vira_recusa_canonica(self):
+        resultado, gerar, _ = self._executar(
+            ["A base recuperada não contém o dispositivo que responde."] * 2, suficiente=True
+        )
+        self.assertEqual(gerar.call_count, 2, "uma segunda chance, não um laço")
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["motivo"], "modelo_recusou")
+
+    def test_recusa_sem_veredito_de_suficiencia_tambem_tem_segunda_leitura(self):
+        """Sem o portão (None) não se sabe se o material responde: procura de novo."""
+        resultado, gerar, _ = self._executar(
+            ["A base recuperada não contém o dispositivo que responde.", self.ANCORADA],
+            suficiente=None,
+        )
+        self.assertEqual(gerar.call_count, 2)
+        self.assertEqual(resultado["status"], "ok")
+
+    def test_retry_que_vira_recusa_encerra_sem_terceira_chamada(self):
+        """Regressão medida: a segunda leitura que terminava em recusa disparava uma
+        3ª chamada (recusa sobre recusa) antes de a resposta ser recusada."""
+        resultado, gerar, _ = self._executar(
+            [self.INVENTADA, "A base não contém a resposta."], suficiente=True)
+        self.assertEqual(gerar.call_count, 2, "uma segunda leitura, nunca duas")
+        self.assertEqual(resultado["status"], "recusada")
+        self.assertEqual(resultado["descartada"], self.INVENTADA)
+
+    def test_citacao_no_formato_doc_nao_e_lida_como_sem_fonte(self):
+        """O prompt manda citar [DOC n]: essa citação tem de contar como citação."""
+        resultado, gerar, _ = self._executar(
+            ["A direção do SUS cabe ao Ministério da Saúde. [DOC 1]"], suficiente=True)
+        self.assertEqual(gerar.call_count, 1, "não há defeito a corrigir")
+        self.assertEqual(resultado["status"], "ok")
+        self.assertEqual(resultado["sources"][0]["citada"], True)
+
+    def test_resposta_correta_sem_citacao_e_exibida_com_aviso(self):
+        """Regressão medida (d2): resposta correta e sem citação era DESCARTADA, a
+        reescrita desistia e o advogado recebia recusa no lugar da resposta."""
+        resultado, gerar, _ = self._executar(
+            ["Os municípios podem constituir consórcios entre si para ações de saúde."],
+            suficiente=True)
+        self.assertEqual(gerar.call_count, 1, "não se joga fora resposta correta por falta de citação")
+        self.assertEqual(resultado["status"], "parcial")
+        self.assertEqual(resultado["motivo"], "sem_fonte")
+        self.assertIn("consórcios", resultado["answer"])
+
+    def test_sem_modelo_configurado_devolve_erro(self):
+        import agent
+        with unittest.mock.patch.object(agent, "ensure_llm", return_value=False):
+            resultado = agent.get_response("pergunta", [])
+        self.assertEqual(resultado["status"], "erro")
+        self.assertEqual(resultado["motivo"], "sem_modelo")
+
+    def test_fontes_nao_inventam_similaridade(self):
+        """Busca por dispositivo não tem distância: `distance` é None, não 0.0."""
+        docs = [dict(self.DOCS[0], distance=None, origem="dispositivo")]
+        resultado, _, _ = self._executar([self.ANCORADA], docs=docs, suficiente=True)
+        self.assertIsNone(resultado["sources"][0]["distance"])
+        self.assertEqual(resultado["sources"][0]["origem"], "dispositivo")
+
+    def test_auditoria_registra_recusa_com_motivo(self):
+        _, _, auditoria = self._executar([], suficiente=False)
+        resumo = auditoria.call_args.args[3]
+        self.assertIn("[RECUSA: contexto_insuficiente]", resumo)
+
+
+class TestSuficienciaDoContexto(unittest.TestCase):
+    """R-8: o portão de suficiência por LLM — e o silêncio dele quando falha."""
+
+    def _llm(self, resposta):
+        return unittest.mock.MagicMock(**{"invoke.return_value": unittest.mock.MagicMock(content=resposta)})
+
+    def test_resposta_negativa_interrompe(self):
+        import agent
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", True):
+            self.assertFalse(agent._contexto_suficiente("q", "contexto", llm=self._llm("NAO")))
+
+    def test_resposta_afirmativa_libera(self):
+        import agent
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", True):
+            self.assertTrue(agent._contexto_suficiente("q", "contexto", llm=self._llm("SIM — art. 9º")))
+
+    def test_acentuado_e_markdown_nao_enganam(self):
+        import agent
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", True):
+            self.assertFalse(agent._contexto_suficiente("q", "c", llm=self._llm("**NÃO**")))
+
+    def test_resposta_inesperada_nao_vira_recusa(self):
+        """Ambigüidade não pode derrubar pergunta legítima: segue o fluxo normal."""
+        import agent
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", True):
+            self.assertIsNone(agent._contexto_suficiente("q", "c", llm=self._llm("talvez")))
+
+    def test_llm_fora_do_ar_nao_vira_recusa(self):
+        import agent
+        llm = unittest.mock.MagicMock()
+        llm.invoke.side_effect = RuntimeError("Ollama fora do ar")
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", True):
+            self.assertIsNone(agent._contexto_suficiente("q", "c", llm=llm))
+
+    def test_verificacao_desligada_nao_consulta_o_modelo(self):
+        import agent
+        llm = unittest.mock.MagicMock()
+        with unittest.mock.patch.object(agent, "FACT_CHECK_LLM_ENABLED", False):
+            self.assertIsNone(agent._contexto_suficiente("q", "c", llm=llm))
+        self.assertEqual(llm.invoke.call_count, 0)
 
 
 class TestSemanticGrounding(unittest.TestCase):

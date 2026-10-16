@@ -1,10 +1,12 @@
 import logging
 import os
+import re
 from typing import Any
 
 import psycopg2
 from config import (
     EMBEDDING_MODEL,
+    FACT_CHECK_LLM_ENABLED,
     HYDE_ENABLED,
     HYDE_QUERY_WEIGHT,
     LLM_MODEL,
@@ -25,6 +27,7 @@ from factcheck import (  # noqa: F401  (re-export da API pública)
     _FACTUAL_NUM_PATTERN,
     _canonicalizar_numeros,
     _check_semantic_grounding,
+    _classificar_sentenca,
     _classify_sentence_grounded,
     _extract_citations,
     _fact_check_answer,
@@ -33,7 +36,11 @@ from factcheck import (  # noqa: F401  (re-export da API pública)
     _is_boilerplate,
     _load_dispositivos_base,
     _normalize_dispositivo,
+    _parece_recusa,
     _split_sentences,
+    _unidades_ausentes,
+    _unidades_factuais,
+    _veredito_da_resposta,
     invalidate_dispositivos_cache,
 )
 from langchain_core.prompts import ChatPromptTemplate
@@ -313,7 +320,8 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 file_name,
                 content,
                 scope,
-                embedding <=> %s::vector AS distance,{emb_col}
+                embedding <=> %s::vector AS distance,
+                'semantico' AS origem,{emb_col}
                 artigo,
                 tipo_doc,
                 numero_doc,
@@ -332,7 +340,8 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 file_name,
                 content,
                 scope,
-                embedding <=> %s::vector AS distance,{emb_col}
+                embedding <=> %s::vector AS distance,
+                'semantico' AS origem,{emb_col}
                 artigo,
                 tipo_doc,
                 numero_doc,
@@ -413,76 +422,284 @@ def _generate_hypothetical_doc(query: str, llm=None) -> str | None:
 # RESPOSTA PRINCIPAL
 # =========================================================
 
+# ---------------------------------------------------------
+# PORTÃO DE SUFICIÊNCIA E RECUSA CANÔNICA
+# ---------------------------------------------------------
+# O limiar de distância NÃO decide se a base responde. Medido com o
+# `nomic-embed-text` (13 perguntas, corpus de dev): perguntas COM resposta na base
+# têm top-1 entre 0,15 e 0,27 e perguntas FORA da base entre 0,20 e 0,35 — as
+# faixas se sobrepõem, e o `SIMILARITY_THRESHOLD` (0,80) deixa tudo passar.
+# Quem decide é perguntar ao modelo se o contexto contém o que a pergunta exige:
+# medido no `phi4-mini:3.8b`, 7/7 das perguntas legítimas → SIM, 4/6 fora da base
+# → NAO, a 0,5–2,0 s por chamada (docs/PLANO_REFINAMENTO_RAG.md, R-8).
+_PROMPT_SUFICIENCIA = (
+    "Você é um verificador de suficiência de contexto. Responda em UMA linha, "
+    "começando por SIM ou NAO, e nada mais.\n\n"
+    "Pergunta do advogado: {query}\n\n"
+    "Contexto recuperado da base:\n{context}\n\n"
+    "O contexto acima contém, de forma explícita e literal, o dispositivo ou o dado "
+    "necessário para responder à pergunta? Responda SIM apenas se o dispositivo/dado "
+    "estiver no texto acima (não basta o texto ser do mesmo assunto). Responda NAO se "
+    "for preciso conhecimento externo, dedução, ou se o dado não aparecer no texto.\n"
+    "Resposta:"
+)
+_SUFICIENCIA_VEREDITO = re.compile(r"[*#\s]*(SIM|N[ÃA]O)", re.IGNORECASE)
+
+
+def _contexto_suficiente(query: str, context: str, llm: Any = None) -> bool | None:
+    """A base responde a esta pergunta? True/False — ou None se não der para avaliar.
+
+    None (verificação desligada, LLM fora, resposta ambígua) significa **segue o
+    fluxo normal**: ausência de veredito não pode virar recusa, senão uma falha de
+    infraestrutura passaria a derrubar perguntas legítimas.
+    """
+    if not FACT_CHECK_LLM_ENABLED:
+        return None
+    if llm is None:
+        llm = LLM
+    if llm is None:
+        return None
+    try:
+        resposta = llm.invoke(_PROMPT_SUFICIENCIA.format(query=query, context=context))
+    except Exception as e:
+        logger.warning(f"Suficiência: falha ao consultar o modelo, seguindo sem o portão: {e}")
+        return None
+    texto = (resposta.content if hasattr(resposta, "content") else str(resposta)) or ""
+    achado = _SUFICIENCIA_VEREDITO.match(texto.strip())
+    if not achado:
+        logger.warning(f"Suficiência: resposta inesperada {texto[:40]!r} — seguindo sem o portão")
+        return None
+    return not achado.group(1).upper().startswith("N")
+
+
+#: Por que a resposta não foi entregue — texto completo, porque ele vai para a
+#: interface (o advogado precisa saber o que faltou) e para o log.
+_MOTIVO_TEXTO = {
+    'sem_recuperacao': "a busca não recuperou nenhum trecho no escopo deste usuário",
+    'contexto_insuficiente': ("os trechos recuperados tratam do mesmo tema, mas nenhum "
+                              "contém o dispositivo ou o dado que a pergunta exige"),
+    'modelo_recusou': ("o modelo declarou que o material recuperado não contém a resposta "
+                       "(ele é instruído a não responder fora da base)"),
+    'norma_sem_lastro': "a resposta cita número de norma que não existe em nenhum trecho recuperado",
+    'ano_incompativel': "a resposta cita uma norma com ano diferente do que o material registra",
+    'autor_sem_lastro': "a resposta cita autor/obra que não aparece em nenhum trecho recuperado",
+    'dispositivo_sem_lastro': ("a resposta cita dispositivo (artigo/parágrafo/inciso) que não "
+                               "existe no material indexado"),
+    'citacao_inexistente': "a resposta cita um trecho [n] que não foi recuperado",
+    'sem_fonte': "a resposta não cita nenhum trecho, dispositivo, norma ou número verificável",
+    'resposta_vazia': "o modelo não devolveu conteúdo",
+}
+
+#: Instrução de reescrita (uma única chance). Vai no bloco da PERGUNTA, junto com
+#: o contexto — o system prompt continua sendo só diretriz de papel.
+_FEEDBACK_REESCRITA = (
+    "\n\n[CORREÇÃO OBRIGATÓRIA — a resposta anterior foi descartada pelo verificador]\n"
+    "Motivo: {motivo}.\n"
+    "Reescreva a resposta obedecendo a estas três regras:\n"
+    "1) toda frase que afirme número, prazo, valor, percentual ou dispositivo termina citando "
+    "o trecho que a sustenta, no formato [DOC n];\n"
+    "2) use apenas o que aparece literalmente nos trechos recuperados — não complete com "
+    "conhecimento próprio;\n"
+    "3) se os trechos não contiverem o necessário, diga que a base não contém a resposta e pare."
+)
+
+#: Segunda chance quando o modelo RECUSA. A redação evita AFIRMAR que o material
+#: contém o dado (só o portão de suficiência sabe disso, e ele pode estar desligado):
+#: pede para procurar termo por termo e só repetir a recusa se realmente não estiver.
+#: Medido com o phi4-mini nas duas perguntas que ele recusa tendo o dado no contexto
+#: recuperado: esta redação devolveu a resposta correta em uma delas (a outra exige
+#: uma inferência que o modelo de 4B não faz — ver a limitação registrada no plano).
+_FEEDBACK_RECUSA = (
+    "\n\n[CORREÇÃO OBRIGATÓRIA — sua resposta anterior foi recusada]\n"
+    "Procure outra vez, termo por termo, o dispositivo/dado que a pergunta exige dentro dos "
+    "trechos acima: ele pode estar em um trecho que trata do tema com outras palavras.\n"
+    "1) se encontrar, responda citando [DOC n] e reproduza o dado como ele está escrito no trecho;\n"
+    "2) só repita a recusa se, depois de procurar, o dispositivo não estiver em nenhum dos trechos."
+)
+
+
+def _texto_recusa(motivo: str, n_trechos: int) -> str:
+    """Mensagem de recusa do SISTEMA — nunca do modelo.
+
+    Formato fixo, para o advogado reconhecer o estado do produto e saber o que
+    fazer: quantos trechos foram examinados, por que nenhum serve e como obter a
+    resposta (indexar a norma oficial / reformular com o artigo).
+    """
+    causa = _MOTIVO_TEXTO.get(motivo, "a resposta gerada não pôde ser verificada contra o material recuperado")
+    return (
+        "**Não encontrei a resposta na base de documentos.**\n\n"
+        f"{n_trechos} trecho(s) recuperado(s). Motivo: {causa}.\n\n"
+        "Para obter a resposta, indexe o texto oficial da norma que trata do tema "
+        "(de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo "
+        "específico.\n\n"
+        "_Nenhuma afirmativa foi produzida fora do material indexado._"
+    )
+
+
+def _montar_sources(retrieved_docs: list[dict[str, Any]], citadas=()) -> list[dict[str, Any]]:
+    """Fontes para a interface: similaridade REAL (ou `None`) e origem da busca.
+
+    `distance` só existe quando houve busca vetorial. Na busca por metadados/
+    dispositivo não há similaridade nenhuma, e a interface antiga calculava
+    `1 - 0.0` e exibia "100,00%" para um resultado que nunca foi comparado.
+    """
+    citadas = set(citadas or ())
+    fontes = []
+    for index, doc in enumerate(retrieved_docs or [], start=1):
+        distancia = doc.get("distance")
+        fontes.append({
+            "ref": index,
+            "source_label": _source_label(doc),
+            "file_name": doc.get("file_name"),
+            "artigo": doc.get("artigo"),
+            "distance": float(distancia) if distancia is not None else None,
+            "origem": doc.get("origem") or "semantico",
+            "citada": index in citadas,
+        })
+    return fontes
+
+
+def _auditar(user_id, user_email, query: str, resumo: str, retrieved_docs) -> None:
+    """Registra a pergunta no `audit_log` sem derrubar o chat se o log falhar."""
+    try:
+        from audit import log_question
+        arquivos = list({doc.get("file_name") for doc in (retrieved_docs or []) if doc.get("file_name")})
+        log_question(user_id=user_id, user_email=user_email, question=query,
+                     response_summary=resumo, sources=arquivos)
+    except Exception as audit_err:
+        logger.warning(f"Falha ao registrar auditoria: {audit_err}")
+
+
+def _gerar(query: str, context: str, chat_history: list[Any], feedback_motivo: str | None = None) -> str:
+    """Gera a resposta; com `feedback_motivo`, pede a reescrita citando o defeito."""
+    entrada = query
+    if feedback_motivo == 'modelo_recusou':
+        entrada = query + _FEEDBACK_RECUSA
+    elif feedback_motivo:
+        entrada = query + _FEEDBACK_REESCRITA.format(
+            motivo=_MOTIVO_TEXTO.get(feedback_motivo, feedback_motivo)
+        )
+    response = CHAIN.invoke({"input": entrada, "context": context, "chat_history": chat_history})
+    return response.content
+
+
+def _recusar(query: str, retrieved_docs, motivo: str, user_id, user_email,
+             descartada: str | None = None, suficiente: bool | None = None) -> dict[str, Any]:
+    """Recusa canônica — o caminho honesto quando a base não responde.
+
+    As fontes vão junto (com a similaridade real): é com elas que o advogado
+    decide se o que falta é o material indexado. O texto descartado nunca vai para
+    a tela, mas fica no retorno e no log de auditoria.
+    """
+    texto = _texto_recusa(motivo, len(retrieved_docs or []))
+    logger.info(f"Recusa honesta ({motivo}); trechos={len(retrieved_docs or [])} suficiência={suficiente}")
+    resumo = f"[RECUSA: {motivo}] " + (descartada or "")
+    _auditar(user_id, user_email, query, resumo, retrieved_docs)
+    return {
+        "answer": texto,
+        "sources": _montar_sources(retrieved_docs),
+        "fact_check": {},
+        "status": "recusada",
+        "motivo": motivo,
+        "suficiente": suficiente,
+        "descartada": descartada,
+    }
+
+
 def get_response(query: str, chat_history: list[Any] | None = None, user_id: int | None = None, user_email: str | None = None) -> dict[str, Any]:
+    """Responde à pergunta do advogado — ou diz honestamente que não encontrou.
+
+    Fluxo (Fase 1 de docs/PLANO_REFINAMENTO_RAG.md):
+
+    1. Recupera os trechos no escopo do usuário. Sem trecho nenhum, a resposta é a
+       recusa canônica: não existe caminho em que o modelo receba contexto vazio
+       (ou a frase "Nenhum documento relevante encontrado") e improvise.
+    2. Pergunta ao modelo se o contexto contém o que a pergunta exige. "NAO" ⇒
+       recusa canônica, sem gerar resposta.
+    3. Gera a resposta e mede o lastro. Veredito `sem_lastro` (norma/dispositivo
+       inexistente, citação fabricada, ou resposta sem nenhuma unidade
+       verificável) ⇒ UMA regeneração com o motivo apontado; persistindo, a
+       resposta **não é exibida** e vira recusa — o texto descartado fica em
+       `descartada` e no log de auditoria.
+    4. `fundamentada`/`parcial` ⇒ exibe, com o veredito e as fontes citadas.
+
+    Retorno: `answer` (o que a interface exibe), `sources`, `fact_check`,
+    `status` ('ok' | 'parcial' | 'recusada' | 'erro'), `motivo`, `descartada`.
+    """
     if chat_history is None:
         chat_history = []
 
     if not ensure_llm():
-        return {"answer": "Nenhum modelo LLM configurado. Selecione um modelo nas configurações.", "sources": []}
+        return {"answer": "Nenhum modelo LLM configurado. Selecione um modelo nas configurações.",
+                "sources": [], "fact_check": {}, "status": "erro", "motivo": "sem_modelo",
+                "descartada": None}
 
     try:
         retrieved_docs = retrieve_context(query, user_id=user_id)
+
+        if not retrieved_docs:
+            return _recusar(query, retrieved_docs, 'sem_recuperacao', user_id, user_email)
+
         context = build_context(retrieved_docs)
 
-        # Contexto e pergunta vão na mensagem human (USER_PROMPT), não no system.
-        response = CHAIN.invoke({
-            "input": query,
-            "context": context,
-            "chat_history": chat_history
-        })
+        # Suficiência = o material responde? False recusa; True libera (e depois
+        # serve de argumento na segunda chance do modelo); None = não foi possível
+        # avaliar, segue o fluxo normal.
+        suficiente = _contexto_suficiente(query, context)
+        if suficiente is False:
+            return _recusar(query, retrieved_docs, 'contexto_insuficiente', user_id, user_email,
+                            suficiente=False)
 
-        # Fact-check pós-geração: verifica se a resposta está grounded nos docs
-        fact_check = _fact_check_answer(response.content, retrieved_docs)
+        # Contexto e pergunta vão na mensagem human (USER_PROMPT), não no system.
+        resposta = _gerar(query, context, chat_history)
+        fact_check = _fact_check_answer(resposta, retrieved_docs, user_id=user_id)
+        descartada = None
+
+        if fact_check['veredito'] in ('sem_lastro', 'recusou'):
+            # UMA chance de segunda leitura, com o motivo do defeito — e só uma:
+            # `sem_lastro` pede reescrita ancorada; `recusou` pede para procurar de
+            # novo no material (recusar o que a base responde é tão grave quanto
+            # inventar). Persistindo o defeito, a resposta não é exibida.
+            descartada = resposta
+            motivo_retry = fact_check['motivo'] if fact_check['veredito'] == 'sem_lastro' else 'modelo_recusou'
+            logger.info(f"Veredito {fact_check['veredito']} ({motivo_retry}): uma segunda leitura")
+            resposta = _gerar(query, context, chat_history, feedback_motivo=motivo_retry)
+            fact_check = _fact_check_answer(resposta, retrieved_docs, user_id=user_id)
+            if fact_check['veredito'] in ('sem_lastro', 'recusou'):
+                return _recusar(query, retrieved_docs,
+                                fact_check['motivo'] or 'modelo_recusou',
+                                user_id, user_email, descartada=descartada,
+                                suficiente=suficiente)
+
         if fact_check['enabled'] and not fact_check['all_grounded']:
             logger.info(
                 f"Fact-check: {fact_check['no_support']} sentenças sem suporte, "
                 f"{fact_check['partial']} parciais (de {fact_check['total_sentences']})"
             )
 
-        sources = []
-        for index, doc in enumerate(retrieved_docs, start=1):
-            # `ref` é o rótulo [n] usado pelo modelo na resposta (via build_context),
-            # permitindo à UI mostrar "[1] Arquivo X" casado com a citação inline.
-            # `artigo` é exposto para o avaliador medir hit por ARTIGO, não só por
-            # arquivo: um decreto com centenas de chunks dá source_hit=1/1 mesmo
-            # quando o artigo perguntado não veio (ver run_eval.py).
-            sources.append({
-                "ref": index,
-                "source_label": _source_label(doc),
-                "file_name": doc.get("file_name"),
-                "artigo": doc.get("artigo"),
-                "distance": float(doc.get("distance"))
-            })
-
-        # Registrar auditoria
-        try:
-            from audit import log_question
-            source_files = list({doc.get("file_name") for doc in retrieved_docs if doc.get("file_name")})
-            log_question(
-                user_id=user_id,
-                user_email=user_email,
-                question=query,
-                response_summary=response.content,
-                sources=source_files
-            )
-        except Exception as audit_err:
-            logger.warning(f"Falha ao registrar auditoria: {audit_err}")
+        _auditar(user_id, user_email, query, resposta, retrieved_docs)
 
         return {
-            "answer": response.content,
-            "sources": sources,
-            "fact_check": fact_check
+            "answer": resposta,
+            "sources": _montar_sources(retrieved_docs, fact_check.get('citadas')),
+            "fact_check": fact_check,
+            "status": 'parcial' if fact_check['veredito'] == 'parcial' else 'ok',
+            "motivo": fact_check['motivo'],
+            "suficiente": suficiente,
+            "descartada": descartada,
         }
 
     except (psycopg2.Error, ConnectionError):
         logger.exception("Erro de infraestrutura na geração da resposta")
         return {
             "answer": "Erro de conexão ao processar a consulta. Tente novamente.",
-            "sources": []
+            "sources": [], "fact_check": {}, "status": "erro", "motivo": "conexao",
+            "suficiente": None, "descartada": None,
         }
     except Exception:
         logger.exception("Erro inesperado na geração da resposta")
         return {
             "answer": "Erro interno ao processar a consulta.",
-            "sources": []
+            "sources": [], "fact_check": {}, "status": "erro", "motivo": "interno",
+            "suficiente": None, "descartada": None,
         }

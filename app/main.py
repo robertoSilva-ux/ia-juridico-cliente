@@ -1,6 +1,3 @@
-import os
-import tempfile
-
 import ollama_utils
 import streamlit as st
 import streamlit_authenticator as stauth
@@ -14,12 +11,11 @@ from auth import (
     set_system_setting,
     update_password,
 )
-from config import COOKIE_KEY, COOKIE_NAME, OLLAMA_BASE_URL, cookie_key_problem
-from embeddings import NomicOllamaEmbeddings
+from config import COOKIE_KEY, COOKIE_NAME, cookie_key_problem
 from gpu_check import check_gpu, format_gpu_status
-from ingest import process_pdf, store_in_postgres
 from langchain_core.messages import AIMessage, HumanMessage
 from manage import delete_document, list_documents, update_document_scope
+from ui_feedback import flash, render_flash, render_indexacao_pdf, render_resposta
 
 # Configuração da página deve ser a primeira chamada Streamlit
 st.set_page_config(page_title="Assistente Jurídico - Legaliz.ai", layout="wide")
@@ -109,6 +105,10 @@ elif st.session_state["authentication_status"]:
     user_data = credentials['usernames'][username]
     user_role = user_data['role']
     user_id = user_data['id']  # ID do usuário logado
+
+    # Confirmação da ação disparada na execução anterior: `flash()` sobrevive ao
+    # `st.rerun()` (um `st.success` imediatamente antes dele seria descartado).
+    render_flash()
 
     # Barra lateral de navegação e logout
     st.sidebar.title(f"Olá, {user_data['name']}")
@@ -214,22 +214,14 @@ elif st.session_state["authentication_status"]:
 
                     # Passa o user_id e user_email para isolar documentos e auditar
                     result = get_response(prompt, chat_history, user_id=user_id, user_email=username)
-                    answer = result["answer"]
-                    sources = result["sources"]
 
-                    st.markdown(answer)
+                    # A resposta só chega à tela depois do veredito de lastro: pode
+                    # sair como resposta (com a confirmação de que foi conferida),
+                    # com aviso de ressalva, ou como RECUSA honesta quando a base
+                    # não responde / o modelo citou norma inexistente.
+                    render_resposta(result)
 
-                    if sources:
-                        with st.expander("📚 Fontes Citadas"):
-                            st.caption("As citações [n] no texto correspondem às fontes abaixo:")
-                            for source in sources:
-                                nome = source.get('file_name') or "Documento s/ nome"
-                                ref = source.get('source_label') or nome
-                                ref_num = source.get('ref')
-                                prefix = f"[{ref_num}] " if ref_num else ""
-                                st.write(f"- **{prefix}{ref}** (Similaridade: {1 - source['distance']:.2%})")
-
-                    st.session_state.messages.append({"role": "assistant", "content": answer})
+                    st.session_state.messages.append({"role": "assistant", "content": result["answer"]})
 
     elif page == "Gerenciar Documentos":
         st.title("📂 Gerenciamento de Documentos")
@@ -239,33 +231,10 @@ elif st.session_state["authentication_status"]:
             if uploaded_file:
                 st.info("🔒 Documentos enviados são privados por padrão (visíveis apenas para você).")
                 if st.button("Processar e Indexar"):
-                    progress_bar = st.progress(0)
-                    status_text = st.empty()
-
-                    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                        tmp_file.write(uploaded_file.getbuffer())
-                        tmp_path = tmp_file.name
-
-                    try:
-                        status_text.text("Lendo e fragmentando PDF...")
-                        chunks = process_pdf(tmp_path)
-                        embeddings = NomicOllamaEmbeddings(
-                            model="nomic-embed-text",
-                            base_url=OLLAMA_BASE_URL
-                        )
-
-                        # Passa owner_id e scope='private' por padrão
-                        for percent_complete in store_in_postgres(chunks, embeddings, uploaded_file.name, owner_id=user_id, scope='private'):
-                            progress_bar.progress(percent_complete)
-                            status_text.text(f"Processando: {int(percent_complete * 100)}%")
-
-                        st.success(f"Documento '{uploaded_file.name}' indexado com sucesso!")
-                        st.rerun()
-                    except Exception as e:
-                        st.error(f"Erro ao processar: {e}")
-                    finally:
-                        if os.path.exists(tmp_path):
-                            os.remove(tmp_path)
+                    # O retorno passa por flash(): o st.rerun() abaixo descartaria
+                    # qualquer mensagem exibida aqui na mesma execução.
+                    flash(*render_indexacao_pdf(uploaded_file, user_id=user_id, scope="private"))
+                    st.rerun()
 
         st.divider()
         st.write("### Base de Conhecimento Atual")
@@ -301,7 +270,7 @@ elif st.session_state["authentication_status"]:
                                     file_name, user_id=user_id, is_admin=is_admin, owner_id=owner_id,
                                 )
                                 if removidos:
-                                    st.success(f"{removidos} fragmento(s) removido(s).")
+                                    flash(f"{removidos} fragmento(s) removido(s).")
                                     st.rerun()
                                 else:
                                     st.warning("Nada foi removido — documentos globais só podem ser "
@@ -348,7 +317,7 @@ elif st.session_state["authentication_status"]:
                         else:
                             success, msg = add_user(new_email, new_name, new_pass, new_role)
                             if success:
-                                st.success(msg)
+                                flash(msg)
                                 st.rerun()
                             else:
                                 st.error(msg)
@@ -370,7 +339,7 @@ elif st.session_state["authentication_status"]:
                         new_pwd = st.text_input("Nova Senha", type="password")
                         if st.form_submit_button("Confirmar Alteração"):
                             update_password(u_mail, new_pwd)
-                            st.success(f"Senha de {u_mail} alterada!")
+                            flash(f"Senha de {u_mail} alterada!")
                             del st.session_state[f"resetting_{u_mail}"]
                             st.rerun()
 
@@ -383,32 +352,8 @@ elif st.session_state["authentication_status"]:
                 uploaded_file = st.file_uploader("Escolha um arquivo PDF", type="pdf", key="global_upload")
                 if uploaded_file:
                     if st.button("Processar como Global", key="btn_global"):
-                        progress_bar = st.progress(0)
-                        status_text = st.empty()
-
-                        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                            tmp_file.write(uploaded_file.getbuffer())
-                            tmp_path = tmp_file.name
-
-                        try:
-                            status_text.text("Lendo e fragmentando PDF...")
-                            chunks = process_pdf(tmp_path)
-                            embeddings = NomicOllamaEmbeddings(
-                                model="nomic-embed-text",
-                                base_url=os.getenv("OLLAMA_BASE_URL", "http://ollama:11434")
-                            )
-
-                            for percent_complete in store_in_postgres(chunks, embeddings, uploaded_file.name, owner_id=user_id, scope='global'):
-                                progress_bar.progress(percent_complete)
-                                status_text.text(f"Processando: {int(percent_complete * 100)}%")
-
-                            st.success(f"Documento global '{uploaded_file.name}' indexado com sucesso!")
-                            st.rerun()
-                        except Exception as e:
-                            st.error(f"Erro ao processar: {e}")
-                        finally:
-                            if os.path.exists(tmp_path):
-                                os.remove(tmp_path)
+                        flash(*render_indexacao_pdf(uploaded_file, user_id=user_id, scope="global"))
+                        st.rerun()
 
             st.divider()
             # Listar todos os documentos (admin vê tudo)
@@ -439,6 +384,7 @@ elif st.session_state["authentication_status"]:
                                         file_name, 'global', user_id, is_admin=True, owner_id=owner_id,
                                     )
                                     if alterados:
+                                        flash(f"'{file_name}' do dono {dono} agora é global.")
                                         st.rerun()
                                     else:
                                         st.warning("Nenhum documento alterado para esse dono.")
@@ -448,6 +394,7 @@ elif st.session_state["authentication_status"]:
                                         file_name, 'private', user_id, is_admin=True, owner_id=owner_id,
                                     )
                                     if alterados:
+                                        flash(f"'{file_name}' do dono {dono} agora é privado.")
                                         st.rerun()
                                     else:
                                         st.warning("Nenhum documento alterado para esse dono.")
@@ -457,7 +404,7 @@ elif st.session_state["authentication_status"]:
                                     file_name, user_id=user_id, is_admin=True, owner_id=owner_id,
                                 )
                                 if removidos:
-                                    st.success(f"{removidos} fragmento(s) removido(s).")
+                                    flash(f"{removidos} fragmento(s) removido(s).")
                                     st.rerun()
                                 else:
                                     st.warning("Nada foi removido para esse dono.")

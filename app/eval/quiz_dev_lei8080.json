@@ -1,0 +1,72 @@
+{
+  "_comment": "Mini-quiz para medir o PORTÃO DE RESPOSTA (ADR-0009) sobre o material que existe no banco de desenvolvimento. Todas as respostas esperadas dos itens d1..d6 existem no conteúdo indexado de LEI-8080-ESQUEMATIZADA1.pdf; d7 é a pergunta-armadilha (tema que NÃO está na base — a resposta esperada é a recusa). Medidor: app/eval/medir_portao.py.",
+  "_fontes": "banco de dev (localhost:5439/legal_db), arquivo LEI-8080-ESQUEMATIZADA1.pdf, 119 fragmentos",
+  "questions": [
+    {
+      "id": "d1",
+      "question": "Segundo o art. 9º da Lei 8.080, quem exerce a direção do SUS no âmbito da União?",
+      "expected_keywords": [
+        "Ministério da Saúde"
+      ],
+      "verdade": "Ministério da Saúde (art. 9º, I)"
+    },
+    {
+      "id": "d2",
+      "question": "O que o art. 10 da Lei 8.080 permite que os municípios constituam entre si?",
+      "expected_keywords": [
+        "consórcio"
+      ],
+      "verdade": "consórcios administrativos intermunicipais (art. 10)"
+    },
+    {
+      "id": "d3",
+      "question": "O que o art. 19-B institui no âmbito do SUS?",
+      "expected_keywords": [
+        "Subsistema de Atenção à Saúde Indígena",
+        "indígena"
+      ],
+      "verdade": "Subsistema de Atenção à Saúde Indígena (art. 19-B)"
+    },
+    {
+      "id": "d4",
+      "question": "Qual lei incluiu os artigos 19-Q e 19-R na Lei 8.080?",
+      "expected_keywords": [
+        "12.401",
+        "12401"
+      ],
+      "verdade": "Lei nº 12.401, de 2011"
+    },
+    {
+      "id": "d5",
+      "question": "Quais leis foram revogadas pelo art. 55 da Lei 8.080?",
+      "expected_keywords": [
+        "2.312",
+        "6.229"
+      ],
+      "verdade": "Lei nº 2.312/1954 e Lei nº 6.229/1975"
+    },
+    {
+      "id": "d6",
+      "question": "Segundo o art. 9º, quais órgãos exercem a direção do SUS nos Estados e no Distrito Federal?",
+      "expected_keywords": [
+        "Secretaria de Saúde"
+      ],
+      "verdade": "a respectiva Secretaria de Saúde ou órgão equivalente (art. 9º, II)"
+    },
+    {
+      "id": "d7",
+      "question": "Qual é a idade mínima de aposentadoria por tempo de contribuição do RGPS em 2026?",
+      "expected_keywords": [
+        "não consta",
+        "não está",
+        "não contém",
+        "não há",
+        "não foi encontrad",
+        "não especific",
+        "não traz"
+      ],
+      "expect_refusal": true,
+      "verdade": "o tema (RGPS/aposentadoria) NÃO existe na base — a resposta correta é dizer que a base não contém"
+    }
+  ]
+}

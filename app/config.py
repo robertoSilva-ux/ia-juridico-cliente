@@ -42,12 +42,25 @@ RERANK_LAMBDA_MULT = float(os.getenv("RERANK_LAMBDA_MULT", "0.7"))
 
 # Fact-check / groundedness — verificação pós-geração (Auffarth "RAG The Seminal Papers",
 # IsSup per-sentence groundedness). Divide a resposta em sentenças e verifica se cada uma
-# está apoiada no contexto recuperado. Parte estrutural (citações [n]) roda sempre;
-# a verificação semântica (LLM) é opcional p/ não adicionar latência.
+# está apoiada no contexto recuperado. A parte estrutural é determinística e roda sempre:
+# citações [n] conferidas contra os trechos e o dado afirmado conferido no fragmento CITADO.
 FACT_CHECK_ENABLED = os.getenv("FACT_CHECK_ENABLED", "true").lower() in ("true", "1", "yes", "on")
-# Verifica cada sentença com o LLM (segunda chamada) além da checagem de citações.
-# Default false: evita dobrar latência/custo por pergunta.
-FACT_CHECK_LLM_ENABLED = os.getenv("FACT_CHECK_LLM_ENABLED", "false").lower() in ("true", "1", "yes", "on")
+# Portão de SUFICIÊNCIA do contexto: uma chamada extra ao LLM (curta, antes de gerar) que
+# responde se os trechos recuperados contêm literalmente o dispositivo/dado que a pergunta
+# exige. "NAO" ⇒ recusa canônica, sem gerar resposta.
+# É o mecanismo que decide a recusa honesta: o limiar de distância NÃO separa "a base
+# responde" de "não responde" (medido: top-1 0,15–0,27 dentro da base contra 0,20–0,35 fora,
+# com o nomic-embed-text). Medido no phi4-mini: 7/7 das perguntas legítimas liberadas, 4/6
+# das fora da base recusadas, a 0,5–2,0 s por chamada (docs/PLANO_REFINAMENTO_RAG.md, R-8).
+# Desligar devolve o comportamento anterior (responde sempre, com o risco de inventar).
+FACT_CHECK_LLM_ENABLED = os.getenv("FACT_CHECK_LLM_ENABLED", "true").lower() in ("true", "1", "yes", "on")
+
+# Teto do cache de dispositivos da base (P1-1). O fact-check confere dispositivo citado
+# contra os dispositivos que EXISTEM no escopo do dono — não contra a base inteira (que
+# validava documento de outro cliente e carregava o corpus todo na memória de um
+# container de 512 MB). Passado o teto, a validação segue com o que coube e o log avisa.
+FACT_CHECK_CACHE_MAX_ROWS = int(os.getenv("FACT_CHECK_CACHE_MAX_ROWS", "20000"))
+FACT_CHECK_CACHE_MAX_CHARS = int(os.getenv("FACT_CHECK_CACHE_MAX_CHARS", "8000000"))
 
 # HyDE (Hypothetical Document Embeddings) — query transformation para recall lexical
 # jurídico (ver Kimothi "A Simple Guide to RAG", cap. 6 "HyDE"). O LLM gera uma

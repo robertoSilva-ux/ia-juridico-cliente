@@ -78,6 +78,9 @@ def _apply_regime_boost(query: str, docs: list[dict[str, Any]]) -> list[dict[str
 
     boosted.sort(key=lambda doc: (
         -float(doc.get("regime_score", 0.0)),
+        # Sem distância (busca por dispositivo/keyword) o `or 0.0` mantém esses
+        # resultados à frente — comportamento preservado de propósito nesta fase:
+        # mudar a ORDEM da recuperação não é o que esta correção faz.
         float(doc.get("distance") or 0.0),
     ))
     return boosted
@@ -212,6 +215,10 @@ def _metadata_search(query: str, user_id: int | None = None,
     Se o parser identificou artigo e tipo de documento, faz busca exata nas colunas.
     Isso garante que consultas como "art. 54 do decreto 3048" encontrem o chunk
     certo sem depender de embeddings.
+
+    `distance` volta NULL e `origem` = 'dispositivo': aqui NÃO houve comparação
+    vetorial, e devolver 0.0 (o que a interface lia como "100% de similaridade")
+    era invenção — o chamador decide o que mostrar a partir de `origem`.
     """
     parsed = _parse_article_reference(query)
     if not parsed:
@@ -256,7 +263,8 @@ def _metadata_search(query: str, user_id: int | None = None,
             file_name,
             content,
             scope,
-            0.0 AS distance,
+            NULL::float AS distance,
+            'dispositivo' AS origem,
             artigo,
             tipo_doc,
             numero_doc,
@@ -325,7 +333,8 @@ def _keyword_search(query: str, user_id: int | None = None,
             file_name,
             content,
             scope,
-            0.0 AS distance,
+            NULL::float AS distance,
+            'keyword' AS origem,
             artigo,
             tipo_doc,
             numero_doc,

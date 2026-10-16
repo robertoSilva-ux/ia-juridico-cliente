@@ -10,6 +10,7 @@ import math
 from typing import Any
 
 from config import MAX_CONTEXT_CHARS, RERANK_LAMBDA_MULT, TOP_K
+from legal_parser import parse_file_name
 
 logger = logging.getLogger(__name__)
 
@@ -152,19 +153,35 @@ _TIPO_LABEL = {
 def _source_label(doc: dict[str, Any]) -> str:
     """Monta a referência bibliográfica legível de um documento.
 
-    Ex.: 'Decreto 3048, art. 54', 'Lei 8213', ou cai no file_name quando
+    Ex.: 'Decreto 3048, art. 54', 'Lei 8213/1991', ou cai no file_name quando
     não há metadados jurídicos estruturados.
+
+    Quando o registro não traz `tipo_doc`/`numero_doc` (bases ingeridas antes de o
+    parser entender o formato do nome), a identidade é lida do NOME DO ARQUIVO.
+    Sem isso o rótulo cai no nome cru — e foi de "LEI-8080-ESQUEMATIZADA1.pdf" que
+    um modelo extraiu "8080" para escrever "Lei nº 8080/2011" (docs/EVOLUCAO.md,
+    bloco 5).
     """
     nome = doc.get('file_name') or 'Documento sem nome'
     tipo_doc = doc.get('tipo_doc')
     numero_doc = doc.get('numero_doc')
+    ano_doc = doc.get('ano_doc')
     artigo = doc.get('artigo')
     source_title = doc.get('source_title')
 
-    ref = source_title or nome
+    if not (tipo_doc and numero_doc):
+        meta = parse_file_name(nome)
+        if meta.get('tipo') and meta.get('numero'):
+            tipo_doc, numero_doc = meta['tipo'], meta['numero']
+            ano_doc = ano_doc or meta.get('ano')
+
     if tipo_doc and numero_doc:
         tipo = _TIPO_LABEL.get(tipo_doc, tipo_doc.capitalize())
         ref = f"{tipo} {numero_doc}"
+        if ano_doc:
+            ref = f"{ref}/{ano_doc}"
+    else:
+        ref = source_title or nome
     if artigo:
         ref = f"{ref}, art. {artigo}"
     return ref

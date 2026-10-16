@@ -102,8 +102,8 @@ cp .env.example .env
 | `HYDE_ENABLED` | Habilita HyDE (query transformation) | `true` |
 | `HYDE_TOP_K` | Docs por ranking antes da fusão RRF | `8` |
 | `HYDE_QUERY_WEIGHT` | Peso da query original na fusão RRF | `1.4` |
-| `FACT_CHECK_ENABLED` | Habilita fact-check pós-geração | `true` |
-| `FACT_CHECK_LLM_ENABLED` | Fact-check com 2ª chamada LLM (por sentença) | `false` |
+| `FACT_CHECK_ENABLED` | Habilita fact-check pós-geração (lastro da resposta) | `true` |
+| `FACT_CHECK_LLM_ENABLED` | Portão de suficiência: 1 chamada curta ao LLM antes de gerar, para decidir se a base responde ("NAO" ⇒ recusa honesta) | `true` |
 | `ENCRYPTION_KEY` | Chave de criptografia (**reservada — sem uso no código hoje**, ver P2-18 no backlog) | — |
 | `STREAMLIT_SERVER_PORT` | Porta do Streamlit | `8501` |
 | `ADMIN_EMAIL` | Email do admin inicial (criado por `init_admin.py`, não pelo schema) | `admin@legaliz.ai` |
@@ -212,7 +212,13 @@ O `nomic-embed-text` foi treinado com **prefixos de tarefa** (*asymmetric retrie
 > **⚠️ Reindexação obrigatória:** ao ativar/trocar o modelo (ou alterar o esquema de prefixos), toda a base vetorial precisa ser **reindexada** — os vetores antigos ficariam desalinhados com o novo espaço. Use `app/scripts/reindex_embeddings.py`.
 
 ### 5. Fact-check / Groundedness (anti-alucinação)
-Além da regra de anti-alucinação no prompt, a resposta gerada passa por uma **verificação estrutural pós-geração**: divide em sentenças e confere se cada uma está apoiada no contexto recuperado (via as citações `[n]`). Sentenças que citam um `[n]` **inexistente** (fabricado) ou afirmações sem fonte são **sinalizadas** (`fact_check` no retorno), permitindo à UI alertar o usuário antes de confiar na resposta. `FACT_CHECK_LLM_ENABLED` (off por padrão) habilita uma 2ª chamada LLM por sentença para verificação semântica mais profunda.
+Além da regra de anti-alucinação no prompt, a resposta passa por três barreiras antes de chegar à tela:
+
+1. **Portão de suficiência** (`FACT_CHECK_LLM_ENABLED`): uma chamada curta ao LLM, antes de gerar, perguntando se os trechos recuperados contêm literalmente o dispositivo/dado que a pergunta exige. Resposta "NAO" ⇒ o sistema **não gera resposta** e apresenta a recusa canônica ("Não encontrei a resposta na base…"), com os trechos recuperados ao lado. É o mecanismo da recusa honesta: medido, o limiar de distância **não** separa "a base responde" de "não responde" (top-1 0,15–0,27 dentro da base contra 0,20–0,35 fora, com o `nomic-embed-text`).
+2. **Lastro por sentença** (`FACT_CHECK_ENABLED`, determinístico): cada frase com número, prazo, valor ou dispositivo tem de estar apoiada no trecho que **ela cita** — citação `[n]` inexistente, norma com número/ano que o material não registra (ADR-0007) ou dado que está em outro fragmento (`lastro_fora_do_citado`) são reprovados.
+3. **Portão de exibição**: veredito `sem_lastro` ⇒ **uma** regeneração com o motivo apontado; persistindo, a resposta **não é exibida** e vira recusa (o texto descartado fica no log de auditoria). Vereditos `parcial` aparecem com aviso de ressalva; `fundamentada` aparece com a confirmação do lastro conferido.
+
+Detalhamento, evidência medida e critérios de aceite: [`docs/PLANO_REFINAMENTO_RAG.md`](docs/PLANO_REFINAMENTO_RAG.md) (Fase 1).
 
 ### Fluxo de Retrieval
 ```

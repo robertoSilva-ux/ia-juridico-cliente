@@ -10,6 +10,7 @@ Cobre o CRUD sobre a coleção de modelos instalados no servidor Ollama:
 """
 import ollama_utils as ou
 import streamlit as st
+from ui_feedback import flash
 
 
 def _render_running(models_installed, running_details):
@@ -66,12 +67,12 @@ def _render_installed_table(models_installed, installed_names, running_names):
             if is_running:
                 if a1.button("⏹", key=f"stop_{key}", help="Descarregar da memória"):
                     ok, msg = ou.stop_model(nome)
-                    st.success(msg) if ok else st.error(msg)
+                    flash(msg, "success" if ok else "error")
                     st.rerun()
             else:
                 if a1.button("▶️", key=f"load_{key}", help="Carregar na memória (warmup)"):
                     ok, msg = ou.warmup_model(nome)
-                    st.success(msg) if ok else st.error(msg)
+                    flash(msg, "success" if ok else "error")
                     st.rerun()
             if a2.button("🔄", key=f"pull_{key}", help="Atualizar para a versão mais recente da tag"):
                 _run_pull(nome, is_update=True)
@@ -87,10 +88,8 @@ def _render_installed_table(models_installed, installed_names, running_names):
                     cancel = c2.form_submit_button("Cancelar")
                     if confirm:
                         ok, msg = ou.delete_model(nome)
-                        if ok:
-                            st.success(f"Modelo '{nome}' removido.")
-                        else:
-                            st.error(msg)
+                        flash(f"Modelo '{nome}' removido." if ok else msg,
+                              "success" if ok else "error")
                         st.session_state.pop(f"confirm_del_{key}", None)
                         st.rerun()
                     if cancel:
@@ -120,8 +119,10 @@ def _run_pull(model_name, is_update=False):
             status.update(label=f"❌ Falha ao baixar `{model_name}`", state="error", expanded=True)
         if not ok:
             st.error(msg)
-    st.success(msg) if ok else None
+    # A confirmação vai por flash(): o st.rerun() abaixo descartaria um st.success
+    # exibido nesta execução (mesmo defeito corrigido na ingestão).
     if ok:
+        flash(msg)
         st.rerun()
 
 
