@@ -70,8 +70,8 @@ cp .env.example .env
 | `DB_POOL_MAX` | Máximo de conexões no pool | `10` |
 | `OLLAMA_BASE_URL` | URL do serviço Ollama | `http://ollama:11434` |
 | `EMBEDDING_MODEL` | Modelo de embeddings | `nomic-embed-text` |
-| `LLM_MODEL` | Modelo de linguagem | `llama3` |
-| `SIMILARITY_THRESHOLD` | Threshold de similaridade para RAG | `0.60` |
+| `LLM_MODEL` | Modelo de linguagem | definido no `.env` (ex.: `phi4-mini:3.8b`) |
+| `SIMILARITY_THRESHOLD` | Threshold de similaridade para RAG | `0.80` |
 | `TOP_K` | Número de chunks recuperados | `5` |
 | `MAX_CONTEXT_CHARS` | Máximo de caracteres no contexto | `12000` |
 | `RERANK_ENABLED` | Habilita re-ranking por MMR | `true` |
@@ -82,12 +82,17 @@ cp .env.example .env
 | `HYDE_QUERY_WEIGHT` | Peso da query original na fusão RRF | `1.4` |
 | `FACT_CHECK_ENABLED` | Habilita fact-check pós-geração | `true` |
 | `FACT_CHECK_LLM_ENABLED` | Fact-check com 2ª chamada LLM (por sentença) | `false` |
-| `ENCRYPTION_KEY` | Chave de criptografia (gerar com `cryptography`) | — |
+| `ENCRYPTION_KEY` | Chave de criptografia (**reservada — sem uso no código hoje**, ver P2-18 no backlog) | — |
 | `STREAMLIT_SERVER_PORT` | Porta do Streamlit | `8501` |
-| `ADMIN_EMAIL` | Email do admin inicial | `admin@legaliz.ai` |
-| `ADMIN_PASSWORD` | Senha do admin inicial | — (padrão: `admin123` se vazio) |
+| `ADMIN_EMAIL` | Email do admin inicial (criado por `init_admin.py`, não pelo schema) | `admin@legaliz.ai` |
+| `ADMIN_PASSWORD` | Senha do admin inicial (**obrigatória**; mínimo 8 caracteres) | — |
+| `COOKIE_KEY` | Segredo que assina o cookie de sessão (**obrigatória**; ≥32 bytes, própria de cada instalação) | — |
 
-> **⚠️ Segurança:** Sempre defina `ADMIN_PASSWORD` e `POSTGRES_PASSWORD` no `.env`. Não use as senhas padrão em produção.
+> **⚠️ Segurança:** o sistema **não sobe** sem `COOKIE_KEY` (≥32 bytes, não pública) nem
+> com `ADMIN_PASSWORD` ausente/previsível, e o `docker/init.sql` não cria mais usuário
+> nenhum. Gere a chave com
+> `python3 -c "import secrets; print(secrets.token_urlsafe(48))"`.
+> Detalhes em [`docs/REVISAO_SEGURANCA.md`](docs/REVISAO_SEGURANCA.md).
 
 ### 3. Instalação via Setup Automatizado
 
@@ -125,8 +130,10 @@ make clean    # Remove volumes e limpa
 ### 5. Acesso ao Sistema
 
 - **URL:** [http://localhost:8501](http://localhost:8501)
-- **Admin padrão:** Configurado via variáveis `ADMIN_EMAIL` e `ADMIN_PASSWORD` no `.env`
-- Se `ADMIN_PASSWORD` não for definida, a senha padrão será `admin123`
+- **Admin inicial:** criado por `init_admin.py` a partir de `ADMIN_EMAIL`/`ADMIN_PASSWORD`
+  do `.env` (o schema do banco não semeia usuário nenhum)
+- Se `ADMIN_PASSWORD` não estiver definida (ou for previsível), o `setup.sh` **para** e
+  explica o que ajustar — não existe mais senha padrão
 
 ---
 
@@ -202,17 +209,38 @@ gera resposta (system: persona/regras | human: contexto + pergunta + citações 
 
 ## 🔒 Segurança
 
+Revisão completa (com evidências de execução, gravidade e status de cada achado):
+**[`docs/REVISAO_SEGURANCA.md`](docs/REVISAO_SEGURANCA.md)**. Plano de ação:
+**[`docs/BACKLOG.md`](docs/BACKLOG.md)**.
+
 ### Credenciais Externalizadas
 
-Todas as credenciais e configurações sensíveis foram movidas para `app/config.py`, que lê de variáveis de ambiente. Isso elimina senhas hardcoded no código-fonte.
+Todas as credenciais e configurações sensíveis são lidas de variáveis de ambiente por `app/config.py`. Isso elimina senhas hardcoded no código-fonte.
 
 - `DATABASE_URL`, `OLLAMA_BASE_URL`, `EMBEDDING_MODEL`, `LLM_MODEL` em `config.py`
-- Admin inicial criado via `init_admin.py` (não mais no SQL)
+- Admin inicial criado via `init_admin.py` (o `init.sql` não semeia usuário nenhum)
 - `.env.example` fornece o template — o `.env` real está no `.gitignore`
+- `COOKIE_KEY` (segredo que assina o cookie de sessão) é **obrigatória** e validada:
+  ausente, curta (< 32 bytes) ou com valor conhecido ⇒ a aplicação não inicia
+
+### Isolamento entre Usuários (multi-tenant)
+
+Cada documento tem **dono** (`owner_id`) e escopo (`private`/`global`). Todas as operações
+são escopadas por dono — nunca por nome de arquivo:
+
+- a recuperação do chat filtra `scope = 'global' OR owner_id = <usuário>`;
+- o dedup da ingestão e a tabela `sources` são únicos por `(file_name, owner_id)`;
+- promover para global ou excluir age sobre **um dono por vez** (`owner_id` explícito);
+- usuário comum só enxerga e gerencia os próprios documentos (mais os globais).
 
 ### Admin na Primeira Execução
 
-O script `init_admin.py` é executado após os containers subirem para criar o administrador inicial com as credenciais definidas no `.env`. Ele usa `ON CONFLICT DO NOTHING` para ser idempotente.
+O script `init_admin.py` roda após os containers subirem e cria o administrador inicial
+com `ADMIN_EMAIL`/`ADMIN_PASSWORD` do `.env`. Ele é idempotente (`ON CONFLICT DO NOTHING`
+— rodar de novo não reseta a senha existente) e **falha** com exit code ≠ 0 quando a senha
+está ausente, tem menos de 8 caracteres ou é um valor previsível (`admin123`, `admin`,
+`password`…). Um banco que ainda tenha a credencial padrão antiga precisa da senha trocada
+pelo painel (Gestão de Usuários → Resetar Senha).
 
 ---
 
@@ -292,8 +320,9 @@ O arquivo `docker-compose.yml` conta com:
 
 - **Healthchecks** em todos os serviços (`db`, `ollama`, `app`)
 - **Dependências condicionais** (`depends_on: condition: service_healthy`)
-- **Variáveis de ambiente** via `${VAR:-default}` para flexibilidade
-- **`env_file: .env`** no serviço `app` para carregar configurações
+- **`env_file: .env`** no serviço `app`: **todas** as variáveis do `.env` chegam ao
+  container (antes, só uma lista de 9 nomes chegava — ajustar `HYDE_*`, `RERANK_*`,
+  `FACT_CHECK_*`, `DB_POOL_*`, `COOKIE_KEY` no `.env` não tinha efeito nenhum)
 
 ---
 
@@ -301,21 +330,48 @@ O arquivo `docker-compose.yml` conta com:
 
 O workflow `.github/workflows/ci.yml` executa em todo `push` e `pull_request`:
 
-- **Lint:** `flake8` com seleção `E9,F63,F7,F82` (erros críticos)
-- **Python 3.11** via `setup-python@v5`
+- **`lint`** — `ruff` (o linter configurado no `pyproject.toml`; antes rodava `flake8`
+  com `--select=E9,F63,F7,F82`, que não cobria as regras do projeto)
+- **`test`** — a suíte completa via `app/run_tests.sh` (um módulo por processo)
+- **`integration`** — Postgres `pgvector/pgvector:pg16` + `docs/legal_test_schema.sql`,
+  com os testes de ingestão e de isolamento entre donos rodando contra o banco
+- **`schema`** — aplica `database/init.sql` **duas vezes** (as migrações têm de ser
+  idempotentes) e confere as invariantes de segurança do schema: nenhum admin semeado e
+  índice único `(file_name, owner_id)` em `sources`
+
+Local: `make test` (roda no container) ou `bash app/run_tests.sh` (no host, com as
+dependências instaladas).
 
 ---
 
 ## 🗺️ Changelog de Melhorias
 
+### 🛡️ Hardening de segurança e isolamento (revisão de 2026-10-16)
+- ✅ **Chave do cookie de sessão fora do código** — `COOKIE_KEY` obrigatória, validada
+  (ausente/curta/pública ⇒ app não sobe). Antes, o literal `legal_ai_key` versionado
+  permitia forjar o cookie de admin.
+- ✅ **Schema não semeia mais admin** — removido o `admin@legaliz.ai`/`admin123` do
+  `init.sql`; `init_admin.py` exige `ADMIN_PASSWORD` e recusa valores previsíveis
+- ✅ **Escopo e exclusão por dono** (`owner_id`), nunca por nome de arquivo: um clique em
+  "Tornar Global" não promove mais o documento privado homônimo de outro usuário
+- ✅ **Dedup e `sources` por `(file_name, owner_id)`** — o upload do segundo usuário com
+  o mesmo nome de arquivo deixa de ser descartado em silêncio
+- ✅ **`sources.scope` sincronizado** com `documents.scope` na mesma transação
+- ✅ **`env_file` no compose** — todo o `.env` chega ao container
+- ✅ **Dependências pinadas** (+ `requirements.lock.txt`) e imports faltantes declarados
+- ✅ **Testes/CI de verdade** — runner único cobrindo todos os módulos, `make test`
+  funcional, CI com lint + testes + integração + verificação do schema
+- ✅ **`setup.sh` valida** `POSTGRES_PASSWORD`, `ADMIN_PASSWORD` e `COOKIE_KEY` **antes**
+  de subir os containers
+
 ### 🔒 Segurança (Item 1)
 - ✅ Credenciais externalizadas para `app/config.py`
 - ✅ `.env.example` criado com todas as variáveis documentadas
 - ✅ `docker-compose.yml` usa variáveis de ambiente
-- ✅ `init.sql` limpo: apenas schema, sem dados hardcoded
+- ✅ `init.sql` sem dados hardcoded (após a revisão de 2026-10-16)
 - ✅ `init_admin.py` para criação segura de admin na primeira execução
 - ✅ `setup.sh` verifica `.env` e executa `init_admin.py`
-- ✅ `python-dotenv` e `cryptography` adicionados ao `requirements.txt`
+- ✅ `python-dotenv` adicionado ao `requirements.txt` (sem uso hoje — ver P2-17)
 - ✅ `.gitignore` criado com `.env`
 
 ### 📝 Prompts Modulares (Item 3)
@@ -364,9 +420,16 @@ Distribuído sob a licença MIT. Veja `LICENSE.md` para mais informações.
 - [x] **Prompt system/human separados** — fim do eco de diretrizes pelo LLM
 - [x] **Avaliador de RAG reproduzível** — mede impacto de mudanças com relatórios versionados
 - [x] **`LLM_MODEL` padrão no `.env`** — respostas sem config manual
+- [x] **Isolamento de Contexto:** cada documento tem dono; recuperação, gestão, dedup e
+  `sources` são escopados por `owner_id` (ver [`docs/REVISAO_SEGURANCA.md`](docs/REVISAO_SEGURANCA.md))
 - [ ] **Recall de arquivo no avaliador** — ligar `expected_files` no `quiz.json` (gabarito por pergunta)
 - [ ] **Calibração de threshold/TOP_K** — distâncias muito próximas (~0.22) sugerem baixa discriminação
 - [ ] **Nota qualitativa manual (1-5)** no avaliador — além de groundedness, medir redação
-- [ ] **Isolamento de Contexto:** Garantir que um usuário não veja documentos de outro
 - [ ] **Redator de Petições:** Gerador estruturado em formato `.docx`
 - [ ] **Múltiplos Idiomas:** Suporte a prompts em diferentes idiomas
+
+### Pendências de segurança/infra
+
+O que **ainda falta** antes de expor o sistema a dados reais de cliente está em
+[`docs/BACKLOG.md`](docs/BACKLOG.md) (P0-5 TLS/rede, P0-6 rotação de credenciais, P1-1
+fact-check, P1-2 estado global do LLM, P1-6 PDF sem texto…).

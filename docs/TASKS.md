@@ -10,7 +10,8 @@ Branch ativa: `main` (commits diretos desde o merge do PR #1).
 | 2 | **Self-consistency / fact-check** — anti-alucinação estrutural (além do prompt). Fonte: Auffarth | Alta | ✅ concluída (commit `532c583`, direto na main) |
 | 3 | **Query expansion / HyDE** — melhora recall léxico jurídico. Fonte: Kimothi | Média | ✅ concluída (commit `0e15d0b`, direto na main) |
 | 4 | **Setar `LLM_MODEL` no `.env`** + rebuild container app (ativa dedup no ingest + resposta sem config manual) | Baixa | ✅ concluída (commit direto na main) |
-| 5 | Reavaliar escopo de user do Legaliz (busca por user_id) se necessário | Baixa | ⏳ pendente |
+| 5 | Reavaliar escopo de user do Legaliz (busca por user_id) | Média | ✅ concluída (escopo por dono em todos os caminhos + revisão de segurança) |
+| 6 | **Hardening de segurança/isolamento** (chave do cookie, admin semeado, escopo por dono, dedup por dono, CI) | Alta | ✅ concluída — ver `docs/REVISAO_SEGURANCA.md` e `docs/BACKLOG.md` |
 
 ## Ordem sugerida de execução
 1. **Task 0** (push + PR): destrava o que já está pronto, evita conflito futuro.
@@ -25,5 +26,6 @@ Branch ativa: `main` (commits diretos desde o merge do PR #1).
 - Token GitHub em `~/.config/legalizai-github.env` (permissão 600, `GITHUB_TOKEN`). Escopos: repo, workflow, gist. Abre PRs via API.
 - LangChain é v1.2 (ecossistema dos livros, branch `v1` do repo benman1/generative_ai_with_langchain).
 - Base de referência dos livros de RAG indexada no Temporal Wolf (Kimothi `A Simple Guide to RAG`, Auffarth `RAG The Seminal Papers`).
-- Testes: rodam por arquivo em processo separado (`python3 -m unittest tests.test_<nome>` de `app/`). **83 verdes** (agent 34, legal_parser 21, ingest 8, management 8, auth 12).
+- Testes: runner único em `app/run_tests.sh` (descoberta dinâmica, **um módulo por processo**). **158 verdes em 12 módulos**; `make test` roda dentro do container. Integração com pgvector real: `test_integration_ingest.py` e `test_integration_tenancy.py` (pulam sozinhos sem banco).
+- Revisão de segurança e isolamento entre clientes: `docs/REVISAO_SEGURANCA.md` (achados + evidências) e `docs/BACKLOG.md` (o que falta).
 - Padrão de mock: `sys.modules` collide — cada arquivo de teste isolado.

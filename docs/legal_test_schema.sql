@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS documents (
 
 CREATE TABLE IF NOT EXISTS sources (
     id SERIAL PRIMARY KEY,
-    file_name TEXT NOT NULL UNIQUE,
+    file_name TEXT NOT NULL,
     title TEXT,
     tipo_doc VARCHAR(50),
     numero_doc VARCHAR(20),
@@ -39,6 +39,12 @@ CREATE TABLE IF NOT EXISTS sources (
     owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     scope VARCHAR(10) DEFAULT 'private'
 );
+
+-- Mesma unicidade do database/init.sql: (file_name, owner_id), nunca só o nome.
+-- Sem isso o upsert de ingest.py (ON CONFLICT (file_name, owner_id)) não tem
+-- índice para inferir e a ingestão quebra neste banco de teste.
+ALTER TABLE sources DROP CONSTRAINT IF EXISTS sources_file_name_key;
+CREATE UNIQUE INDEX IF NOT EXISTS sources_file_name_owner_uidx ON sources (file_name, owner_id);
 
 ALTER TABLE documents ADD COLUMN IF NOT EXISTS source_id INTEGER REFERENCES sources(id) ON DELETE CASCADE;
 
