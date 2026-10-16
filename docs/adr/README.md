@@ -12,6 +12,10 @@ que substitui o anterior (o antigo passa a `substituído por ADR-XXXX`).
 | [0003](0003-admin-inicial-sem-semeadura.md) | O schema não semeia credencial; o admin inicial exige `ADMIN_PASSWORD` | aceito |
 | [0004](0004-ambiente-de-desenvolvimento-hibrido.md) | Ambiente de desenvolvimento híbrido (banco em container, Ollama e app nativos) | aceito |
 | [0005](0005-dependencias-pinadas-e-verificacao.md) | Dependências pinadas com lock e verificação automatizada obrigatória | aceito |
+| [0006](0006-retorno-de-acao-sobrevive-ao-rerun.md) | Retorno de ação vai por `flash()`, não por `st.success()` antes de `st.rerun()` | aceito |
+| [0007](0007-fact-check-exige-par-numero-ano.md) | Citação de norma exige par número+ano no contexto (identidade de lei conferida) | aceito |
+| [0008](0008-modelo-por-orcamento-de-vram.md) | Modelo padrão escolhido por orçamento de VRAM medido (`phi4-mini:3.8b` @8192) | aceito |
+| [0009](0009-portao-de-resposta-e-recusa-honesta.md) | Portão de resposta: suficiência, lastro no fragmento citado e recusa honesta | aceito |
 
 ## Formato
 
