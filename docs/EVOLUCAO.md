@@ -14,7 +14,7 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 
 | | |
 |:---|:---|
-| Branch / remoto | `main` em **`738198e`**, igual a `origin/main` (tudo publicado; CI do GitHub **verde** nesse commit — o anterior, `d836fb8`, ficou vermelho e foi corrigido por ele) |
+| Branch / remoto | `main` em **`bad3c0d`**, igual a `origin/main` (tudo publicado, árvore limpa; CI do GitHub **verde** nos 4 jobs — `test`, `lint`, `schema`, `integration` — medido 2026-10-20) |
 | Suíte | **279 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-19) + 14 de integração contra Postgres real |
 | Lint | `ruff check .` limpo — **precisa ser o do venv**: fora dele o comando não existe (`.venv/bin/python -m ruff check .`) |
 | Ambiente de dev | montado e funcionando: banco em podman (5439), Ollama em serviço + GPU, `.venv` 3.11, `make dev` |
@@ -29,7 +29,7 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 ```bash
 cd ~/Documentos/projetos/ia-juridico-cliente
 git log --oneline -5                 # onde paramos
-git status --short                   # deve estar limpo: tudo publicado em 738198e
+git status --short                   # deve estar limpo: tudo publicado em bad3c0d
 make db-dev                          # religa o banco de dev (depois de reboot)
 set -a; . ./.env.dev; set +a
 .venv/bin/python scripts/smoke_dev.py   # o ambiente está de pé?
@@ -570,8 +570,42 @@ onde ser encontrada.
 
 Suíte **279 casos em 14 módulos** verdes sob ambiente limpo (`env -i`); `ruff check .` limpo;
 `main` = `origin/main` em `738198e` com CI verde; base de dev com 157 fragmentos, cobertura
-completa e identidade preenchida. Artefatos da medição **não commitados**: `app/eval/resultado_a4_rep.json`
-(novo) e `app/eval/resultado_portao.json` (sobrescrito).
+completa e identidade preenchida. Artefatos da medição (`app/eval/resultado_a4_rep.json`, novo, e
+`resultado_portao.json`, sobrescrito) ficaram **sem commit** neste bloco — publicados depois, em
+`bad3c0d`, junto com a documentação (ver "Fechamento do bloco 8" abaixo).
+
+---
+
+## Fechamento do bloco 8 — publicação (2026-10-20)
+
+**Pedido:** fechar o bloco 8 (commitar a documentação, o ADR-0010 e as medições e verificar o CI).
+
+Verificado por execução nesta rodada, na árvore que estava suja desde 2026-10-19:
+
+| Verificação | Como | Resultado |
+|:---|:---|:---|
+| Links relativos dos documentos mexidos | `scripts/check_doc_links.py` (do skill `legaliz-ai`) | 35 links, todos resolvem |
+| Lint | `.venv/bin/python -m ruff check .` | limpo — `All checks passed!` |
+| Suíte | `env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh` | **279 casos em 14 módulos**, todos OK |
+| CI do GitHub | API `/actions/runs/39529648866/jobs` | **verde nos 4 jobs**: `test`, `lint`, `schema`, `integration` |
+
+Commit **`bad3c0d`** — `docs(bloco-8): ADR-0010 do preâmbulo indexável e medição do bloco`:
+`docs/adr/0010-preambulo-e-conteudo-indexavel.md` (novo), `docs/adr/README.md`, `docs/EVOLUCAO.md`,
+`docs/BACKLOG.md` (P2-31 registrado), `docs/PLANO_R24_CHUNKER.md`,
+`docs/PLANO_REFINAMENTO_RAG.md`, `app/eval/resultado_a4_rep.json` (novo) e
+`app/eval/resultado_portao.json` (sobrescrito pela última medição).
+
+Duas observações de ambiente registradas na hora, para não virarem premissa errada:
+
+1. **O banco de dev estava parado** (container `legal-dev-db` saiu ~22 h antes), então nada de
+   integração foi exercitado nesta rodada — a verificação de integração que vale aqui é a do CI,
+   contra o Postgres descartável. Subir com `make db-dev` antes de qualquer smoke.
+2. **O Ollama estava servindo `qwen3:4b` @4096** (resíduo de bancada de medição), enquanto o
+   `.env.dev` aponta `phi4-mini:3.8b` @8192. Não é divergência de configuração, mas qualquer
+   medição feita agora, sem reiniciar o serviço/limpar a fila, mede outro modelo.
+
+Também corrigida, no mesmo passo, a tabela "Estado atual" — que passou a citar `bad3c0d` — e a
+nota de artefatos "não commitados" do bloco 8, que já não era verdade depois do commit.
 
 ---
 
@@ -592,10 +626,9 @@ completa e identidade preenchida. Artefatos da medição **não commitados**: `a
 
 ### Decisões operacionais em aberto
 
-1. **Nada pendente de publicação**: `main` = `origin/main` em `738198e` (os commits antigos
-   `42dc943`/`f432730` já foram publicados). Depois do bloco 8 ficam sem commit apenas a
-   documentação (este diário, ADR-0010, `PLANO_R24_CHUNKER.md`) e os dois arquivos de resultado
-   da medição em `app/eval/` — commit é decisão do Roberto.
+1. **Nada pendente de publicação**: `main` = `origin/main` em `bad3c0d` (o bloco 8 — documentação,
+   ADR-0010 e os dois arquivos de resultado da medição — foi commitado e publicado em 2026-10-20,
+   com CI verde nos 4 jobs). Árvore de trabalho limpa.
 2. **Rotação do login de desenvolvimento**: o usuário `dev@legaliz.local` é criado pelo
    smoke test com senha conhecida; trocar pelo painel quando o ambiente for compartilhado.
 3. **Dívida pequena registrada no bloco 8**: `factcheck._load_dispositivos_base` não filtra
