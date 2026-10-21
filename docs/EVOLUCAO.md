@@ -6,7 +6,9 @@ trabalho depois de uma pausa sem depender de memória de conversa.
 
 Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e evidências),
 [`BACKLOG.md`](BACKLOG.md) (o que fazer, com critério de aceite), [`AMBIENTE_DEV.md`](AMBIENTE_DEV.md)
-(como rodar na máquina de desenvolvimento) e [`adr/`](adr/) (decisões de arquitetura).
+(como rodar na máquina de desenvolvimento), [`adr/`](adr/) (decisões de arquitetura) e
+[`CONFORMIDADE_REQUISITOS.md`](CONFORMIDADE_REQUISITOS.md) (o que o produto entrega de cada
+requisito de [`requisitos_gerais.txt`](requisitos_gerais.txt), e o que falta).
 
 ---
 

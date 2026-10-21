@@ -1,0 +1,27 @@
+. **Ingestão e pré-processamento de documentos jurídicos**
+   - Capacidade de processar PDFs, documentos do tipo DOCX e extrair texto limpo (removendo cabeçalhos, tabelas e notas irrelevantes).
+   - Exemplo: Usar bibliotecas como `pdfplumber` ou `PyPDF2` para PDFs.
+
+2. **Integração de terminologia jurídica específica**
+   - Treinar embeddings personalizados com termos legais brasileiros (ex: artigos da Constituição, leis específicas) para melhorar a precisão.
+   - Incluir um glossário de termos jurídicos para evitar ambiguidade.
+
+3. **Recuperação com citação de fontes**
+   - O sistema deve indicar **exatamente** qual seção da legislação foi usada na resposta (ex: "Art. 5º, inciso I da Constituição").
+   - Isso é crucial para garantir transparência e confiabilidade em contextos jurídicos.
+
+4. **Compliance com LGPD**
+   - Armazenar documentos e respostas localmente (via Ollama) para evitar vazamento de dados sensíveis.
+   - Garantir que não haja compartilhamento de informações pessoais sem consentimento.
+
+5. **Mecanismo de validação de erros**
+   - Quando o LLM não estiver seguro na resposta (ex: probabilidade < 80%), o sistema deve alertar para revisão humana ou usar uma fonte confiável (ex: base de dados oficial).
+
+6. **Controle de versão para documentos jurídicos**
+   - Rastrear alterações nas leis e regulamentos (ex: versões de leis em andamento) para evitar uso de versões desatualizadas.
+
+7. **Explicabilidade das respostas**
+   - O sistema deve explicar por quê uma resposta foi gerada (ex: "A resposta baseia-se no Art. 12 da Lei X, pois...").
+
+8. **Testes com casos reais**
+   - Validar o sistema com perguntas jurídicas específicas (ex: "Como é calculada a multa por atraso no pagamento?") para garantir acertividade.
