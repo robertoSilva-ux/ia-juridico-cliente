@@ -14,7 +14,7 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 
 | | |
 |:---|:---|
-| Branch / remoto | `main` em **`bad3c0d`**, igual a `origin/main` (CI do GitHub **verde** nos 4 jobs — `test`, `lint`, `schema`, `integration` — medido 2026-10-20). **Árvore de trabalho suja:** os blocos 9 (corpus oficial), 10 (P2-32) e 11 (peso por regime) estão commitados localmente em 2026-10-20; push é decisão do Roberto |
+| Branch / remoto | `main` em **`bda0a49`** local (remoto ainda em `bad3c0d` — push é decisão do Roberto). Os blocos 9 (corpus oficial), 10 (P2-32) e 11 (peso por regime) estão commitados em `a4d33a2` e `bda0a49`; árvore limpa, exceto `docs/requisitos_gerais.txt` (arquivo do usuário, ainda vazio) |
 | Suíte | **301 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-20) + 14 de integração contra Postgres real (`scripts/ci_integracao_local.sh` do skill) |
 | Lint | `ruff check .` limpo — **precisa ser o do venv**: fora dele o comando não existe (`.venv/bin/python -m ruff check .`) |
 | Ambiente de dev | montado e funcionando: banco em podman (5439), Ollama em serviço + GPU, `.venv` 3.11, `make dev` |
