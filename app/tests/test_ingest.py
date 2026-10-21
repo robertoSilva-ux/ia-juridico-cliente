@@ -801,5 +801,94 @@ class TestPreambuloR24(unittest.TestCase):
         self.assertIsNotNone(_ARTICLE_START.search("Art. 42. A aposentadoria será devida"))
 
 
+class TestCorpusEmTexto(unittest.TestCase):
+    """P2-30: o corpus oficial do Planalto entra como TEXTO, não como PDF.
+
+    Texto plano não tem paginação, mas o pipeline é por página (limpeza de ruído
+    comparando páginas, metadado `pagina`, estado do dispositivo entre páginas).
+    `extrair_paginas` pagina o `.txt` sinteticamente, em fronteira de parágrafo, e o resto
+    do caminho é o mesmo do PDF.
+    """
+
+    def setUp(self):
+        from importlib import reload
+        import ingest
+        reload(ingest)
+        self.ingest = ingest
+
+    def _arquivo(self, texto, sufixo=".txt"):
+        import tempfile
+        descritor, caminho = tempfile.mkstemp(suffix=sufixo, text=True)
+        with os.fdopen(descritor, "w", encoding="utf-8") as arquivo:
+            arquivo.write(texto)
+        self.addCleanup(os.unlink, caminho)
+        return caminho
+
+    def _fragmentar(self, paginas):
+        splitter = MagicMock()
+        splitter.split_documents.side_effect = lambda docs: docs
+        with patch.object(self.ingest, 'RecursiveCharacterTextSplitter', return_value=splitter):
+            return self.ingest.split_legal_documents(paginas)
+
+    def test_txt_e_paginado_em_fronteira_de_paragrafo(self):
+        paragrafos = [f"Parágrafo número {i} " + "x" * 300 for i in range(40)]
+        paginas = self.ingest.extrair_paginas(self._arquivo("\n\n".join(paragrafos)))
+
+        self.assertGreater(len(paginas), 1, "40 parágrafos de ~330 chars têm de gerar mais de uma página")
+        for pagina in paginas:
+            self.assertLessEqual(len(pagina.page_content), self.ingest.PAGINA_TXT_CHARS + 400)
+            self.assertTrue(pagina.page_content.startswith("Parágrafo número"),
+                            f"página começa no meio de um parágrafo: {pagina.page_content[:60]!r}")
+
+    def test_pagina_do_txt_e_numerada_no_metadado(self):
+        paginas = self.ingest.extrair_paginas(
+            self._arquivo("\n\n".join("z" * 2000 for _ in range(5))))
+        self.assertEqual([p.metadata.get("page") for p in paginas], list(range(len(paginas))))
+
+    def test_split_do_txt_marca_dispositivo_e_guarda_o_cabecalho(self):
+        """Preâmbulo na MESMA página do 1º artigo acompanha o artigo (regra do splitter)."""
+        texto = ("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990.\n\n"
+                 "Dispõe sobre as condições para a promoção da saúde.\n\n"
+                 "Art. 1º Esta lei regula as ações e serviços de saúde.\n\n"
+                 "Art. 2º A saúde é um direito fundamental do ser humano.\n")
+        chunks = self._fragmentar(self.ingest.extrair_paginas(self._arquivo(texto)))
+
+        self.assertEqual([c.metadata.get("tipo_trecho") for c in chunks],
+                         ["dispositivo"] * len(chunks))
+        self.assertIn("LEI Nº 8.080", chunks[0].page_content,
+                      "o cabeçalho da norma não pode se perder: é ele que carrega número e ano")
+        self.assertEqual(chunks[0].metadata.get("tipo_trecho"), "dispositivo")
+        self.assertTrue(chunks[0].page_content.startswith("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990."),
+                        chunks[0].page_content[:80])
+        self.assertIn("Art. 1º", chunks[0].page_content)
+
+    def test_split_do_txt_marca_preambulo_em_pagina_propria(self):
+        """Preâmbulo maior que uma página sintética vira seção própria (R-24), não lixo."""
+        cabecalho = [
+            "LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990.",
+            "Dispõe sobre as condições para a promoção da saúde.",
+            "TÍTULO I — DAS DISPOSIÇÕES GERAIS",
+        ] + ["Comentário de apresentação " + "c" * 400 for _ in range(12)]
+        texto = "\n\n".join(cabecalho + ["Art. 1º Esta lei regula as ações de saúde."])
+        chunks = self._fragmentar(self.ingest.extrair_paginas(self._arquivo(texto)))
+        tipos = [c.metadata.get("tipo_trecho") for c in chunks]
+
+        self.assertIn("preambulo", tipos)
+        self.assertIn("dispositivo", tipos)
+
+    def test_linha_repetida_no_texto_oficial_nao_e_tratada_como_rodape(self):
+        """A limpeza de ruído é do PDF paginado; em texto oficial 'TÍTULO I' se repete e fica."""
+        texto = "\n\n".join(["TÍTULO I"] + ["w" * 1500 for _ in range(8)])
+        paginas = self.ingest.extrair_paginas(self._arquivo(texto))
+        self.assertIn("TÍTULO I", "\n\n".join(p.page_content for p in paginas))
+
+    def test_pdf_continua_indo_para_o_pypdfloader(self):
+        caminho = self._arquivo("conteúdo", sufixo=".pdf")
+        with patch.object(self.ingest, 'PyPDFLoader') as mock_loader:
+            mock_loader.return_value.load.return_value = []
+            self.ingest.extrair_paginas(caminho)
+        mock_loader.assert_called_once_with(caminho)
+
+
 if __name__ == "__main__":
     unittest.main()

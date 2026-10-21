@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import logging
+import os
 import re
 import time
 
@@ -9,6 +10,7 @@ import psycopg2.extras
 from config import DATABASE_URL, EMBED_BATCH_SIZE
 from factcheck import invalidate_dispositivos_cache
 from langchain_community.document_loaders import PyPDFLoader
+from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from legal_parser import (
     enrich_chunk_metadata,
@@ -184,8 +186,73 @@ def limpar_ruido_de_pagina(paginas, ruido: set[str] | None = None):
     return limpas
 
 
+#: Extensões de TEXTO PLANO aceitas além do PDF. O corpus oficial do Planalto (P2-30) chega
+#: em HTML, que é convertido para texto fora da app (`scripts/corpus_planalto.py`): aqui só
+#: entra texto já limpo, para que a app não ganhe um parser de HTML e a conversão fique
+#: versionada e auditável num lugar só.
+_EXTENSOES_TEXTO = {".txt"}
+#: Tamanho da "página" sintética de um `.txt` — ver `_paginar_texto_corrido`.
+PAGINA_TXT_CHARS = 4000
+
+
+def _paginar_texto_corrido(texto, limite=PAGINA_TXT_CHARS):
+    """Divide texto corrido em "páginas" sintéticas, cortando sempre em linha em branco.
+
+    Texto plano não tem paginação, mas o pipeline inteiro é por página: a limpeza de
+    cabeçalho/rodapé repetido compara páginas, o metadado `pagina` guia a reindexação e o
+    estado do dispositivo (`Art. N`) atravessa páginas. Paginar a cada ~4.000 caracteres em
+    fronteira de parágrafo dá as três coisas sem inventar conteúdo — e um dispositivo que
+    caia na divisa não se parte, porque `split_legal_documents` mantém a seção aberta entre
+    páginas. O limite não existe para cortar dispositivo: existe para que a "página" seja
+    comparável à de um PDF (65 páginas da apostila ≈ 1.450 chars/página; aqui 4.000 é
+    generoso de propósito, já que não há rodapé a remover).
+    """
+    paginas = []
+    atual = []
+    tamanho = 0
+    for bloco in (texto or "").split("\n\n"):
+        bloco = bloco.strip("\n")
+        if not bloco.strip():
+            continue
+        if atual and tamanho + len(bloco) > limite:
+            paginas.append("\n\n".join(atual))
+            atual, tamanho = [], 0
+        atual.append(bloco)
+        tamanho += len(bloco) + 2
+    if atual:
+        paginas.append("\n\n".join(atual))
+    return paginas
+
+
+def _extrair_paginas_de_texto(file_path, progress_cb=None):
+    """Páginas de um `.txt`: lê, normaliza e pagina.
+
+    NÃO roda a limpeza de cabeçalho/rodapé repetido: ela existe para PDF paginado de
+    apostila, onde o rodapé do cursinho repete em toda página. Texto oficial convertido já
+    vem sem essa repetição, e aplicá-la aqui arriscaria apagar linha legítima que se repete
+    entre "páginas" sintéticas (p.ex. cabeçalho de seção). A identidade da norma também não
+    depende disso: ela vem do metadado do documento e do cabeçalho do texto.
+    """
+    with open(file_path, "rb") as arquivo:
+        bruto = arquivo.read()
+    try:
+        texto = bruto.decode("utf-8")
+    except UnicodeDecodeError:
+        texto = bruto.decode("latin-1")
+
+    paginas = _paginar_texto_corrido(texto)
+    total = len(paginas) or 1
+    documents = []
+    for index, pagina in enumerate(paginas):
+        documents.append(Document(page_content=normalize_whitespace(pagina),
+                                  metadata={"source": str(file_path), "page": index}))
+        if progress_cb is not None:
+            progress_cb((index + 1) / total * 0.5)  # extração = 50% do trabalho
+    return documents
+
+
 def extrair_paginas(file_path, progress_cb=None):
-    """Carrega as PÁGINAS do PDF já limpas: ruído repetido removido e whitespace normalizado.
+    """Carrega as PÁGINAS do documento já limpas: ruído repetido removido e whitespace normalizado.
 
     Separada de `process_pdf` porque a identidade da norma (R-9) precisa do texto do
     DOCUMENTO, e não do texto já fragmentado: enquanto ela era lida da concatenação dos
@@ -197,8 +264,15 @@ def extrair_paginas(file_path, progress_cb=None):
     fragmento. A normalização roda por página, ANTES do split jurídico, para que o
     chunking veja texto limpo e a detecção de "Art. N" opere sobre o formato canônico.
 
+    Dois formatos entram: **PDF** (PyPDFLoader, uma página por `Document`) e **texto
+    plano** (`.txt`, ver `_paginar_texto_corrido`), que é como o corpus oficial do
+    Planalto chega depois da conversão do HTML (P2-30).
+
     ``progress_cb`` (opcional) recebe floats 0.0->0.5 para a fase de extração.
     """
+    if os.path.splitext(str(file_path))[1].lower() in _EXTENSOES_TEXTO:
+        return _extrair_paginas_de_texto(file_path, progress_cb=progress_cb)
+
     loader = PyPDFLoader(file_path)
     documents = loader.load()
 

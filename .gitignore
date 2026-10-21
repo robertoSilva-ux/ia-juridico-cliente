@@ -11,4 +11,7 @@ __pycache__/
 bench_resume.log
 get-docker.sh
 .backups/
+# Corpus oficial baixado do Planalto: são dados (2,4 MB de HTML + texto convertido), não código.
+# O script que os obtém é versionado (scripts/corpus_planalto.py), com manifesto de sha256.
+/data/corpus-planalto/
 .antigravitycli/

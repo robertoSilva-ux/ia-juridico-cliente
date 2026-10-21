@@ -163,6 +163,10 @@ class TestIdentidadeDoDocumento(unittest.TestCase):
             ("LEI Nº 8.213, DE 24 DE JULHO DE 1991.", ('lei', '8213', '1991')),
             ("LEI Nº 8.213/91.", ('lei', '8213', '1991')),
             ("DECRETO Nº 3.048, DE 6 DE MAIO DE 1999.", ('decreto', '3048', '1999')),
+            # O Planalto grafa o ordinal do Decreto 3.048 como "No" (o HTML usa <u>o</u> e a
+            # extração devolve a letra): sem aceitar o "o", o documento inteiro — 689
+            # dispositivos — ficava sem identidade e o fact-check sem lastro de norma.
+            ("DECRETO No 3.048, DE 6 DE MAIO DE 1999.", ('decreto', '3048', '1999')),
             ("DECRETO Nº 3.048/99", ('decreto', '3048', '1999')),
             ("LEI COMPLEMENTAR Nº 142, DE 8 DE MAIO DE 2013.", ('lei_complementar', '142', '2013')),
             ("EMENDA CONSTITUCIONAL Nº 103, DE 12 DE NOVEMBRO DE 2019", ('emenda', '103', '2019')),

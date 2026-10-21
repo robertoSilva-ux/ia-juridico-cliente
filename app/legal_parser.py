@@ -229,7 +229,12 @@ _NORMA_CAUDA = (r"\s*,?\s*(?:de\s+)?(?:\d{1,2}\s*[º°o]?\s+de\s+[a-zçãéíó�
 _NORMA_NUMERO = r"([\d.]{1,12}(?:-\d{1,2})?)"
 _CABECALHO_NORMA = re.compile(
     r"\b(lei\s+complementar|lei|decreto-lei|decreto|emenda\s+constitucional|"
-    r"medida\s+provis[óo]ria)\s*n\s*[.º°]*\s*" + _NORMA_NUMERO + _NORMA_CAUDA,
+    # `(?-i:N)` + `o?`: o Planalto grafa "DECRETO No 3.048" (o HTML usa <u>o</u> e a extração
+    # devolve a letra). O N tem de estar em CAIXA ALTA para o "o" ser aceito — sem esse
+    # escopo local, "a lei no 8.080 de 1990" dentro de prosa viraria identidade do documento.
+    # Medido no texto oficial do Decreto 3.048: sem a regra, `parse_norm_header` devolvia
+    # três None e os 689 dispositivos ficariam sem norma — justamente o que o P2-30 corrige.
+    r"medida\s+provis[óo]ria)\s*(?:n\s*[.º°]*|(?-i:N)\s*[.º°]*o)\s*" + _NORMA_NUMERO + _NORMA_CAUDA,
     re.IGNORECASE,
 )
 # Forma SEM "nº" — material didático escreve o título em prosa: "Apresentarei a você neste
