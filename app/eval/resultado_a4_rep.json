@@ -5,8 +5,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 1.7,
-  "answer": "A direção do Sistema Único de Saúde (SUS) no âmbito da União é exercise pelo Ministério da Saúde. [DOC 1]",
+  "time_s": 1.5,
+  "answer": "A direção do Sistema Único de Saúde (SUS) no âmbito da União é exercida pelo Ministério da Saúde. [DOC 1]",
   "descartada": null
  },
  {
@@ -15,8 +15,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 0.9,
-  "answer": "A direção do SUS no âmbito da União é exercida pelo Ministério da Saúde. [DOC 1]",
+  "time_s": 1.2,
+  "answer": "A direcção do Sistema Único de Saúde (SUS) no âmbito da União é exercise pelo Ministério da Saúde. [DOC 1]",
   "descartada": null
  },
  {
@@ -25,8 +25,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 0.9,
-  "answer": "A direção do SUS no âmbito da União é exercida pelo Ministério da Saúde. [DOC 1]",
+  "time_s": 1.2,
+  "answer": "A direcção do Sistema Único de Saúde (SUS) no âmbito da União é exercise pelo Ministério da Saúde. [DOC 1]",
   "descartada": null
  },
  {
@@ -35,8 +35,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 3.4,
-  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondem, seguindo o princípio da direção única. Esses consórcios podem articular recursos, técnicas e práticas voltadas para a cobertura total das ações de saúde, conforme o Sistema Único de Saúde (SUS) pode organizar-se em distritos para integrar e articular recursos. Este dispositivo é uma forma de sociedade privada jurídica que visa otimizar recursos entre os municípios interessados.",
+  "time_s": 2.5,
+  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondam, seguindo o princípio da direção única. Além disso, no âmbito municipal, o Sistema Único de Saúde (SUS) pode organizar-se em distritos para integrar e articular recursos, técnicas e práticas voltadas para a cobertura total das ações de saúde.",
   "descartada": null
  },
  {
@@ -45,8 +45,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 3.1,
-  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondam, seguindo o princípio da direção única. Esses consórcios podem articular recursos, técnicas e práticas voltadas para a cobertura total das ações de saúde, organizando-se em distritos no nível municipal para integrar e articular recursos do Sistema Único de Saúde (SUS). Este dispositivo é uma forma de sociedade privada jurídica que visa otimizar recursos entre os municípios interessados.",
+  "time_s": 2.5,
+  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondam, seguindo o princípio da direção única. Além disso, no âmbito municipal, o Sistema Único de Saúde (SUS) pode organizar-se em distritos para integrar e articular recursos, técnicas e práticas voltadas para a cobertura total das ações de saúde.",
   "descartada": null
  },
  {
@@ -56,18 +56,18 @@
   "motivo": "",
   "suficiente": true,
   "time_s": 2.5,
-  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondem, seguindo o princípio da direção única, conforme estabelecido no § 1º do mesmo artigo. Esses consórcios visam otimizar recursos através de uma entidade jurídica de direito privado, conforme mencionado no comentário do artigo 8º da mesma Lei.",
+  "answer": "O Art. 10 da Lei 8.080 permite que os municípios constituam consórcios administrativos intermunicipais para desenvolver em conjunto as ações e os serviços de saúde que lhes correspondam, seguindo o princípio da direção única. Além disso, no nível municipal, o Sistema Único de Saúde (SUS) pode organizar-se em distritos para integrar e articular recursos, técnicas e práticas voltadas para a cobertura total das ações de saúde.",
   "descartada": null
  },
  {
   "qid": "d3",
   "iter": 1,
-  "status": "recusada",
-  "motivo": "modelo_recusou",
+  "status": "parcial",
+  "motivo": "ano_nao_consta",
   "suficiente": true,
-  "time_s": 3.2,
-  "answer": "**Não encontrei a resposta na base de documentos.**\n\n5 trecho(s) recuperado(s). Motivo: o modelo declarou que o material recuperado não contém a resposta (ele é instruído a não responder fora da base).\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
-  "descartada": "O art. 19-B da Lei 8080 instituiria um Subsistema de Atenção à Saúde Indígena no âmbito do Sistema Único de Saúde – SUS, criado e definido pela mesma Lei, e pela Lei nº 8.142, de 1990. Esse subsistema funcionará em perfeita integração com o SUS."
+  "time_s": 2.5,
+  "answer": "Art. 19-B do Lei nº 8080, de 1990, instituiria um Subsistema de Atenção à Saúde Indígena, componente do Sistema Único de Saúde (SUS), criado e definido por esta Lei, e pela Lei nº 8.142, de 1990. Esse subsistema será definido e funcionará em perfeita integração com o SUS.",
+  "descartada": null
  },
  {
   "qid": "d3",
@@ -75,8 +75,8 @@
   "status": "parcial",
   "motivo": "ano_nao_consta",
   "suficiente": true,
-  "time_s": 3.3,
-  "answer": "O art. 19-B da Lei nº 8080/1990 instituiria um Subsistema de Atenção à Saúde Indígena no âmbito do Sistema Único de Saúde (SUS), com o qual funcionará em perfeita integração. Este subsistema será responsável pelo atendimento das populações indígenas, seja em conjunto com outras populações, individualmente, e pode incluir tanto ações coletivas quanto individuais. O subsistema será parte integrante do SUS, conforme definido pela Lei nº 8080/1990 e pela Lei nº 9.836/1999.",
+  "time_s": 2.5,
+  "answer": "Art. 19-B do Lei nº 8080, de 1990, instituído pelo Subsistema de Atenção à Saúde Indígena (SASI), componente do Sistema Único de Saúde (SUS), é responsável por atender as populações indígenas, em todo o território nacional, coletiva ou individualmente. Esse subsistema opera em perfeita integração com o SUS, conforme estabelecido pelas leis mencionadas.",
   "descartada": null
  },
  {
@@ -85,59 +85,59 @@
   "status": "parcial",
   "motivo": "ano_nao_consta",
   "suficiente": true,
-  "time_s": 2.4,
-  "answer": "O art. 19-B da Lei 8080 instituiria um Subsistema de Atenção à Saúde Indígena no âmbito do Sistema Único de Saúde (SUS), criado e definido pela mesma Lei 8080, de 1999, e pela Lei nº 8.142, de 1990. Esse subsistema será composto e funcionará em perfeita integração com o SUS.",
+  "time_s": 3.1,
+  "answer": "Art. 19-B do Lei nº 8080, de 1990, instituiria um Subsistema de Atenção à Saúde Indígena no âmbito do Sistema Único de Saúde (SUS), criado e definido pela mesma Lei nº 8080, de 1990, e pela Lei nº 8.142, de 1990. Esse subsistema será composto de ações e serviços de saúde voltados para o atendimento das populações indígenas, em todo o território nacional, coletiva ou individualmente, e funcionará em perfeita integração com o SUS.",
   "descartada": null
  },
  {
   "qid": "d4",
   "iter": 1,
   "status": "recusada",
-  "motivo": "modelo_recusou",
-  "suficiente": true,
-  "time_s": 12.2,
-  "answer": "**Não encontrei a resposta na base de documentos.**\n\n15 trecho(s) recuperado(s). Motivo: o modelo declarou que o material recuperado não contém a resposta (ele é instruído a não responder fora da base).\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
-  "descartada": "A vigência não está indicada nos documentos recuperados."
+  "motivo": "contexto_insuficiente",
+  "suficiente": false,
+  "time_s": 6.2,
+  "answer": "**Não encontrei a resposta na base de documentos.**\n\n15 trecho(s) recuperado(s). Motivo: os trechos recuperados tratam do mesmo tema, mas nenhum contém o dispositivo ou o dado que a pergunta exige.\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
+  "descartada": null
  },
  {
   "qid": "d4",
   "iter": 2,
-  "status": "parcial",
-  "motivo": "sem_fonte",
-  "suficiente": true,
-  "time_s": 9.4,
-  "answer": "A Lei nº 12.401, de 2011, incluiu os artigos 19-Q e 19-R na Lei 8.080.",
+  "status": "recusada",
+  "motivo": "contexto_insuficiente",
+  "suficiente": false,
+  "time_s": 6.0,
+  "answer": "**Não encontrei a resposta na base de documentos.**\n\n15 trecho(s) recuperado(s). Motivo: os trechos recuperados tratam do mesmo tema, mas nenhum contém o dispositivo ou o dado que a pergunta exige.\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
   "descartada": null
  },
  {
   "qid": "d4",
   "iter": 3,
   "status": "recusada",
+  "motivo": "contexto_insuficiente",
+  "suficiente": false,
+  "time_s": 6.5,
+  "answer": "**Não encontrei a resposta na base de documentos.**\n\n15 trecho(s) recuperado(s). Motivo: os trechos recuperados tratam do mesmo tema, mas nenhum contém o dispositivo ou o dado que a pergunta exige.\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
+  "descartada": null
+ },
+ {
+  "qid": "d5",
+  "iter": 1,
+  "status": "recusada",
   "motivo": "modelo_recusou",
   "suficiente": true,
-  "time_s": 11.0,
-  "answer": "**Não encontrei a resposta na base de documentos.**\n\n15 trecho(s) recuperado(s). Motivo: o modelo declarou que o material recuperado não contém a resposta (ele é instruído a não responder fora da base).\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
-  "descartada": "A base recuperada não fornece informações sobre os artigos 19-Q e 19-R na Lei 8.080."
- },
- {
-  "qid": "d5",
-  "iter": 1,
-  "status": "ok",
-  "motivo": "",
-  "suficiente": true,
-  "time_s": 2.3,
-  "answer": "As leis revogadas pelo art. 55 da Lei 8.080 são a Lei nº 2.312, de 3 de setembro de 1954, e a Lei nº 6.229, de 17 de julho de 1975.",
-  "descartada": null
+  "time_s": 2.0,
+  "answer": "**Não encontrei a resposta na base de documentos.**\n\n1 trecho(s) recuperado(s). Motivo: o modelo declarou que o material recuperado não contém a resposta (ele é instruído a não responder fora da base).\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
+  "descartada": "A base não traz o dado específico solicitado."
  },
  {
   "qid": "d5",
   "iter": 2,
-  "status": "ok",
-  "motivo": "",
+  "status": "recusada",
+  "motivo": "modelo_recusou",
   "suficiente": true,
-  "time_s": 1.7,
-  "answer": "As leis revogadas pelo art. 55 da Lei 8.080 são a Lei nº 2.312, de 3 de setembro de 1954, e a Lei nº 6.229, de 17 de julho de 1975.",
-  "descartada": null
+  "time_s": 3.1,
+  "answer": "**Não encontrei a resposta na base de documentos.**\n\n1 trecho(s) recuperado(s). Motivo: o modelo declarou que o material recuperado não contém a resposta (ele é instruído a não responder fora da base).\n\nPara obter a resposta, indexe o texto oficial da norma que trata do tema (de preferência a íntegra, do Planalto) ou reformule a pergunta citando o artigo específico.\n\n_Nenhuma afirmativa foi produzida fora do material indexado._",
+  "descartada": "A base não traz o dado específico sobre quais leis foram revogadas pelo art. 55 da Lei 8.080."
  },
  {
   "qid": "d5",
@@ -145,9 +145,9 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 5.0,
-  "answer": "[DOC 1] — Lei 8.080, art. 55\nConteúdo: São revogadas a Lei nº. 2.312, de 3 de setembro de 1954,\na Lei nº. 6.229, de 17 de julho de 1975, e demais disposições em contrário.\nBrasília, 19 de setembro de 1990; 169º da Independência e 102º da\nRepública.\nFERNANDO COLLOR\nAlceni Guerra\nEspero que tenha gostado do material, e que ele tenha acrescentado\nalgo de importante em seus estudos, ou que possa te motivar a iniciar sua\npreparação, se for o caso. Te convido a buscar por mais conhecimento e\nrecursos de estudo adquirindo nossos cursos.",
-  "descartada": "A base não traz os detalhes específicos das leis que foram revogadas pelo art. 55 da Lei 8.080."
+  "time_s": 1.8,
+  "answer": "As leis revogadas pelo Art. 55 da Lei nº 8.080 são:\n\n1. Lei nº 2.312, de 3 de setembro de 1954.\n2. Lei nº 6.229, de 17 de julho de 1975.",
+  "descartada": null
  },
  {
   "qid": "d6",
@@ -155,8 +155,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 1.9,
-  "answer": "Segundo o art. 9º, no âmbito dos Estados, a direção do Sistema Único de Saúde (SUS) é exercida pela respectiva Secretaria de Saúde. No Distrito Federal, a direção é exercida pela Secretaria de Saúde correspondente. [DOC 1]",
+  "time_s": 1.7,
+  "answer": "Nos Estados, a direção do SUS é exercida pela Secretaria de Saúde; no Distrito Federal, é pelo órgão equivalente. [DOC 1]",
   "descartada": null
  },
  {
@@ -165,8 +165,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 1.7,
-  "answer": "Segundo o art. 9º, no âmbito dos Estados, a direção do Sistema Único de Saúde (SUS) é exercida pela respectiva Secretaria de Saúde. No Distrito Federal, a direção é exercida pela Secretaria de Saúde correspondente. [DOC 1]",
+  "time_s": 1.5,
+  "answer": "Nos Estados, a direção do SUS é exercida pela Secretaria de Saúde; no Distrito Federal, é pelo órgão equivalente. [DOC 1]",
   "descartada": null
  },
  {
@@ -175,8 +175,8 @@
   "status": "ok",
   "motivo": "",
   "suficiente": true,
-  "time_s": 1.6,
-  "answer": "Segundo o art. 9º, no âmbito dos Estados, a direção do Sistema Único de Saúde (SUS) é exercida pela respectiva Secretaria de Saúde. No Distrito Federal, a direção é exercida pela Secretaria de Saúde correspondente. [DOC 1]",
+  "time_s": 1.5,
+  "answer": "Nos Estados, a direção do SUS é exercida pela Secretaria de Saúde, enquanto no Distrito Federal é realizada pelo órgão equivalente. [DOC 1]",
   "descartada": null
  }
 ]

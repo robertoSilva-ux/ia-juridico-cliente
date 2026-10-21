@@ -1,0 +1,100 @@
+{
+ "com": {
+  "rotulo": "COM peso por regime",
+  "com_boost": true,
+  "casos": [
+   {
+    "qid": "rgps-dependentes",
+    "entregues": 3,
+    "citou_norma": 1,
+    "tempos": [
+     9.5,
+     11.8,
+     9.9
+    ]
+   },
+   {
+    "qid": "rgps-salario-familia",
+    "entregues": 3,
+    "citou_norma": 3,
+    "tempos": [
+     7.5,
+     7.9,
+     6.7
+    ]
+   },
+   {
+    "qid": "rgps-carencia",
+    "entregues": 0,
+    "citou_norma": 0,
+    "tempos": [
+     7.2,
+     7.9,
+     6.7
+    ]
+   },
+   {
+    "qid": "rpps-idade",
+    "entregues": 0,
+    "citou_norma": 0,
+    "tempos": [
+     6.0,
+     6.5,
+     5.7
+    ]
+   }
+  ],
+  "entregues": 6,
+  "citou_norma": 4,
+  "total": 12
+ },
+ "sem": {
+  "rotulo": "SEM peso por regime",
+  "com_boost": false,
+  "casos": [
+   {
+    "qid": "rgps-dependentes",
+    "entregues": 3,
+    "citou_norma": 0,
+    "tempos": [
+     10.8,
+     8.7,
+     11.9
+    ]
+   },
+   {
+    "qid": "rgps-salario-familia",
+    "entregues": 3,
+    "citou_norma": 0,
+    "tempos": [
+     8.8,
+     9.2,
+     8.4
+    ]
+   },
+   {
+    "qid": "rgps-carencia",
+    "entregues": 1,
+    "citou_norma": 1,
+    "tempos": [
+     7.9,
+     9.1,
+     9.4
+    ]
+   },
+   {
+    "qid": "rpps-idade",
+    "entregues": 0,
+    "citou_norma": 0,
+    "tempos": [
+     6.2,
+     4.5,
+     6.1
+    ]
+   }
+  ],
+  "entregues": 7,
+  "citou_norma": 1,
+  "total": 12
+ }
+}

@@ -2,11 +2,13 @@
 
 Extraído de agent.py na refatoração (2026-09-25). Contém apenas funções puras
 (sem dependência de banco/LLM global): _fuse_rrf, _to_vector, _cosine_sim,
-_mmr_rerank, _source_label, build_context e a constante _TIPO_LABEL.
+_mmr_rerank, _mesma_norma, _limitar_por_documento, _source_label, build_context e
+a constante _TIPO_LABEL.
 """
 import ast
 import logging
 import math
+from collections import Counter
 from typing import Any
 
 from config import MAX_CONTEXT_CHARS, RERANK_LAMBDA_MULT, TOP_K
@@ -126,6 +128,63 @@ def _mmr_rerank(query_embedding: list, docs: list[dict[str, Any]], limit: int = 
 
     logger.info(f"MMR re-ranking: {len(docs)} candidatos -> {len(selected)} selecionados (lambda={lambda_mult})")
     return selected
+
+
+# =========================================================
+# TETO POR DOCUMENTO (dominância de documento na recuperação)
+# =========================================================
+
+def _mesma_norma(doc: dict[str, Any], norma: tuple[str, str | None] | None) -> bool:
+    """O documento é o da norma que a pergunta nomeou?
+
+    A identidade vem do METADADO (`tipo_doc`/`numero_doc`), como no resto do
+    ranking — nunca do nome do arquivo lido pelo modelo.
+    """
+    if not norma:
+        return False
+    tipo_doc, numero_doc = norma
+    if numero_doc:
+        return str(doc.get('numero_doc') or '') == str(numero_doc)
+    return bool(tipo_doc) and doc.get('tipo_doc') == tipo_doc
+
+
+def _limitar_por_documento(docs: list[dict[str, Any]], limite_por_documento: int,
+                           norma: tuple[str, str | None] | None = None) -> list[dict[str, Any]]:
+    """Teto de trechos de um MESMO ARQUIVO antes do MMR (P2-32).
+
+    Motivo medido: numa base em que um documento tem 80 % dos fragmentos, é o
+    tamanho relativo dele que decide quem aparece no contexto — o primeiro
+    estágio semântico devolve quase só trechos desse documento, e a resposta da
+    norma perguntada fica de fora. O teto espalha o contexto por arquivo.
+
+    Três decisões que não são de gosto:
+
+    - **não descarta nada**: quem passa do teto vai para o FIM da lista, e o
+      corte de MAX_CONTEXT_CHARS é que decide se sobra espaço. Descartar
+      fragmento de dispositivo já foi defeito caro neste projeto.
+    - **o arquivo da norma pedida fica isento**: se a pergunta é sobre a Lei
+      8.080 e a resposta está em cinco artigos dela, limitar a 4 seria trocar
+      dominância por recall perdido.
+    - `limite_por_documento <= 0` desliga (permite A/B medido por config).
+    """
+    if limite_por_documento <= 0 or not docs:
+        return docs
+
+    escolhidos: list[dict[str, Any]] = []
+    adiados: list[dict[str, Any]] = []
+    contagem: Counter = Counter()
+    for doc in docs:
+        arquivo = doc.get('file_name')
+        if _mesma_norma(doc, norma) or contagem[arquivo] < limite_por_documento:
+            escolhidos.append(doc)
+            contagem[arquivo] += 1
+        else:
+            adiados.append(doc)
+
+    if adiados:
+        logger.info(f"Teto por documento: {len(adiados)} trechos rebaixados para o fim "
+                    f"(limite={limite_por_documento} por arquivo)")
+    return escolhidos + adiados
 
 
 # =========================================================

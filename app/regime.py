@@ -98,32 +98,128 @@ def _merge_unique_docs(primary: list[dict[str, Any]], extra: list[dict[str, Any]
         merged.append(doc)
     return merged
 
+#: Normalização de ordinais escritos por extenso ("segundo o art. 9º" -> "2 o art. 9º").
+#: Vive fora de `_parse_article_reference` porque a detecção de NORMA (P2-32) usa a
+#: mesma normalização — duas cópias divergiriam na primeira correção.
+_ORDINAIS = (
+    (r'\b(primeiro|primeira)\b', '1'),
+    (r'\b(segundo|segunda)\b', '2'),
+    (r'\b(terceiro|terceira)\b', '3'),
+    (r'\b(quarto|quarta)\b', '4'),
+    (r'\b(quinto|quinta)\b', '5'),
+    (r'\b(sexto|sexta)\b', '6'),
+    (r'\b(setimo|setima|sétimo|sétima)\b', '7'),
+    (r'\b(oitavo|oitava)\b', '8'),
+    (r'\b(nono|nona)\b', '9'),
+    (r'\b(décimo|decimo|décima|decima)\b', '10'),
+)
+
+#: Tipo de norma, como a pergunta escreve -> valor de `tipo_doc` na base.
+_TIPO_DOC_MAP = {
+    'decreto': 'decreto',
+    'lei': 'lei',
+    'constituição': 'constituicao',
+    'constituicao': 'constituicao',
+    'cf': 'constituicao',
+    'emenda': 'emenda',
+    'ec': 'emenda',
+    'portaria': 'portaria',
+    'instrução': 'instrucao',
+    'in': 'instrucao',
+    'medida': 'medida_provisoria',
+    'mp': 'medida_provisoria',
+    'tema': 'jurisprudencia',
+    'súmula': 'sumula',
+    'sumula': 'sumula',
+    'lei complementar': 'lei_complementar',
+    'lei-complementar': 'lei_complementar',
+    'lcp': 'lei_complementar',
+}
+
+#: "decreto 3048", "lei 8.080", "cf/88", "da CF"… Ordem importa: os padrões com
+#: tipo sem número vêm antes para não perder "da constituição" para o genérico, e
+#: "lei complementar N" antes de "lei N" (senão o número da complementar se perde).
+_DOC_PATTERNS = [
+    r'(?:do|da|de|pela|na)\s+(cf)\b',
+    r'(?:do|da|de|pela|na)\s+(constituição|constituicao)\b',
+    r'(cf|ec|mp)\s*[-/]?\s*(\d{2,4})',
+    r'(lei[-\s]*complementar|lcp)\s+n?[º°]?\s*(\d{1,5}(?:\.\d{3})*)',
+    r'(decreto[-\s]*lei|decreto|lei|constituição|constituicao|ec|portaria|in|mp|tema|súmula|sumula|emenda)\s+(\d{1,5}(?:\.\d{3})*(?:[-/]\d{2,4})?)',
+    r'(decreto|lei|constituição|constituicao|ec|portaria|in|mp|tema|súmula|sumula|emenda)\s+n?[º°]?\s*(\d{1,5}(?:\.\d{3})*)',
+    # A Constituição é a única norma que a pergunta nomeia sem preposição nem
+    # número ("o que diz a Constituição sobre saúde?"). Vem por último para não
+    # roubar "cf/88" dos padrões com número.
+    r'\b(constituição|constituicao|cf)\b',
+]
+
+
+def _normalizar_ordinais(query: str) -> str:
+    """Minúsculas + ordinais por extenso trocados por algarismo."""
+    norm_query = (query or '').lower()
+    for padrao, digito in _ORDINAIS:
+        norm_query = re.sub(padrao, digito, norm_query)
+    return norm_query
+
+
+def _extrair_norma(norm_query: str) -> tuple[str | None, str | None]:
+    """Extrai (tipo_doc, numero_doc) de uma query JÁ normalizada por `_normalizar_ordinais`.
+
+    Sem número também serve: "segundo a Constituição" dá ("constituicao", None) — e
+    é justamente o caso em que só o tipo identifica a norma.
+    """
+    for pattern in _DOC_PATTERNS:
+        m = re.search(pattern, norm_query)
+        if m:
+            raw_type = m.group(1)
+            tipo_doc = _TIPO_DOC_MAP.get(raw_type, raw_type)
+            numero_doc = None
+            if m.lastindex and m.lastindex >= 2 and m.group(2):
+                g2 = m.group(2)
+                numero_doc = g2.split('-')[0].split('/')[0].replace('.', '')
+            return tipo_doc, numero_doc
+
+    # Fallback: padrão Lnnnn (ex: L14126, l14126 = Lei 14.126)
+    m = re.search(r'\bl(\d{4,})(?:consol)?\b', norm_query)
+    if m:
+        return 'lei', m.group(1)
+    return None, None
+
+
+def _parse_norm_reference(query: str) -> tuple[str, str | None] | None:
+    """Qual NORMA a pergunta nomeia — sem exigir que ela cite um artigo.
+
+    É o que falta em `_parse_article_reference` para o escopo da recuperação
+    (P2-32): "O que a Lei 8.080 diz sobre consórcios?" não tem artigo e mesmo
+    assim diz de que norma está falando. Devolve (tipo_doc, numero_doc) ou None
+    quando a pergunta não nomeia norma nenhuma ("aposentadoria rural").
+    """
+    tipo_doc, numero_doc = _extrair_norma(_normalizar_ordinais(query))
+    if not tipo_doc:
+        return None
+    return tipo_doc, numero_doc
+
+
 def _parse_article_reference(query: str) -> tuple[str, str | None, str | None, str | None] | None:
     """Extrai referência jurídica completa da query.
 
-    Retorna (numero_artigo, nome_lei_opcional, tipo_doc_opcional, paragrafo_opcional) ou None.
+    Retorna (numero_artigo, tipo_doc_opcional, numero_doc_opcional, paragrafo_opcional)
+    ou None.
+
+    ATENÇÃO à ordem: é (número do ARTIGO, tipo da norma, número da norma,
+    parágrafo). Os exemplos abaixo estavam escritos com tipo e número trocados
+    desde a refatoração de 2026-09-25 — quem lesse a docstring e desempacotasse
+    como ela dizia lia `tipo_doc` onde havia `numero_doc` (corrigido em P2-32,
+    com `TestParseArticleReferenceCompat` travando o contrato de verdade).
 
     Exemplos:
-      "artigo 54 do decreto 3048" -> ("54", "3048", "decreto", None)
-      "art. 5o da constituição" -> ("5", "constituicao", "constituicao", None)
-      "art 5 da cf" -> ("5", "cf", "constituicao", None)
-      "art. 7 § 2 do decreto 3048" -> ("7", "3048", "decreto", "2")
+      "artigo 54 do decreto 3048" -> ("54", "decreto", "3048", None)
+      "art. 5o da constituição" -> ("5", "constituicao", None, None)
+      "art 5 da cf" -> ("5", "constituicao", None, None)
+      "art. 7 § 2 do decreto 3048" -> ("7", "decreto", "3048", "2")
       "o que diz o artigo 6" -> ("6", None, None, None)
       "células tronco" -> None
     """
-    # Normaliza a query antes de buscar
-    norm_query = query.lower()
-    # Troca variantes de ordinal
-    norm_query = re.sub(r'\b(primeiro|primeira)\b', '1', norm_query)
-    norm_query = re.sub(r'\b(segundo|segunda)\b', '2', norm_query)
-    norm_query = re.sub(r'\b(terceiro|terceira)\b', '3', norm_query)
-    norm_query = re.sub(r'\b(quarto|quarta)\b', '4', norm_query)
-    norm_query = re.sub(r'\b(quinto|quinta)\b', '5', norm_query)
-    norm_query = re.sub(r'\b(sexto|sexta)\b', '6', norm_query)
-    norm_query = re.sub(r'\b(setimo|setima|sétimo|sétima)\b', '7', norm_query)
-    norm_query = re.sub(r'\b(oitavo|oitava)\b', '8', norm_query)
-    norm_query = re.sub(r'\b(nono|nona)\b', '9', norm_query)
-    norm_query = re.sub(r'\b(décimo|decimo|décima|decima)\b', '10', norm_query)
+    norm_query = _normalizar_ordinais(query)
 
     # Extrai número do artigo (normalizado)
     patterns = [
@@ -151,60 +247,7 @@ def _parse_article_reference(query: str) -> tuple[str, str | None, str | None, s
     if re.search(r'parágrafo\s+único', norm_query, re.IGNORECASE):
         paragraph = 'único'
 
-    # Extrai tipo de documento e número
-    tipo_doc = None
-    numero_doc = None
-
-    # Mapeamento de tipos
-    tipo_map = {
-        'decreto': 'decreto',
-        'lei': 'lei',
-        'constituição': 'constituicao',
-        'constituicao': 'constituicao',
-        'cf': 'constituicao',
-        'emenda': 'emenda',
-        'ec': 'emenda',
-        'portaria': 'portaria',
-        'instrução': 'instrucao',
-        'in': 'instrucao',
-        'medida': 'medida_provisoria',
-        'mp': 'medida_provisoria',
-        'tema': 'jurisprudencia',
-        'súmula': 'sumula',
-        'sumula': 'sumula',
-    }
-
-    # Procura "decreto 3048", "lei 8213", "cf/88", "da CF" (sem número), etc.
-    doc_patterns = [
-        # Tipo sem número (ex: "da cf", "da constituição")
-        r'(?:do|da|de|pela|na)\s+(cf)\b',
-        r'(?:do|da|de|pela|na)\s+(constituição|constituicao)\b',
-        # Tipo + número curto (ex: cf/88, mp 123)
-        r'(cf|ec|mp)\s*[-/]?\s*(\d{2,4})',
-        # Tipo + número (ex: decreto 3048, lei 8213, lei 14126)
-        r'(decreto[-\s]*lei|decreto|lei|constituição|constituicao|ec|portaria|in|mp|tema|súmula|sumula|emenda)\s+(\d{1,5}(?:\.\d{3})*(?:[-/]\d{2,4})?)',
-        r'(decreto|lei|constituição|constituicao|ec|portaria|in|mp|tema|súmula|sumula|emenda)\s+n?[º°]?\s*(\d{1,5}(?:\.\d{3})*)',
-    ]
-
-    for pattern in doc_patterns:
-        m = re.search(pattern, norm_query)
-        if m:
-            raw_type = m.group(1)
-            tipo_doc = tipo_map.get(raw_type, raw_type)
-            # Tenta extrair número se existir no grupo 2
-            if m.lastindex and m.lastindex >= 2 and m.group(2):
-                g2 = m.group(2)
-                raw_num = g2.split('-')[0].split('/')[0]
-                numero_doc = raw_num.replace('.', '')
-            break
-
-    # Fallback: padrão Lnnnn (ex: L14126, l14126 = Lei 14.126)
-    if tipo_doc is None:
-        m = re.search(r'\bl(\d{4,})(?:consol)?\b', norm_query)
-        if m:
-            tipo_doc = 'lei'
-            numero_doc = m.group(1)
-
+    tipo_doc, numero_doc = _extrair_norma(norm_query)
     return (article_num, tipo_doc, numero_doc, paragraph)
 
 

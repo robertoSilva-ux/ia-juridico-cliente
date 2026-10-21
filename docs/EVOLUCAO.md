@@ -10,18 +10,18 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 
 ---
 
-## Estado atual (2026-10-19)
+## Estado atual (2026-10-20)
 
 | | |
 |:---|:---|
-| Branch / remoto | `main` em **`bad3c0d`**, igual a `origin/main` (tudo publicado, árvore limpa; CI do GitHub **verde** nos 4 jobs — `test`, `lint`, `schema`, `integration` — medido 2026-10-20) |
-| Suíte | **279 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-19) + 14 de integração contra Postgres real |
+| Branch / remoto | `main` em **`bad3c0d`**, igual a `origin/main` (CI do GitHub **verde** nos 4 jobs — `test`, `lint`, `schema`, `integration` — medido 2026-10-20). **Árvore de trabalho suja:** os blocos 9 (corpus oficial), 10 (P2-32) e 11 (peso por regime) estão commitados localmente em 2026-10-20; push é decisão do Roberto |
+| Suíte | **301 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-20) + 14 de integração contra Postgres real (`scripts/ci_integracao_local.sh` do skill) |
 | Lint | `ruff check .` limpo — **precisa ser o do venv**: fora dele o comando não existe (`.venv/bin/python -m ruff check .`) |
 | Ambiente de dev | montado e funcionando: banco em podman (5439), Ollama em serviço + GPU, `.venv` 3.11, `make dev` |
 | Modelo padrão | `phi4-mini:3.8b` @ `LLM_NUM_CTX=8192` — decisão registrada no ADR-0008 |
 | Garantia de lastro | três barreiras (suficiência → lastro no fragmento citado → portão de exibição) — ADR-0009 |
-| Ingestão | preâmbulo (texto antes do 1º dispositivo) **entra no índice** rotulado como `preambulo`, identidade da norma lida das páginas cruas — ADR-0010 |
-| Base de dev | **157 fragmentos / 94.563 chars** em 3 arquivos: `LEI-8080-ESQUEMATIZADA1.pdf` (157: 141 `dispositivo` + 16 `preambulo`, páginas 1–64, dono 9, `numero_doc=8080`/`ano_doc=1990` em todos) + `Lei 8.213-91.pdf` (2 fragmentos globais, `numero_doc=8213`) + `peticao.pdf` (1 fragmento, criado para medir o isolamento do P1-1). Medido no banco em 2026-10-19; cobertura **0 de 65 páginas** com amostra de 8-gramas ausente |
+| Ingestão | preâmbulo (texto antes do 1º dispositivo) **entra no índice** rotulado como `preambulo`, identidade da norma lida das páginas cruas — ADR-0010; aceita **PDF e `.txt`** (página sintética a cada ~4.000 chars) — ADR-0011 |
+| Base de dev | **1.984 fragmentos / 1.193.190 chars** em 6 arquivos. Corpus **oficial do Planalto** (1.981 fragmentos, escopo `global`, `numero_doc`/`ano_doc` em **100 %**): `d3048.txt` (1.716), `l8080.txt` (141), `emc103.txt` (116), `lcp142.txt` (8). Restos de medição: `Lei 8.213-91.pdf` (2), `peticao.pdf` (1, isolamento do P1-1). A **apostila `LEI-8080-ESQUEMATIZADA1.pdf` foi removida** da base em 2026-10-20 (backup dos 157 fragmentos em `.backups/apostila-8080-2026-10-20.json`; o PDF segue em `~/Downloads`) |
 | Bloqueadores de produção | **P0-5** (TLS + fechar a porta do banco) e **P0-6** (rotacionar credenciais que já circularam) — só o cliente pode executar |
 
 ### Como retomar
@@ -29,17 +29,19 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 ```bash
 cd ~/Documentos/projetos/ia-juridico-cliente
 git log --oneline -5                 # onde paramos
-git status --short                   # deve estar limpo: tudo publicado em bad3c0d
+git status --short                   # blocos 9 e 10 ainda não commitados (decisão do Roberto)
 make db-dev                          # religa o banco de dev (depois de reboot)
 set -a; . ./.env.dev; set +a
 .venv/bin/python scripts/smoke_dev.py   # o ambiente está de pé?
 cat docs/PLANO_REFINAMENTO_RAG.md     # Fases 1 e 2 fechadas; Fase 3 (recuperação) é a próxima
 ```
 
-Leitura rápida: **Fases 1 e 2 do plano estão executadas**, incluindo o R-24/R-25 (bloco 8). O que
-sobra do pedido "resposta 100 % fundamentada ou recusa honesta" é **Fase 3** (recuperação: R-15,
-R-16, R-18) — e o **corpus oficial do Planalto** (P2-30), que é ao mesmo tempo a maior alavanca de
-qualidade restante e o pré-requisito para o portão relativo (R-16) ter o que calibrar. **P1-2**
+Leitura rápida: **Fases 1 e 2 do plano estão executadas**, incluindo o R-24/R-25 (bloco 8); o
+**corpus oficial do Planalto** entrou (P2-30, bloco 9) e a **dominância de documento** que ele
+expôs está resolvida (P2-32, bloco 10). O que sobra do pedido "resposta 100 % fundamentada ou
+recusa honesta" é o resto da **Fase 3** — **R-15** (a via de metadados devolve direto e entrega 1
+trecho), **R-16** (portão relativo) e **R-18** (contexto por tokens): os três se medem com o mesmo
+instrumento criado no bloco 10 (`app/eval/medir_origem_contexto.py` + o mini-quiz). **P1-2**
 (estado global do LLM) vem na Fase 4.
 
 ---
@@ -606,6 +608,243 @@ Duas observações de ambiente registradas na hora, para não virarem premissa e
 
 Também corrigida, no mesmo passo, a tabela "Estado atual" — que passou a citar `bad3c0d` — e a
 nota de artefatos "não commitados" do bloco 8, que já não era verdade depois do commit.
+
+---
+
+## Bloco 9 — corpus oficial do Planalto (P2-30) e ingestão de texto (2026-10-20)
+
+**Pedido:** pegar o P2-30 ("trazer o corpus oficial e reingerir"), que destrava o R-16 e a
+Fase 3.
+
+Decisão de arquitetura registrada em [ADR-0011](adr/0011-corpus-oficial-em-texto.md): o corpus
+oficial entra como **texto**, convertido fora da app por `scripts/corpus_planalto.py` (manifesto
+com `url`, `sha256` e data de acesso), e `ingest.extrair_paginas` passa a aceitar `.txt`,
+paginação sintética em fronteira de parágrafo. Descartados: PDF sintético (fragilidade sem
+ganho) e parser de HTML dentro da app (acopla a um formato de fonte).
+
+Código que entrou:
+
+| Arquivo | Mudança |
+|:---|:---|
+| `scripts/corpus_planalto.py` (novo) | baixa (`--baixar`), converte (`--converter`), ingere (`--ingerir`); `--normas` restringe o escopo |
+| `app/ingest.py` | `.txt` em `extrair_paginas`: `_paginar_texto_corrido` (4.000 chars, fronteira de parágrafo) e `_extrair_paginas_de_texto`; sem limpeza de ruído (é de PDF paginado) |
+| `app/legal_parser.py` | cabeçalho aceita o ordinal `No` do Planalto com escopo local de caixa (`(?-i:N)o?`) |
+| `app/tests/` | +6 casos (`TestCorpusEmTexto` e o caso `DECRETO No 3.048`) |
+
+### O que a execução corrigiu no plano
+
+1. **O maior documento oficial ficava sem identidade.** O Planalto grafa `DECRETO No 3.048`
+   (o HTML usa `<u>o</u>`) e `parse_norm_header` devolvia `{'tipo': None, 'numero': None, 'ano':
+   None}` — os **689 dispositivos** do Regulamento ficariam sem norma, que é precisamente o
+   defeito que o P2-30 veio resolver. A correção exige `N` em caixa alta para aceitar o "o":
+   sem esse escopo, "a lei no 8.080" em prosa viraria identidade (testado).
+2. **A premissa do card estava parcialmente errada.** O P2-30 dizia que no texto do Planalto o
+   par número+ano "vem junto em cada fragmento". Isso vale para o **PDF** do Planalto, não para
+   o HTML: medido no texto oficial da 8.080, **1 de 141** fragmentos cita "8.080" no corpo
+   (contra 14 de 157 na apostila). O ganho real é o **metadado do documento**: 1.981 de 1.981
+   fragmentos com `numero_doc`/`ano_doc`. Registrado no ADR-0011 e no BACKLOG.
+3. **Curadoria de corpus tem um efeito que o card não previa: dominância de documento.** O
+   Decreto 3.048 é 1.716 de 2.141 fragmentos (80 %) e ocupou **64 dos 90** lugares de top-15
+   nas seis perguntas do mini-quiz sobre a 8.080. O `smoke_dev` mostrou o mesmo padrão de forma
+   independente. Virou **P2-32** (entra na Fase 3, junto de R-15/R-16).
+4. **A apostila saiu da base de dev (decisão do Roberto, 2026-10-20).** Antes de apagar, backup
+   dos 157 fragmentos em `.backups/apostila-8080-2026-10-20.json` (94.563 chars; o PDF de origem
+   segue em `~/Downloads` e é reingerível). Efeito medido: a dominância do 3.048 **piorou** de 64
+   para **74 de 90** lugares de top-15 (a apostila era a única outra fonte da 8.080 no topo), e a
+   base ficou em **1.984 fragmentos**. Ou seja: tirar a fonte didática deixa o problema de
+   ranking mais visível, não menos — é exatamente o que o P2-32 tem de resolver.
+
+### Medições (todas no banco de dev, 2026-10-20)
+
+| Verificação | Como | Resultado |
+|:---|:---|:---|
+| Ingestão do corpus | `scripts/corpus_planalto.py --ingerir` | **1.981 fragmentos em ~53 s** (141 da 8.080 em 5,9 s) |
+| Identidade | `select count(numero_doc)` por arquivo | **1.981/1.981**; tipos: lei 8080/1990, decreto 3048/1999, emenda 103/2019, lei_complementar 142/2013 |
+| Cobertura | chars indexados / chars do `.txt` | 103–107 % (sobreposição do splitter), sem página fora do índice |
+| Ruído de apostila | `content ~* 'estrategiaconcursos'` | 0 de 1.981 nos oficiais |
+| Portão de resposta (13 casos) | `app/eval/medir_portao.py` | **A2 7/7 recusas corretas**, **A1 0 sem lastro**, **A4 5/6** (d4 recusada) — idêntico ao medido sobre a apostila |
+| A4 com repetição (3×) | `app/eval/medir_a4_repetido.py` | **15/18 (83 %)** — o mesmo 15/18 do bloco 8; d4 recusada em 3/3 |
+| Faixas de similaridade (R-16) | `1 - (embedding <=> vetor)` no corpus oficial | **dentro 0,761–0,829** × **fora 0,696–0,802** — **sobrepostas**; uma pergunta fora da base (pensão, 0,802) acima de três legítimas |
+| Smoke do ambiente | `scripts/smoke_dev.py` | OK (banco, embeddings, recuperação, LLM, fact-check) |
+
+**Leitura honesta:** o corpus oficial **não** mudou o A4 nem a acurácia do mini-quiz — o ganho é
+de **base** (fonte oficial, identidade completa, 13× mais conteúdo, sem rodapé de cursinho) e de
+**material para calibrar o R-16**. A pergunta que continua falhando (d4: "qual lei incluiu os
+arts. 19-Q e 19-R") foi diagnosticada: os fragmentos com a resposta **estão no top-15** (14
+fragmentos citam a Lei 12.401, e o 3º e o 4º colocados são exatamente os da 8.080) — quem recusa
+é o **portão de suficiência**, porque o dado está em anotação de redação ("(Incluído pela Lei nº
+12.401, de 2011)"), não em prosa. Isso é recuperação/portão (Fase 3), não corpus.
+
+### Estado ao fim do bloco
+
+Suíte **285 casos em 14 módulos** verdes sob ambiente limpo; `ruff check .` limpo; integração do
+CI reproduzida localmente (14 casos). Base de dev com **1.984 fragmentos**, dos quais 1.981
+oficiais com identidade completa; a apostila de medição foi removida com backup em
+`.backups/apostila-8080-2026-10-20.json`. **Nada commitado neste bloco** — commit é decisão do
+Roberto.
+
+**Nota de concorrência (registrada na hora, porque afeta a leitura dos artefatos):** enquanto este
+bloco era fechado, o **P2-32 — criado a partir dele — foi pego pelo dispatcher do Kanban** e passou
+a editar `agent.py`, `ranking.py`, `regime.py`, `config.py` e testes no mesmo diretório de
+trabalho. A rodada final de `medir_portao.py` desta sessão foi **interrompida de propósito** por
+estar medindo código em mutação (saiu A4 4/6, com d5 recusada em cima de 1 trecho — efeito das
+mudanças do worker, não da base); `app/eval/resultado_portao.json` foi restaurado ao commit
+`bad3c0d` para não guardar artefato contaminado. A medição válida do P2-32 é a que o próprio
+worker produz (`app/eval/medir_origem_contexto.py`, `<rotulo> antes` / `depois --hyde`).
+
+### Como retomar este bloco
+
+```bash
+cd ~/Documentos/projetos/ia-juridico-cliente
+make db-dev
+set -a; . ./.env.dev; set +a
+.venv/bin/python scripts/corpus_planalto.py --baixar --converter   # reaproveita o manifesto
+.venv/bin/python scripts/corpus_planalto.py --ingerir --normas l8080
+.venv/bin/python app/eval/medir_portao.py           # 13 casos, ~2 min
+.venv/bin/python app/eval/medir_a4_repetido.py      # 3 iterações por pergunta, ~1,5 min
+```
+
+---
+
+## Bloco 10 — dominância de documento na recuperação (P2-32, 2026-10-20)
+
+**Pedido:** resolver o P2-32 — o Decreto 3.048 (RPS) tem 86 % dos fragmentos da base e ocupava
+quase todo o top-15 em perguntas sobre a Lei 8.080. O card pedia decidir entre limite por arquivo,
+diversificação na fusão (MMR) e escopo por norma, **com medição, não por preferência**, e impunha
+como aceite: a norma pedida entre os 3 primeiros do contexto, sem regredir o A4 nem o A1.
+
+Decisão registrada em [ADR-0012](adr/0012-escopo-por-norma-e-teto-por-documento.md).
+
+Código que entrou:
+
+| Arquivo | Mudança |
+|:---|:---|
+| `app/regime.py` | `_parse_norm_reference` / `_extrair_norma` / `_normalizar_ordinais`: a norma que a pergunta **nomeia**, sem exigir artigo; ordinais, mapa de tipos e padrões agora em constantes usadas pelos dois parsers |
+| `app/agent.py` | `_buscar_com_escopo` (busca escopada + preenchimento pela busca livre), `_norma_da_pergunta` (respeita `NORM_SCOPE_ENABLED`), teto por documento antes **e** depois do MMR, nos dois caminhos (HyDE e semântico comum); `_semantic_search` aceita `norma` e filtra `numero_doc`/`tipo_doc` no SQL |
+| `app/ranking.py` | `_limitar_por_documento` (teto por arquivo com isenção da norma pedida e **sem descartar**) e `_mesma_norma` (identidade pelo metadado) |
+| `app/config.py` | `NORM_SCOPE_ENABLED` (default ligado) e `MAX_CHUNKS_PER_DOC` (default 4; 0 desliga) |
+| `app/eval/medir_origem_contexto.py` (novo) | medidor da **origem do contexto**: caminho de recuperação, ordem e documento de cada trecho, chars por documento, e o critério do cartão (norma nos 3 primeiros) por grupo |
+| `app/tests/` | +14 casos: teto por documento, isenção, `_mesma_norma`, `_parse_norm_reference`, filtro por norma no SQL e o contrato antigo de `_parse_article_reference` |
+
+### O que a execução corrigiu no plano
+
+1. **O mini-quiz media o caminho errado.** Cinco dos seis itens citam "art. N da Lei 8.080" e caem
+   na busca por **metadados** (R-15), que já filtra `numero_doc`: medidos sozinhos, dão 6/6 no
+   critério **antes** de qualquer conserto. O defeito só aparece em pergunta que não cita artigo
+   ("Como a Lei 8.080 trata dos consórcios?"): aí a norma pedida vinha em 9º/10º e 1 em 15
+   lugares era dela. O medidor ganhou 7 perguntas sem artigo por causa disso — sem elas, o cartão
+   seria fechado com número verde e nada mudado.
+2. **MMR não é remédio para dominância de documento** (opção 2 do card, medida e descartada).
+   λ = 0,7 / 0,5 / 0,3 / 0,1 sobre o mesmo pool semântico dá **resultado idêntico** (51 lugares da
+   norma pedida, mesmas posições): fragmentos de um documento longo têm similaridade ~0,95 entre
+   si, a penalidade de redundância vira constante e a ordem não muda.
+3. **Teto antes do MMR não basta.** O teto reordena o pool, mas o MMR reordena de novo e traz os
+   trechos excedentes de volta — a primeira versão do conserto (teto só antes do MMR) não mudava
+   o contexto que o modelo via. Passou a valer também na ordem final.
+4. **Dois defeitos de documentação/contrato encontrados no caminho.** A docstring de
+   `_parse_article_reference` listava a tupla como `(artigo, número, tipo, parágrafo)`, mas a
+   função devolve `(artigo, tipo, número, parágrafo)` — quem lesse a docstring desempacotava
+   trocado (corrigido, com `TestParseArticleReferenceCompat` travando o contrato de verdade). E
+   `_parse_norm_reference("a Constituição")` não reconhecia a norma sem preposição: passou a
+   reconhecer.
+
+### Medições (banco de dev, 2026-10-20, base oficial de 1.984 fragmentos)
+
+A/B pelo mesmo código, alternando só a config (`NORM_SCOPE_ENABLED=false MAX_CHUNKS_PER_DOC=0` =
+antes). Instrumento: `app/eval/medir_origem_contexto.py`.
+
+| Verificação | Antes | Depois |
+|:---|:---|:---|
+| Probes (pergunta que nomeia a norma **sem** artigo) com a norma entre os 3 primeiros | **4 de 7** (p3 em 5º, p4 em 4º, p5 em 10º) | **7 de 7** |
+| Lugares da norma pedida no top-15 (probes) | 51 de 105 | **90 de 105** |
+| Mini-quiz (6 itens) com a norma entre os 3 primeiros | 6 de 6 (via metadados) | 6 de 6 |
+| Lugares da norma pedida no top-15 (mini-quiz) | 14 de 26 | 24 de 26 |
+| Maior documento no contexto | d3048 = 50 % dos chars | l8080 = 72 % (é a norma pedida) |
+| Caminho completo HyDE + RRF (probes) | — | **7 de 7**, 92 de 105 |
+| A4 repetido (3 iterações × 6 perguntas) | 13 de 18 | 13 de 18 |
+| A1 exibidas com norma/dispositivo sem lastro | 0 | **0** |
+| A2 recusas corretas nas perguntas fora da base | 7 de 7 | 7 de 7 |
+
+Uma rodada intermediária do A4 deu **12 de 18**: a diferença estava em **d5**, cuja entrada é
+idêntica nos dois lados (1 trecho, 372 chars, via metadados — caminho que este bloco não toca). A
+repetição devolveu 13 de 18, e o d5 fica como está: é o **R-15** (a via de metadados devolve
+direto e entrega 1 trecho para "quais leis foram revogadas pelo art. 55").
+
+Suíte **299 casos em 14 módulos** verdes sob ambiente limpo (`env -i`); `ruff check .` limpo.
+
+### Estado ao fim do bloco
+
+Base de dev de **1.984 fragmentos** (só corpus oficial, sem a apostila). O cartão deixa de ser
+opção e vira comportamento padrão (`NORM_SCOPE_ENABLED=true`, `MAX_CHUNKS_PER_DOC=4`), com os dois
+desligáveis por config para A/B. **Nada commitado neste bloco** — commit é decisão do Roberto.
+
+**Nota de concorrência (registrada na hora):** este bloco rodou em paralelo com o fechamento do
+bloco 9, no mesmo diretório de trabalho. O worker do bloco 9 removeu a apostila da base **no meio**
+desta medição (2.141 → 1.984 fragmentos) e interrompeu a própria rodada de `medir_portao` por estar
+medindo código em mutação — a nota dele está no bloco 9. Consequência prática: **todas** as medidas
+"antes" deste bloco foram refeitas depois da remoção, com a base registrada em cada artefato
+(`resultado_origem_*.json` traz o retrato da base no campo `base`), para que antes e depois não
+falem de bases diferentes. O A4 repetido também foi medido nas duas pontas depois disso.
+
+### Como retomar este bloco
+
+```bash
+cd ~/Documentos/projetos/ia-juridico-cliente
+make db-dev
+set -a; . ./.env.dev; set +a
+# A/B do ranking (rápido, sem LLM): mesma base, mesmo código
+NORM_SCOPE_ENABLED=false MAX_CHUNKS_PER_DOC=0 \
+  .venv/bin/python app/eval/medir_origem_contexto.py --rotulo antes
+.venv/bin/python app/eval/medir_origem_contexto.py --rotulo depois          # + --hyde p/ o caminho completo
+# produto (LLM): ~2 min cada
+.venv/bin/python app/eval/medir_portao.py
+.venv/bin/python app/eval/medir_a4_repetido.py
+```
+
+---
+
+## Bloco 11 — o peso por regime sai do caminho (ADR-0013, 2026-10-20)
+
+**Pedido:** revisar o `app/regime.py` — a suspeita era que a regra de "regime jurídico", nascida
+para desambiguar RPPS × RGPS, tivesse virado um conjunto de pesos privilegiados que já não paga o
+custo, e que devesse ser desativada ou excluída.
+
+Decisão registrada em [ADR-0013](adr/0013-retirada-do-peso-por-regime.md): **desligada por padrão**
+(`REGIME_BOOST_ENABLED=false`), com a função preservada atrás da flag como instrumento de A/B.
+`_parse_article_reference` e `_metadata_search` **não** foram tocados — são busca determinística por
+artigo (R-15), não peso por regime.
+
+### O que a medição mostrou (e a correção de rota)
+
+| Experimento | Com peso | Sem peso |
+|:---|:---:|:---:|
+| Posição da norma pedida no top-15 (11 perguntas) | — | — | **empate em 11/11** |
+| A4 do mini-quiz (6 × 3 iterações) | 12/18 | 12/18 |
+| A4 nas perguntas de RGPS (4 × 3) | 6/12 | **7/12** |
+| Resposta cita a norma esperada (RGPS) | **4/12** | 1/12 |
+| Normas no contexto — "cota do salário-família" | **só** decreto 3048 | 3048 + emenda 103 |
+| Normas no contexto — "dependentes de pensão por morte" | **só** decreto 3048 (15/15) | 3048 + EC 103 + LC 142 |
+
+O 4/12 contra 1/12 parecia defender o peso — e é **artefato**: com o peso, o contexto fica 15/15 de
+um único documento, e o modelo cita o único documento que recebeu. O peso **estreita o contexto** e
+expulsa a EC 103 e a LC 142, que é a mesma dominância de documento que o bloco 10 acabou de
+corrigir, reintroduzida por outra porta.
+
+Duas armadilhas de medição que custaram uma rodada cada:
+
+1. **Testar o peso no mini-quiz não prova nada.** As seis perguntas são sobre a Lei 8.080, e para
+   saúde o perfil inferido é vazio (`{'preferred': [], 'excluded': []}`) — desligar o peso não podia
+   mudar resultado. Foi por isso que a segunda rodada usou perguntas de RGPS, que ativam o perfil.
+2. **Métrica de "citação" sozinha engana.** Ela mede o que o modelo viu, não o que ele deveria ver.
+   Só a inspeção do contexto recuperado (normas presentes com e sem peso) mostrou o mecanismo.
+
+### Estado ao fim do bloco
+
+Suíte **301 casos em 14 módulos** verdes (`env -i`), `ruff check .` limpo. Validado no produto:
+`agent.REGIME_BOOST_ENABLED` é `False` sem variável de ambiente, o contexto de RGPS volta a trazer
+EC 103 e LC 142, e nenhum documento recebe `regime_score`. Dívida aberta em **P2-33**: nomes por
+extenso ("Lei Orgânica da Saúde") não são reconhecidos pelo escopo por norma — agora sem a muleta do
+peso, é o próximo buraco da recuperação.
 
 ---
 

@@ -1,0 +1,188 @@
+{
+ "com": {
+  "rotulo": "COM peso por regime",
+  "com_boost": true,
+  "casos": [
+   {
+    "qid": "d1",
+    "status": [
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     1.4,
+     1.1,
+     1.1
+    ]
+   },
+   {
+    "qid": "d2",
+    "status": [
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     2.6,
+     2.7,
+     2.6
+    ]
+   },
+   {
+    "qid": "d3",
+    "status": [
+     "parcial",
+     "parcial",
+     "parcial"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     3.0,
+     2.4,
+     2.4
+    ]
+   },
+   {
+    "qid": "d4",
+    "status": [
+     "recusada",
+     "recusada",
+     "recusada"
+    ],
+    "respondidas": 0,
+    "tempos": [
+     5.1,
+     6.2,
+     5.1
+    ]
+   },
+   {
+    "qid": "d5",
+    "status": [
+     "recusada",
+     "recusada",
+     "recusada"
+    ],
+    "respondidas": 0,
+    "tempos": [
+     2.4,
+     2.1,
+     2.1
+    ]
+   },
+   {
+    "qid": "d6",
+    "status": [
+     "parcial",
+     "ok",
+     "parcial"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     9.8,
+     1.3,
+     9.6
+    ]
+   }
+  ],
+  "respondidas": 12,
+  "total": 18,
+  "mediana_s": 2.5
+ },
+ "sem": {
+  "rotulo": "SEM peso por regime",
+  "com_boost": false,
+  "casos": [
+   {
+    "qid": "d1",
+    "status": [
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     1.2,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "qid": "d2",
+    "status": [
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     2.3,
+     2.3,
+     2.3
+    ]
+   },
+   {
+    "qid": "d3",
+    "status": [
+     "parcial",
+     "parcial",
+     "parcial"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     2.8,
+     2.4,
+     2.4
+    ]
+   },
+   {
+    "qid": "d4",
+    "status": [
+     "recusada",
+     "recusada",
+     "recusada"
+    ],
+    "respondidas": 0,
+    "tempos": [
+     9.0,
+     5.7,
+     6.1
+    ]
+   },
+   {
+    "qid": "d5",
+    "status": [
+     "recusada",
+     "recusada",
+     "recusada"
+    ],
+    "respondidas": 0,
+    "tempos": [
+     2.5,
+     2.1,
+     2.1
+    ]
+   },
+   {
+    "qid": "d6",
+    "status": [
+     "parcial",
+     "parcial",
+     "ok"
+    ],
+    "respondidas": 3,
+    "tempos": [
+     1.9,
+     1.7,
+     1.3
+    ]
+   }
+  ],
+  "respondidas": 12,
+  "total": 18,
+  "mediana_s": 2.3
+ }
+}

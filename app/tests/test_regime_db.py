@@ -108,6 +108,89 @@ class TestSemanticSearch(unittest.TestCase):
         sql, params = cur.execute.call_args[0]
         self.assertIn("embedding <=>", sql)
 
+    def test_semantic_search_filtra_por_numero_da_norma(self):
+        """P2-32: com norma, o SQL restringe por numero_doc e o parâmetro vai na ordem."""
+        from agent import _semantic_search
+        factory, cur, conn = _fake_conn(fetchall=[])
+        _semantic_search([0.1, 0.2], user_id=7, limit=15, conn_factory=factory,
+                         norma=("lei", "8080"))
+        sql, params = cur.execute.call_args[0]
+        self.assertIn("numero_doc = %s", sql)
+        self.assertIn("8080", params)
+        # ordem dos placeholders: vetor, vetor, limiar, dono, norma, limite
+        self.assertEqual(params[3], 7)
+        self.assertEqual(params[4], "8080")
+        self.assertEqual(params[5], 15)
+
+    def test_semantic_search_sem_numero_usa_tipo(self):
+        """Norma sem número ("a Constituição") filtra por tipo_doc."""
+        from agent import _semantic_search
+        factory, cur, conn = _fake_conn(fetchall=[])
+        _semantic_search([0.1, 0.2], limit=5, conn_factory=factory,
+                         norma=("constituicao", None))
+        sql, params = cur.execute.call_args[0]
+        self.assertIn("tipo_doc = %s", sql)
+        self.assertIn("constituicao", params)
+
+    def test_semantic_search_sem_norma_nao_filtra(self):
+        from agent import _semantic_search
+        factory, cur, conn = _fake_conn(fetchall=[])
+        _semantic_search([0.1, 0.2], limit=5, conn_factory=factory)
+        sql, _ = cur.execute.call_args[0]
+        self.assertNotIn("numero_doc = %s", sql)
+        self.assertNotIn("tipo_doc = %s", sql)
+
+
+class TestParseNormReference(unittest.TestCase):
+    """P2-32: a norma que a PERGUNTA nomeia, mesmo sem artigo no texto."""
+
+    def test_lei_com_numero_sem_artigo(self):
+        from regime import _parse_norm_reference
+        self.assertEqual(_parse_norm_reference("O que a Lei 8.080 diz sobre consórcios?"),
+                         ("lei", "8080"))
+
+    def test_decreto_com_numero(self):
+        from regime import _parse_norm_reference
+        self.assertEqual(
+            _parse_norm_reference("Qual a cota do salário-família no Decreto 3.048?"),
+            ("decreto", "3048"))
+
+    def test_lei_complementar_nao_vira_lei(self):
+        from regime import _parse_norm_reference
+        self.assertEqual(_parse_norm_reference("O que diz a Lei Complementar 142?"),
+                         ("lei_complementar", "142"))
+
+    def test_constituicao_sem_numero(self):
+        from regime import _parse_norm_reference
+        self.assertEqual(_parse_norm_reference("O que diz a Constituição sobre saúde?"),
+                         ("constituicao", None))
+
+    def test_tema_sem_norma_devolve_none(self):
+        from regime import _parse_norm_reference
+        self.assertIsNone(_parse_norm_reference("Qual o prazo de prescrição do usucapião?"))
+        self.assertIsNone(_parse_norm_reference("Como funciona a rescisão indireta?"))
+
+    def test_artigo_sem_norma_nao_inventa_norma(self):
+        from regime import _parse_norm_reference
+        self.assertIsNone(_parse_norm_reference("O que diz o artigo 54?"))
+
+
+class TestParseArticleReferenceCompat(unittest.TestCase):
+    """Os exemplos documentados em `_parse_article_reference` continuam valendo.
+
+    A extração de norma foi factorada para `_extrair_norma` (P2-32); este teste
+    trava o contrato antigo — o refactor não podia mudar a referência de artigo.
+    """
+
+    def test_exemplos_documentados(self):
+        from regime import _parse_article_reference as p
+        self.assertEqual(p("artigo 54 do decreto 3048"), ("54", "decreto", "3048", None))
+        self.assertEqual(p("art. 5o da constituição"), ("5", "constituicao", None, None))
+        self.assertEqual(p("art 5 da cf"), ("5", "constituicao", None, None))
+        self.assertEqual(p("art. 7 § 2 do decreto 3048"), ("7", "decreto", "3048", "2"))
+        self.assertEqual(p("o que diz o artigo 6"), ("6", None, None, None))
+        self.assertIsNone(p("células tronco"))
+
 
 if __name__ == '__main__':
     unittest.main()

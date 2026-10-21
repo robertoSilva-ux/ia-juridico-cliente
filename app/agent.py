@@ -11,7 +11,10 @@ from config import (
     HYDE_QUERY_WEIGHT,
     LLM_MODEL,
     LLM_NUM_CTX,
+    MAX_CHUNKS_PER_DOC,
+    NORM_SCOPE_ENABLED,
     OLLAMA_BASE_URL,
+    REGIME_BOOST_ENABLED,
     RERANK_ENABLED,
     RERANK_TOP_K_MULTIPLIER,
     SIMILARITY_THRESHOLD,
@@ -50,6 +53,8 @@ from ranking import (  # noqa: F401  (re-export da API pública)
     _TIPO_LABEL,
     _cosine_sim,
     _fuse_rrf,
+    _limitar_por_documento,
+    _mesma_norma,
     _mmr_rerank,
     _source_label,
     _to_vector,
@@ -65,6 +70,7 @@ from regime import (  # noqa: F401  (re-export da API pública)
     _merge_unique_docs,
     _metadata_search,
     _parse_article_reference,
+    _parse_norm_reference,
 )
 
 from database import get_db_connection
@@ -200,9 +206,12 @@ def retrieve_context(query: str, user_id: int | None = None, limit: int = TOP_K,
 
         if keyword_rows:
             logger.info(f"✅ Busca por palavra-chave encontrou {len(keyword_rows)} resultados!")
-            # Se achou keyword, faz merge com semântico
+            # Se achou keyword, faz merge com semântico. A semântica que completa
+            # vai escopada na norma da pergunta (P2-32): sem isso, o merge traz o
+            # documento grande e desfaz o efeito do filtro por artigo.
             query_embedding = embeddings.embed_query(query)
-            semantic_rows = _semantic_search(query_embedding, user_id, limit)
+            semantic_rows = _buscar_com_escopo(query_embedding, user_id, limit, False,
+                                              _norma_da_pergunta(query))
 
             seen_ids = set()
             merged = []
@@ -251,14 +260,19 @@ def _semantic_hyde(query: str, query_embedding: list, user_id: int | None = None
     search_limit = max(limit, limit * RERANK_TOP_K_MULTIPLIER) if RERANK_ENABLED else limit
     include_emb = RERANK_ENABLED
 
+    # Escopo por norma (P2-32): a norma que a PERGUNTA nomeia vai na frente.
+    norma = _norma_da_pergunta(query)
+
     try:
         hypo_embedding = embeddings.embed_document(hypo)
     except Exception as e:
         logger.warning(f"HyDE: falha ao embedar doc hipotético, caindo para busca comum: {e}")
         return None
 
-    rows_query = _semantic_search(query_embedding, user_id, search_limit, include_embedding=include_emb, conn_factory=conn_factory)
-    rows_hyde = _semantic_search(hypo_embedding, user_id, search_limit, include_embedding=include_emb, conn_factory=conn_factory)
+    rows_query = _buscar_com_escopo(query_embedding, user_id, search_limit, include_emb, norma,
+                                    conn_factory=conn_factory)
+    rows_hyde = _buscar_com_escopo(hypo_embedding, user_id, search_limit, include_emb, norma,
+                                   conn_factory=conn_factory)
     logger.info(f"HyDE: query={len(rows_query)} docs, hyde={len(rows_hyde)} docs -> fusão RRF (peso query={HYDE_QUERY_WEIGHT})")
 
     fused = _fuse_rrf([rows_query, rows_hyde], limit=limit if not RERANK_ENABLED else search_limit,
@@ -269,13 +283,50 @@ def _semantic_hyde(query: str, query_embedding: list, user_id: int | None = None
     # regime_rows = _regime_search(query, user_id, limit=limit, include_embedding=include_emb)
     # fused = _merge_unique_docs(fused, regime_rows)
 
+    # Teto por documento (P2-32) antes do MMR: o pool fundido é o que decide
+    # quais documentos chegam ao contexto, e um deles costuma ter 80 % da base.
+    fused = _aplicar_peso_de_regime(query, fused)
+    if MAX_CHUNKS_PER_DOC > 0:
+        fused = _limitar_por_documento(fused, MAX_CHUNKS_PER_DOC, norma=norma)
     # Re-ranking MMR no conjunto fundido (usa o embedding da query como referência)
-    fused = _apply_regime_boost(query, fused)
     if RERANK_ENABLED and fused:
         fused = _mmr_rerank(query_embedding, fused, limit=limit)
         for doc in fused:
             doc.pop('embedding', None)
+    # Teto também na ORDEM FINAL: o MMR reordena o pool e pode trazer de volta os
+    # trechos que o teto tinha empurrado para o fim — sem esta segunda passada o
+    # teto não muda o contexto que o modelo vê.
+    if MAX_CHUNKS_PER_DOC > 0:
+        fused = _limitar_por_documento(fused, MAX_CHUNKS_PER_DOC, norma=norma)
     return fused
+
+
+def _aplicar_peso_de_regime(query: str, docs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Aplica o peso por regime jurídico — DESLIGADO por padrão desde o ADR-0013.
+
+    O peso não é apagado porque é o instrumento de A/B e porque o caso do salário-família
+    (o decreto regulamentador traz o limite operacional) está documentado nele. Mas ele
+    reordena por heurística: medido em 2026-10-20, estreitava o contexto para o Decreto
+    3.048 em perguntas de RGPS, expulsando a EC 103 e a LC 142 — a mesma dominância de
+    documento que o P2-32 corrigiu, por outra porta.
+
+    `REGIME_BOOST_ENABLED=true` reprodiz o comportamento antigo.
+    """
+    if not REGIME_BOOST_ENABLED:
+        return docs
+    return _apply_regime_boost(query, docs)
+
+
+def _norma_da_pergunta(query: str) -> tuple[str, str | None] | None:
+    """Norma que a pergunta nomeia, quando o escopo está ligado (P2-32).
+
+    Devolve None quando a pergunta não nomeia norma (o teto por documento e a
+    busca livre continuam valendo) ou quando NORM_SCOPE_ENABLED=False — o
+    desligamento por config é o que permite medir antes/depois no mesmo código.
+    """
+    if not NORM_SCOPE_ENABLED:
+        return None
+    return _parse_norm_reference(query)
 
 
 def _semantic_with_rerank(query_embedding: list, user_id: int | None = None, limit: int = TOP_K,
@@ -290,29 +341,55 @@ def _semantic_with_rerank(query_embedding: list, user_id: int | None = None, lim
         semantic_limit = max(limit, limit * RERANK_TOP_K_MULTIPLIER)
         logger.info(f"Re-ranking MMR ativo: buscando {semantic_limit} candidatos (mult={RERANK_TOP_K_MULTIPLIER})")
 
-    rows = _semantic_search(query_embedding, user_id, semantic_limit, include_embedding=RERANK_ENABLED, conn_factory=conn_factory)
+    norma = _norma_da_pergunta(query)
+    if norma:
+        logger.info(f"Escopo por norma na recuperação: tipo={norma[0]}, numero={norma[1]}")
+
+    rows = _buscar_com_escopo(query_embedding, user_id, semantic_limit, RERANK_ENABLED, norma,
+                              conn_factory=conn_factory)
     # _regime_search desativado (2026-09-21) — ver bloco na definição da função.
     # regime_rows = _regime_search(query, user_id, limit=limit, include_embedding=RERANK_ENABLED)
     # rows = _merge_unique_docs(rows, regime_rows)
-    rows = _apply_regime_boost(query, rows)
+    rows = _aplicar_peso_de_regime(query, rows)
+    # Teto por documento (P2-32): antes do MMR, para o pool que chega ao
+    # re-ranking já não ser 80 % de um arquivo.
+    if MAX_CHUNKS_PER_DOC > 0:
+        rows = _limitar_por_documento(rows, MAX_CHUNKS_PER_DOC, norma=norma)
 
     if RERANK_ENABLED and rows:
         rows = _mmr_rerank(query_embedding, rows, limit=limit)
         # Remove a chave 'embedding' (pesada) do que vai ao prompt/contexto
         for doc in rows:
             doc.pop('embedding', None)
+    # Teto também na ORDEM FINAL (P2-32): o MMR reordena o pool e pode trazer de
+    # volta os trechos que o teto tinha empurrado para o fim.
+    if MAX_CHUNKS_PER_DOC > 0:
+        rows = _limitar_por_documento(rows, MAX_CHUNKS_PER_DOC, norma=norma)
     return rows
 
 
 def _semantic_search(query_embedding: list, user_id: int | None = None, limit: int = TOP_K,
-                     include_embedding: bool = False, conn_factory=get_db_connection) -> list[dict[str, Any]]:
+                     include_embedding: bool = False, conn_factory=get_db_connection,
+                     norma: tuple[str, str | None] | None = None) -> list[dict[str, Any]]:
     """Busca semântica pura por similaridade de vetores.
 
     include_embedding: se True, inclui o vetor 'embedding' em cada doc
     (necessário para re-ranking MMR; mantido off por padrão para não
     sobrecarregar o contexto desnecessariamente).
+    norma: quando informada, restringe a busca aos trechos daquela norma
+    (P2-32). O chamador que quer recall garantido usa `_buscar_com_escopo`,
+    que completa as vagas com a busca livre.
     """
     emb_col = "\n                embedding," if include_embedding else ""
+    # Filtro da norma entra depois do escopo do dono e antes do LIMIT, para os
+    # parâmetros seguirem a ordem dos placeholders do SQL.
+    if norma and norma[1]:
+        norma_filter, norma_params = "\n              AND numero_doc = %s", [str(norma[1])]
+    elif norma and norma[0]:
+        norma_filter, norma_params = "\n              AND tipo_doc = %s", [norma[0]]
+    else:
+        norma_filter, norma_params = "", []
+
     if user_id is not None:
         sql = f"""
             SELECT
@@ -329,11 +406,12 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 tipo_trecho
             FROM documents
             WHERE embedding <=> %s::vector < %s
-              AND (scope = 'global' OR owner_id = %s)
+              AND (scope = 'global' OR owner_id = %s){norma_filter}
             ORDER BY distance ASC
             LIMIT %s
         """
-        params = (query_embedding, query_embedding, SIMILARITY_THRESHOLD, user_id, limit)
+        params = (query_embedding, query_embedding, SIMILARITY_THRESHOLD, user_id,
+                  *norma_params, limit)
     else:
         sql = f"""
             SELECT
@@ -349,11 +427,12 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
                 source_id,
                 tipo_trecho
             FROM documents
-            WHERE embedding <=> %s::vector < %s
+            WHERE embedding <=> %s::vector < %s{norma_filter}
             ORDER BY distance ASC
             LIMIT %s
         """
-        params = (query_embedding, query_embedding, SIMILARITY_THRESHOLD, limit)
+        params = (query_embedding, query_embedding, SIMILARITY_THRESHOLD,
+                  *norma_params, limit)
 
     try:
         with conn_factory() as conn:
@@ -368,6 +447,34 @@ def _semantic_search(query_embedding: list, user_id: int | None = None, limit: i
     except Exception:
         logger.exception("Erro inesperado na busca semântica")
         return []
+
+
+def _buscar_com_escopo(query_embedding: list, user_id: int | None, limit: int,
+                       include_embedding: bool, norma: tuple[str, str | None] | None,
+                       conn_factory=get_db_connection) -> list[dict[str, Any]]:
+    """Busca semântica com escopo por norma, COMPLETANDO com a busca livre (P2-32).
+
+    Quando a pergunta nomeia a norma, os trechos dela ocupam as primeiras vagas
+    e a busca livre preenche o resto. O escopo nunca custa recall: se aquela
+    norma tem poucos trechos na base (ou nenhum), o contexto continua completo —
+    é o que permite escopar sem apostar que a resposta está na norma nomeada.
+    """
+    if not norma:
+        return _semantic_search(query_embedding, user_id, limit,
+                                include_embedding=include_embedding, conn_factory=conn_factory)
+
+    escopados = _semantic_search(query_embedding, user_id, limit,
+                                 include_embedding=include_embedding, conn_factory=conn_factory,
+                                 norma=norma)
+    if len(escopados) >= limit:
+        return escopados[:limit]
+
+    livres = _semantic_search(query_embedding, user_id, limit,
+                              include_embedding=include_embedding, conn_factory=conn_factory)
+    complemento = _merge_unique_docs(escopados, livres)
+    logger.info(f"Escopo por norma {norma}: {len(escopados)} trechos da norma + "
+                f"{len(complemento) - len(escopados)} da busca livre")
+    return complemento[:limit]
 
 
 # =========================================================

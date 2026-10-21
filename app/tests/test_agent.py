@@ -35,6 +35,9 @@ module_config.DB_CONNECT_TIMEOUT = 5
 module_config.RERANK_ENABLED = True
 module_config.RERANK_TOP_K_MULTIPLIER = 3
 module_config.RERANK_LAMBDA_MULT = 0.7
+module_config.NORM_SCOPE_ENABLED = True
+module_config.MAX_CHUNKS_PER_DOC = 4
+module_config.REGIME_BOOST_ENABLED = False
 module_config.FACT_CHECK_ENABLED = True
 module_config.FACT_CHECK_LLM_ENABLED = False
 module_config.HYDE_ENABLED = True
@@ -130,6 +133,42 @@ class TestRegimeBoost(unittest.TestCase):
         from agent import _mmr_rerank
         ranked = _mmr_rerank([1.0, 0.0], docs, limit=1)
         self.assertEqual(ranked[0]["id"], 2)
+
+
+class TestPesoDeRegimeDesligado(unittest.TestCase):
+    """ADR-0013: o peso por regime não altera o contexto por padrão.
+
+    A função do peso continua existindo (instrumento de A/B), mas o caminho de recuperação
+    não a usa: medido, ela estreitava o contexto para o Decreto 3.048 em pergunta de RGPS,
+    expulsando EC 103 e LC 142.
+    """
+
+    DOCS = [
+        {"id": 1, "tipo_doc": "emenda", "numero_doc": "103", "distance": 0.10,
+         "file_name": "emc103.txt"},
+        {"id": 2, "tipo_doc": "decreto", "numero_doc": "3048", "distance": 0.30,
+         "file_name": "d3048.txt"},
+    ]
+
+    def test_desligado_devolve_a_mesma_lista_e_nao_anota_peso(self):
+        import agent as agent_module
+
+        with unittest.mock.patch.object(agent_module, "REGIME_BOOST_ENABLED", False):
+            saida = agent_module._aplicar_peso_de_regime(
+                "Qual o valor do salário-família do dependente?", [dict(d) for d in self.DOCS])
+
+        self.assertEqual([d["id"] for d in saida], [1, 2], "ordem tem de ser preservada")
+        self.assertNotIn("regime_score", saida[0])
+
+    def test_ligado_reproduz_o_comportamento_antigo(self):
+        import agent as agent_module
+
+        with unittest.mock.patch.object(agent_module, "REGIME_BOOST_ENABLED", True):
+            saida = agent_module._aplicar_peso_de_regime(
+                "Qual o valor do salário-família do dependente?", [dict(d) for d in self.DOCS])
+
+        self.assertEqual(saida[0]["id"], 2, "com o peso ligado, o 3.048 sobe (comportamento antigo)")
+        self.assertGreater(saida[0].get("regime_score", 0), 0)
 
 
 class TestBuildContext(unittest.TestCase):
@@ -292,6 +331,52 @@ class TestMMRRerank(unittest.TestCase):
         docs = [self._mk_doc(1, [1.0, 0.0, 0.0]), self._mk_doc(2, [0.0, 1.0, 0.0])]
         sel = _mmr_rerank([1.0, 0.0, 0.0], docs, limit=1)
         self.assertIn("mmr_score", sel[0])
+
+
+class TestLimitarPorDocumento(unittest.TestCase):
+    """Teto de trechos por arquivo antes do MMR (P2-32: dominância de documento).
+
+    Numa base em que um documento tem 80 % dos fragmentos, o primeiro estágio
+    semântico devolve quase só trechos dele. O teto é o que dá lugar aos outros
+    — sem DESCARTAR nada, porque fragmento descartado é dispositivo perdido.
+    """
+
+    def _mk(self, doc_id, arquivo, numero=None):
+        return {"id": doc_id, "file_name": arquivo, "content": "texto",
+                "numero_doc": numero, "tipo_doc": "decreto" if numero else None}
+
+    def test_limita_por_arquivo_sem_descartar(self):
+        from agent import _limitar_por_documento
+        docs = [self._mk(i, "d3048.txt", "3048") for i in range(10)]
+        docs += [self._mk(10 + i, "l8080.txt", "8080") for i in range(2)]
+        out = _limitar_por_documento(docs, 4)
+        self.assertEqual(len(out), len(docs))               # nada descartado
+        from collections import Counter
+        contagem = Counter(d["file_name"] for d in out[:6])
+        self.assertEqual(contagem["d3048.txt"], 4)          # 4 na frente
+        self.assertEqual(out[4]["file_name"], "l8080.txt")  # o outro entrou
+        self.assertEqual(out[-1]["file_name"], "d3048.txt")  # excedente no fim
+
+    def test_isenta_o_arquivo_da_norma_pedida(self):
+        from agent import _limitar_por_documento
+        docs = [self._mk(i, "l8080.txt", "8080") for i in range(8)]
+        docs += [self._mk(100, "d3048.txt", "3048")]
+        out = _limitar_por_documento(docs, 4, norma=("lei", "8080"))
+        self.assertEqual([d["id"] for d in out], [d["id"] for d in docs])
+
+    def test_limite_zero_desliga(self):
+        from agent import _limitar_por_documento
+        docs = [self._mk(i, "d3048.txt", "3048") for i in range(5)]
+        self.assertEqual(_limitar_por_documento(docs, 0), docs)
+
+    def test_mesma_norma_usa_metadado_e_nao_nome_do_arquivo(self):
+        """A identidade é o par do metadado — o nome do arquivo não decide nada."""
+        from agent import _mesma_norma
+        self.assertTrue(_mesma_norma({"numero_doc": "8080"}, ("lei", "8080")))
+        self.assertTrue(_mesma_norma({"numero_doc": 8080}, ("lei", "8080")))
+        self.assertFalse(_mesma_norma({"numero_doc": None, "file_name": "l8080.pdf"},
+                                      ("lei", "8080")))
+        self.assertTrue(_mesma_norma({"tipo_doc": "constituicao"}, ("constituicao", None)))
 
 
 class TestFactCheck(unittest.TestCase):

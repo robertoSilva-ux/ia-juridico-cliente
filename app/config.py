@@ -40,6 +40,32 @@ RERANK_TOP_K_MULTIPLIER = int(os.getenv("RERANK_TOP_K_MULTIPLIER", "3"))
 # mas penaliza docs muito parecidos entre si.
 RERANK_LAMBDA_MULT = float(os.getenv("RERANK_LAMBDA_MULT", "0.7"))
 
+# Escopo por norma na recuperação (P2-32). Quando a PERGUNTA nomeia a norma
+# ("Lei 8.080", "Decreto 3.048"), a busca semântica consulta primeiro os trechos
+# dessa norma e só COMPLETA as vagas restantes com a busca livre. Medido: a base
+# de dev tem 1.716 dos 2.141 fragmentos num único decreto, e o tamanho relativo
+# do documento decidia quem aparecia — em pergunta sobre a Lei 8.080, 1 de 15
+# lugares era da 8.080 e o primeiro vinha em 10º. Com escopo: 12–15 de 15, a
+# norma pedida em 1º. Nunca custa recall (completa com a busca livre), mas
+# depende de a pergunta nomear a norma.
+NORM_SCOPE_ENABLED = os.getenv("NORM_SCOPE_ENABLED", "true").lower() in ("true", "1", "yes", "on")
+# Teto de trechos de um MESMO ARQUIVO no contexto, aplicado antes do MMR (P2-32).
+# O documento da norma pedida fica isento. Não descarta nada: quem passa do teto
+# vai para o fim da lista (preenchimento), porque cortar fragmento de dispositivo
+# é o defeito que a ingestão já pagou caro para consertar. 0 desliga.
+MAX_CHUNKS_PER_DOC = int(os.getenv("MAX_CHUNKS_PER_DOC", "4"))
+
+# Peso por "regime jurídico" (ADR-0013). Nasceu para desempatar RPPS x RGPS quando a base
+# misturava Vade Mecum e apostila; hoje são três normas escritas à mão, com casamento por
+# NOME DE ARQUIVO (`vade_mecum` não está mais na base), `excluded` que derruba emenda e
+# constituição justamente em pergunta de RGPS (a EC 103 altera o RGPS) e nenhum marcador de
+# saúde/SUS. MEDIDO em 2026-10-20: (a) posição da norma pedida no top-15, empate 11/11 com e
+# sem peso; (b) A4 do mini-quiz, 12/18 dos dois lados; (c) nas perguntas de RGPS o peso
+# ESTREITA o contexto para o 3.048 (15/15 trechos, expulsando EC 103 e LC 142) — a maior
+# taxa de citação era artefato dessa homogeneização, não acerto de regime. Default: desligado.
+# Ver docs/adr/0013-retirada-do-peso-por-regime.md. `true` reproduz o comportamento antigo.
+REGIME_BOOST_ENABLED = os.getenv("REGIME_BOOST_ENABLED", "false").lower() in ("true", "1", "yes", "on")
+
 # Fact-check / groundedness — verificação pós-geração (Auffarth "RAG The Seminal Papers",
 # IsSup per-sentence groundedness). Divide a resposta em sentenças e verifica se cada uma
 # está apoiada no contexto recuperado. A parte estrutural é determinística e roda sempre:

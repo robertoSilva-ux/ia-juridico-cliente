@@ -1,0 +1,2528 @@
+{
+ "rotulo": "antes",
+ "hyde": false,
+ "limit": 15,
+ "rerank": true,
+ "max_context_chars": 12000,
+ "norm_scope": false,
+ "max_chunks_per_doc": 0,
+ "base": {
+  "d3048.txt": 1716,
+  "l8080.txt": 141,
+  "emc103.txt": 116,
+  "lcp142.txt": 8,
+  "Lei 8.213-91.pdf": 2,
+  "peticao.pdf": 1
+ },
+ "itens": [
+  {
+   "qid": "d1",
+   "grupo": "quiz",
+   "pergunta": "Segundo o art. 9º da Lei 8.080, quem exerce a direção do SUS no âmbito da União?",
+   "real": {
+    "qid": "d1",
+    "norma_esperada": "8080",
+    "origem": [
+     "dispositivo"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 1,
+    "files": [
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 0,
+    "chars_total": 497,
+    "chars_usados": 497,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 495
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d1",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 323",
+     "Decreto 3048, art. 207",
+     "Decreto 3048",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 32",
+     "Decreto 3048",
+     "Decreto 3048, art. 358",
+     "Decreto 3048, art. 66",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 8884,
+    "chars_usados": 8884,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7939,
+     "l8080.txt": 495,
+     "emc103.txt": 386
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d1",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 323",
+     "Decreto 3048, art. 207",
+     "Decreto 3048",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 32",
+     "Decreto 3048",
+     "Decreto 3048, art. 358",
+     "Decreto 3048, art. 66",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 8884,
+    "chars_usados": 8884,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7939,
+     "l8080.txt": 495,
+     "emc103.txt": 386
+    }
+   }
+  },
+  {
+   "qid": "d2",
+   "grupo": "quiz",
+   "pergunta": "O que o art. 10 da Lei 8.080 permite que os municípios constituam entre si?",
+   "real": {
+    "qid": "d2",
+    "norma_esperada": "8080",
+    "origem": [
+     "dispositivo"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 1,
+    "files": [
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 10"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 0,
+    "chars_total": 563,
+    "chars_usados": 563,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 561
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d2",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "lcp142.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048, art. 375",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 13",
+     "Lei 8080, art. 10",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 32",
+     "Emenda Constitucional 103, art. 6",
+     "Lei_complementar 142, art. 11",
+     "Emenda Constitucional 103, art. 30",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 31",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 7",
+     "Decreto 3048, art. 265"
+    ],
+    "posicoes_da_norma": [
+     4
+    ],
+    "primeira_posicao": 4,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 5855,
+    "chars_usados": 5855,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 2765,
+     "emc103.txt": 2077,
+     "l8080.txt": 561,
+     "lcp142.txt": 388
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d2",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "lcp142.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048, art. 375",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 13",
+     "Lei 8080, art. 10",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 32",
+     "Emenda Constitucional 103, art. 6",
+     "Lei_complementar 142, art. 11",
+     "Emenda Constitucional 103, art. 30",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 31",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 7",
+     "Decreto 3048, art. 265"
+    ],
+    "posicoes_da_norma": [
+     4
+    ],
+    "primeira_posicao": 4,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 5855,
+    "chars_usados": 5855,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 2765,
+     "emc103.txt": 2077,
+     "l8080.txt": 561,
+     "lcp142.txt": 388
+    }
+   }
+  },
+  {
+   "qid": "d3",
+   "grupo": "quiz",
+   "pergunta": "O que o art. 19-B institui no âmbito do SUS?",
+   "real": {
+    "qid": "d3",
+    "norma_esperada": "8080",
+    "origem": [
+     "dispositivo"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 5,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 0,
+    "chars_total": 1310,
+    "chars_usados": 1310,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 1292
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d3",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 259",
+     "Decreto 3048",
+     "Lei 8080, art. 9",
+     "Decreto 3048, art. 342"
+    ],
+    "posicoes_da_norma": [
+     2,
+     4,
+     5,
+     8,
+     14
+    ],
+    "primeira_posicao": 2,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 3507,
+    "chars_usados": 3507,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 2162,
+     "l8080.txt": 1281
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d3",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 259",
+     "Decreto 3048",
+     "Lei 8080, art. 9",
+     "Decreto 3048, art. 342"
+    ],
+    "posicoes_da_norma": [
+     2,
+     4,
+     5,
+     8,
+     14
+    ],
+    "primeira_posicao": 2,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 3507,
+    "chars_usados": 3507,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 2162,
+     "l8080.txt": 1281
+    }
+   }
+  },
+  {
+   "qid": "d4",
+   "grupo": "quiz",
+   "pergunta": "Qual lei incluiu os artigos 19-Q e 19-R na Lei 8.080?",
+   "real": {
+    "qid": "d4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Emenda Constitucional 103, art. 32",
+     "Lei 8080",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     3,
+     4,
+     5,
+     6,
+     14
+    ],
+    "primeira_posicao": 3,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 5905,
+    "chars_usados": 5905,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3120,
+     "l8080.txt": 1909,
+     "emc103.txt": 812
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Emenda Constitucional 103, art. 32",
+     "Lei 8080",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     3,
+     4,
+     5,
+     6,
+     14
+    ],
+    "primeira_posicao": 3,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 5905,
+    "chars_usados": 5905,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3120,
+     "l8080.txt": 1909,
+     "emc103.txt": 812
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Decreto 3048",
+     "Decreto 3048, art. 272",
+     "Emenda Constitucional 103, art. 32",
+     "Lei 8080",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     3,
+     4,
+     5,
+     6,
+     14
+    ],
+    "primeira_posicao": 3,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 5905,
+    "chars_usados": 5905,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3120,
+     "l8080.txt": 1909,
+     "emc103.txt": 812
+    }
+   }
+  },
+  {
+   "qid": "d5",
+   "grupo": "quiz",
+   "pergunta": "Quais leis foram revogadas pelo art. 55 da Lei 8.080?",
+   "real": {
+    "qid": "d5",
+    "norma_esperada": "8080",
+    "origem": [
+     "dispositivo"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 1,
+    "files": [
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 55"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 0,
+    "chars_total": 372,
+    "chars_usados": 372,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 370
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d5",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 35",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 55",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048, art. 188",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     10
+    ],
+    "primeira_posicao": 10,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 5439,
+    "chars_usados": 5439,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 4522,
+     "emc103.txt": 483,
+     "l8080.txt": 370
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d5",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 35",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 55",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048, art. 188",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     10
+    ],
+    "primeira_posicao": 10,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 5439,
+    "chars_usados": 5439,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 4522,
+     "emc103.txt": 483,
+     "l8080.txt": 370
+    }
+   }
+  },
+  {
+   "qid": "d6",
+   "grupo": "quiz",
+   "pergunta": "Segundo o art. 9º, quais órgãos exercem a direção do SUS nos Estados e no Distrito Federal?",
+   "real": {
+    "qid": "d6",
+    "norma_esperada": "8080",
+    "origem": [
+     "dispositivo"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 3,
+    "files": [
+     "l8080.txt",
+     "emc103.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Emenda Constitucional 103, art. 9",
+     "Decreto 3048, art. 9"
+    ],
+    "posicoes_da_norma": [
+     1
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 1,
+    "lugares_outros": 2,
+    "chars_total": 2572,
+    "chars_usados": 2572,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 1049,
+     "emc103.txt": 1018,
+     "l8080.txt": 495
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d6",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Decreto 3048, art. 265",
+     "Emenda Constitucional 103, art. 13",
+     "Lei 8080, art. 19",
+     "Decreto 3048, art. 315",
+     "Decreto 3048, art. 15",
+     "Decreto 3048, art. 289",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 6",
+     "Emenda Constitucional 103, art. 36",
+     "Decreto 3048, art. 364",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 33",
+     "Emenda Constitucional 103, art. 7",
+     "Emenda Constitucional 103, art. 12"
+    ],
+    "posicoes_da_norma": [
+     1,
+     4
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 2,
+    "lugares_outros": 13,
+    "chars_total": 9051,
+    "chars_usados": 9051,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "emc103.txt": 4589,
+     "d3048.txt": 3659,
+     "l8080.txt": 739
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d6",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Decreto 3048, art. 265",
+     "Emenda Constitucional 103, art. 13",
+     "Lei 8080, art. 19",
+     "Decreto 3048, art. 315",
+     "Decreto 3048, art. 15",
+     "Decreto 3048, art. 289",
+     "Decreto 3048, art. 179",
+     "Emenda Constitucional 103, art. 6",
+     "Emenda Constitucional 103, art. 36",
+     "Decreto 3048, art. 364",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 33",
+     "Emenda Constitucional 103, art. 7",
+     "Emenda Constitucional 103, art. 12"
+    ],
+    "posicoes_da_norma": [
+     1,
+     4
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 2,
+    "lugares_outros": 13,
+    "chars_total": 9051,
+    "chars_usados": 9051,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "emc103.txt": 4589,
+     "d3048.txt": 3659,
+     "l8080.txt": 739
+    }
+   }
+  },
+  {
+   "qid": "d7",
+   "grupo": "quiz",
+   "pergunta": "Qual é a idade mínima de aposentadoria por tempo de contribuição do RGPS em 2026?",
+   "real": {
+    "qid": "d7",
+    "norma_esperada": null,
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "Lei 8.213-91.pdf",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8213, art. 54",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 173",
+     "Decreto 3048, art. 153",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048, art. 182",
+     "Decreto 3048",
+     "Decreto 3048, art. 167"
+    ],
+    "posicoes_da_norma": [],
+    "primeira_posicao": null,
+    "acima_de_3": false,
+    "lugares_da_norma": 0,
+    "lugares_outros": 15,
+    "chars_total": 12000,
+    "chars_usados": 12000,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 12464,
+     "Lei 8.213-91.pdf": 205
+    }
+   },
+   "semantico_bruto": {
+    "qid": "d7",
+    "norma_esperada": null,
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "Lei 8.213-91.pdf",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 173",
+     "Decreto 3048, art. 153",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048, art. 182",
+     "Decreto 3048",
+     "Lei 8213, art. 54",
+     "Decreto 3048, art. 167"
+    ],
+    "posicoes_da_norma": [],
+    "primeira_posicao": null,
+    "acima_de_3": false,
+    "lugares_da_norma": 0,
+    "lugares_outros": 15,
+    "chars_total": 12000,
+    "chars_usados": 12000,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 12464,
+     "Lei 8.213-91.pdf": 205
+    }
+   },
+   "semantico_mmr": {
+    "qid": "d7",
+    "norma_esperada": null,
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "Lei 8.213-91.pdf",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8213, art. 54",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 173",
+     "Decreto 3048, art. 153",
+     "Decreto 3048",
+     "Decreto 3048, art. 188",
+     "Decreto 3048, art. 182",
+     "Decreto 3048",
+     "Decreto 3048, art. 167"
+    ],
+    "posicoes_da_norma": [],
+    "primeira_posicao": null,
+    "acima_de_3": false,
+    "lugares_da_norma": 0,
+    "lugares_outros": 15,
+    "chars_total": 12000,
+    "chars_usados": 12000,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 12464,
+     "Lei 8.213-91.pdf": 205
+    }
+   }
+  },
+  {
+   "qid": "p1",
+   "grupo": "probe",
+   "pergunta": "Quem exerce a direção do SUS no âmbito da União e nos Estados?",
+   "real": {
+    "qid": "p1",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Lei 8080, art. 2",
+     "Decreto 3048, art. 66",
+     "Lei 8080, art. 28",
+     "Decreto 3048, art. 66",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 15",
+     "Lei 8080, art. 23",
+     "Decreto 3048, art. 358",
+     "Emenda Constitucional 103, art. 33",
+     "Decreto 3048, art. 323",
+     "Decreto 3048",
+     "Decreto 3048, art. 64",
+     "Decreto 3048, art. 64",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     4,
+     7,
+     8
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 9305,
+    "chars_usados": 9305,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 4119,
+     "l8080.txt": 3478,
+     "emc103.txt": 1644
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p1",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Lei 8080, art. 2",
+     "Decreto 3048, art. 66",
+     "Lei 8080, art. 28",
+     "Decreto 3048, art. 66",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 15",
+     "Lei 8080, art. 23",
+     "Decreto 3048, art. 358",
+     "Emenda Constitucional 103, art. 33",
+     "Decreto 3048, art. 323",
+     "Decreto 3048",
+     "Decreto 3048, art. 64",
+     "Decreto 3048, art. 64",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     4,
+     7,
+     8
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 9305,
+    "chars_usados": 9305,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 4119,
+     "l8080.txt": 3478,
+     "emc103.txt": 1644
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p1",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 9",
+     "Lei 8080, art. 2",
+     "Decreto 3048, art. 66",
+     "Lei 8080, art. 28",
+     "Decreto 3048, art. 66",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 15",
+     "Lei 8080, art. 23",
+     "Decreto 3048, art. 358",
+     "Emenda Constitucional 103, art. 33",
+     "Decreto 3048, art. 323",
+     "Decreto 3048",
+     "Decreto 3048, art. 64",
+     "Decreto 3048, art. 64",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     4,
+     7,
+     8
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 5,
+    "lugares_outros": 10,
+    "chars_total": 9305,
+    "chars_usados": 9305,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 4119,
+     "l8080.txt": 3478,
+     "emc103.txt": 1644
+    }
+   }
+  },
+  {
+   "qid": "p2",
+   "grupo": "probe",
+   "pergunta": "O que é o Subsistema de Atenção à Saúde Indígena?",
+   "real": {
+    "qid": "p2",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080",
+     "Decreto 3048, art. 77",
+     "Lei 8080, art. 47",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     11,
+     12,
+     13,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 13,
+    "lugares_outros": 2,
+    "chars_total": 6467,
+    "chars_usados": 6467,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 5678,
+     "d3048.txt": 725
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p2",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080",
+     "Decreto 3048, art. 77",
+     "Lei 8080, art. 47",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     11,
+     12,
+     13,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 13,
+    "lugares_outros": 2,
+    "chars_total": 6467,
+    "chars_usados": 6467,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 5678,
+     "d3048.txt": 725
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p2",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080, art. 19",
+     "Lei 8080",
+     "Decreto 3048, art. 77",
+     "Lei 8080, art. 47",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     11,
+     12,
+     13,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 13,
+    "lugares_outros": 2,
+    "chars_total": 6467,
+    "chars_usados": 6467,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 5678,
+     "d3048.txt": 725
+    }
+   }
+  },
+  {
+   "qid": "p3",
+   "grupo": "probe",
+   "pergunta": "Quais leis foram revogadas pela Lei 8.080?",
+   "real": {
+    "qid": "p3",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 35",
+     "Lei 8080, art. 55",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 70",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     5,
+     9
+    ],
+    "primeira_posicao": 5,
+    "acima_de_3": false,
+    "lugares_da_norma": 2,
+    "lugares_outros": 13,
+    "chars_total": 8828,
+    "chars_usados": 8828,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7092,
+     "l8080.txt": 1189,
+     "emc103.txt": 483
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p3",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 35",
+     "Lei 8080, art. 55",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 70",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     5,
+     9
+    ],
+    "primeira_posicao": 5,
+    "acima_de_3": false,
+    "lugares_da_norma": 2,
+    "lugares_outros": 13,
+    "chars_total": 8828,
+    "chars_usados": 8828,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7092,
+     "l8080.txt": 1189,
+     "emc103.txt": 483
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p3",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103, art. 35",
+     "Lei 8080, art. 55",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 70",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     5,
+     9
+    ],
+    "primeira_posicao": 5,
+    "acima_de_3": false,
+    "lugares_da_norma": 2,
+    "lugares_outros": 13,
+    "chars_total": 8828,
+    "chars_usados": 8828,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7092,
+     "l8080.txt": 1189,
+     "emc103.txt": 483
+    }
+   }
+  },
+  {
+   "qid": "p4",
+   "grupo": "probe",
+   "pergunta": "O que a Lei 8.080 diz sobre a participação da comunidade no SUS?",
+   "real": {
+    "qid": "p4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "emc103.txt",
+     "lcp142.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Emenda Constitucional 103",
+     "Lei_complementar 142, art. 11",
+     "Decreto 3048",
+     "Lei 8080, art. 8",
+     "Decreto 3048, art. 298",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 16",
+     "Decreto 3048, art. 101",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     4,
+     10,
+     12
+    ],
+    "primeira_posicao": 4,
+    "acima_de_3": false,
+    "lugares_da_norma": 3,
+    "lugares_outros": 12,
+    "chars_total": 6717,
+    "chars_usados": 6717,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "emc103.txt": 2740,
+     "d3048.txt": 1938,
+     "l8080.txt": 1587,
+     "lcp142.txt": 388
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "emc103.txt",
+     "lcp142.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Emenda Constitucional 103",
+     "Lei_complementar 142, art. 11",
+     "Decreto 3048",
+     "Lei 8080, art. 8",
+     "Decreto 3048, art. 298",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 16",
+     "Decreto 3048, art. 101",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     4,
+     10,
+     12
+    ],
+    "primeira_posicao": 4,
+    "acima_de_3": false,
+    "lugares_da_norma": 3,
+    "lugares_outros": 12,
+    "chars_total": 6717,
+    "chars_usados": 6717,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "emc103.txt": 2740,
+     "d3048.txt": 1938,
+     "l8080.txt": 1587,
+     "lcp142.txt": 388
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p4",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "emc103.txt",
+     "lcp142.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "emc103.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Emenda Constitucional 103",
+     "Lei_complementar 142, art. 11",
+     "Decreto 3048",
+     "Lei 8080, art. 8",
+     "Decreto 3048, art. 298",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Emenda Constitucional 103",
+     "Lei 8080, art. 16",
+     "Decreto 3048, art. 101",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     4,
+     10,
+     12
+    ],
+    "primeira_posicao": 4,
+    "acima_de_3": false,
+    "lugares_da_norma": 3,
+    "lugares_outros": 12,
+    "chars_total": 6717,
+    "chars_usados": 6717,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "emc103.txt": 2740,
+     "d3048.txt": 1938,
+     "l8080.txt": 1587,
+     "lcp142.txt": 388
+    }
+   }
+  },
+  {
+   "qid": "p5",
+   "grupo": "probe",
+   "pergunta": "Como a Lei 8.080 trata dos consórcios intermunicipais?",
+   "real": {
+    "qid": "p5",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     10
+    ],
+    "primeira_posicao": 10,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 6510,
+    "chars_usados": 6510,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3475,
+     "emc103.txt": 2740,
+     "l8080.txt": 231
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p5",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     10
+    ],
+    "primeira_posicao": 10,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 6510,
+    "chars_usados": 6510,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3475,
+     "emc103.txt": 2740,
+     "l8080.txt": 231
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p5",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048",
+     "Decreto 3048",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103, art. 32",
+     "Emenda Constitucional 103",
+     "Emenda Constitucional 103",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Lei 8080, art. 19",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     10
+    ],
+    "primeira_posicao": 10,
+    "acima_de_3": false,
+    "lugares_da_norma": 1,
+    "lugares_outros": 14,
+    "chars_total": 6510,
+    "chars_usados": 6510,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 3475,
+     "emc103.txt": 2740,
+     "l8080.txt": 231
+    }
+   }
+  },
+  {
+   "qid": "p6",
+   "grupo": "probe",
+   "pergunta": "O que diz a Lei 8.080 sobre a iniciativa privada na assistência à saúde?",
+   "real": {
+    "qid": "p6",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 21",
+     "Lei 8080, art. 20",
+     "Lei 8080, art. 22",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080, art. 53",
+     "Lei 8080, art. 7",
+     "Lei 8080",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048, art. 206",
+     "Lei 8080",
+     "Lei 8080, art. 8"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     9,
+     10,
+     12,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 12,
+    "lugares_outros": 3,
+    "chars_total": 8649,
+    "chars_usados": 8649,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 6057,
+     "d3048.txt": 2528
+    }
+   },
+   "semantico_bruto": {
+    "qid": "p6",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 21",
+     "Lei 8080, art. 20",
+     "Lei 8080, art. 22",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080, art. 53",
+     "Lei 8080, art. 7",
+     "Lei 8080",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048, art. 206",
+     "Lei 8080",
+     "Lei 8080, art. 8"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     9,
+     10,
+     12,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 12,
+    "lugares_outros": 3,
+    "chars_total": 8649,
+    "chars_usados": 8649,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 6057,
+     "d3048.txt": 2528
+    }
+   },
+   "semantico_mmr": {
+    "qid": "p6",
+    "norma_esperada": "8080",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "d3048.txt",
+     "l8080.txt",
+     "l8080.txt"
+    ],
+    "sequencia": [
+     "Lei 8080, art. 21",
+     "Lei 8080, art. 20",
+     "Lei 8080, art. 22",
+     "Lei 8080",
+     "Lei 8080",
+     "Decreto 3048",
+     "Lei 8080, art. 53",
+     "Lei 8080, art. 7",
+     "Lei 8080",
+     "Lei 8080, art. 26",
+     "Decreto 3048",
+     "Lei 8080, art. 26",
+     "Decreto 3048, art. 206",
+     "Lei 8080",
+     "Lei 8080, art. 8"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     9,
+     10,
+     12,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 12,
+    "lugares_outros": 3,
+    "chars_total": 8649,
+    "chars_usados": 8649,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "l8080.txt": 6057,
+     "d3048.txt": 2528
+    }
+   }
+  },
+  {
+   "qid": "x1",
+   "grupo": "probe",
+   "pergunta": "Qual o valor da cota do salário-família para o segurado com renda de até R$ 500?",
+   "real": {
+    "qid": "x1",
+    "norma_esperada": "3048",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 215",
+     "Decreto 3048",
+     "Decreto 3048, art. 31",
+     "Decreto 3048, art. 255",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 198",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 15,
+    "lugares_outros": 0,
+    "chars_total": 9242,
+    "chars_usados": 9242,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 9178
+    }
+   },
+   "semantico_bruto": {
+    "qid": "x1",
+    "norma_esperada": "3048",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "emc103.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 215",
+     "Emenda Constitucional 103, art. 27",
+     "Decreto 3048",
+     "Decreto 3048, art. 31",
+     "Emenda Constitucional 103, art. 28",
+     "Decreto 3048, art. 255",
+     "Decreto 3048",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     13,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 13,
+    "lugares_outros": 2,
+    "chars_total": 9862,
+    "chars_usados": 9862,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 7834,
+     "emc103.txt": 1964
+    }
+   },
+   "semantico_mmr": {
+    "qid": "x1",
+    "norma_esperada": "3048",
+    "origem": [
+     "semantico"
+    ],
+    "orfao_de_origem": 0,
+    "n_docs": 15,
+    "files": [
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt",
+     "d3048.txt"
+    ],
+    "sequencia": [
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 83",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 81",
+     "Decreto 3048, art. 255",
+     "Decreto 3048, art. 215",
+     "Decreto 3048",
+     "Decreto 3048, art. 31",
+     "Decreto 3048, art. 255",
+     "Decreto 3048",
+     "Decreto 3048",
+     "Decreto 3048, art. 198",
+     "Decreto 3048"
+    ],
+    "posicoes_da_norma": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "primeira_posicao": 1,
+    "acima_de_3": true,
+    "lugares_da_norma": 15,
+    "lugares_outros": 0,
+    "chars_total": 9242,
+    "chars_usados": 9242,
+    "chars_truncados": 0,
+    "chars_por_documento": {
+     "d3048.txt": 9178
+    }
+   }
+  }
+ ]
+}
