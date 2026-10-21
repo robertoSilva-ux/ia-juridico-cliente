@@ -1,10 +1,14 @@
 # Plano de correção do R-24 — o chunker que descarta o preâmbulo
 
-**Status:** planejado, **aguardando autorização** (decisão do Roberto). Nenhuma linha de código
-foi escrita ainda.
+**Status:** ✅ **executado e medido** (código em 2026-10-16, medição na base reingerida em
+2026-10-19). Decisão registrada no [`adr/0010-preambulo-e-conteudo-indexavel.md`](adr/0010-preambulo-e-conteudo-indexavel.md);
+diário do bloco em [`EVOLUCAO.md`](EVOLUCAO.md) §"Bloco 8". Os passos 1–6 da seção 5 estão fechados,
+com **uma correção da medição**: a fronteira do preâmbulo é a **página 9**, não a 26 — com o R-25 a
+grafia ordinal do `Art. 1º` é reconhecida e o preâmbulo fica nas páginas 1–8 (11.495 chars), não nas
+1–25 (34,7 mil). O número de cobertura não muda (0 de 65 páginas fora do índice).
 **Origem:** [`PLANO_REFINAMENTO_RAG.md`](PLANO_REFINAMENTO_RAG.md) §4 — R-24, achado durante a Fase 2.
 **Medição de referência:** 2026-10-16, `~/Downloads/LEI-8080-ESQUEMATIZADA1.pdf` — o mesmo arquivo
-que está na base (o banco tem 62.566 chars em 119 fragmentos, coerente com os 61–62 mil do arquivo).
+que estava na base. Os números da seção 1 são o **defeito** (antes); os de depois estão no ADR-0010.
 
 ---
 
@@ -100,6 +104,14 @@ Métricas que eu meço **antes** de dizer "pronto":
 | 4 | Reingestão da apostila (apagando a fonte antes) + medição de cobertura por página | cobertura ≥ 99 % das páginas e do total limpo |
 | 5 | Rótulo na interface + regra de lastro do preâmbulo | testes de UI e de fact-check verdes |
 | 6 | Medição final do mini-quiz na mesma bancada + docs (EVOLUCAO, plano-mestre, ADR-0010) | A4/p95 medidos e registrados; suíte e `ruff` limpos |
+
+**Execução:** passos 1–5 entraram em 2026-10-16 (`9876a7a`, `d836fb8`) — **com uma ressalva no
+passo 5**: o rótulo da interface entrou, mas a regra de "preâmbulo não serve de lastro de
+dispositivo" **não** foi implementada em `factcheck._load_dispositivos_base`. Medido na base de dev o
+efeito é **zero** (o preâmbulo não acrescenta nenhum dispositivo ao cache), e fica como dívida
+registrada no ADR-0010 para o corpus oficial. O passo 6 foi medido em 2026-10-19 na base
+reingerida — A4 **15/18** (igual ao baseline), A2 7/7, A1 0, p95 **12,2 s**; suíte 279/14 e `ruff`
+verdes. Registro em [`EVOLUCAO.md`](EVOLUCAO.md) §"Bloco 8".
 
 ---
 

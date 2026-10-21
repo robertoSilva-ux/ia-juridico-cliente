@@ -16,6 +16,7 @@ que substitui o anterior (o antigo passa a `substituído por ADR-XXXX`).
 | [0007](0007-fact-check-exige-par-numero-ano.md) | Citação de norma exige par número+ano no contexto (identidade de lei conferida) | aceito |
 | [0008](0008-modelo-por-orcamento-de-vram.md) | Modelo padrão escolhido por orçamento de VRAM medido (`phi4-mini:3.8b` @8192) | aceito |
 | [0009](0009-portao-de-resposta-e-recusa-honesta.md) | Portão de resposta: suficiência, lastro no fragmento citado e recusa honesta | aceito |
+| [0010](0010-preambulo-e-conteudo-indexavel.md) | O preâmbulo é conteúdo indexável e rotulado (preâmbulo por página, identidade lida das páginas) | aceito |
 
 ## Formato
 

@@ -10,17 +10,18 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 
 ---
 
-## Estado atual (2026-10-16)
+## Estado atual (2026-10-19)
 
 | | |
 |:---|:---|
-| Branch / remoto | `main` local em `cb91fd5` + o trabalho dos blocos 5, 6 e 7 (não commitado — commit é decisão do Roberto) |
-| Suíte | **268 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-16) + 14 de integração contra Postgres real |
+| Branch / remoto | `main` em **`738198e`**, igual a `origin/main` (tudo publicado; CI do GitHub **verde** nesse commit — o anterior, `d836fb8`, ficou vermelho e foi corrigido por ele) |
+| Suíte | **279 casos em 14 módulos** verdes, também sob ambiente limpo (`env -i HOME=$HOME PATH=$PATH bash app/run_tests.sh`, medido 2026-10-19) + 14 de integração contra Postgres real |
 | Lint | `ruff check .` limpo — **precisa ser o do venv**: fora dele o comando não existe (`.venv/bin/python -m ruff check .`) |
 | Ambiente de dev | montado e funcionando: banco em podman (5439), Ollama em serviço + GPU, `.venv` 3.11, `make dev` |
 | Modelo padrão | `phi4-mini:3.8b` @ `LLM_NUM_CTX=8192` — decisão registrada no ADR-0008 |
 | Garantia de lastro | três barreiras (suficiência → lastro no fragmento citado → portão de exibição) — ADR-0009 |
-| Base de dev | 122 fragmentos em 3 arquivos: `LEI-8080-ESQUEMATIZADA1.pdf` (119, dono 9) + 2 artefatos das medições de hoje (`Lei 8.213-91.pdf`, 2 fragmentos globais, **inauguram o R-9 no banco**: vieram com `numero_doc=8213`; `peticao.pdf`, 1 fragmento, criado para medir o isolamento do P1-1). `content_hash` preenchido nos 122 (backfill). **Os 119 fragmentos antigos seguem com `numero_doc`/`ano_doc`/`pagina`/`ordem` nulos** — R-9/R-13 valem da ingestão para frente, e o PDF da apostila não existe mais na máquina: a primeira carga que exercita isso com dado real é a do corpus oficial |
+| Ingestão | preâmbulo (texto antes do 1º dispositivo) **entra no índice** rotulado como `preambulo`, identidade da norma lida das páginas cruas — ADR-0010 |
+| Base de dev | **157 fragmentos / 94.563 chars** em 3 arquivos: `LEI-8080-ESQUEMATIZADA1.pdf` (157: 141 `dispositivo` + 16 `preambulo`, páginas 1–64, dono 9, `numero_doc=8080`/`ano_doc=1990` em todos) + `Lei 8.213-91.pdf` (2 fragmentos globais, `numero_doc=8213`) + `peticao.pdf` (1 fragmento, criado para medir o isolamento do P1-1). Medido no banco em 2026-10-19; cobertura **0 de 65 páginas** com amostra de 8-gramas ausente |
 | Bloqueadores de produção | **P0-5** (TLS + fechar a porta do banco) e **P0-6** (rotacionar credenciais que já circularam) — só o cliente pode executar |
 
 ### Como retomar
@@ -28,18 +29,18 @@ Documentos irmãos: [`REVISAO_SEGURANCA.md`](REVISAO_SEGURANCA.md) (achados e ev
 ```bash
 cd ~/Documentos/projetos/ia-juridico-cliente
 git log --oneline -5                 # onde paramos
-git status --short                   # blocos 5, 6 e 7 seguem sem commit
+git status --short                   # deve estar limpo: tudo publicado em 738198e
 make db-dev                          # religa o banco de dev (depois de reboot)
 set -a; . ./.env.dev; set +a
 .venv/bin/python scripts/smoke_dev.py   # o ambiente está de pé?
 cat docs/PLANO_REFINAMENTO_RAG.md     # Fases 1 e 2 fechadas; Fase 3 (recuperação) é a próxima
 ```
 
-Leitura rápida: **Fase 1 e Fase 2 do plano estão executadas** (blocos 6 e 7). O que sobra do pedido
-"resposta 100 % fundamentada ou recusa honesta" é **Fase 3** (recuperação: R-15, R-16, R-18) — e o
-**corpus oficial do Planalto** (P2-30), que é ao mesmo tempo a maior alavanca de qualidade restante e
-o pré-requisito para o portão relativo (R-16) ter o que calibrar. **P1-2** (estado global do LLM) vem
-na Fase 4.
+Leitura rápida: **Fases 1 e 2 do plano estão executadas**, incluindo o R-24/R-25 (bloco 8). O que
+sobra do pedido "resposta 100 % fundamentada ou recusa honesta" é **Fase 3** (recuperação: R-15,
+R-16, R-18) — e o **corpus oficial do Planalto** (P2-30), que é ao mesmo tempo a maior alavanca de
+qualidade restante e o pré-requisito para o portão relativo (R-16) ter o que calibrar. **P1-2**
+(estado global do LLM) vem na Fase 4.
 
 ---
 
@@ -494,6 +495,86 @@ preenchido nos 122 fragmentos (backfill da migração).
 
 ---
 
+## Bloco 8 — R-24/R-25: o preâmbulo entra no índice, e a medição corrige o plano (2026-10-16, medido em 2026-10-19)
+
+**Pedido:** corrigir o **R-24** — "o chunker descarta 36 % do texto", o item de chunk do pedido
+original. O plano de correção (com as decisões D1–D5) está em
+[`PLANO_R24_CHUNKER.md`](PLANO_R24_CHUNKER.md); a decisão registrada é o
+[ADR-0010](adr/0010-preambulo-e-conteudo-indexavel.md).
+
+### O que entrou
+
+| Item | O que mudou | Como foi verificado |
+|:---|:---|:---|
+| R-24 | `extrair_paginas` (loader + limpeza R-10 + normalização) passa a ser a base do pipeline e `process_pdf` compõe sobre ela | testes de `test_ingest` com fixture de 3 páginas e dispositivo só na 3ª |
+| R-24 | o texto anterior ao 1º dispositivo vira **seção própria, uma por página**, com `tipo_trecho='preambulo'`, `pagina` da página de origem e `artigo = NULL` | fixture sintética: páginas 1–2 aparecem em fragmento marcado, com `pagina` 1 e 2; documento sem dispositivo nenhum segue no caminho antigo (regressão coberta) |
+| R-9 | identidade da norma passa a ser lida das **páginas cruas**, não do `join` dos fragmentos | PDF cujo título só existe na página 1 → identidade achada; sem título → cai no nome do arquivo, sem exceção |
+| R-25 | `_ARTICLE_START` aceita a grafia ordinal **no início de linha** (`Art. 9º A direção…`) além da forma com pontuação | teste dos dois lados: `Art. 9º A direção…` no começo da linha é marcador; `na forma do art. 2º` no meio **não** é |
+| interface | a lista de fontes diz **"trecho de comentário, não é dispositivo"** para `tipo_trecho='preambulo'` | teste de UI com duplo fiel (convenção do repo) |
+| operação | reingestão exige **apagar a fonte antes** — com `content_hash` o `ON CONFLICT DO NOTHING` pularia a carga e reportaria 0 fragmentos | feito na base de dev; os 157 fragmentos existem com a identidade nova |
+
+Commits: `9876a7a` (ingestão), `d836fb8` (interface), `738198e` (CI — o snapshot
+`docs/legal_test_schema.sql` divergia do schema real e o job ficou vermelho em `d836fb8`).
+
+### Medição na base reingerida (2026-10-19)
+
+Banco `legal_db` (:5439), `phi4-mini:3.8b` @ `LLM_NUM_CTX=8192`, `ollama ps` = **100 % GPU** no
+modelo (3,6 GB) e no `nomic-embed-text`, GPU sã (sem `AER`/`Xid`; 46 °C, 420 MiB em uso).
+
+| métrica | antes (119 frag.) | depois (157 frag.) |
+|:---|--:|--:|
+| chars indexados | 60.584 | **94.563 (+56 %)** |
+| composição | 119 `dispositivo` | **141 `dispositivo` + 16 `preambulo`** |
+| cobertura do texto limpo (92.037 chars) | 65,8 % | **102,7 %** (excedente = sobreposição do splitter) |
+| páginas com amostra de 8-gramas ausente no índice | — | **0 de 65** |
+| identidade da norma | 0 de 119 | **157 de 157** (`8080`/`1990`) |
+
+Qualidade — mesmo mini-quiz, mesma bancada:
+
+| critério | antes | depois |
+|:---|:---|:---|
+| A1 resposta exibida com norma/dispositivo sem lastro | 0 | **0** |
+| A2 pergunta fora da base → recusa honesta | 7/7 | **7/7** |
+| A4 legítimas respondidas (3 iterações, 18 execuções) | 15/18 | **15/18** |
+| latência mediana / p95 (A4) | 7,9 s / 10,6 s | **2,5 s / 12,2 s** |
+
+`medir_portao.py` (uma passagem, 13 casos): A4 5/6 — a recusa é o **d4** (art. 19-B), 1/3 nas
+repetições. É instabilidade do modelo de 3,8 B, a mesma do baseline; chunker não conserta isso.
+
+### O que o produto ganhou (a razão do bloco)
+
+A classe de pergunta **conceitual** deixou de receber recusa: *"O que é descentralização no SUS?"*
+→ `ok`, 12,8 s, 15 fontes; *"Quais leis alteraram a Lei 8.080? Cite três"* → a lista cronológica
+das páginas 3–4 (12.895/2013, 13.097/2015, 12.401/2011). A taxa de acerto do mini-quiz não mudou —
+**o ganho é de cobertura**, não de acurácia: pergunta cuja resposta estava fora do índice agora tem
+onde ser encontrada.
+
+### O que a medição corrigiu no plano (e um limite que fica)
+
+1. **A fronteira do preâmbulo estava errada.** O plano previa ~34,7 mil chars de preâmbulo nas
+   páginas 1–25; a base tem **11.495 chars em 16 fragmentos, páginas 1–8**. Com o **R-25**, o
+   primeiro dispositivo real do material está na **página 9** (`Art. 1º Esta lei regula…`), não na
+   26 — as páginas 9–25 continuam indexadas, agora dentro de seções de dispositivo (79 dos 141
+   têm `artigo`). O plano mediu a fronteira com a regex antiga. **Medir de novo em corpus novo é
+   obrigatório.**
+2. **`factcheck._load_dispositivos_base` não filtra `tipo_trecho`** (o passo 5 do plano previa que
+   preâmbulo não servisse de lastro de dispositivo). Medido nesta base: **efeito zero** — 60
+   dispositivos vindos de fragmento `dispositivo`, 60 no total, o preâmbulo não acrescenta nenhum.
+   Fica como item de backlog para o corpus oficial, onde comentário é mais numeroso.
+3. **O documento envelheceu mais rápido que o commit:** a tabela "Estado atual" deste diário
+   continuou dizendo `main` em `cb91fd5` com os blocos 5–7 sem commit depois de `d836fb8` e
+   `738198e` já estarem publicados. Corrigida neste bloco — estado se lê do repositório, não do
+   resumo da conversa.
+
+### Estado ao fim do bloco
+
+Suíte **279 casos em 14 módulos** verdes sob ambiente limpo (`env -i`); `ruff check .` limpo;
+`main` = `origin/main` em `738198e` com CI verde; base de dev com 157 fragmentos, cobertura
+completa e identidade preenchida. Artefatos da medição **não commitados**: `app/eval/resultado_a4_rep.json`
+(novo) e `app/eval/resultado_portao.json` (sobrescrito).
+
+---
+
 ## Pendências (detalhe e critério de aceite no BACKLOG)
 
 | Item | Onde | Por que ainda não foi feito |
@@ -501,7 +582,8 @@ preenchido nos 122 fragmentos (backfill da migração).
 | **P0-5** TLS + fechar a porta 5439 | infra do cliente | depende do servidor/proxy do cliente |
 | **P0-6** rotacionar credenciais | operação | as chaves já circularam em HTTP e com o banco exposto |
 | **P1-1** fact-check escopado por dono e com memória limitada | `app/factcheck.py` | ✅ **feito no bloco 7** (cache por dono + teto de linhas/caracteres) |
-| **R-24** chunker descarta 36 % do texto (antes do 1º `Art. N`) | `app/ingest.py` | medido no PDF real; é o próximo alvo da Fase 2, com o corpus oficial |
+| **R-24** chunker descartava 36 % do texto (antes do 1º `Art. N`) | `app/ingest.py` | ✅ **feito no bloco 8** (ADR-0010): preâmbulo indexado e rotulado, 92.037 → 94.563 chars, 0 de 65 páginas fora do índice |
+| **R-25** grafia ordinal sem pontuação não reconhecida | `app/ingest.py` | ✅ **feito no bloco 8**: âncora de linha na regex, teste dos dois lados |
 | **P1-2** estado global de LLM entre sessões | `app/agent.py` | qualquer usuário troca o modelo de todos |
 | **P1-6** PDF escaneado falha em silêncio | `app/ingest.py` | precisa de mensagem de erro (OCR é decisão de produto) |
 | **P1-8** prompt injection indireta | `app/prompts/` | mitigação a definir com o cliente |
@@ -510,7 +592,12 @@ preenchido nos 122 fragmentos (backfill da migração).
 
 ### Decisões operacionais em aberto
 
-1. **Publicar ou não** os commits `42dc943` e `f432730` (`git push origin main`) — estão
-   locais.
+1. **Nada pendente de publicação**: `main` = `origin/main` em `738198e` (os commits antigos
+   `42dc943`/`f432730` já foram publicados). Depois do bloco 8 ficam sem commit apenas a
+   documentação (este diário, ADR-0010, `PLANO_R24_CHUNKER.md`) e os dois arquivos de resultado
+   da medição em `app/eval/` — commit é decisão do Roberto.
 2. **Rotação do login de desenvolvimento**: o usuário `dev@legaliz.local` é criado pelo
    smoke test com senha conhecida; trocar pelo painel quando o ambiente for compartilhado.
+3. **Dívida pequena registrada no bloco 8**: `factcheck._load_dispositivos_base` não filtra
+   `tipo_trecho` (preâmbulo em tese serve de lastro de dispositivo). Efeito medido na base de dev:
+   zero. Entra no backlog para a chegada do corpus oficial.

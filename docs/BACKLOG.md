@@ -80,6 +80,7 @@ Legenda de status: ✅ feito · 🔄 em andamento · ⏳ aberto · 🅿️ decis
 | P2-28 | Fila de upload de **múltiplos** arquivos com progresso por arquivo e resumo final (a interface que existia antes da limpeza do repositório, em `def535b`, e que não está em nenhum commit daqui). Hoje: um arquivo por vez — decisão do usuário em 2026-10-16 (fazer o mínimo primeiro). O componente já aceita ser chamado em laço (`render_indexacao_pdf`) | `app/main.py`, `app/ui_feedback.py` | 🅿️ |
 | P2-29 | Cabeçalho/rodapé **repetido dentro de cada fragmento** quando o PDF de origem é apostila (medido: `Prof. Adriano de Oliveira www.estrategiaconcursos.com.br 48 de 64` no meio do texto de todos os chunks da Lei 8.080). Polui o embedding, come contexto e é justamente "texto que não é lei". Remover linhas que se repetem entre páginas na ingestão | `app/ingest.py` | ✅ | `limpar_ruido_de_pagina` roda na extração, antes do split: compara linhas com os **números normalizados** (`… 25 de 64` = `… 26 de 64`), remove o que se repete em ≥50% das páginas (mín. 3), tira linha que é só número de página e **preserva** a linha que carrega identidade de norma/dispositivo — no texto oficial do Planalto ela se repete em toda página e é o que dá o par número+ano a cada fragmento |
 | P2-30 | **Corpus precisa ser fonte oficial, não material didático.** O material indexado é uma apostila ("esquematizada"): o número da lei aparece em 1 fragmento de 119 e a data em outro, então nem o modelo nem o fact-check têm como verificar a identificação da norma. Em texto do Planalto ("LEI Nº 8.080, DE 19 DE SETEMBRO DE 1990" no cabeçalho de toda página) o par número+ano vem junto em cada fragmento. Recomendação para a operação do cliente — não é mudança de código | operação/corpus | 🔄 | **Lado do código pronto** (R-9 lê a identidade do conteúdo; R-10/R-11 limpam o ruído sem apagar a linha de identidade repetida, que é justamente o ganho do texto oficial). **Falta a operação**: trazer o texto oficial e reingerir — é o bloco pendente de autorização (corpus a definir) |
+| P2-31 | `factcheck._load_dispositivos_base` varre o `content` de **todos** os trechos por padrão de dispositivo, sem filtrar `tipo_trecho` — em tese um artigo citado só em comentário/prâmbulo passa a "existir" na base como dispositivo (o plano do R-24 previa o filtro e ele não entrou). Medido na base de dev em 2026-10-19: **efeito zero** (60 dispositivos vindos de fragmento `dispositivo`, 60 no total). Revisitar com o corpus oficial, onde comentário é mais numeroso | `app/factcheck.py` | ⏳ |
 
 ### Documentação (divergências encontradas)
 | ID | Item | Status |
@@ -94,14 +95,17 @@ Legenda de status: ✅ feito · 🔄 em andamento · ⏳ aberto · 🅿️ decis
 ## Ordem de execução sugerida
 
 0. **Refinamento do RAG (fundamentação e recusa honesta)** — plano detalhado, com evidência
-   medida: [`docs/PLANO_REFINAMENTO_RAG.md`](PLANO_REFINAMENTO_RAG.md) (itens R-1 a R-24).
-   É o que atende ao pedido "resposta 100 % fundamentada ou dizer que não encontrou".
+   medida: [`docs/PLANO_REFINAMENTO_RAG.md`](PLANO_REFINAMENTO_RAG.md) (itens R-1 a R-25;
+   **Fases 1 e 2 executadas, incluindo R-24/R-25** — [ADR-0010](adr/0010-preambulo-e-conteudo-indexavel.md)).
+   É o que atende ao pedido "resposta 100 % fundamentada ou dizer que não encontrou". Próximo:
+   **Fase 3** (R-15, R-16, R-18), que depende do corpus oficial.
 1. **P0-5 + P0-6** (TLS, fechar a rede, rotacionar credenciais) — é o que falta para o
    sistema poder receber dados reais. **Só o cliente executa.**
 2. **P1-1** (fact-check) — ✅ **feito** (bloco 7).
-3. **R-24** (chunker descarta 36 % do texto) — medido no PDF real; primeiro item da retomada
-   da Fase 2, junto com o **corpus oficial do Planalto** (P2-30), que é o que dá o que
-   calibrar em R-16 e mede o A4 de novo.
+3. **P2-30** (corpus oficial do Planalto) — ✅ **R-24/R-25 feitos** (bloco 8: preâmbulo indexado,
+   92.037 → 94.563 chars, 0 de 65 páginas fora do índice, A4 15/18 mantido). O que resta é o
+   corpus: é o que dá o que calibrar em **R-16** e mede o A4 de novo, e é pré-requisito da
+   Fase 3.
 4. **P1-2** e **P1-6** — interferência entre sessões e falha silenciosa de ingestão.
 5. **P1-7**, depois P2-8/P2-9/P2-10/P2-11 (infra reproduzível + backup).
 6. P2 em ondas, começando por P2-1, P2-2, P2-4, P2-12.
